@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>Goldfinch</CodeName>
+    <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>Goldfinch.BlogPost</CodeName>
+    <GUID>c3495cd5-11e9-4fca-a6be-85123e9e4b6e</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>12e0b305-c3d2-4180-8f2a-a80f3ed35334</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>IntroducingTheXperienceAdoptersProgram-satrl7zu</ContentItemName>
+</cms.contentitem>

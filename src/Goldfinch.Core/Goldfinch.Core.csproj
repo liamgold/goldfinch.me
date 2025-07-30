@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<PackageReference Include="Kentico.Xperience.Admin" />
+		<PackageReference Include="Kentico.Xperience.WebApp" />
+		<PackageReference Include="Sidio.Sitemap.AspNetCore" />
+	</ItemGroup>
+</Project>

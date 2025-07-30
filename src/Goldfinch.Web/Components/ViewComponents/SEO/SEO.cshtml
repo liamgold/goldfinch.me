@@ -1,0 +1,56 @@
+﻿@using Goldfinch.Core.ContentTypes
+@using Goldfinch.Web.Components.ViewComponents.SEO
+
+@model SEOViewModel
+
+<link rel="alternate" type="application/rss+xml" href="https://www.goldfinch.me/rss" title="Latest Blog Posts - Liam Goldfinch">
+
+<meta name="author" content="Liam Goldfinch" />
+@if (!string.IsNullOrWhiteSpace(Model.Description))
+{
+    <meta name="description" content="@Model.Description" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.Image))
+{
+    <meta name="image" content="@Model.Image" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.Url))
+{
+    <meta property="og:url" content="@Model.Url" />
+}
+@if (Model.ContentType.Equals(BlogPost.CONTENT_TYPE_NAME))
+{
+    <meta property="og:type" content="article" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.Title))
+{
+    <meta property="og:title" content="@Model.Title" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.Description))
+{
+    <meta property="og:description" content="@Model.Description" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.Image))
+{
+    <meta property="og:image" content="@Model.Image" />
+}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@@LiamGoldfinch" />
+@if (!string.IsNullOrWhiteSpace(Model.Title))
+{
+    <meta name="twitter:title" content="@Model.Title" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.Description))
+{
+    <meta name="twitter:description" content="@Model.Description" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.Image))
+{
+    <meta name="twitter:image" content="@Model.Image" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.Schema))
+{
+    <script type="application/ld+json">
+        @Html.Raw(Model.Schema)
+    </script>
+}

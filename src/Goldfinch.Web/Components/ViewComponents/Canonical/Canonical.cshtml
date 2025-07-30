@@ -1,0 +1,13 @@
+﻿@using Goldfinch.Web.Components.ViewComponents.Canonical
+
+@model CanonicalViewModel
+
+<link rel="canonical" href="@Model.CanonicalUrl" />
+@if (!string.IsNullOrWhiteSpace(Model.PreviousUrl))
+{
+    <link rel="prev" href="@Model.PreviousUrl" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.NextUrl))
+{
+    <link rel="next" href="@Model.NextUrl" />
+}

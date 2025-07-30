@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>6f528afc-9ebc-4f2a-8aec-dea37d3c3de3</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>EditPageButton-rcxll4ml</CodeName>
+      <GUID>626ee23d-629f-4e91-9077-59437ac3b29c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>af0af624-0c9e-431c-9840-2e2908edf666</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"0f8dc24f-65e4-4e3e-b3bd-efd5a005fb71","Name":"Edit-Page-Demo.mp4","Extension":".mp4","Size":770497,"LastModified":"2024-08-22T20:32:27.9017815Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentPosterImage>
+    <![CDATA[{"Identifier":"06d8f0a2-2b03-4cd4-af60-1147c25a9381","Name":"Edit-Page-Demo.jpg","Extension":".jpg","Size":53249,"Width":1652,"Height":816,"LastModified":"2024-08-22T20:32:30.4026282Z"}]]>
+  </MediaAssetContentPosterImage>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Demo of Edit Page button taking content editor through to the page builder for the current page]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Edit Page Button</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

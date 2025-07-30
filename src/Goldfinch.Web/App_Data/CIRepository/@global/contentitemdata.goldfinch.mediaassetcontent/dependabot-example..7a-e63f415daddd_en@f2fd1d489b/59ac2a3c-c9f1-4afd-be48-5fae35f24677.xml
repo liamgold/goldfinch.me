@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>5f6dd5a4-4f3e-4ae3-ad7a-e63f415daddd</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Dependabot-ExamplePR-3jny54h5</CodeName>
+      <GUID>e3517fb8-ebf5-435c-8ad7-66e01d19b8b7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>59ac2a3c-c9f1-4afd-be48-5fae35f24677</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"337427fd-5799-4d60-a405-a3daca2423de","Name":"dependabot-example-pull-request.PNG","Extension":".PNG","Size":38037,"Width":1236,"Height":818,"LastModified":"2024-07-11T21:23:11.7248541Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>An example pull request created by Dependabot</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Dependabot - Example PR</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

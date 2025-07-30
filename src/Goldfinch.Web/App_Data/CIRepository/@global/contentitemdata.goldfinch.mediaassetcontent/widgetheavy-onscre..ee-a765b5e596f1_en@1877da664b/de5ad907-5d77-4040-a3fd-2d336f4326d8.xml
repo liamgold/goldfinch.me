@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>9cd38717-7243-4b12-80ee-a765b5e596f1</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>WidgetHeavy-OnScreenWidgetSelector-ualdyqke</CodeName>
+      <GUID>c2eeac5c-862b-4615-a0ff-6707ba981aae</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>de5ad907-5d77-4040-a3fd-2d336f4326d8</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"ea3bff7c-e949-43d9-afd4-89ac97665a17","Name":"Widgets-On-Screen-(wider).png","Extension":".png","Size":80781,"Width":808,"Height":569,"LastModified":"2024-07-11T22:18:07.673133Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Widget selection modal, with a wider five column layout.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Widget Heavy - On screen widget selector</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

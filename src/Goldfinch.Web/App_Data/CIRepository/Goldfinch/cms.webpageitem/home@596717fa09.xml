@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Home-f45dz6v3</CodeName>
+    <GUID>de42ab4e-52b1-44dd-9243-c90c4dec9c68</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>de42ab4e-52b1-44dd-9243-c90c4dec9c68</WebPageItemGUID>
+  <WebPageItemName>Home-f45dz6v3</WebPageItemName>
+  <WebPageItemOrder>2</WebPageItemOrder>
+  <WebPageItemTreePath>/Home</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

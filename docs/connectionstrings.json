@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "CMSConnectionString": "Data Source=localhost;Initial Catalog=Goldfinch;Integrated Security=True;Persist Security Info=False;Connect Timeout=60;Encrypt=False;Current Language=English;"
+  }
+}

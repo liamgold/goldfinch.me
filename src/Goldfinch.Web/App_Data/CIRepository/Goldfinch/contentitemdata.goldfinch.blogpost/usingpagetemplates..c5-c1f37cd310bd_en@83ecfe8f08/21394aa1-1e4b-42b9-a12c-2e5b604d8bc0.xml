@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2020-06-15 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Learn about Kentico 12's new page template functionality that was introduced with K12 SP1.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>032fa3d3-2aa1-442a-9cc5-c1f37cd310bd</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>UsingPageTemplatesInKenticoMVC-x5etxbu6</CodeName>
+      <GUID>0d92e767-5b72-4988-a1f3-e30b853a98c6</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>21394aa1-1e4b-42b9-a12c-2e5b604d8bc0</ContentItemDataGUID>
+  <DocumentName>Using Page Templates in Kentico MVC</DocumentName>
+</contentitemdata.goldfinch.blogpost>

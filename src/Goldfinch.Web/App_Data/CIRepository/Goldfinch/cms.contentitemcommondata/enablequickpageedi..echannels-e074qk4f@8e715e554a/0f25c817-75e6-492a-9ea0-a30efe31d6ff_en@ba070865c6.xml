@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>EnableQuickPageEditingFromYourXperienceByKenticoWebsiteChannels-e074qk4f</CodeName>
+    <GUID>74daa73a-de1c-46ae-abb7-7c59b01aeaa2</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>22960170-5c33-4d4e-a01b-fd4c8fcbd13d</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-08-22 20:39:54Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>0f25c817-75e6-492a-9ea0-a30efe31d6ff</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-09-05 21:03:05Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"f14ec94a-f816-4174-99d1-f27d88812d4e","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"8a05ce45-cba7-4cc3-a83e-55b61c006d66","widgets":[{"identifier":"43d57e49-44ea-4587-a650-917c8cf32b4e","type":"Kentico.Widget.RichText","variants":[{"identifier":"d3233671-d95e-4901-9499-2cd58b6a36ce","properties":{"content":"<p id=\"isPasted\">If you’ve worked with earlier versions of Kentico using Portal Engine and ASP.NET Web Forms, you might remember the handy \"Edit Page\" button that appeared on the website’s front-end for authenticated content editors.</p><p>Does that sound familiar? 🤔</p><p>I’d actually forgotten about it 😂 until one of our Xperience by Kentico clients asked if it was possible to enable this feature. Given their experience with it on their previous site, it was a natural request to see if it could be integrated into Xperience by Kentico.</p><p>I thought it was a brilliant idea to develop an open-source package that reintroduces the \"Edit Page\" button functionality in Xperience by Kentico. My main challenge was figuring out how to determine if a website visitor was authenticated in the administration portal. Unlike earlier versions of Kentico, where front-end users and administration users were the same, Xperience by Kentico differentiates between administration users and front-end members. This change added a layer of complexity, making the implementation of this feature both intriguing and valuable.</p><p>Before diving into development, I wanted to explore the best method for checking if <a href=\"https://community.kentico.com/q-and-a/q/check-website-visitor-is-authenticated-in-admin-site-16a9ba36\" target=\"_blank\" rel=\"noopener noreferrer\">a website visitor was authenticated in the admin site</a>. After discussing various ideas in the community portal, I found that using <strong>HttpContext.AuthenticateAsync</strong> was the most effective approach. This method allows you to verify if a user is authenticated under a specific authentication scheme. For instance, you might have a specific scheme set up for your front-end visitors if it has an account area with gated content. To make sure that this new package was using the right scheme, I used the following constant, <strong>AdminIdentityConstants.APPLICATION_SCHEME</strong>.</p><p>Once I resolved the authentication check, I proceeded to create a ViewComponent to manage the rendering of the \"Edit Page\" button. This component not only handles the display of the button but also dynamically generates the correct admin page URL based on the current page being viewed on the front-end. This setup ensures that content editors can easily navigate to the appropriate administration page for quick editing. ⚡</p><p>I recommend checking out the <a href=\"https://github.com/liamgold/xperience-community-page-edit-button\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub repository</a> for detailed instructions on setting up the package in your project. You'll find comprehensive guidelines as well as the source code for the ViewComponent that handles the button rendering and URL generation. 👀 Explore the repository to get a closer look at how it all works!</p>"},"fieldIdentifiers":{"content":"f2abbef1-4593-43f0-82d6-a11a27f74387"}}]},{"identifier":"0d8776b9-bc5c-4402-b91e-a16ab0705fcf","type":"Goldfinch.VideoWidget","variants":[{"identifier":"36fc63ff-111a-468e-84f2-1a649f69826e","properties":{"selectedAssets":[{"identifier":"626ee23d-629f-4e91-9077-59437ac3b29c"}]},"fieldIdentifiers":{"selectedAssets":"905ed9d9-c9c2-4945-8c79-bc655ad9d73e"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>905ed9d9-c9c2-4945-8c79-bc655ad9d73e</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>0ebdb074-3853-4983-b324-63231aa57381</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>0f25c817-75e6-492a-9ea0-a30efe31d6ff</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>EditPageButton-rcxll4ml</CodeName>
+        <GUID>626ee23d-629f-4e91-9077-59437ac3b29c</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

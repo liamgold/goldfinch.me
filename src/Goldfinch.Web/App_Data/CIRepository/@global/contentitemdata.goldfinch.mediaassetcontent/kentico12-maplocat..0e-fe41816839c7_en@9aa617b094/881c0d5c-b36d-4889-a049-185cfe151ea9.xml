@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>7b757d9a-f5b6-4b6a-a20e-fe41816839c7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Kentico12-MapLocationWidgetProperties-f8k3a3vo</CodeName>
+      <GUID>1d309f24-9293-46a5-a787-3c8dcf6a6650</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>881c0d5c-b36d-4889-a049-185cfe151ea9</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"8df512d9-42a8-422c-84d5-5461d5e0f321","Name":"MapFormComponent.png","Extension":".png","Size":41670,"Width":603,"Height":559,"LastModified":"2024-07-11T22:21:35.210736Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Example widget properties demonstrating the location form component.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico 12 - Map Location widget properties</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

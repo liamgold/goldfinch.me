@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>fe54f947-dd77-4e72-90fe-8460205d52bb</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>UpdatingXperienceByKentico-Milestone6XAP-mhv0eajk</CodeName>
+      <GUID>5523cb64-7992-43a1-97e5-092b24b060af</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8787a7de-7c1e-4ec5-ad1f-da5dce2ee7d5</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"53bf0631-59d5-4d79-a4ae-e68f041062d6","Name":"Xperience-by-Kentico-Milestone-6-XAP.jpeg","Extension":".jpeg","Size":76696,"Width":1794,"Height":987,"LastModified":"2024-07-11T21:43:00.630662Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Xperience by Kentico content tree after updating to XAP/Milestone 6]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Updating Xperience by Kentico - Milestone 6 XAP</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

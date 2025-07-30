@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttypechannel>
+  <Parent>
+    <CodeName>Goldfinch.PublicSpeakingPage</CodeName>
+    <GUID>5bc15224-64d7-48e8-a034-9257d476d92f</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.channel_Goldfinch">
+      <ContentTypeChannelChannelID>
+        <CodeName>Goldfinch</CodeName>
+        <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </ContentTypeChannelChannelID>
+    </Binding>
+  </Bindings>
+</cms.contenttypechannel>

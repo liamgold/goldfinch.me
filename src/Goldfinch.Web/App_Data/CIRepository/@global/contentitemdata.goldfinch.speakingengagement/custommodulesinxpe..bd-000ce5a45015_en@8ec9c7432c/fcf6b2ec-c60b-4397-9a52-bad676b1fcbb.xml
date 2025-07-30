@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.speakingengagement>
+  <ContentItemDataCommonDataID>
+    <GUID>08aac13e-2a46-44a9-bbbd-000ce5a45015</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CustomModulesInXperienceByKentico-ktptbr7l</CodeName>
+      <GUID>168a17f4-d2cb-4805-bc8a-54a397abe570</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>fcf6b2ec-c60b-4397-9a52-bad676b1fcbb</ContentItemDataGUID>
+  <Description>
+    <![CDATA[Kentico has always excelled at allowing developers to extend the administration UI with integrations and custom-built digital marketing tools. In Xperience by Kentico, there are new tools, APIs, and exciting technology differences that better enable you as a developer, so that you can enable others with your solutions. Let's walk through a step-by-step process for creating custom modules in Xperience by Kentico.]]>
+  </Description>
+  <EventDate>2023-10-17 23:00:00Z</EventDate>
+  <EventLocation>Brno, CZ</EventLocation>
+  <EventName>Kentico Connection 2023</EventName>
+  <Title>Custom modules in Xperience by Kentico</Title>
+</contentitemdata.goldfinch.speakingengagement>

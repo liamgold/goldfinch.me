@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>CreatingACustomModuleInXperienceByKentico-zekjic3s</CodeName>
+    <GUID>c891ef8c-ccd5-4a8f-9a39-e3ea34cedff6</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>c891ef8c-ccd5-4a8f-9a39-e3ea34cedff6</WebPageItemGUID>
+  <WebPageItemName>CreatingACustomModuleInXperienceByKentico-zekjic3s</WebPageItemName>
+  <WebPageItemOrder>2</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>2023-seti1p8n</CodeName>
+    <GUID>c9bdfb0a-334c-4291-9365-2eca43d746b9</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Blog-Posts/2023/Creating-a-Custom-Module-in-Xperience-by-Kentico]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

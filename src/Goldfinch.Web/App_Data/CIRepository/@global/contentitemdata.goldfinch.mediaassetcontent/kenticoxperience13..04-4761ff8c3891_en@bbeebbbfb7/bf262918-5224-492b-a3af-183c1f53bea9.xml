@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>84abf9c1-945b-405b-b004-4761ff8c3891</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh3-SinglePageSelector-j8a34vo4</CodeName>
+      <GUID>f85478ac-2f9e-41f9-8063-2d7de851a90b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>bf262918-5224-492b-a3af-183c1f53bea9</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"2fcf3214-e786-454c-b08b-b7d542ea097d","Name":"Dancing-Goat-Cafe-Widget-(single-choice).png","Extension":".png","Size":30848,"Width":1104,"Height":639,"LastModified":"2024-07-11T21:56:26.9552183Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Single Page Selector for Cafe widget</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>
+    <![CDATA[Kentico Xperience 13 Refresh 3 - Single Page Selector]]>
+  </MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

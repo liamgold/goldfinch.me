@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>71c3ee8a-949b-4986-92cb-ed9f6a3b8578</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13-DancingGoat-6p3sh919</CodeName>
+      <GUID>749c009c-1795-4fb0-80f0-2583db5d14a7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e863d63a-87bc-405e-9e65-beb58a5de9a2</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"e7888a2e-24bf-4fcc-8b3c-109f8d212fcb","Name":"Dancing-Goat.png","Extension":".png","Size":1618594,"Width":1903,"Height":1056,"LastModified":"2024-07-11T22:16:21.1138342Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Fresh looking Dancing Goat sample website</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 - Dancing Goat</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

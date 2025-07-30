@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+@source '../../../Components/**/*.cshtml';
+@source '../../../Features/**/*.cshtml';
+@source '../../../Views/**/*.cshtml';
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/geist-variable.woff2') format('woff2'),
+    url('/fonts/geist-variable.woff') format('woff');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --default-font-family: 'Geist', sans-serif;
+}
+
+html {
+  @apply bg-zinc-950 text-zinc-200;
+}
+
+header {
+  @apply bg-zinc-950 sticky top-0 flex w-full;
+  @apply transition-colors duration-300 ease-in-out;
+  @apply border-b border-transparent;
+
+  &[data-scrolled='true'] {
+    @apply border-b border-yellow-100/50;
+  }
+
+  nav {
+    @apply container mx-auto flex w-full gap-5 px-8 py-4;
+
+    .nav-link {
+      @apply flex items-center text-zinc-300 hover:text-yellow-300 transition-colors hidden lg:flex;
+    }
+
+    .mobile-nav-link {
+      @apply flex items-center px-8 py-4 text-lg hover:text-yellow-300 transition-colors;
+    }
+
+    .burger {
+      @apply flex items-center hover:text-yellow-300 transition-colors lg:hidden ml-auto;
+    }
+  }
+}
+
+main {
+  @apply container mx-auto w-full gap-1 px-8 py-8 md:py-16 lg:py-20;
+}
+
+footer {
+  @apply container mx-auto flex w-full gap-5 p-8;
+}
+
+h1 {
+  @apply text-4xl my-6 text-yellow-300 font-bold;
+}
+
+p {
+  @apply text-lg/7 break-words;
+
+  a {
+    @apply underline underline-offset-2 transition text-yellow-100 hover:text-yellow-300;
+  }
+}
+
+figure {
+  @apply flex flex-col items-center	my-12;
+
+  img,
+  video {
+    @apply mb-3;
+  }
+
+  figcaption {
+    @apply italic;
+  }
+}
+
+pre {
+  @apply border border-yellow-100/50 my-12;
+}
+
+.introduction {
+  @apply max-w-2xl;
+
+  p {
+    @apply my-6;
+  }
+}
+
+.inner-page {
+  p {
+    @apply my-6;
+  }
+}
+
+.blog-detail {
+  .fr-view {
+    h2 {
+      @apply mx-auto max-w-2xl text-lg text-yellow-100;
+    }
+
+    p {
+      @apply mx-auto max-w-2xl my-6;
+    }
+
+    ul {
+      @apply list-disc mx-auto max-w-2xl pl-6;
+
+      li {
+        @apply text-lg break-words;
+      }
+    }
+
+    hr {
+      @apply mx-auto max-w-2xl;
+    }
+
+    strong {
+      @apply text-yellow-100;
+    }
+  }
+}

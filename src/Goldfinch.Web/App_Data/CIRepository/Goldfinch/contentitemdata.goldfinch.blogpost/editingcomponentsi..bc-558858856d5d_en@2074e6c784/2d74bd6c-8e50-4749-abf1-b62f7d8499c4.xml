@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2023-02-07 00:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Xperience by Kentico currently offers backwards compatibility with Kentico Xperience 13 editing components, but switching to ReactJS based editing components is so simple!]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>c4b46830-f3bc-4b0d-a7bc-558858856d5d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>EditingComponentsInXperienceByKentico-q6mwwcgo</CodeName>
+      <GUID>45579b5e-6403-4f8b-b841-e5e8833e4551</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2d74bd6c-8e50-4749-abf1-b62f7d8499c4</ContentItemDataGUID>
+  <DocumentName>Editing components in Xperience by Kentico</DocumentName>
+</contentitemdata.goldfinch.blogpost>

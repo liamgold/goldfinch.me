@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>55bce5c0-6947-4069-ae72-aeea3946361d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>HowToEasilyExtendXperienceByKenticoUIPagesWithPageExtenders-Initial-pca9pfr9</CodeName>
+      <GUID>0e94d1f7-c116-437f-a5c5-b2b12e78d6d6</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e6141a5e-be79-4369-99ee-104901068e2b</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"353377d8-6491-432e-982e-c64d507f2275","Name":"InitialFormSubmissionsColumnLayout.jpeg","Extension":".jpeg","Size":31571,"Width":1641,"Height":854,"LastModified":"2024-09-12T22:50:21.9955985Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Initial order of columns in the Form Submissions listing, with Form inserted not being visible.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>
+    <![CDATA[How to Easily Extend Xperience by Kentico UI Pages with Page Extenders - Initial]]>
+  </MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

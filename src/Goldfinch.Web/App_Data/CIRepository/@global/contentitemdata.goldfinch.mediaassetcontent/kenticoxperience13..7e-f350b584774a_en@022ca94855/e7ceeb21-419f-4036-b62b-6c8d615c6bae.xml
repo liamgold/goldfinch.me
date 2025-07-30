@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>896e262b-3f35-4166-8c7e-f350b584774a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh2-FormSectionTitle-lxvyyfha</CodeName>
+      <GUID>40dac668-b81a-4913-b1d0-b9988bd7af36</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e7ceeb21-419f-4036-b62b-6c8d615c6bae</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"84abc32c-74d2-4742-b44a-0daa62ad2843","Name":"Form-section-example-with-titles.png","Extension":".png","Size":17300,"Width":1430,"Height":874,"LastModified":"2024-07-11T22:02:38.1950551Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Example of form section with a title property</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>
+    <![CDATA[Kentico Xperience 13 Refresh 2 - Form Section Title]]>
+  </MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

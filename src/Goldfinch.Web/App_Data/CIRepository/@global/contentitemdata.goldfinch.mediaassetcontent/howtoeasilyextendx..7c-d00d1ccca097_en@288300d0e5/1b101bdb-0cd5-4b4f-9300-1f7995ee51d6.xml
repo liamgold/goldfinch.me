@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>454f0fe9-4e93-4759-bc7c-d00d1ccca097</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>HowToEasilyExtendXperienceByKenticoUIPagesWithPageExtenders-Reordered-09gcb40j</CodeName>
+      <GUID>ebb85878-e499-4a93-97c2-53aea5c8a6ee</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>1b101bdb-0cd5-4b4f-9300-1f7995ee51d6</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"7ed3b70e-1047-4fb0-95c9-8f281b9bfd9f","Name":"ReorderedFormSubmissionsColumnLayout.jpeg","Extension":".jpeg","Size":32335,"Width":1641,"Height":854,"LastModified":"2024-09-12T22:50:47.1844262Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Re-ordered columns in the Form Submissions listing, now Form inserted is easily found as the first column.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>
+    <![CDATA[How to Easily Extend Xperience by Kentico UI Pages with Page Extenders - Reordered]]>
+  </MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

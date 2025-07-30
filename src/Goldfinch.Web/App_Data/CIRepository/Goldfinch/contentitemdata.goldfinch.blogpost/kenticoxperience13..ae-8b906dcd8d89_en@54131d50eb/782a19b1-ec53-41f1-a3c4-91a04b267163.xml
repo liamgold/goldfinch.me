@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2020-08-17 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Find out about some of the new changes coming in Kentico Xperience 13, demonstrated in the third beta.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>89282b5c-8f5b-46aa-8bae-8b906dcd8d89</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Beta3_WhatDoYouNeedToKnow-f9ay1d7y</CodeName>
+      <GUID>f2e7b01b-be9b-4fe3-8006-3d6ce99f122f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>782a19b1-ec53-41f1-a3c4-91a04b267163</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[Kentico Xperience 13 Beta 3: What Do You Need to Know?]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

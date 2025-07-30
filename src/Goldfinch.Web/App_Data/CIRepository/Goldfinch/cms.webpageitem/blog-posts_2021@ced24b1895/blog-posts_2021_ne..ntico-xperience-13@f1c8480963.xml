@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>NETCoreEventLoggingInKenticoXperience13-llidzbei</CodeName>
+    <GUID>92b2acc4-f90b-4814-b7cb-652e2bbc5491</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>92b2acc4-f90b-4814-b7cb-652e2bbc5491</WebPageItemGUID>
+  <WebPageItemName>NETCoreEventLoggingInKenticoXperience13-llidzbei</WebPageItemName>
+  <WebPageItemOrder>7</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>2021-hk7hviht</CodeName>
+    <GUID>e18388c4-f4c6-4c56-ac07-2ff6331f8e25</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Blog-Posts/2021/NET-Core-event-logging-in-Kentico-Xperience-13]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>8aa6c332-26db-4812-8bed-21f92903f4e1</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh1-Timeline-q7phx9oq</CodeName>
+      <GUID>e51792e4-bce6-45ee-9340-119600edffb1</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d81dca7e-c590-4d6f-ad00-2610d9947807</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"98c73373-f3a0-423e-b767-2850742ca3e2","Name":"timeline.png","Extension":".png","Size":64477,"Width":1610,"Height":892,"LastModified":"2024-07-11T22:04:59.776645Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Kentico Xperience roadmap</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 Refresh 1 - Timeline</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

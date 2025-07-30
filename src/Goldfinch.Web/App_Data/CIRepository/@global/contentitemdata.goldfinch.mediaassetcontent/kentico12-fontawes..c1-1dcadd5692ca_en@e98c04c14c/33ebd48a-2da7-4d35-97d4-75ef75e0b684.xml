@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>0d5e9ced-187c-4f4d-91c1-1dcadd5692ca</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Kentico12-FontAwesomeWidgetModal-bsr3blzf</CodeName>
+      <GUID>fd13f54a-eb13-441f-8f69-5ed930084cba</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>33ebd48a-2da7-4d35-97d4-75ef75e0b684</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"1e8e26e9-701d-481b-ae94-090e7101d096","Name":"FormComponentModal.png","Extension":".png","Size":36006,"Width":1077,"Height":859,"LastModified":"2024-07-11T22:20:35.4400531Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>The modal for selecting a font awesome icon.</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico 12 - Font Awesome widget modal</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

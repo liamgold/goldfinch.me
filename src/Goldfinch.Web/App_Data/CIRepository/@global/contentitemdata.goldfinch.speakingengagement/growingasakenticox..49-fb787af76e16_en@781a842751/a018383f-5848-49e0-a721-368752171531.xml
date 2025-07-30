@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.speakingengagement>
+  <ContentItemDataCommonDataID>
+    <GUID>e09d2e6e-0e02-410e-8849-fb787af76e16</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>GrowingAsAKenticoXperienceDeveloper-auprf73x</CodeName>
+      <GUID>2147664c-8951-4f22-a45a-c1ad5cf437a5</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a018383f-5848-49e0-a721-368752171531</ContentItemDataGUID>
+  <Description>
+    <![CDATA[Shared insights on Kentico Xperience 13 features and presented a talk on developer growth, highlighting valuable resources and strategies for learning Kentico Xperience.]]>
+  </Description>
+  <EventDate>2021-10-14 23:00:00Z</EventDate>
+  <EventLocation>Online</EventLocation>
+  <EventName>Ask the Experts #8</EventName>
+  <RecordingLink>https://www.youtube.com/watch?v=XvOntW485Pw</RecordingLink>
+  <Title>Growing as a Kentico Xperience Developer</Title>
+</contentitemdata.goldfinch.speakingengagement>

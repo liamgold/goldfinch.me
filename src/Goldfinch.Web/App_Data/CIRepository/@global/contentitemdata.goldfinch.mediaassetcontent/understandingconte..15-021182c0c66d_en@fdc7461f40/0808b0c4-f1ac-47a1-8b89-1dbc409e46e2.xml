@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>d51f65c6-d857-4e9a-8115-021182c0c66d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>UnderstandingContentSecurityPolicy-ListingPage-u2hlcl26</CodeName>
+      <GUID>21c98d7f-9617-4189-928c-3c4fe472bdb6</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>0808b0c4-f1ac-47a1-8b89-1dbc409e46e2</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"6bb6779b-61ae-433c-9ea0-145faa48b8c5","Name":"csp-listing.png","Extension":".png","Size":31139,"Width":1070,"Height":808,"LastModified":"2024-07-11T21:20:28.8650018Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Listing page showing CSP configurations</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>
+    <![CDATA[Understanding Content Security Policy - Listing page]]>
+  </MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

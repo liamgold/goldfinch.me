@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDescription>
+    <![CDATA[Allows for easy configuration of CSP headers for web channels.]]>
+  </ResourceDescription>
+  <ResourceDisplayName>CSP management</ResourceDisplayName>
+  <ResourceGUID>cb470586-2620-4d3c-be82-5c239b91cfca</ResourceGUID>
+  <ResourceIsInDevelopment>False</ResourceIsInDevelopment>
+  <ResourceName>XperienceCommunity.CSP</ResourceName>
+</cms.resource>

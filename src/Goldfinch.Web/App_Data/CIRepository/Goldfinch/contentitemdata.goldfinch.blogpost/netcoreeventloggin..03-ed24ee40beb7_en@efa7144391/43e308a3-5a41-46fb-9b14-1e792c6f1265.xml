@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2021-02-08 00:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Learn about the Kentico Xperience implementation of the .NET Core logging API.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>56f7ee30-acf4-4972-9103-ed24ee40beb7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>NETCoreEventLoggingInKenticoXperience13-llidzbei</CodeName>
+      <GUID>92b2acc4-f90b-4814-b7cb-652e2bbc5491</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>43e308a3-5a41-46fb-9b14-1e792c6f1265</ContentItemDataGUID>
+  <DocumentName>.NET Core event logging in Kentico Xperience 13</DocumentName>
+</contentitemdata.goldfinch.blogpost>

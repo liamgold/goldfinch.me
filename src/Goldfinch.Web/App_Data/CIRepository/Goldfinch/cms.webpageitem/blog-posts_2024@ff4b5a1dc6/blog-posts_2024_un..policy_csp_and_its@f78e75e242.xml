@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>UnderstandingContentSecurityPolicy_CSP_AndItsImportance-9mz2jfec</CodeName>
+    <GUID>5bd77400-b825-44e5-ad39-262ede357dfb</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>9f619d00-9652-4a9d-9790-6d24e80d1a2f</WebPageItemGUID>
+  <WebPageItemName>
+    <![CDATA[UnderstandingContentSecurityPolicy_CSP_AndItsImportance-9mz2jfec]]>
+  </WebPageItemName>
+  <WebPageItemOrder>8</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>2024-kau93vi1</CodeName>
+    <GUID>331496db-0c1a-4d50-99ae-9ee840192e04</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Blog-Posts/2024/Understanding_Content_Security_Policy_CSP_and_Its]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

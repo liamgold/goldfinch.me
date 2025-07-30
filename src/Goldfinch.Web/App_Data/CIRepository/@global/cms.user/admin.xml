@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.user>
+  <Email>test@test.com</Email>
+  <FirstName>Liam</FirstName>
+  <LastName>Goldfinch</LastName>
+  <UserAdministrationAccess>True</UserAdministrationAccess>
+  <UserAuthenticatorSharedKeyResetRequested>False</UserAuthenticatorSharedKeyResetRequested>
+  <UserEnabled>True</UserEnabled>
+  <UserGUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</UserGUID>
+  <UserIsExternal>False</UserIsExternal>
+  <UserIsPendingRegistration>False</UserIsPendingRegistration>
+  <UserName>admin</UserName>
+  <UserPassword>
+    <![CDATA[AQAAAAIAAYagAAAAECQiAKt0cafXbNqEkwgCp8eluqUwLRJ/cfsgXfVZgBRx6P6zMhRhpiWruHkrvOzKCQ==]]>
+  </UserPassword>
+  <UserPasswordLastChanged>2025-07-30 20:14:08Z</UserPasswordLastChanged>
+  <UserSecurityStamp>PO4TWEKH22FZRIHIUN5VY4CLVBCHM4SX</UserSecurityStamp>
+</cms.user>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>56a5ca53-2c5f-4197-bcbd-cbacd36aa735</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>UpdatingXperienceByKentico-Milestone5-yhbwzwn5</CodeName>
+      <GUID>c7b10fcf-7677-457a-9f61-d246944c05f7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f4c41df9-9b36-4dfc-b3b5-7aa8f35c453f</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"db7f4abe-5f2c-483c-b749-d37fbf4d3f36","Name":"Xperience-by-Kentico-Milestone-5.jpeg","Extension":".jpeg","Size":76476,"Width":1794,"Height":987,"LastModified":"2024-07-11T21:37:03.4896875Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Xperience by Kentico content tree after updating to Milestone 5]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Updating Xperience by Kentico - Milestone 5</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

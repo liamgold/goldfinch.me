@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>a8cbad70-635f-4f95-adb5-312d4d1b2f6f</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>EditingComponentsInXperienceByKentico-CodeBlockReactJS-qhmo7tan</CodeName>
+      <GUID>c406cc15-2f4e-4848-990c-77c92098c016</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8e939218-9211-40a8-bd7b-92e319d811e3</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"81e89406-10a6-4be2-9a31-3629c30db955","Name":"code-block-react.png","Extension":".png","Size":8252,"Width":565,"Height":564,"LastModified":"2024-07-11T21:35:40.0396897Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Code block widget properties modal using ReactJS editing components]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>
+    <![CDATA[Editing components in Xperience by Kentico - Code Block ReactJS]]>
+  </MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

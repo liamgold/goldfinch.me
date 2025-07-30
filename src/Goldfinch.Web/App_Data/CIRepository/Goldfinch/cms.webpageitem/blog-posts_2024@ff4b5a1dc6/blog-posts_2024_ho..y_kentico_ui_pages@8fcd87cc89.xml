@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>HowToEasilyExtendXperienceByKenticoUIPagesWithPageExtenders-32frtjyf</CodeName>
+    <GUID>d2181447-bcf6-4d53-8f36-b5375a88c9b6</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>79e31d49-56f1-40b3-9079-65cf6e63d4a3</WebPageItemGUID>
+  <WebPageItemName>
+    <![CDATA[HowToEasilyExtendXperienceByKenticoUIPagesWithPageExtenders-32frtjyf]]>
+  </WebPageItemName>
+  <WebPageItemOrder>3</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>2024-kau93vi1</CodeName>
+    <GUID>331496db-0c1a-4d50-99ae-9ee840192e04</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Blog-Posts/2024/How_to_Easily_Extend_Xperience_by_Kentico_UI_Pages]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

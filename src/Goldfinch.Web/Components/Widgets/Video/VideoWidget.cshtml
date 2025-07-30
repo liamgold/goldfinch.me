@@ -1,0 +1,18 @@
+﻿@model Goldfinch.Web.Components.Widgets.Video.VideoWidgetViewModel
+
+@if (string.IsNullOrWhiteSpace(Model.VideoUrl))
+{
+    <p style="color:red; font-size:60px;">Video not found</p>
+}
+else
+{
+    <figure>
+        <video controls poster="@Model.PosterImage">
+            <source src="@Model.VideoUrl" type="video/mp4" />
+        </video>
+        @if (!string.IsNullOrWhiteSpace(Model.Description))
+        {
+            <figcaption aria-hidden="true">@Model.Description</figcaption>
+        }
+    </figure>
+}

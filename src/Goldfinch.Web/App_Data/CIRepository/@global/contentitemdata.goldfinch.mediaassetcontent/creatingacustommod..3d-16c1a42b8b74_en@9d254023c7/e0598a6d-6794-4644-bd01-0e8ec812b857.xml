@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>23b81e30-3e1a-4fff-b03d-16c1a42b8b74</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CreatingACustomModule-CreateModule-n8jzhqit</CodeName>
+      <GUID>16be6238-c0c1-4adb-b4ad-350d623c7ea5</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e0598a6d-6794-4644-bd01-0e8ec812b857</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"9446a56f-a8dd-4d28-9562-94b375078584","Name":"1-_Create_Custom_Module.mp4","Extension":".mp4","Size":115933,"LastModified":"2024-07-11T21:02:26.0289689Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentPosterImage>
+    <![CDATA[{"Identifier":"27de6288-6724-4fd9-9914-1291813c9d94","Name":"1-_Create_Custom_Module.jpg","Extension":".jpg","Size":39804,"Width":1426,"Height":755,"LastModified":"2024-07-11T21:02:33.7059295Z"}]]>
+  </MediaAssetContentPosterImage>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Creating a custom module within the Xperience by Kentico administration site.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Creating a Custom Module - Create Module</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

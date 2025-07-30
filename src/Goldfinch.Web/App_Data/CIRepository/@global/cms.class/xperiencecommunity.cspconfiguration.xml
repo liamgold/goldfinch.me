@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassDisplayName>CSP Configuration</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="CSPConfigurationID" columntype="integer" enabled="true" guid="fab38221-dc0a-4c89-b4f8-5c6a207e774f" isPK="true" />
+      <field column="CSPConfigurationChannelID" columntype="integer" enabled="true" guid="80a443a2-000d-4d0b-a2cc-6763ede74a83" refobjtype="cms.channel" reftype="Required" />
+      <field column="CSPConfigurationSourceUrl" columntype="longtext" enabled="true" guid="b7118597-0dfd-42b6-a08c-51145895207f" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Source url</Label>
+        </settings>
+      </field>
+      <field column="CSPConfigurationDirectives" columntype="longtext" enabled="true" guid="5e07d16d-15d7-411f-9683-a9a00879065c" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Directives</Label>
+        </settings>
+      </field>
+      <field column="CSPConfigurationEnabled" columntype="boolean" enabled="true" guid="10a60038-57e8-49e6-aa40-5b742e59fa73" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+          <Label>Enabled</Label>
+        </settings>
+      </field>
+      <field column="CSPConfigurationUseNonce" columntype="boolean" enabled="true" guid="3493b9ae-337d-4cd7-8dac-e565de3ed265" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+          <Label>Use Nonce?</Label>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>ade77a54-4964-42f4-9076-6a704fb969a7</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>XperienceCommunity.CSPConfiguration</ClassName>
+  <ClassResourceID>
+    <CodeName>XperienceCommunity.CSP</CodeName>
+    <GUID>cb470586-2620-4d3c-be82-5c239b91cfca</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassTableName>XperienceCommunity_CSPConfiguration</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

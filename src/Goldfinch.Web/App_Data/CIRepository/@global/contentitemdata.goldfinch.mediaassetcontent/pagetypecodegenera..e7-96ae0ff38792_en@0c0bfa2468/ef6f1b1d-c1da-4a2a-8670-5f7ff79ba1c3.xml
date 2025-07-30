@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>efee3180-0526-4a9e-86e7-96ae0ff38792</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PageTypeCodeGeneration-PowerShell-9dr0n629</CodeName>
+      <GUID>9a3cc714-e8ca-4612-a4da-e7822e2827c7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>ef6f1b1d-c1da-4a2a-8670-5f7ff79ba1c3</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"e5b5c9dc-670a-44bd-81e5-92777e2bae23","Name":"PowerShell-Page-Type-Code.jpg","Extension":".jpg","Size":67601,"Width":1219,"Height":832,"LastModified":"2024-07-11T21:49:30.6411017Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>PowerShell window showing page type generation.</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Page type code generation - PowerShell</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

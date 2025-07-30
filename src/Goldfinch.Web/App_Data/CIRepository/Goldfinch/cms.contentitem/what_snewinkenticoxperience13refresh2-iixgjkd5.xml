@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>Goldfinch</CodeName>
+    <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>Goldfinch.BlogPost</CodeName>
+    <GUID>c3495cd5-11e9-4fca-a6be-85123e9e4b6e</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>e6faa6a3-e315-4fb6-80e9-3b0ead4263b7</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>What_sNewInKenticoXperience13Refresh2-iixgjkd5</ContentItemName>
+</cms.contentitem>

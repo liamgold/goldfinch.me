@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>Goldfinch</CodeName>
+    <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemGUID>80039500-f3b3-4621-af57-1ecf07ec604e</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>2021-hk7hviht</ContentItemName>
+</cms.contentitem>

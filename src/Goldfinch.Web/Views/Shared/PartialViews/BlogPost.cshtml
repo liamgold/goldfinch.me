@@ -1,0 +1,12 @@
+﻿@using Goldfinch.Web.Features.BlogDetail;
+@model BlogPostViewModel
+
+<a href="@Model.Url" aria-label="Read '@Model.Title' blog post" class="border border-zinc-800 rounded-lg p-4 hover:bg-zinc-800 transition">
+    <div class="text-yellow-400 font-semibold text-lg">@Model.Title</div>
+
+    <time datetime="@Model.BlogPostDate.ToString("yyyy-MM-dd")" class="text-md text-zinc-400">
+        @Model.BlogPostDate.ToString("dd MMMM yyyy")
+    </time>
+
+    <p class="mt-2 text-md text-zinc-300 line-clamp-3">@Model.Summary</p>
+</a>

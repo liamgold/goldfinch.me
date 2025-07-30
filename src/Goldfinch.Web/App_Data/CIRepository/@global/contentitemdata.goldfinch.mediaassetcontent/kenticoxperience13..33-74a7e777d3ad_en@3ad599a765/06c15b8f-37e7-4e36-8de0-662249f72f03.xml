@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>69f4badb-c7a7-4808-8e33-74a7e777d3ad</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh1-Hotfix-5yualvif</CodeName>
+      <GUID>0dbb6757-eeb0-42e3-a357-b561bb13954a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>06c15b8f-37e7-4e36-8de0-662249f72f03</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"a7672f35-16ae-4d3e-b6da-d2042157ca25","Name":"hotfix.png","Extension":".png","Size":5162,"Width":982,"Height":299,"LastModified":"2024-07-11T22:06:03.3041864Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Event log showing a hotfix being applied</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 Refresh 1 - Hotfix</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

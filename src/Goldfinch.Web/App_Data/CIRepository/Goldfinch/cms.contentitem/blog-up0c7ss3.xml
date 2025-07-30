@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>Goldfinch</CodeName>
+    <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>Goldfinch.BlogListing</CodeName>
+    <GUID>e9929c98-4628-4b79-847a-8b0f532b63e4</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>88efccac-b170-4e4c-8c95-f7c8e1679166</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Blog-up0c7ss3</ContentItemName>
+</cms.contentitem>

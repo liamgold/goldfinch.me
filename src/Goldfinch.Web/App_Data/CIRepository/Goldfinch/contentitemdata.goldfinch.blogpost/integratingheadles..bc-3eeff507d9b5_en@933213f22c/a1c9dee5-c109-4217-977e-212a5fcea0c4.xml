@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2024-07-25 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Learn how to integrate Shopify with Xperience by Kentico to combine powerful e-commerce features with a versatile Digital Experience Platform. This guide covers setup, synchronisation, and configuration, making it easy to create dynamic online experiences and save on integration costs.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>698e327d-0348-4355-a3bc-3eeff507d9b5</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IntegratingHeadlessShopifyWithXperienceByKentico-qz5iw5cz</CodeName>
+      <GUID>52dd685c-d2c1-48cb-b154-bbf1649499e3</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a1c9dee5-c109-4217-977e-212a5fcea0c4</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[Integrating Headless Shopify with Xperience by Kentico]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

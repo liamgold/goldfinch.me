@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>ExperienceTheFirstRefreshOfKenticoXperience13-g4jpozgl</CodeName>
+    <GUID>0e9e779c-899d-4b0f-9b7d-2828f05bb8f0</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>0e9e779c-899d-4b0f-9b7d-2828f05bb8f0</WebPageItemGUID>
+  <WebPageItemName>
+    <![CDATA[ExperienceTheFirstRefreshOfKenticoXperience13-g4jpozgl]]>
+  </WebPageItemName>
+  <WebPageItemOrder>6</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>2021-hk7hviht</CodeName>
+    <GUID>e18388c4-f4c6-4c56-ac07-2ff6331f8e25</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Blog-Posts/2021/Experience-the-first-refresh-of-Kentico-Xperience]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

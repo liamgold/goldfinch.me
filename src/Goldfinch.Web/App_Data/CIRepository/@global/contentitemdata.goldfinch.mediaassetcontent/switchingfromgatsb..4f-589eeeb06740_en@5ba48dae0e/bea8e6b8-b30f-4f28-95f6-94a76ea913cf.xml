@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>fb0e0d18-7b9a-4c97-b14f-589eeeb06740</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SwitchingFromGatsbyToStatiq-FlowDiagram-wlakrdgb</CodeName>
+      <GUID>db7dc856-4110-4d2f-b782-fc307bc981e2</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>bea8e6b8-b30f-4f28-95f6-94a76ea913cf</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"a5f30093-5783-4b83-a0b2-cb0aba9a08fd","Name":"flow.png","Extension":".png","Size":44923,"Width":2168,"Height":908,"LastModified":"2024-07-11T22:03:43.3979486Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Example flow of documents through Statiq</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Switching from Gatsby to Statiq - Flow Diagram</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

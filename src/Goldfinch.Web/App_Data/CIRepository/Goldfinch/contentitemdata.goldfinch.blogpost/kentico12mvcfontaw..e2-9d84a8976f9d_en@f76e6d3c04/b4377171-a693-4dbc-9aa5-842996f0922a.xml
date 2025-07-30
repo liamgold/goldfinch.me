@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2020-08-02 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Learn about the new Font Awesome form component submitted to the Kentico MVC Marketplace.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Kentico12MVCFontAwesomeFormComponent-r28lorth</CodeName>
+      <GUID>0b54b727-062a-4487-8ff0-0a3d0502c1ee</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b4377171-a693-4dbc-9aa5-842996f0922a</ContentItemDataGUID>
+  <DocumentName>Kentico 12 MVC Font Awesome Form Component</DocumentName>
+</contentitemdata.goldfinch.blogpost>

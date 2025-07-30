@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.errorpage>
+  <ContentItemDataCommonDataID>
+    <GUID>8193a5c3-6582-45fc-95f8-67ecbdc9c5ae</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>404-PageNotFound-fxz3fdsp</CodeName>
+      <GUID>c2180b1b-6303-4064-aa4b-68cc14d26f2f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>7a011f03-4756-4d5e-b075-632c1574934c</ContentItemDataGUID>
+  <DocumentName>404 - Page Not Found</DocumentName>
+  <ErrorCode>404</ErrorCode>
+  <ErrorText>
+    <![CDATA[<p>Looks like something went wrong...</p>]]>
+  </ErrorText>
+  <ErrorTitle>Oops... Page Not Found!</ErrorTitle>
+</contentitemdata.goldfinch.errorpage>

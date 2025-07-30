@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2020-07-26 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Learn about the new Map Location form component submitted to the Kentico MVC Marketplace.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>c6b67817-8d25-4279-a428-87f2e9c4a82f</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Kentico12MVCMapLocationFormComponent-qzvhliih</CodeName>
+      <GUID>aee7abd4-7429-4a22-b878-b09307761dde</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d03d97bd-c56a-48a8-bf73-c42464f54ef6</ContentItemDataGUID>
+  <DocumentName>Kentico 12 MVC Map Location Form Component</DocumentName>
+</contentitemdata.goldfinch.blogpost>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2021-06-20 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Learn about my website recently switching from Gatsby to Statiq.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>1bb568b8-f3c4-4581-819f-f2b16eb02b0c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SwitchingFromGatsbyToStatiq-fnmkc0yl</CodeName>
+      <GUID>07d5aaf9-bb88-4d1b-a2c1-165250498f6a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>941b468f-e928-4efb-b87a-20014ea259f6</ContentItemDataGUID>
+  <DocumentName>Switching from Gatsby to Statiq</DocumentName>
+</contentitemdata.goldfinch.blogpost>

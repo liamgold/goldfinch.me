@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<ItemGroup>
+		<PackageReference Include="Kentico.Xperience.Admin" />
+		<PackageReference Include="Kentico.Xperience.MiniProfiler" />
+		<PackageReference Include="Kentico.Xperience.WebApp" />
+		<PackageReference Include="Schema.NET" />
+		<PackageReference Include="Sidio.Sitemap.AspNetCore" />
+		<PackageReference Include="SixLabors.ImageSharp" />
+		<PackageReference Include="SixLabors.ImageSharp.Drawing" />
+		<PackageReference Include="System.ServiceModel.Syndication" />
+		<PackageReference Include="XperienceCommunity.CSP" />
+		<PackageReference Include="XperienceCommunity.ImageProcessing" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Goldfinch.Core\Goldfinch.Core.csproj" />
+		<ProjectReference Include="..\Goldfinch.Admin\Goldfinch.Admin.csproj" />
+	</ItemGroup>
+</Project>

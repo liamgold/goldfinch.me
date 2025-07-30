@@ -1,0 +1,31 @@
+﻿@using Goldfinch.Web.Features.BlogDetail;
+@model BlogPostViewModel
+
+@section Schema {
+    @if (!string.IsNullOrWhiteSpace(Model.Schema))
+    {
+        <script type="application/ld+json">
+            @Html.Raw(Model.Schema)
+        </script>
+    }
+}
+@section Styles {
+    <link rel="stylesheet" asp-href-include="/sitefiles/dist/assets/codeblock-*.css" />
+}
+@section Scripts {
+    <script type="module" defer asp-src-include="/sitefiles/dist/assets/codeblock-*.js"></script>
+}
+
+<div class="blog-detail border-b border-zinc-700/40 pb-16">
+    <div class="pb-8 mx-auto max-w-2xl">
+        <h1>@Model.Title</h1>
+        <time datetime="@Model.BlogPostDate.ToString("yyyy-MM-dd")">
+            @Model.BlogPostDate.ToString("dd MMMM yyyy")
+        </time>
+    </div>
+    <div>
+        <editable-area area-identifier="BlogPost" />
+    </div>
+</div>
+
+<vc:latest-blog-posts title="You might also be interested in..." />

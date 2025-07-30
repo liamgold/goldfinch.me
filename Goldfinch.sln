@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Goldfinch.Web", "src\Goldfinch.Web\Goldfinch.Web.csproj", "{15C4A0CA-7DF7-4B72-AC66-87FE759854B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Goldfinch.Core", "src\Goldfinch.Core\Goldfinch.Core.csproj", "{4EFF801A-E1FD-4E77-9140-BBF1A0CE995B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Goldfinch.Admin", "src\Goldfinch.Admin\Goldfinch.Admin.csproj", "{DBF70678-D583-4121-AF08-902B23369AF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{554B1D20-D7E3-4912-AE2A-3F703C5A495E}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{6781B38C-7222-42A3-87E8-B683843785DB}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{AB96C37A-E209-4426-BF48-914746981B6F}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Code-Generation.md = docs\Code-Generation.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{346F6AC3-79FE-4E00-9F09-DACBC6013EFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15C4A0CA-7DF7-4B72-AC66-87FE759854B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C4A0CA-7DF7-4B72-AC66-87FE759854B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15C4A0CA-7DF7-4B72-AC66-87FE759854B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15C4A0CA-7DF7-4B72-AC66-87FE759854B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EFF801A-E1FD-4E77-9140-BBF1A0CE995B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EFF801A-E1FD-4E77-9140-BBF1A0CE995B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EFF801A-E1FD-4E77-9140-BBF1A0CE995B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EFF801A-E1FD-4E77-9140-BBF1A0CE995B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBF70678-D583-4121-AF08-902B23369AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBF70678-D583-4121-AF08-902B23369AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBF70678-D583-4121-AF08-902B23369AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBF70678-D583-4121-AF08-902B23369AF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{15C4A0CA-7DF7-4B72-AC66-87FE759854B7} = {346F6AC3-79FE-4E00-9F09-DACBC6013EFC}
+		{4EFF801A-E1FD-4E77-9140-BBF1A0CE995B} = {346F6AC3-79FE-4E00-9F09-DACBC6013EFC}
+		{DBF70678-D583-4121-AF08-902B23369AF6} = {346F6AC3-79FE-4E00-9F09-DACBC6013EFC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {830A8FBB-0EF3-4B8B-BA8C-AAC2E8884A5A}
+	EndGlobalSection
+EndGlobal

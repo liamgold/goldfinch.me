@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Kentico.Activities.Web.Mvc
+@using Kentico.OnlineMarketing.Web.Mvc
+<!--
+  Goldfinch.me — if you're reading this, you're either me or someone very cool.
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#444444">
+    <vc:page-title />
+
+    <link rel="stylesheet" asp-href-include="/sitefiles/dist/assets/global-*.css" />
+    @RenderSection("styles", required: false)
+
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="icon" href="/assets/images/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="48x48" href="/assets/images/icon-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="/assets/images/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/images/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="/assets/images/icon-256x256.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="/assets/images/icon-384x384.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/assets/images/icon-512x512.png">
+
+    <page-builder-mode>
+        <page-builder-styles />
+    </page-builder-mode>
+
+    <vc:canonical />
+    <vc:seo />
+    @RenderSection("schema", required: false)
+</head>
+<body>
+    <vc:header />
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <partial name="PartialViews/Footer" />
+
+    <page-builder-mode>
+        <page-builder-scripts />
+    </page-builder-mode>
+
+    @RenderSection("scripts", required: false)
+    <script type="module" defer asp-src-include="/sitefiles/dist/assets/main-*.js"></script>
+</body>
+</html>

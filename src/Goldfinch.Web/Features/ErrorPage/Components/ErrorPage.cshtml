@@ -1,0 +1,10 @@
+@model Goldfinch.Core.ContentTypes.ErrorPage
+
+<div class="flex flex-col justify-center text-center">
+    <h1>@Model.ErrorTitle</h1>
+    <div>
+        @Html.Raw(Model.ErrorText)
+
+        <img src="/assets/images/facepalm.png" alt="Facepalming Kentico developer" class="inline max-w-100 w-full mt-12">
+    </div>
+</div>

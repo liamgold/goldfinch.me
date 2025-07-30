@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>76d8c16e-fd67-46bc-aeb0-f461c0ef4902</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IntegratingWithHeadlessShopify-Tree-lyuualgv</CodeName>
+      <GUID>2ef188cc-0830-40c6-a4e3-2db1d35452d1</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6e4eb465-bf85-4fbc-93ac-db9ea0b36169</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"e49d2dd4-291f-4ebd-9132-fead93e76fbf","Name":"Shopify - Tree.png","Extension":".png","Size":23420,"Width":500,"Height":769,"LastModified":"2024-07-26T12:10:11.4644852Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Content tree of a Shopify store</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Integrating with Headless Shopify - Tree</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

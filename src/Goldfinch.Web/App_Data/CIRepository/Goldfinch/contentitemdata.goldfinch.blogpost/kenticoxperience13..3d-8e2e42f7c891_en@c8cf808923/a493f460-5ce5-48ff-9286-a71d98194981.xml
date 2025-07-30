@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2021-09-14 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[The Kentico Xperience 13 Refresh 3 update improves widget zones and brings important changes to page/path selector functionality.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>0c588335-0314-4f00-893d-8e2e42f7c891</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh3_TheInevitablePageSelectorUpdate-mp6mir8y</CodeName>
+      <GUID>613969c0-abf9-43df-b968-4e16f88a1ebd</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a493f460-5ce5-48ff-9286-a71d98194981</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[Kentico Xperience 13 Refresh 3: The inevitable page selector update]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

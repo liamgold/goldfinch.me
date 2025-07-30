@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>f511c9dc-4482-4c32-b69d-e95337b4797f</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IntegratingWithHeadlessShopify-Currency-f4ey2pgh</CodeName>
+      <GUID>21c2cd98-7039-468a-bbc1-dc898aed2a32</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>bf544168-58bd-4212-8dec-023d699564e2</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"21d5e9e4-a54a-484e-8347-db7dd48bbe6c","Name":"Shopify - Currency.png","Extension":".png","Size":34317,"Width":1101,"Height":595,"LastModified":"2024-07-26T12:09:19.9279635Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Configuration of currency to be used on the store</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Integrating with Headless Shopify - Currency</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>ae4ad7eb-e624-4ea1-b6e2-30eb237a081a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>GraphQL.NETCore-GraphiQL-q6upxqfv</CodeName>
+      <GUID>ccd5784c-99e9-414b-b566-30d8c41f4218</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f4d55eed-9c15-42e7-bb0a-daab494c0006</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"107356bd-fec7-4390-b5a0-6810605520eb","Name":"GraphiQL.png","Extension":".png","Size":21725,"Width":915,"Height":600,"LastModified":"2024-07-11T22:10:57.0970488Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Example GraphiQL interface.</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>GraphQL .NET Core - GraphiQL</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

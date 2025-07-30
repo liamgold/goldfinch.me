@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.errorpage>
+  <ContentItemDataCommonDataID>
+    <GUID>d5b228fb-ca23-4bb1-842d-f0d72b9520fa</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>500-ServerError-w3m817n4</CodeName>
+      <GUID>304f5b05-9b11-4b00-acbe-7201a77c22ce</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d6dcb71c-2f48-4b3f-8394-3090dbea2379</ContentItemDataGUID>
+  <DocumentName>500 - Server Error</DocumentName>
+  <ErrorCode>500</ErrorCode>
+  <ErrorText>
+    <![CDATA[<p>Oops! Something went wrong...</p>]]>
+  </ErrorText>
+  <ErrorTitle>Server Error</ErrorTitle>
+</contentitemdata.goldfinch.errorpage>

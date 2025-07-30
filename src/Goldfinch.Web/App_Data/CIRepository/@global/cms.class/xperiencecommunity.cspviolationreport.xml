@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassDisplayName>CSP Violation Report</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="CSPViolationReportID" columntype="integer" enabled="true" guid="aebdcf83-88c4-478a-b09f-9c88df9c98b5" isPK="true" />
+      <field column="Age" columntype="integer" enabled="true" guid="3a5e1f93-bdf5-4317-bef6-0d551f62548c" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.NumberInput</controlname>
+          <Label>Age</Label>
+        </settings>
+      </field>
+      <field column="Type" columntype="text" enabled="true" guid="e6cf8ee2-1001-4ad9-8193-40033dbb89ef" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Type</Label>
+        </settings>
+      </field>
+      <field column="Url" columntype="longtext" enabled="true" guid="f8f11956-8f94-4d11-9c45-161d97a4e2af" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Url</Label>
+        </settings>
+      </field>
+      <field column="UserAgent" columntype="longtext" enabled="true" guid="420a179b-74e0-4045-9491-ff7a336d69b2" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>User Agent</Label>
+        </settings>
+      </field>
+      <field column="BlockedURL" columntype="longtext" enabled="true" guid="56f7135c-05ec-4064-beb1-10757987b34b" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Blocked URL</Label>
+        </settings>
+      </field>
+      <field column="Disposition" columntype="text" enabled="true" guid="e665688c-1327-4371-85ab-1175813ea03d" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Disposition</Label>
+        </settings>
+      </field>
+      <field column="DocumentURL" columntype="longtext" enabled="true" guid="ac120932-591e-4c85-af68-e0095a89687c" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Document URL</Label>
+        </settings>
+      </field>
+      <field column="EffectiveDirective" columntype="text" enabled="true" guid="e9d4bb0d-5631-4ab2-8c9e-df3a48291d15" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Effective Directive</Label>
+        </settings>
+      </field>
+      <field column="LineNumber" columntype="integer" enabled="true" guid="93f26129-b9fe-464f-b0a5-1325b29ef08a" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.NumberInput</controlname>
+          <Label>Line Number</Label>
+        </settings>
+      </field>
+      <field column="OriginalPolicy" columntype="longtext" enabled="true" guid="e548bcae-a125-413b-be56-5de065e42f57" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Original Policy</Label>
+        </settings>
+      </field>
+      <field column="Referrer" columntype="longtext" enabled="true" guid="1c383110-4378-4b9c-9d0b-f83bc09caaa3" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Referrer</Label>
+        </settings>
+      </field>
+      <field column="Sample" columntype="longtext" enabled="true" guid="59fb6074-d82e-4d29-97ff-0e83068a7d91" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Sample</Label>
+        </settings>
+      </field>
+      <field column="SourceFile" columntype="longtext" enabled="true" guid="dbaab83e-4fd1-405b-905f-c486c62d4705" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <Label>Source File</Label>
+        </settings>
+      </field>
+      <field column="StatusCode" columntype="integer" enabled="true" guid="065df774-87eb-4a9e-8052-39616398f210" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.NumberInput</controlname>
+          <Label>Status Code</Label>
+        </settings>
+      </field>
+      <field column="ReportedAt" columntype="datetime" enabled="true" guid="c24f9207-4af0-4c0a-a7f1-d701703ad26c" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.DateTimeInput</controlname>
+          <Label>Reported At</Label>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>64d8ec41-30e1-4e95-b844-60d8f3fb4ac8</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>XperienceCommunity.CSPViolationReport</ClassName>
+  <ClassResourceID>
+    <CodeName>XperienceCommunity.CSP</CodeName>
+    <GUID>cb470586-2620-4d3c-be82-5c239b91cfca</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassTableName>XperienceCommunity_CSPViolationReport</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

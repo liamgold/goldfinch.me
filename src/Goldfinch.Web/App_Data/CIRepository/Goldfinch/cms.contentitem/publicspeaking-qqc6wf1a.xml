@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>Goldfinch</CodeName>
+    <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>Goldfinch.PublicSpeakingPage</CodeName>
+    <GUID>5bc15224-64d7-48e8-a034-9257d476d92f</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>a94242a8-2b08-48bd-adc7-f9ddf7ca20ef</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>PublicSpeaking-qqc6wf1a</ContentItemName>
+</cms.contentitem>

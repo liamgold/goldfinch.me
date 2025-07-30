@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl>
+    <![CDATA[https://community.kentico.com/blog/page-type-code-generation-with-xperience-by-kentico]]>
+  </BlogPostCanonicalUrl>
+  <BlogPostDate>2022-03-15 00:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[How does code generation work for generating classes for your page types?]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>d8344b25-1017-4683-8a14-223545be0d47</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PageTypeCodeGenerationWithXperienceByKentico-gxmpps8b</CodeName>
+      <GUID>dbc7d59d-aa27-4ec0-82d6-af800d0f2141</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>af5949cf-2c31-4a31-9ab5-9aa007715800</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[Page type code generation with Xperience by Kentico]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

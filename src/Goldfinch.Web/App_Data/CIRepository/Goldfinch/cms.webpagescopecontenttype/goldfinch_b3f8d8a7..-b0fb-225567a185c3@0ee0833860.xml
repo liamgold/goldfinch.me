@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpagescopecontenttype>
+  <Parent>
+    <GUID>4e3a90b6-33cd-4f1a-b43c-9eee2e8aa3bf</GUID>
+    <ObjectType>cms.webpagescope</ObjectType>
+    <Parent>
+      <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+      <ObjectType>cms.websitechannel</ObjectType>
+      <Parent>
+        <CodeName>Goldfinch</CodeName>
+        <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </Parent>
+    </Parent>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.contenttype_Goldfinch.BlogListing">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>Goldfinch.BlogListing</CodeName>
+        <GUID>e9929c98-4628-4b79-847a-8b0f532b63e4</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+    <Binding id="cms.contenttype_Goldfinch.BlogPost">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>Goldfinch.BlogPost</CodeName>
+        <GUID>c3495cd5-11e9-4fca-a6be-85123e9e4b6e</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+    <Binding id="cms.contenttype_Goldfinch.ErrorPage">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>Goldfinch.ErrorPage</CodeName>
+        <GUID>13e64b1d-70f8-44b6-ab90-103abb5c6a3d</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+    <Binding id="cms.contenttype_Goldfinch.Home">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>Goldfinch.Home</CodeName>
+        <GUID>2c924c3d-6207-4e48-875c-a6fb4eed3921</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+    <Binding id="cms.contenttype_Goldfinch.InnerPage">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>Goldfinch.InnerPage</CodeName>
+        <GUID>f6d0a93a-9702-468e-a486-6be664422e59</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+    <Binding id="cms.contenttype_Goldfinch.PublicSpeakingPage">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>Goldfinch.PublicSpeakingPage</CodeName>
+        <GUID>5bc15224-64d7-48e8-a034-9257d476d92f</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+  </Bindings>
+</cms.webpagescopecontenttype>

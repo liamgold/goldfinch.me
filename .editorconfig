@@ -1,0 +1,6 @@
+[*.cs]
+
+# CA2007: Do not directly await a Task
+# Ignored because this is a web project (not an API or shared library),
+# so ConfigureAwait(false) is unnecessary.
+dotnet_diagnostic.CA2007.severity = none

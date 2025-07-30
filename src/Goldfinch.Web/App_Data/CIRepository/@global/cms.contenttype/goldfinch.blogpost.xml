@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>Blog Post</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="7054e547-f974-422a-b488-7223e3b5ecaa" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="fe2ab21e-75b3-411d-b1b5-616d12c451ca" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="2ffba672-fc47-47a0-a22b-bedc2bb9c581" isunique="true" system="true" />
+      <field column="DocumentName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="04918c7c-1751-4719-a59b-fbac5fb2ed80" visible="true">
+        <properties>
+          <fieldcaption>Page name</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="BlogPostSummary" columnprecision="0" columntype="longtext" enabled="true" guid="f7c4057c-6523-4ad9-ba8b-2a620718965e" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Summary</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+        </settings>
+      </field>
+      <field column="BlogPostDate" columnprecision="0" columntype="date" enabled="true" guid="5297ab96-9ac0-4a56-a398-646ee2249bd4" visible="true">
+        <properties>
+          <explanationtext>{$base.forms.dateinput.explanation$}</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Post Date</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DateInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="BlogPostCanonicalUrl" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="ba17fca4-f51e-474e-9437-d862391dcdd5" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Canonical Url</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>c3495cd5-11e9-4fca-a6be-85123e9e4b6e</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-doc</ClassIconClass>
+  <ClassName>Goldfinch.BlogPost</ClassName>
+  <ClassShortName>GoldfinchBlogPost</ClassShortName>
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>Goldfinch_BlogPost</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

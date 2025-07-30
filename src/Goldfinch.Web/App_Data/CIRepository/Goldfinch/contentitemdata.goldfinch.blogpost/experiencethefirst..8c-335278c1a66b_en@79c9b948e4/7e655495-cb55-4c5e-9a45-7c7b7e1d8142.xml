@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2021-03-22 00:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[The first refresh of Kentico Xperience 13 has arrived, but what does it include?]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>b128f0e2-5724-4630-888c-335278c1a66b</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>ExperienceTheFirstRefreshOfKenticoXperience13-g4jpozgl</CodeName>
+      <GUID>0e9e779c-899d-4b0f-9b7d-2828f05bb8f0</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>7e655495-cb55-4c5e-9a45-7c7b7e1d8142</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[Experience the first refresh of Kentico Xperience 13]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

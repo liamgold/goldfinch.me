@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>e4864766-598e-4f82-a398-aeb024ea045b</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Kentico12-FontAwesomeWidgetProperties-8j32bx11</CodeName>
+      <GUID>74c0b943-e0cd-41bf-b5fd-23c850c8d69b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e9ea25b0-c117-4564-b208-c42b6b8595f5</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"9af3aed2-ee06-4bcd-9e00-c5530502b86d","Name":"FormComponent.png","Extension":".png","Size":8219,"Width":609,"Height":300,"LastModified":"2024-07-11T22:20:04.8524031Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Example widget properties demonstrating the font awesome form component.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico 12 - Font Awesome widget properties</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

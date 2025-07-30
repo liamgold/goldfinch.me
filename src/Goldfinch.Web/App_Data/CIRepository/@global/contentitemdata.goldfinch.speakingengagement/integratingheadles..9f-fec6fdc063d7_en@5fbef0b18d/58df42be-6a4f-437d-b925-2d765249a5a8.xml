@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.speakingengagement>
+  <ContentItemDataCommonDataID>
+    <GUID>3d9d1691-7665-4dd0-9c9f-fec6fdc063d7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IntegratingHeadlessShopifyWithXperienceByKentico-4vdkfvl6</CodeName>
+      <GUID>2906bd95-f256-4891-a7fc-0f26bff801c0</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>58df42be-6a4f-437d-b925-2d765249a5a8</ContentItemDataGUID>
+  <Description>
+    <![CDATA[Learn how to seamlessly integrate Shopify with Xperience by Kentico for a powerful e-commerce solution. This session will cover the setup process, key features, and practical tips to enhance your online store. This topic is ideal for developers and digital strategists looking to optimize their e-commerce platforms.]]>
+  </Description>
+  <EventDate>2024-10-07 23:00:00Z</EventDate>
+  <EventLocation>Prague, CZ</EventLocation>
+  <EventName>Kentico Connection 2024</EventName>
+  <Title>
+    <![CDATA[Integrating Headless Shopify with Xperience by Kentico]]>
+  </Title>
+</contentitemdata.goldfinch.speakingengagement>

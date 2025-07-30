@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>2fc7b04c-0586-4758-b956-9493bd5b7b53</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh4-AltText-in9sdzlw</CodeName>
+      <GUID>6877bef4-6ae7-478b-aa29-18d7909d7513</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f2760b96-d8fd-4aeb-8c28-b4ef0d6b80a4</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"6c8d2c3e-1455-4d1d-9e54-1da261187014","Name":"media-library-alternative-text.png","Extension":".png","Size":23712,"Width":1132,"Height":1023,"LastModified":"2024-07-11T21:50:52.3880842Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Description textbox for centrally content managing alternative text.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 Refresh 4 - Alt Text</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

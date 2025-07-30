@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>27640eb3-d797-443a-b12c-b0c2806c147c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CreatingACustomModule-BlogCategoriesListing-1s6kmkce</CodeName>
+      <GUID>7df7e261-2bc7-4eff-bdc7-921679dcbce2</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>54276863-8cc5-44f3-b3e9-126ef6746417</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"f2330e16-9ebd-4457-82ed-c803d2f923d1","Name":"4a-Listing-with-created-item.png","Extension":".png","Size":48412,"Width":1411,"Height":751,"LastModified":"2024-07-11T21:29:54.7841175Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Blog listing page within our new module.</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Creating a Custom Module - Blog Categories listing</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

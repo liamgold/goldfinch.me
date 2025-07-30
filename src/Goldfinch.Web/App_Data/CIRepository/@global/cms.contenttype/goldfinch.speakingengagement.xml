@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Speaking Engagement</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="bf0e9ca9-db30-4ff2-8635-1e2fed43c1eb" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="3a8e6d1f-89ab-4769-82e4-cf1440348b8f" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="5b016e3f-413f-463a-b225-e50613c9da1f" isunique="true" system="true" />
+      <field column="Title" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="16e8169d-4456-4c0c-99c0-076b545a665f" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Title</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="Description" columnprecision="0" columntype="longtext" enabled="true" guid="97f3f219-19a7-4ab0-a2c7-98c22961bfd6" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Description</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field column="EventName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="5c5f1dba-0ce2-4516-aeb9-81e986c667a9" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Event Name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="EventDate" columnprecision="0" columntype="date" enabled="true" guid="c98633a2-b2ed-4705-a542-15a226d1b6a9" visible="true">
+        <properties>
+          <explanationtext>{$base.forms.dateinput.explanation$}</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Event Date</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DateInput</controlname>
+        </settings>
+      </field>
+      <field column="EventLocation" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="40e82774-b59d-4913-8fc1-2fc804ade7a6" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Event Location</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RecordingLink" columnprecision="0" columnsize="512" columntype="text" enabled="true" guid="5b19e955-9582-459d-a2e2-db8e8348950f" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Recording Link</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>230137b0-e51f-4e71-a20f-f78293779bb2</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-bubble-censored</ClassIconClass>
+  <ClassName>Goldfinch.SpeakingEngagement</ClassName>
+  <ClassShortName>GoldfinchSpeakingEngagement</ClassShortName>
+  <ClassTableName>Goldfinch_SpeakingEngagement</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

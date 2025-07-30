@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2020-10-27 00:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Kentico have launched the latest version of their digital experience platform (DXP) Kentico Xperience, with version 13 launching today.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>72e52685-e2dd-4a12-8dc3-90ea43de7298</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>It_sHere_KenticoXperience13HasBeenReleased-lbed7op1</CodeName>
+      <GUID>ce71714e-c857-4683-842d-a8566addbfda</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>cbe9d1e7-6815-4240-b172-a0bdde70377a</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[It's here! Kentico Xperience 13 has been released]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

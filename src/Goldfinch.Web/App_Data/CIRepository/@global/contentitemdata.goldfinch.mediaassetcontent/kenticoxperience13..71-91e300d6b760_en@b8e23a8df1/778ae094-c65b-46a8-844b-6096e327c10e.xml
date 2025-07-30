@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>19960f55-82ba-4297-b371-91e300d6b760</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh3-NamedZones-gxas735f</CodeName>
+      <GUID>e921d90d-fcc8-44fc-8bb2-9f3cca6b8884</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>778ae094-c65b-46a8-844b-6096e327c10e</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"581a46c7-0ed9-416f-8549-4b2335fb0220","Name":"named-zones.jpeg","Extension":".jpeg","Size":36334,"Width":800,"Height":447,"LastModified":"2024-07-11T21:58:39.5799754Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Transfer of widgets between section types</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 Refresh 3 - Named Zones</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

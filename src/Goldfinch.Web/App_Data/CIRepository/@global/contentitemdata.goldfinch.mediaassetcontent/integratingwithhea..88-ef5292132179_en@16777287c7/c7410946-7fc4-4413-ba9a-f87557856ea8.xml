@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>3477b5e5-14ea-4464-9d88-ef5292132179</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IntegratingWithHeadlessShopify-Configuration-wrayki2u</CodeName>
+      <GUID>06dd7a67-6d25-4f1a-bc88-a0f386997636</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>c7410946-7fc4-4413-ba9a-f87557856ea8</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"da77edc9-cebd-49cb-b53f-97f5216791f4","Name":"Shopify - Settings.png","Extension":".png","Size":44736,"Width":1172,"Height":835,"LastModified":"2024-07-26T12:08:49.5366021Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Configuration of Shopify API credentials within Xperience by Kentico]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Integrating with Headless Shopify - Configuration</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

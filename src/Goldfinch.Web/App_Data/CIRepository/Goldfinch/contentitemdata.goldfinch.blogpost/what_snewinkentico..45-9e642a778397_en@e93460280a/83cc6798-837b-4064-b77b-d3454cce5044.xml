@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2021-06-23 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[It looks like Refresh 2 brings us more new features, a returning feature, and yet another out of the box integration!]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>a4e7f7a9-0580-4d3e-9c45-9e642a778397</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>What_sNewInKenticoXperience13Refresh2-iixgjkd5</CodeName>
+      <GUID>e6faa6a3-e315-4fb6-80e9-3b0ead4263b7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>83cc6798-837b-4064-b77b-d3454cce5044</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[What's new in Kentico Xperience 13 Refresh 2?]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

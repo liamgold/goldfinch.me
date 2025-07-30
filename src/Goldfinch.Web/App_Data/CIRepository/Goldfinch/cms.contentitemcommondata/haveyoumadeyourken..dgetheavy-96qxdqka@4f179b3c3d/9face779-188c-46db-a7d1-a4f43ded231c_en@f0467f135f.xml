@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>HaveYouMadeYourKenticoMVCSiteWidgetHeavy-96qxdqka</CodeName>
+    <GUID>b80d74e0-a697-466f-a4d7-54a463cca8e4</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>22960170-5c33-4d4e-a01b-fd4c8fcbd13d</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataGUID>9face779-188c-46db-a7d1-a4f43ded231c</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-07-13 01:02:38Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"c0f3936a-704d-4c3a-beb0-a96ef4aaeb84","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"2bd2e8ed-a535-4cdb-9414-6d1dfe81e9b5","widgets":[{"identifier":"4e494609-b64b-45cd-9324-0969ca97f6d3","type":"Kentico.Widget.RichText","variants":[{"identifier":"1ac764db-c890-4b08-a409-b7d5bfdc5396","properties":{"content":"<p>When creating a Kentico 12 MVC website, the page builder functionality comes with one widget out of the box. This is the Form widget which allows content editors to add forms to pages.</p><p>Great - this widget works fine, but now your content editors also need to add banners, blocks of rich text, images, carousels, CTAs, article cards, etc. To provide content editors with the extra functionality they require, you'll need to either <a href=\"https://docs.kentico.com/k12sp/developing-websites/page-builder-development/developing-widgets-in-mvc\" rel=\"noopener noreferrer\" target=\"_blank\">develop custom page builder widgets</a> yourself, or look at using the growing number of widgets and tools available on the <a href=\"https://devnet.kentico.com/marketplace\" rel=\"noopener noreferrer\" target=\"_blank\">Kentico Marketplace</a>.</p><p>Once you start making MVC widgets, you can get carried away with making everything on your website a widget. Ideally, only reusable components should be created as widgets, and the rest should be driven by other means (such as structured content only page types, categories, page relationships, etc). An example of this could be the decision on how a carousel gets embedded on to a Product Detail page. Instead of creating this as a widget, the component could be embedded directly into the view, then the component's visibility and content can be driven by child pages with a custom content only page type called \"Carousel Item\". This page type would represent one item in the carousel, and control the image or any text to be displayed.</p><p>Minimising the number of widgets on a website can be difficult if content editors still expect a large number of widgets to be available. This can be fine until the two column widget selection modal starts going off the screen making it harder to see all of the available widgets.</p>"},"fieldIdentifiers":{"content":"e5cb0877-0d83-411d-86c4-e0e8b2c7f200"}}]},{"identifier":"1349063c-339e-4eb7-8998-a30bcccf8951","type":"Goldfinch.ImageWidget","variants":[{"identifier":"6412bd9b-5d77-485c-a8d8-c40349bac8a7","properties":{"selectedAssets":[{"identifier":"d2c41be8-56d2-459d-86d7-d433860f519b"}],"image":[],"description":""},"fieldIdentifiers":{"selectedAssets":"643e73fd-b703-4641-a310-7d6cad0008ae","image":"254e13dc-a886-4694-8618-a2845da0cfb7","description":"18315051-1827-4177-9a6b-6271401f9fb9"}}]},{"identifier":"77749cab-1195-4203-88ac-9808cfabeb64","type":"Kentico.Widget.RichText","variants":[{"identifier":"280a8bb1-bb70-43cb-8a73-955b1dccfd0e","properties":{"content":"<p>When this has become a problem on projects I've worked on, I have looked at using either (or both!) of the following techniques to improve the widget selection modal.</p><h2>Limiting the widgets available</h2><p>A great way of easing this is to simply <a href=\"https://docs.kentico.com/k12sp/developing-websites/page-builder-development/creating-pages-with-editable-areas-in-mvc#CreatingpageswitheditableareasinMVC-Limitingwidgetsallowedinaneditablearea\" rel=\"noopener noreferrer\" target=\"_blank\">limit the number of widgets allowed in an editable area</a>. &nbsp;When adding editable areas to your pages, you can set a list of allowed widgets for that specific area. This gives the content editor a smaller guided subset of widgets which are allowed for use.</p><p>For example, the first editable area of a page may be restricted to only allow a Page Heading, Primary Banner, or Secondary Banner widget. The content editor now has a clear list of widgets they should be choosing from, and won't be presented with a bloated list of widgets which may be difficult to use.</p><h2>Increase widget selection modal size</h2><p>If limiting the widgets available isn't an option, or you've tried limiting them and still got way too many in the list, you can try looking at increasing the size of the modal to accommodate more columns.</p><p>The default modal layout only displays two columns of widgets, but with a small additional stylesheet bundled alongside the Kentico page builder stylesheet this can be easily changed.</p><p>Try creating <strong>Content/Sections/widget-selection.admin.css</strong> inside your MVC website project, and then adding the following:</p>"},"fieldIdentifiers":{"content":"cea3c2f0-ad5e-43a4-916f-a2e59d5b2b77"}}]},{"identifier":"d7bcc2da-2744-4662-ad88-790c2e08956b","type":"Goldfinch.CodeBlockWidget","variants":[{"identifier":"5eaf8c83-ccfc-40b8-a118-8ddc03f72b86","properties":{"language":"css","code":"kentico-pop-up-container .ktc-pop-up {\r\n    min-width: 730px;\r\n}"},"fieldIdentifiers":{"language":"269740c1-4ae9-426f-94dc-7329b9a70bdb","code":"18f09f78-0ccc-41f8-9fa6-2fe45c16b0d4"}}]},{"identifier":"c63ecb23-05d4-4e38-bff8-643ed6846847","type":"Kentico.Widget.RichText","variants":[{"identifier":"f3506e6b-9c66-4c0e-9a19-96649358fba8","properties":{"content":"<p>By default, Kentico's page builder sets a minimum width of 300px for two columns, but the above sample code increases the modal to five columns.&nbsp;</p>"},"fieldIdentifiers":{"content":"d11a3eba-2c0a-43d7-92d9-47b52f0928d0"}}]},{"identifier":"c3288373-9910-4222-8dfa-e3e766711081","type":"Goldfinch.ImageWidget","variants":[{"identifier":"3d7894d3-2509-4b59-80f6-a20b9ebdcdfb","properties":{"selectedAssets":[{"identifier":"c2eeac5c-862b-4615-a0ff-6707ba981aae"}],"image":[],"description":""},"fieldIdentifiers":{"selectedAssets":"cf1553cd-cfc3-43d2-ab11-f5968943258a","image":"1f52d617-abb2-4bdc-bc98-b36d8b8ff829","description":"7d373e48-adc7-45ff-921a-bc6a08ba270d"}}]},{"identifier":"291a85ee-e7b9-43a8-ba74-0a9136bfdb56","type":"Kentico.Widget.RichText","variants":[{"identifier":"44c485bf-9481-44b4-8907-ad258e985e5f","properties":{"content":"<p>As you can see in the image above, having a few more columns can make seeing the entire list of widgets far easier. &nbsp;You don't need to stick with two or five columns either, you could also try:</p><ul><li>Three columns, with a minimum width&nbsp;of 442px</li><li>Four columns, with a minimum width of 584px</li></ul>"},"fieldIdentifiers":{"content":"f9b6179a-2e01-4c06-8bba-06f639f5917c"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>643e73fd-b703-4641-a310-7d6cad0008ae</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>f392b925-8587-48c9-bc46-4fb478b589ef</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>9face779-188c-46db-a7d1-a4f43ded231c</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WidgetHeavy-OffScreenWidgetSelector-87djsehg</CodeName>
+        <GUID>d2c41be8-56d2-459d-86d7-d433860f519b</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>cf1553cd-cfc3-43d2-ab11-f5968943258a</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>e6dee5fe-6c19-4913-aad9-2d956a43a21c</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>9face779-188c-46db-a7d1-a4f43ded231c</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WidgetHeavy-OnScreenWidgetSelector-ualdyqke</CodeName>
+        <GUID>c2eeac5c-862b-4615-a0ff-6707ba981aae</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

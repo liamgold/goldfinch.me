@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Kentico12MVCFontAwesomeFormComponent-r28lorth</CodeName>
+    <GUID>0b54b727-062a-4487-8ff0-0a3d0502c1ee</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>0b54b727-062a-4487-8ff0-0a3d0502c1ee</WebPageItemGUID>
+  <WebPageItemName>Kentico12MVCFontAwesomeFormComponent-r28lorth</WebPageItemName>
+  <WebPageItemOrder>7</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>2020-344u2xok</CodeName>
+    <GUID>31680985-9aeb-43f9-9907-e153bec8e6fb</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Blog-Posts/2020/Kentico-12-MVC-Font-Awesome-Form-Component]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

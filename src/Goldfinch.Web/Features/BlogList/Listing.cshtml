@@ -1,0 +1,48 @@
+﻿@model Goldfinch.Web.Features.BlogList.BlogListViewModel
+
+@section Schema {
+    @if (!string.IsNullOrWhiteSpace(Model.Schema))
+    {
+        <script type="application/ld+json">
+            @Html.Raw(Model.Schema)
+        </script>
+    }
+}
+
+<h1 class="mb-12">@Model.Title</h1>
+
+<div class="flex flex-col space-y-6">
+    @foreach (var blogPost in Model.BlogPosts)
+    {
+        <partial name="PartialViews/BlogPost" model="blogPost" />
+    }
+</div>
+
+<div class="flex justify-center mb-6 mt-12">
+    <ul class="flex px-3 text-zinc-200">
+
+        @if (!string.IsNullOrWhiteSpace(Model.PreviousUrl))
+        {
+            <li><a class="relative block px-3 py-2 transition hover:text-yellow-300" rel="prev" href="@Model.PreviousUrl">Previous</a></li>
+        }
+
+        @for (var index = 1; index <= Model.PageCount; index++)
+        {
+            var isActive = Model.PageIndex == index;
+
+            var className = isActive ? "text-yellow-300" : "hover:text-yellow-300";
+            var url = index == 1 ? Model.Url : $"{Model.Url}/{index}";
+
+            <li>
+                <a class="relative block px-3 py-2 transition @className" href="@url">
+                    @index
+                </a>
+            </li>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.NextUrl))
+        {
+            <li><a class="relative block px-3 py-2 transition hover:text-yellow-300" rel="next" href="@Model.NextUrl">Next</a></li>
+        }
+    </ul>
+</div>

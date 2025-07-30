@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2023-05-10 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[It’s been over a year since Kentico announced their new platform and the much-anticipated launch is nearly with us. In this blog we’re taking a look at some of Xperience by Kentico’s newest features.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>8f757e48-d36e-4728-900e-e7ca18eee109</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>RevolutionisingDigitalExperience_AYearOfXperienceByKenticoAndWhat_sNext-fedszw2j</CodeName>
+      <GUID>66b13255-c2f0-4953-88f7-53bee54e64b8</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>35be3646-99d0-4789-9177-0924b8317129</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[Revolutionising Digital Experience: A Year of Xperience by Kentico and What's Next]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

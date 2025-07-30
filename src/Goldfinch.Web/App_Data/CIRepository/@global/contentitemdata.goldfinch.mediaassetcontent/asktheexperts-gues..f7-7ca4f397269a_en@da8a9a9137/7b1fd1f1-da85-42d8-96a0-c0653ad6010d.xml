@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>db6fce3c-edda-44d0-80f7-7ca4f397269a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>AskTheExperts-GuestAppearance-uvr3rmdz</CodeName>
+      <GUID>1f5a3909-d77a-4cd8-9966-9c44ea1657b1</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>7b1fd1f1-da85-42d8-96a0-c0653ad6010d</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"ec5f6bed-d6d8-4fcc-986d-cb6c73602eba","Name":"Ask-The-Experts-YouTube.png","Extension":".png","Size":298266,"Width":1918,"Height":1087,"LastModified":"2024-07-11T21:52:59.9797151Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Ask the Experts Introduction</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Ask the Experts - Guest Appearance</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

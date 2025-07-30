@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>710e0d70-0191-45c1-bcce-806324de5578</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CreatingACustomModule-BlogCategoriesModule-o6whrelv</CodeName>
+      <GUID>ff964a51-537c-434a-872d-f885ad7fb1fa</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>71cec24e-c244-4180-a56f-ce96c2a6bd8e</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"6d88ccb4-2d99-4657-8eb5-cda0ba5fca13","Name":"1a-Blog-Categories.png","Extension":".png","Size":81213,"Width":1411,"Height":751,"LastModified":"2024-07-11T21:25:18.3046248Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Blog Categories module appears under a Custom category.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Creating a Custom Module - Blog Categories module</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

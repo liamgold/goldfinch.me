@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>f14097ba-b2a1-4309-a620-ba9bbdc141c0</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>EditingComponentsInXperienceByKentico-CodeBlockClassic-51d70xal</CodeName>
+      <GUID>b1f8ec33-24b9-4660-a39a-71ec7cead4d9</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>985129ed-9829-4d43-ac71-ff87097148d6</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"dbb6c527-9794-4a4c-a5cc-b6b974afad71","Name":"code-block-classic.png","Extension":".png","Size":5231,"Width":603,"Height":280,"LastModified":"2024-07-11T21:34:52.5622103Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Code block widget properties modal using classic editing components]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>
+    <![CDATA[Editing components in Xperience by Kentico - Code Block Classic]]>
+  </MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

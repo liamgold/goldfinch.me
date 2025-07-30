@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>1286b88b-a4a4-4045-a9cc-51910abba858</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IntegratingWithHeadlessShopify-ContentHub-fxzxmdhp</CodeName>
+      <GUID>666aea61-5b70-4f1d-8ec6-4f6165b09af7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>abab51cd-b1e0-4b30-ba28-a7a93003a402</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"09907242-7c83-445a-b5c1-ed77179490a2","Name":"Shopify - Content Hub.png","Extension":".png","Size":66114,"Width":1817,"Height":841,"LastModified":"2024-07-26T12:09:45.4632578Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Imported Shopify Products in the Content Hub</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Integrating with Headless Shopify - Content Hub</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

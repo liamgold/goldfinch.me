@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2024-12-19 00:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[I have published my first Umbraco related article in the calendar, 24 Days in Umbraco. It provides insights for newcomers, some tips on how to get started. Read more about the article.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>4882eec5-6c7e-423e-a6eb-b0ed619eee78</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>UmbracoTipsForNewcomers_InsightsFromAnOutsider-spz264yj</CodeName>
+      <GUID>8440cb45-692a-412b-bebb-0b0d3a8b5999</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>76b2acea-0ba0-4637-8e1c-9d49db61a6ae</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[Umbraco Tips for Newcomers: Insights from an Outsider]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

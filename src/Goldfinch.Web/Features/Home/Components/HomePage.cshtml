@@ -1,0 +1,8 @@
+@model Goldfinch.Core.ContentTypes.Home
+
+<section>
+    <h1>@Model.Heading</h1>
+    <div class="introduction">@Html.Raw(Model.MainContent)</div>
+</section>
+
+<vc:latest-blog-posts title="Recently Published Posts" />

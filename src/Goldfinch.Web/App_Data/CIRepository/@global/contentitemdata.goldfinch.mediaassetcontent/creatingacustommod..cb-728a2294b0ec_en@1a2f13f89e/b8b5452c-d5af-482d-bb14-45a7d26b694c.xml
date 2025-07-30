@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>4f939d2c-8255-4da2-9fcb-728a2294b0ec</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CreatingACustomModule-CreateUIForm-owc7htgz</CodeName>
+      <GUID>65e838e4-8d9f-41f5-82d3-c3f36933ed8b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b8b5452c-d5af-482d-bb14-45a7d26b694c</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"75523601-c59d-42e5-87e3-046a70f0520a","Name":"3-_Create_UI_forms.mp4","Extension":".mp4","Size":335598,"LastModified":"2024-07-11T21:05:18.2550822Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentPosterImage>
+    <![CDATA[{"Identifier":"fde9a1f7-3ab0-41da-9841-693a745e5bae","Name":"3-_Create_UI_forms.jpg","Extension":".jpg","Size":26571,"Width":1426,"Height":755,"LastModified":"2024-07-11T21:05:22.2659772Z"}]]>
+  </MediaAssetContentPosterImage>
+  <MediaAssetContentShortDescription>Creating a new UI form.</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Creating a Custom Module - Create UI Form</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

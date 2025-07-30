@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.speakingengagement>
+  <ContentItemDataCommonDataID>
+    <GUID>ec963dd6-9f1b-4b33-b769-0c1427566f44</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>XperienceByKentico-2023TechnicalWebinar_1-hkd4eaig</CodeName>
+      <GUID>9a63f82c-4f4c-486e-b742-a4728a05687b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>ba5d82d6-77db-4e4b-98f3-98da73b2eba9</ContentItemDataGUID>
+  <Description>
+    <![CDATA[A discussion on Xperience by Kentico, covering admin customization basics.]]>
+  </Description>
+  <EventDate>2023-07-10 23:00:00Z</EventDate>
+  <EventLocation>Online</EventLocation>
+  <EventName>Virtual Webinar</EventName>
+  <RecordingLink>https://www.youtube.com/watch?v=p9QWLgshk54</RecordingLink>
+  <Title>Xperience by Kentico - 2023 Technical Webinar #1</Title>
+</contentitemdata.goldfinch.speakingengagement>

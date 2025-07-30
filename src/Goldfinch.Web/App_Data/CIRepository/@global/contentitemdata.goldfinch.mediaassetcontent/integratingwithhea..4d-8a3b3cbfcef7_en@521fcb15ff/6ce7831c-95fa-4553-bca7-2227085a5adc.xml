@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>804422f5-3e5f-47b4-8d4d-8a3b3cbfcef7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IntegratingWithHeadlessShopify-Basket-tverxfec</CodeName>
+      <GUID>ac2a8b5c-bbff-4311-8049-d3d777274305</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6ce7831c-95fa-4553-bca7-2227085a5adc</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"9f271a0b-9768-48fa-bf62-906dca4cc826","Name":"Shopify - Basket.png","Extension":".png","Size":21615,"Width":940,"Height":289,"LastModified":"2024-07-26T12:10:31.8714893Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Products added to a Shopify basket using the integration]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Integrating with Headless Shopify - Basket</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

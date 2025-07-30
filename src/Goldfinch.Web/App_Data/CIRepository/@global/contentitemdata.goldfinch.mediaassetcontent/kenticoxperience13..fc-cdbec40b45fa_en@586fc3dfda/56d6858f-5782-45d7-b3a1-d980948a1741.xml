@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>1d923438-b72b-4a0d-85fc-cdbec40b45fa</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh3-ExampleWidget-rc10z7zx</CodeName>
+      <GUID>b3c82b0d-67a4-4c38-b7aa-ee53dd560071</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>56d6858f-5782-45d7-b3a1-d980948a1741</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"c254c7df-9ab1-454c-84f0-bc25a537f1e2","Name":"Dancing-Goat-Cafe-Widget.png","Extension":".png","Size":260185,"Width":1395,"Height":652,"LastModified":"2024-07-11T21:55:29.0872515Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Existing Cafe widget for Dancing Goat sample website]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 Refresh 3 - Example widget</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

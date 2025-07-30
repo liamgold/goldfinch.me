@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>d869ca17-dfcc-4acd-9906-02b360dcd7e0</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CreatingACustomModule-CreateClass-tpvwr6cq</CodeName>
+      <GUID>28c7838b-4b99-4c5d-a392-90d72a473613</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b36b1fe3-ca48-4498-b56b-8857fe88e52b</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"99da7f72-a759-4b70-8aaa-ec11e9f7b200","Name":"2-_Create_class.mp4","Extension":".mp4","Size":302455,"LastModified":"2024-07-11T21:04:26.4625627Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentPosterImage>
+    <![CDATA[{"Identifier":"62b7a4be-699c-470a-9d4c-9b84fd71dc66","Name":"2-_Create_class.jpg","Extension":".jpg","Size":23063,"Width":1426,"Height":755,"LastModified":"2024-07-11T21:04:30.6327642Z"}]]>
+  </MediaAssetContentPosterImage>
+  <MediaAssetContentShortDescription>Creating a Blog Category class in the new module.</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Creating a Custom Module - Create Class</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

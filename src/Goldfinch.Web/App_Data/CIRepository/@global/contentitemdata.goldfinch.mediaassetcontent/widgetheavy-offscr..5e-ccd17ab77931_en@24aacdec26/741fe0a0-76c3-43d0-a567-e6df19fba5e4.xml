@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>0b663872-ce53-4a7d-aa5e-ccd17ab77931</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>WidgetHeavy-OffScreenWidgetSelector-87djsehg</CodeName>
+      <GUID>d2c41be8-56d2-459d-86d7-d433860f519b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>741fe0a0-76c3-43d0-a567-e6df19fba5e4</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"79307472-b706-46b4-aecc-eb2bf05fabd3","Name":"Widgets-Off-Screen.png","Extension":".png","Size":127394,"Width":735,"Height":717,"LastModified":"2024-07-11T22:17:30.4973212Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Large number of widgets in a tall two column layout, which goes off the screen.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Widget Heavy - Off screen widget selector</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

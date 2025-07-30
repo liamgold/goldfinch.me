@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>af322615-7aed-4ce9-9d10-620756e1987d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13-InstallationWizard-5dcplj5u</CodeName>
+      <GUID>7f7249b6-1c52-4a59-815e-d29bd66b6e14</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>08cbb4e1-bacc-4480-a45a-4686e51b28a6</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"486e7465-11be-48f8-b6f3-8d88d92697d6","Name":"Kentico-Xperience-Development-Model.png","Extension":".png","Size":38568,"Width":677,"Height":630,"LastModified":"2024-07-11T22:15:19.5215779Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Kentico Xperience 13 development model selection</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 - Installation wizard</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

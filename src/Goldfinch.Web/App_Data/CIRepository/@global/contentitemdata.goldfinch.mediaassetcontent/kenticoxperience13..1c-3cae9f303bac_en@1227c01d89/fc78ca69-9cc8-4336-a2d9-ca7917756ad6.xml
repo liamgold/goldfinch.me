@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>af58af3e-8fb0-4f21-891c-3cae9f303bac</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh2-CopyAWidget-h380gm9a</CodeName>
+      <GUID>7c385e80-8c80-4101-be99-3396887488ab</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>fc78ca69-9cc8-4336-a2d9-ca7917756ad6</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"d1bf4f7f-77b1-411e-81d3-dc6ce4e6f0ec","Name":"Copy-a-widget.png","Extension":".png","Size":36942,"Width":756,"Height":477,"LastModified":"2024-07-11T21:59:46.8326922Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Copy button has now been added next to the remove button]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 Refresh 2 - Copy a widget</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

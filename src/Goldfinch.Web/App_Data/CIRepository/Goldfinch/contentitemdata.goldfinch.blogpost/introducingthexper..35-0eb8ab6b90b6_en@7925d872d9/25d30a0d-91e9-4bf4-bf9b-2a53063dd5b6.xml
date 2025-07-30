@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2022-04-30 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Xperience by Kentico is set to launch in June 2022 with the commencement of an early adopters programme.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>63d2fb5a-168e-4b80-8d35-0eb8ab6b90b6</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IntroducingTheXperienceAdoptersProgram-satrl7zu</CodeName>
+      <GUID>12e0b305-c3d2-4180-8f2a-a80f3ed35334</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>25d30a0d-91e9-4bf4-bf9b-2a53063dd5b6</ContentItemDataGUID>
+  <DocumentName>Introducing The Xperience Adopters Program</DocumentName>
+</contentitemdata.goldfinch.blogpost>

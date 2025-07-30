@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>39b38c00-7c4a-4d67-924e-f85811e2b562</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>UnderstandingContentSecurityPolicy-NewConfigPage-xii6rv20</CodeName>
+      <GUID>b5a1fb5f-6127-4d92-b1bb-fb5abbad1156</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3eaad00a-0d85-4676-8907-11d14dda2615</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"dc6a6658-0c23-4aef-b252-c0c11c391a27","Name":"create-new.png","Extension":".png","Size":32499,"Width":1070,"Height":808,"LastModified":"2024-07-11T21:21:34.8307032Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Interface for creating a new CSP configuration</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>
+    <![CDATA[Understanding Content Security Policy - New config page]]>
+  </MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

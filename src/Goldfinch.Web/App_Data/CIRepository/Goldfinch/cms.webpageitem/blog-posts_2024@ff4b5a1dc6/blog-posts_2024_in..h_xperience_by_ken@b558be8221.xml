@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>IntegratingHeadlessShopifyWithXperienceByKentico-qz5iw5cz</CodeName>
+    <GUID>52dd685c-d2c1-48cb-b154-bbf1649499e3</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>47684113-edbb-471d-b8a2-40d2af828fef</WebPageItemGUID>
+  <WebPageItemName>
+    <![CDATA[IntegratingHeadlessShopifyWithXperienceByKentico-qz5iw5cz]]>
+  </WebPageItemName>
+  <WebPageItemOrder>7</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>2024-kau93vi1</CodeName>
+    <GUID>331496db-0c1a-4d50-99ae-9ee840192e04</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Blog-Posts/2024/Integrating_Headless_Shopify_with_Xperience_by_Ken]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

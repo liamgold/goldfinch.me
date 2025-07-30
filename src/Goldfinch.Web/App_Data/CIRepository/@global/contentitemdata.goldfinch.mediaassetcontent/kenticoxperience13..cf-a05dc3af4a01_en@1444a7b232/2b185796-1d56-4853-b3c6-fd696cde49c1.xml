@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>b3f735a3-2fe8-4cc9-98cf-a05dc3af4a01</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13Refresh4-AzureAIAltText-zqs4x8t7</CodeName>
+      <GUID>16d8dc03-b82a-4f15-8cf3-096ae8d39e69</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2b185796-1d56-4853-b3c6-fd696cde49c1</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"be097fa3-dc91-490b-8b67-7114ed97dc2a","Name":"automatic-alternative-text.png","Extension":".png","Size":97903,"Width":737,"Height":597,"LastModified":"2024-07-11T21:51:46.9437004Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Example of Azure Cognitive Services generating alternative text.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 Refresh 4 - Azure AI Alt Text</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

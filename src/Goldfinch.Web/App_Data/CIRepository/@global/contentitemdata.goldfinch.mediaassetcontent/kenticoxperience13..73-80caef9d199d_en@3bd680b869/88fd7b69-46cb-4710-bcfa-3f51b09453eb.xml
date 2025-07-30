@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>4aa6415e-dd1c-4312-8273-80caef9d199d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperience13-UserNotAuthorized-ve9j95xm</CodeName>
+      <GUID>f188a488-1eb3-4eea-8303-8abcb804633a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>88fd7b69-46cb-4710-bcfa-3f51b09453eb</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"5750cfb8-4608-412e-8da8-fea13591199c","Name":"User-is-not-authorized.jpeg","Extension":".jpeg","Size":100452,"Width":1788,"Height":984,"LastModified":"2024-07-11T22:09:53.2339004Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Error displayed for an unauthorised user</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Kentico Xperience 13 - User Not Authorized</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

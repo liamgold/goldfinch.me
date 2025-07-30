@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>Home</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="80140ddb-ae9c-4887-84b7-fa73be65c3e8" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="94c43ebd-3630-4b5f-bce0-a4381cd083c0" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="d8032b01-aa7b-4b58-be59-da1a7293aa27" isunique="true" system="true" />
+      <field column="DocumentName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="70a12964-7c74-48ba-b29d-d82a0c1c00f0" visible="true">
+        <properties>
+          <fieldcaption>Page name</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="Heading" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="5cd8e477-e2af-429b-a1b4-dde38dea7a24" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Heading</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="MainContent" columnprecision="0" columntype="richtexthtml" enabled="true" guid="1dd004ae-7996-455f-8ea8-a1fd3c934bd0" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Main Content</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>2c924c3d-6207-4e48-875c-a6fb4eed3921</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-home</ClassIconClass>
+  <ClassName>Goldfinch.Home</ClassName>
+  <ClassShortName>GoldfinchHome</ClassShortName>
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>Goldfinch_Home</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

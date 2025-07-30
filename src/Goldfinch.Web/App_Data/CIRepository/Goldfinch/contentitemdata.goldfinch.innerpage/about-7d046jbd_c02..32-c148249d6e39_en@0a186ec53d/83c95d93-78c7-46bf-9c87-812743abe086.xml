@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.innerpage>
+  <ContentItemDataCommonDataID>
+    <GUID>c0256ef3-6b7c-495c-8d32-c148249d6e39</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>About-7d046jbd</CodeName>
+      <GUID>a967a64c-dd0f-497a-b6ae-51d5b2a5c1b5</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>83c95d93-78c7-46bf-9c87-812743abe086</ContentItemDataGUID>
+  <DocumentName>About</DocumentName>
+  <SummaryText />
+</contentitemdata.goldfinch.innerpage>

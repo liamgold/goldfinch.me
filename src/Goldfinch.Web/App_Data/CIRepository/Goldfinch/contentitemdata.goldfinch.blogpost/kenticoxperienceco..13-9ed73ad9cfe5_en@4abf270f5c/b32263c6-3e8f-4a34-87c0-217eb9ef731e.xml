@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2020-11-04 00:00:00Z</BlogPostDate>
+  <BlogPostSummary>Connect with the future of Kentico Xperience.</BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>38552f24-6898-47a0-b013-9ed73ad9cfe5</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KenticoXperienceConnection2020-j0ny083o</CodeName>
+      <GUID>6ea122c0-ddfa-4a15-9edb-ce932373bc9b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b32263c6-3e8f-4a34-87c0-217eb9ef731e</ContentItemDataGUID>
+  <DocumentName>Kentico Xperience Connection 2020</DocumentName>
+</contentitemdata.goldfinch.blogpost>

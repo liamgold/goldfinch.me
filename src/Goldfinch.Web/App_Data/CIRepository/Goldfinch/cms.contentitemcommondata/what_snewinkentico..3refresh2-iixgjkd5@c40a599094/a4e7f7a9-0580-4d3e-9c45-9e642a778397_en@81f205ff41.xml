@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>What_sNewInKenticoXperience13Refresh2-iixgjkd5</CodeName>
+    <GUID>e6faa6a3-e315-4fb6-80e9-3b0ead4263b7</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>22960170-5c33-4d4e-a01b-fd4c8fcbd13d</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataGUID>a4e7f7a9-0580-4d3e-9c45-9e642a778397</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-07-24 13:59:04Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"747e3ca6-0175-45d2-8049-3e147c9c2cf4","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"814c8d59-ca82-403b-b3a2-6a0249694ac6","widgets":[{"identifier":"15a0041a-a795-4259-a433-815a863a6aa1","type":"Kentico.Widget.RichText","variants":[{"identifier":"ff07ea1e-71ed-470b-a11e-b559c951b9ee","properties":{"content":"<p>Kentico Xperience 13 Refresh 1 was released back in <a href=\"~/blog/experience-the-first-refresh-of-kentico-xperience\">March</a>, kickstarting Kentico's vision of the platform becoming more agile.</p><p>It brought new integrations with third party tools, a returning tool from Portal Engine, and a number of brand new developer focused features. Refresh 2 certainly appears to be following a similar pattern, so let's see what is new! 👀</p><p><strong>Copying page builder widgets</strong></p><p>Not only has an important feature from Portal Engine returned, it has been significantly improved. At <a href=\"https://www.idhlagency.com/\" rel=\"noopener noreferrer\" target=\"_blank\">IDHL</a>, we have helped many of our clients rebuild their Portal Engine websites in MVC, and one of the first things they notice (apart from how good the new Kentico Xperience platform is) is the lack of copy/pasting widgets. These clients had become accustomed to using the feature - so where had it gone?</p><p>Well, it is back! 🎉 As you can see below a new copy icon has been added next to the existing personalisation and delete buttons.</p>"},"fieldIdentifiers":{"content":"e427b691-2e5f-417c-94f9-c6e3c3f70869"}}]},{"identifier":"51fda30e-a3e2-41c9-b0f5-af9bfe229b01","type":"Goldfinch.ImageWidget","variants":[{"identifier":"9cc79e75-63c4-4434-9e4c-3d204ec3d050","properties":{"selectedAssets":[{"identifier":"7c385e80-8c80-4101-be99-3396887488ab"}]},"fieldIdentifiers":{"selectedAssets":"f8e215e9-1e67-4a3c-8277-f69a847de573"}}]},{"identifier":"afebd66d-913b-48c6-944c-6d60853dc99f","type":"Kentico.Widget.RichText","variants":[{"identifier":"f6b84497-2878-4f87-b500-a607722fdacc","properties":{"content":"<p>However...the big improvement comes with the pasting of widgets. You can now copy&nbsp;<strong>up to 10 widgets</strong> at any one time, and be able to paste them individually from the widget selection area. You even get a nice preview visual of the copied widget when you hover over them.&nbsp;</p>"},"fieldIdentifiers":{"content":"b04396fc-4520-44d7-a40d-a257d9a8d911"}}]},{"identifier":"23b788a8-5364-4835-a717-ca045e0df465","type":"Goldfinch.ImageWidget","variants":[{"identifier":"63dd83ca-463e-4c7c-abdc-906a12fd3ea9","properties":{"selectedAssets":[{"identifier":"c5da158b-eecc-4e0c-8090-885c3fa60d06"}]},"fieldIdentifiers":{"selectedAssets":"d494b0c2-bda3-470c-bf39-8da37a35d6e8"}}]},{"identifier":"c555358b-3888-4540-bd40-9fe57ed32b5d","type":"Kentico.Widget.RichText","variants":[{"identifier":"fef36742-8cce-482f-b944-9269268c520e","properties":{"content":"<p>Taking this feature further, could we possibly see copy and pasting of sections in the future? Instead of having to copy each widget individually, maybe you could just copy an entire section (or mass copy all widgets in a section)? 🤔</p><p><strong>Microsoft Azure Text Analytics</strong></p><p>Xperience already includes out of the box integration with Microsoft Azure through <a href=\"https://docs.xperience.io/configuring-xperience/setting-up-search-on-your-website/using-azure-cognitive-search\" rel=\"noopener noreferrer\" target=\"_blank\">smart search indexes</a> and <a href=\"https://azure.microsoft.com/en-us/services/search/\" rel=\"noopener noreferrer\" target=\"_blank\">Azure Cognitive Search</a>.</p><p>Refresh 2 now introduces the Text Analytics<strong>&nbsp;</strong>feature of <a href=\"https://azure.microsoft.com/en-us/services/cognitive-services/\" rel=\"noopener noreferrer\" target=\"_blank\">Azure Cognitive Services</a>. Through the power of AI, content editors can quickly recognise the sentiment of sentences and paragraphs within the content of the website, granting them the perfect opportunity to rewrite low scoring content. Could having higher scoring content lead to an increase in conversions?</p><p>Matej Stefanik's <a href=\"https://xperience.io/discover/blog/refresh-2-has-arrived-you-asked-and-we-re-delivering\" rel=\"noopener noreferrer\" target=\"_blank\">blog post</a> on the Xperience website also highlights that sentiment analysis can be great for marketers. Sentiment analysis can be utilised in marketing automation steps, allowing for different paths to be taken depending on the sentiment of human entered input (e.g. product review submissions). Has the user submitted a positive review? Then automatically approve, otherwise forward the review on to the marketing team for approval.</p><p><strong>Culture aliases for URL language prefixes</strong></p><p>In my <a href=\"~/blog/experience-the-first-refresh-of-kentico-xperience\">Refresh 1 blog post</a>, I mentioned that <a href=\"https://www.idhlagency.com/\" rel=\"noopener noreferrer\" target=\"_blank\">IDHL</a> had been submitting ideas for future refreshes, and one of our more popular suggestions has made its way into the 2nd refresh.</p><p>In previous versions of Kentico (Portal Engine and MVC with custom routing) you could easily add culture aliases in URLs, but when Xperience 13 launched with content tree-based routing the option for adding culture aliases was removed.</p><p>It was a key feature used by some of our clients, for example <a href=\"https://www.havwoods.com/\" rel=\"noopener noreferrer\" target=\"_blank\">Havwoods</a> uses <strong>/uk/</strong> instead of <strong>/en-gb/</strong> and <strong>/us/</strong> instead of <strong>/en-us/</strong>. Some clients prefer using culture aliases for a more user friendly URL, and others are following SEO advice and recommendations provided by their SEO agency.</p><p>It is a good idea to submit your Kentico Xperience ideas <a href=\"https://portal.productboard.com/kenticoxperience/1-kentico-xperience-roadmap/tabs/2-in-development\" rel=\"noopener noreferrer\" target=\"_blank\">here</a>, they might be included in the next refresh if it gains enough popularity, just like ours did. 😎</p><p><strong>Form builder section properties</strong></p><p>The Xperience form builder has received a couple improvements this refresh, aimed at increasing the level of flexibility.</p><p>Previously developers had to be inventive and create workarounds for scenarios where they might want to allow content management of headings and descriptions&nbsp;for sections, allow for customisation of icons, themes or complex layouts.</p><p>Refresh 2 provides developers the ability to add properties to form builder sections, working in a similar fashion to page builder section properties. &nbsp;Developers and content editors who have used sections with properties before will have a sense of familiarity and be able to use them straight away.</p>"},"fieldIdentifiers":{"content":"0eab5a89-8a50-4057-b012-4c0cc55b3f4f"}}]},{"identifier":"b23cca1c-c857-4f2a-89de-a65d474a0196","type":"Goldfinch.ImageWidget","variants":[{"identifier":"9d66f55e-16f8-49d4-a88e-2ba0729dd80c","properties":{"selectedAssets":[{"identifier":"40dac668-b81a-4913-b1d0-b9988bd7af36"}]},"fieldIdentifiers":{"selectedAssets":"48b6d671-bef2-4ddf-bdb3-36a52a34a586"}}]},{"identifier":"a0a02e00-6ab7-4a9d-b4f9-d5030019ff73","type":"Kentico.Widget.RichText","variants":[{"identifier":"53ac436e-3f14-4f1d-82d4-4b446746b6cf","properties":{"content":"<p>The latest update also brings the rich text editor component used widely in the page builder to the form builder. In the screenshot above we've just added a new title property using a text input component, but maybe we could have added a description property aimed at providing explanation text which uses a rich text editor.</p><p>Kentico Xperience's third refresh is scheduled for a release in September, and I really can't wait! 😆</p>"},"fieldIdentifiers":{"content":"c92e7e13-8e57-4adc-8e4e-d9119b2ffbcd"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>48b6d671-bef2-4ddf-bdb3-36a52a34a586</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>6c5c4063-581d-42e3-8692-bf1ce9e7961f</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>a4e7f7a9-0580-4d3e-9c45-9e642a778397</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>KenticoXperience13Refresh2-FormSectionTitle-lxvyyfha</CodeName>
+        <GUID>40dac668-b81a-4913-b1d0-b9988bd7af36</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>d494b0c2-bda3-470c-bf39-8da37a35d6e8</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>605adf81-5d5d-4595-afab-8a60f63a6ef5</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>a4e7f7a9-0580-4d3e-9c45-9e642a778397</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>KenticoXperience13Refresh2-CopiedWidgets-ewxemkfn</CodeName>
+        <GUID>c5da158b-eecc-4e0c-8090-885c3fa60d06</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>f8e215e9-1e67-4a3c-8277-f69a847de573</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>921ef197-6ff7-4427-af53-bda21d00a3e3</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>a4e7f7a9-0580-4d3e-9c45-9e642a778397</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>KenticoXperience13Refresh2-CopyAWidget-h380gm9a</CodeName>
+        <GUID>7c385e80-8c80-4101-be99-3396887488ab</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

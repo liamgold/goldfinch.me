@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>Error Page</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="abb05269-7fde-4868-aff0-4062a1114a2a" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="c83e9ce7-dabe-42e4-bbd1-4564ebefcc7e" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="2d62b0b6-9ccc-46dd-8311-31ab57e3be4c" isunique="true" system="true" />
+      <field column="DocumentName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="cfe677f4-c71a-4973-a3f8-ac97881ae589" visible="true">
+        <properties>
+          <fieldcaption>Page name</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="ErrorCode" columnprecision="0" columntype="integer" enabled="true" guid="350793f2-d7fb-4535-b4ab-316847649a66" visible="true">
+        <properties>
+          <defaultvalue>404</defaultvalue>
+          <explanationtext>
+            <![CDATA[The HTTP status code the error page corresponds to.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Error Code</fieldcaption>
+          <fielddescription>
+            <![CDATA[The HTTP status code the error page corresponds to.]]>
+          </fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.NumberInput</controlname>
+        </settings>
+      </field>
+      <field column="ErrorTitle" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="61bfcf81-5772-4a12-be18-a3080fd5f9a7" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Title</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="ErrorText" columnprecision="0" columntype="richtexthtml" enabled="true" guid="6b5d3c64-2649-43b8-aa07-ab75cce27401" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Text</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>13e64b1d-70f8-44b6-ab90-103abb5c6a3d</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-ban-sign</ClassIconClass>
+  <ClassName>Goldfinch.ErrorPage</ClassName>
+  <ClassShortName>GoldfinchErrorPage</ClassShortName>
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>Goldfinch_ErrorPage</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

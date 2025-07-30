@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2024-07-29 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Discover the newly extended Xperience by Kentico Certified Developer certification, designed to showcase your expertise in the platform. Learn about the certification process, key topics covered, and tips for success from a Kentico MVP. Perfect for developers looking to validate their skills and advance their careers.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>d5c40b84-af5a-4754-b28c-f24c2159baf9</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>AGuideToTheXperienceByKenticoCertifiedDeveloperCertification-kltj051k</CodeName>
+      <GUID>cfdc0d86-3db6-4d85-8cd6-973f9f6e8444</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>1a9f7280-c0a7-43ff-a98f-3d5b4c59fb83</ContentItemDataGUID>
+  <DocumentName>
+    <![CDATA[A Guide to the Xperience by Kentico Certified Developer Certification]]>
+  </DocumentName>
+</contentitemdata.goldfinch.blogpost>

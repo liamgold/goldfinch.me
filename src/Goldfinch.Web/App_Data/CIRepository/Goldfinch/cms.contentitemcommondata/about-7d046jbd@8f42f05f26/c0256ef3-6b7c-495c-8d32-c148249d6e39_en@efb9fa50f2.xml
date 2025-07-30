@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>About-7d046jbd</CodeName>
+    <GUID>a967a64c-dd0f-497a-b6ae-51d5b2a5c1b5</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>22960170-5c33-4d4e-a01b-fd4c8fcbd13d</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataGUID>c0256ef3-6b7c-495c-8d32-c148249d6e39</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2025-04-23 23:22:51Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"Goldfinch.InnerPage_Default","properties":{},"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"InnerPage","sections":[{"identifier":"c2337389-ffa8-41b7-9b96-4071264992a1","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"479d03ee-3352-4344-896a-622504cae333","widgets":[{"identifier":"09fb35bf-849f-40e3-92cc-2d29c412adb4","type":"Kentico.Widget.RichText","variants":[{"identifier":"47384860-3df5-4a15-9e98-346d316540e1","properties":{"content":"<p>Hello, my name is Liam Goldfinch. 👋</p><p>I currently work as a Principal Systems Developer for the digital web agency <a href=\"https://www.idhlagency.com/\" rel=\"noopener noreferrer\" target=\"_blank\">IDHL</a>.</p><p>We specialise in building websites using <a href=\"https://www.kentico.com/\" rel=\"noopener noreferrer\" target=\"_blank\">Kentico</a> (Xperience by Kentico and Kentico Xperience 13) and <a href=\"https://umbraco.com/\" rel=\"noopener noreferrer\" target=\"_blank\">Umbraco</a> CMS platforms.</p><p>I have been honoured with the <a href=\"https://www.kentico.com/partners/mvp-program\" target=\"_blank\" rel=\"noopener noreferrer\">Kentico MVP</a> award consecutively since 2022, acknowledging my passion for their DXP offering and the substantial assistance I have provided to members of the community.</p><p>I am a certified developer and marketer for Kentico Xperience 13, and an active member of the Kentico open source community.</p><p>As a co-organiser of <a href=\"https://www.linkedin.com/groups/13057217/\" target=\"_blank\" rel=\"noopener noreferrer\" id=\"isPasted\">Kentico User Group UK</a>, I am proud to be part of a growing community that brings together Kentico users, developers, marketers and agencies to share knowledge and network.</p><p>This website has been built using the next generation of <a href=\"https://www.kentico.com/discover/blog/kentico-xperience-a-glance-into-the-future\" rel=\"noopener noreferrer\" target=\"_blank\">Xperience by Kentico</a>. &nbsp;The latest version of this cloud-native, flexible DXP has been fully rewritten using .NET Core (supporting .NET 6 and beyond), and uses one of the latest front-end development technologies ReactJS for the administration portal's user interface.</p><p>Thanks to <a href=\"https://www.idhlagency.com/\" rel=\"noopener noreferrer\" target=\"_blank\">IDHL</a> for hosting this blog website!</p>"},"fieldIdentifiers":{"content":"153c7b29-0aff-4b22-bf9f-23cc50301c5a"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+</cms.contentitemcommondata>

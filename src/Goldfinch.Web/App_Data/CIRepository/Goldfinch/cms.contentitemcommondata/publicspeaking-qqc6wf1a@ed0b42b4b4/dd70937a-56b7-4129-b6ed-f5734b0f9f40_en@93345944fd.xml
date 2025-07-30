@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>PublicSpeaking-qqc6wf1a</CodeName>
+    <GUID>a94242a8-2b08-48bd-adc7-f9ddf7ca20ef</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>22960170-5c33-4d4e-a01b-fd4c8fcbd13d</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-11-10 23:30:21Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>dd70937a-56b7-4129-b6ed-f5734b0f9f40</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-11-10 23:31:10Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"Goldfinch.PublicSpeakingPage_Default","properties":{},"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"PublicSpeaking","sections":[{"identifier":"0d1fc2a2-4b1f-4fae-8f48-65cfc5b1f754","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"d6f66d1d-3f5a-459d-85e1-e1dff2a8780e","widgets":[{"identifier":"09d90240-a95b-431f-a6d5-9e830c7b9a71","type":"Kentico.Widget.RichText","variants":[{"identifier":"715104fb-8dff-443d-832f-01963e97df55","properties":{"content":"<p id=\"isPasted\">Over the years, I have had the privilege of sharing my knowledge and experiences with audiences at industry conferences, meetups, and user groups. From Kentico's annual conferences to local tech meetups, I focus on topics that help developers and teams build better digital experiences.</p><p>Below is a list of my recent speaking engagements.</p>"},"fieldIdentifiers":{"content":"d2aed4af-8bfe-4f8b-9d16-84f5b15cd075"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+</cms.contentitemcommondata>

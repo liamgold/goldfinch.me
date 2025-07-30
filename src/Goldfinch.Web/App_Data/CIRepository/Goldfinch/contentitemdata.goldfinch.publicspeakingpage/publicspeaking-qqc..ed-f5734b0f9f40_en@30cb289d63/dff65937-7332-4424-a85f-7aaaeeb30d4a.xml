@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.publicspeakingpage>
+  <ContentItemDataCommonDataID>
+    <GUID>dd70937a-56b7-4129-b6ed-f5734b0f9f40</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PublicSpeaking-qqc6wf1a</CodeName>
+      <GUID>a94242a8-2b08-48bd-adc7-f9ddf7ca20ef</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>dff65937-7332-4424-a85f-7aaaeeb30d4a</ContentItemDataGUID>
+  <DocumentName>Public Speaking</DocumentName>
+</contentitemdata.goldfinch.publicspeakingpage>

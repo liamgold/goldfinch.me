@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Media Asset Content</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="ad6fb06e-546b-465d-90f5-84b7b8113b74" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="eb9d0d9c-59a6-4b90-899f-70a91e64cd48" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="0fe9c0c8-3b4b-4d43-a0db-01141a9a2f4d" isunique="true" system="true" />
+      <field column="MediaAssetContentTitle" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="3f222d3c-8c72-454c-9a55-7a754c05ed0b" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Title</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="MediaAssetContentShortDescription" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="f6ccd062-f0e9-4756-a09c-2e4d90538e49" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Short Description</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MediaAssetContentAsset" columnprecision="0" columntype="contentitemasset" enabled="true" guid="7299162d-ec63-44f2-b338-764b809a30c8" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Asset</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.ContentItemAssetUploader</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MediaAssetContentPosterImage" columnprecision="0" columntype="contentitemasset" enabled="true" guid="f0f91d38-68fc-46c8-9fd7-222ac00ab2db" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Poster Image</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.ContentItemAssetUploader</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>c4171eb9-b9de-49cb-8a97-6bad10d04030</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-picture</ClassIconClass>
+  <ClassName>Goldfinch.MediaAssetContent</ClassName>
+  <ClassShortName>GoldfinchMediaAssetContent</ClassShortName>
+  <ClassTableName>Goldfinch_MediaAssetContent</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

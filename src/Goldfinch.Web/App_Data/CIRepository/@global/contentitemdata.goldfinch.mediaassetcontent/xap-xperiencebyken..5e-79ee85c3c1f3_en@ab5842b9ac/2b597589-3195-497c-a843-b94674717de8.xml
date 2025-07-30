@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>12ad9df0-7f90-49f1-9a5e-79ee85c3c1f3</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>XAP-XperienceByKenticoAdminPortal-4exzpb3f</CodeName>
+      <GUID>18a9f068-7d0c-4ea4-a240-daf2b8250b8b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2b597589-3195-497c-a843-b94674717de8</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Identifier":"8c58535d-5e18-457e-b723-7cf74ef071ef","Name":"XAP-Dashboard.png","Extension":".png","Size":35151,"Width":602,"Height":331,"LastModified":"2024-07-11T21:47:35.3620826Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Xperience by Kentico admin portal</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>XAP - Xperience by Kentico admin portal</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>
