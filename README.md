@@ -2,7 +2,11 @@
 
 [Personal website](https://www.goldfinch.me) for Liam Goldfinch, featuring blog articles primarily focused on Kentico development and .NET technologies.
 
----
+![License](https://img.shields.io/github/license/liamgold/goldfinch.me)
+![Last Commit](https://img.shields.io/github/last-commit/liamgold/goldfinch.me)
+![.NET](https://img.shields.io/badge/.NET-9.0-512bd4?logo=dotnet)
+![Xperience](https://img.shields.io/badge/Xperience_by_Kentico-7F09B7?logo=kentico&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC?logo=tailwind-css&logoColor=white)
 
 ## 🧰 Tech Stack
 
@@ -15,15 +19,11 @@
 - [Vite](https://vitejs.dev) (build tool)
 - [React](https://react.dev) (for admin customizations)
 
----
-
 ## 📁 Project Structure
 
 - `Goldfinch.Core` – Shared business logic and data models
 - `Goldfinch.Admin` – Kentico admin interface customizations
 - `Goldfinch.Web` – Main web application with blog functionality
-
----
 
 ## 🚀 Getting Started
 
@@ -53,8 +53,6 @@
 > **Note:** This project uses Kentico's Continuous Integration (CI) system.  
 > This repository does not include a database backup. Kentico objects can be created from the included CI files.
 
----
-
 ## 🔐 Admin Login (Local Only)
 
 If using the included CI files, an admin user will be created automatically:
@@ -65,8 +63,6 @@ If using the included CI files, an admin user will be created automatically:
 > ⚠️ For local development only.  
 > Do not reuse these credentials in any production environment.
 
----
-
 ## 🌍 Environment URLs
 
 | Environment | URL                        |
@@ -74,16 +70,12 @@ If using the included CI files, an admin user will be created automatically:
 | Local       | `https://localhost:52623`  |
 | Production  | `https://www.goldfinch.me` |
 
----
-
 ## 🤝 Contributions
 
 This repository is primarily for reference and personal use.
 
 - Public contributions are **not expected**
 - Any PRs will be accepted **only after explicit review and approval** by myself
-
----
 
 ## 📜 License
 
