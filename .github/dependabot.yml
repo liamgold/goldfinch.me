@@ -1,0 +1,49 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # Maintain dependencies for Kentico Admin project (npm)
+  - package-ecosystem: "npm"
+    directory: "/src/Goldfinch.Admin/Client/"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "07:00"
+    ignore:
+      - dependency-name: "@kentico/*"
+    groups:
+      babel:
+        patterns:
+          - "^@babel/"
+        update-types: ["all"]
+      react:
+        patterns:
+          - "^react"
+          - "^@types/react"
+          - "^react-dom"
+          - "^@types/react-dom"
+        update-types: ["all"]
+    open-pull-requests-limit: 5
+
+  # Maintain dependencies for Presentation site (npm)
+  - package-ecosystem: "npm"
+    directory: "/src/Goldfinch.Web/wwwroot/sitefiles/"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "07:00"
+    open-pull-requests-limit: 5
+
+  # Maintain NuGet dependencies for backend solution
+  - package-ecosystem: "nuget"
+    directory: "/src/Goldfinch.Web/"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "07:00"
+    ignore:
+      - dependency-name: "Kentico.Xperience.*"
+    open-pull-requests-limit: 5
