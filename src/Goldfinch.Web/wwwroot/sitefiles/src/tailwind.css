@@ -46,14 +46,6 @@ header {
   }
 }
 
-main {
-  @apply container mx-auto w-full gap-1 px-8 py-8 md:py-16 lg:py-20;
-}
-
-footer {
-  @apply container mx-auto flex w-full gap-5 p-8;
-}
-
 h1 {
   @apply text-4xl my-6 text-yellow-300 font-bold;
 }
