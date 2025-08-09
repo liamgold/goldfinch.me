@@ -21,7 +21,7 @@ html {
 }
 
 header {
-  @apply bg-zinc-950 sticky top-0 flex w-full;
+  @apply bg-zinc-950 sticky top-0 flex w-full z-50;
   @apply transition-colors duration-300 ease-in-out;
   @apply border-b border-transparent;
 
@@ -42,6 +42,11 @@ header {
 
     .burger {
       @apply flex items-center hover:text-yellow-300 transition-colors lg:hidden ml-auto;
+    }
+
+    /* Mobile navigation overlay */
+    #mobileNav {
+      @apply z-50;
     }
   }
 }
@@ -140,6 +145,15 @@ pre {
   .backdrop-blur-sm {
     background-color: rgba(9, 9, 11, 0.8);
   }
+}
+
+/* Enhanced card z-index management */
+.enhanced-card {
+  @apply relative z-10;
+}
+
+.enhanced-card:hover {
+  @apply z-20;
 }
 
 /* Custom scrollbar for blog content (optional enhancement) */
