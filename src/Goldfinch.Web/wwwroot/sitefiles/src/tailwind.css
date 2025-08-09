@@ -21,7 +21,7 @@ html {
 }
 
 header {
-  @apply bg-zinc-950 sticky top-0 flex w-full;
+  @apply bg-zinc-950 sticky top-0 flex w-full z-50;
   @apply transition-colors duration-300 ease-in-out;
   @apply border-b border-transparent;
 
@@ -42,6 +42,11 @@ header {
 
     .burger {
       @apply flex items-center hover:text-yellow-300 transition-colors lg:hidden ml-auto;
+    }
+
+    /* Mobile navigation overlay */
+    #mobileNav {
+      @apply z-50;
     }
   }
 }
@@ -115,4 +120,55 @@ pre {
       @apply text-yellow-100;
     }
   }
+}
+
+/* Enhanced blog post cards */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth animations for blog cards */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.blog-card-hover:hover {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* Backdrop blur support for older browsers */
+@supports not (backdrop-filter: blur(4px)) {
+  .backdrop-blur-sm {
+    background-color: rgba(9, 9, 11, 0.8);
+  }
+}
+
+/* Enhanced card z-index management */
+.enhanced-card {
+  @apply relative z-10;
+}
+
+.enhanced-card:hover {
+  @apply z-20;
+}
+
+/* Custom scrollbar for blog content (optional enhancement) */
+.blog-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.blog-scroll::-webkit-scrollbar-track {
+  @apply bg-zinc-800;
+}
+
+.blog-scroll::-webkit-scrollbar-thumb {
+  @apply bg-yellow-400/30 rounded-full;
+}
+
+.blog-scroll::-webkit-scrollbar-thumb:hover {
+  @apply bg-yellow-400/50;
 }

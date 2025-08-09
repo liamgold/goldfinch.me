@@ -2,14 +2,25 @@
 
 @model LatestBlogPostsViewModel
 
-<section>
-    <h2 class="text-2xl font-medium text-yellow-300 mt-24 mb-6">
-        @Model.Title
-    </h2>
-    <div class="flex flex-col space-y-6">
+<section class="relative">
+    <!-- Section header with enhanced styling -->
+    <div class="flex items-center mb-8">
+        <h2 class="text-3xl font-bold text-yellow-300 mt-24 mb-0 mr-4">
+            @Model.Title
+        </h2>
+        <div class="flex-1 h-px bg-gradient-to-r from-yellow-400/20 to-transparent mt-24"></div>
+    </div>
+    
+    <!-- Posts grid with improved layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach (var blogPost in Model.BlogPosts)
         {
             <partial name="PartialViews/BlogPost" model="blogPost" />
         }
+    </div>
+    
+    <!-- Optional: Add a subtle background pattern -->
+    <div class="absolute inset-0 -z-10 opacity-5">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.1),transparent_70%)]"></div>
     </div>
 </section>
