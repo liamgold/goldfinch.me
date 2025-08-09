@@ -13,6 +13,10 @@ namespace Goldfinch.Core.BlogPosts;
 
 public class BlogPostRepository : WebPageRepository
 {
+    // Constants for page sizes to ensure consistency
+    private const int BLOG_LIST_PAGE_SIZE = 9;
+    private const int LATEST_POSTS_COUNT = 4; // Need 4 to ensure 3 after filtering current page
+
     public BlogPostRepository(WebPageQueryTools tools) : base(tools)
     {
     }
@@ -45,8 +49,8 @@ public class BlogPostRepository : WebPageRepository
             var queryBuilder = new ContentItemQueryBuilder()
                 .ForContentType(BlogPost.CONTENT_TYPE_NAME, queryParameters => queryParameters
                     .ForWebsite(WebsiteChannelContext.WebsiteChannelName)
-                    .TopN(4)
-                    .OrderBy(new[] { new OrderByColumn(nameof(BlogPost.BlogPostDate), OrderDirection.Descending) })
+                    .TopN(LATEST_POSTS_COUNT)
+                    .OrderBy([new OrderByColumn(nameof(BlogPost.BlogPostDate), OrderDirection.Descending)])
                 );
 
             var pages = await Executor.GetMappedWebPageResult<BlogPost>(queryBuilder);
@@ -60,14 +64,14 @@ public class BlogPostRepository : WebPageRepository
     {
         return await ProgressiveCache.LoadAsync(async (cs) =>
         {
-            var pageSize = 6;
+            var pageSize = BLOG_LIST_PAGE_SIZE;
             var offSet = pageSize * (pageIndex - 1);
 
             var queryBuilder = new ContentItemQueryBuilder()
                 .ForContentType(BlogPost.CONTENT_TYPE_NAME, queryParameters => queryParameters
                     .ForWebsite(WebsiteChannelContext.WebsiteChannelName)
                     .Offset(offSet, pageSize)
-                    .OrderBy(new[] { new OrderByColumn(nameof(BlogPost.BlogPostDate), OrderDirection.Descending) })
+                    .OrderBy([new OrderByColumn(nameof(BlogPost.BlogPostDate), OrderDirection.Descending)])
                 );
 
             var pages = await Executor.GetMappedWebPageResult<BlogPost>(queryBuilder);
@@ -97,6 +101,6 @@ public class BlogPostRepository : WebPageRepository
     {
         var allBlogPosts = (await GetAllBlogPosts()).ToList();
 
-        return (int)Math.Ceiling((double)allBlogPosts.Count / 6);
+        return (int)Math.Ceiling((double)allBlogPosts.Count / BLOG_LIST_PAGE_SIZE);
     }
 }
