@@ -18,14 +18,12 @@ updates:
       babel:
         patterns:
           - "^@babel/"
-        update-types: ["all"]
       react:
         patterns:
           - "^react"
           - "^@types/react"
           - "^react-dom"
           - "^@types/react-dom"
-        update-types: ["all"]
     open-pull-requests-limit: 5
 
   # Maintain dependencies for Presentation site (npm)
