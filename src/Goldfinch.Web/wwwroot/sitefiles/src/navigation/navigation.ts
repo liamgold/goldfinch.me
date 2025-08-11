@@ -16,20 +16,48 @@ toggleScrolledClass();
 // Add a scroll event listener to update the data-scrolled attribute as the page scrolls
 window.addEventListener('scroll', toggleScrolledClass);
 
-// Get the burger icon button, mobile navigation container, and close button (X) elements
-const burgerIcon = document.getElementById('burgerIcon') as HTMLButtonElement;
-const mobileNav = document.getElementById('mobileNav') as HTMLDivElement;
-const closeNavButton = document.getElementById('closeNav') as HTMLButtonElement;
+// Enhanced header scroll effects
+let lastScrollY = window.scrollY;
+let ticking = false;
 
-// Check if the elements are found before adding event listeners
-if (burgerIcon && mobileNav && closeNavButton) {
-  // Add a click event listener to toggle mobile navigation visibility when the burger icon is clicked
-  burgerIcon.addEventListener('click', () => {
-    mobileNav.classList.toggle('hidden');
-  });
-
-  // Add a click event listener to close the mobile navigation when the close (X) button is clicked
-  closeNavButton.addEventListener('click', () => {
-    mobileNav.classList.add('hidden');
-  });
+function updateHeaderOnScroll() {
+  const currentScrollY = window.scrollY;
+  
+  if (header) {
+    // Add/remove scrolled state
+    if (currentScrollY > 50) {
+      header.setAttribute('data-scrolled', 'true');
+    } else {
+      header.setAttribute('data-scrolled', 'false');
+    }
+  }
+  
+  lastScrollY = currentScrollY;
+  ticking = false;
 }
+
+// Throttle scroll events for better performance
+function requestTick() {
+  if (!ticking) {
+    requestAnimationFrame(updateHeaderOnScroll);
+    ticking = true;
+  }
+}
+
+// Update scroll listener to use throttled function
+window.removeEventListener('scroll', toggleScrolledClass);
+window.addEventListener('scroll', requestTick);
+
+// Add smooth hover effects for navigation links
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach((link) => {
+  const element = link as HTMLElement;
+  element.addEventListener('mouseenter', () => {
+    element.style.transform = 'translateY(-1px)';
+  });
+  
+  element.addEventListener('mouseleave', () => {
+    element.style.transform = 'translateY(0)';
+  });
+});
