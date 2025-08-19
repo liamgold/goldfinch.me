@@ -1,6 +1,9 @@
 // Get the header element
 const header = document.querySelector('header') as HTMLElement;
 
+// Tailwind breakpoint constants
+const TAILWIND_MD_BREAKPOINT = 768; // Tailwind's md breakpoint
+
 // Function to toggle the data-scrolled attribute based on the scroll position
 function toggleScrolledClass() {
   if (window.scrollY > 0) {
@@ -110,7 +113,7 @@ document.addEventListener('keydown', (e) => {
 
 // Handle window resize - close mobile menu if screen becomes large
 window.addEventListener('resize', () => {
-  if (window.innerWidth >= 768 && mobileMenuOverlay?.classList.contains('active')) {
+  if (window.innerWidth >= TAILWIND_MD_BREAKPOINT && mobileMenuOverlay?.classList.contains('active')) {
     closeMobileMenu();
   }
 });
