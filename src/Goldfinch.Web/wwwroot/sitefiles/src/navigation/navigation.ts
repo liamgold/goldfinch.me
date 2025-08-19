@@ -13,9 +13,6 @@ function toggleScrolledClass() {
 // Call the function on page load in case the page is already scrolled
 toggleScrolledClass();
 
-// Add a scroll event listener to update the data-scrolled attribute as the page scrolls
-window.addEventListener('scroll', toggleScrolledClass);
-
 // Enhanced header scroll effects
 let lastScrollY = window.scrollY;
 let ticking = false;
@@ -45,7 +42,6 @@ function requestTick() {
 }
 
 // Update scroll listener to use throttled function
-window.removeEventListener('scroll', toggleScrolledClass);
 window.addEventListener('scroll', requestTick);
 
 // Add smooth hover effects for navigation links
