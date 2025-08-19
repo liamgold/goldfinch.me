@@ -31,36 +31,31 @@ header {
   }
 
   nav {
-    @apply container mx-auto flex w-full items-center justify-between px-8 py-4;
-
     /* Enhanced Brand Logo */
     .brand-logo {
       @apply relative flex-shrink-0;
-      
+
       .brand-indicator {
         @apply transform scale-0 group-hover:scale-100;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
     }
 
-    /* Enhanced Navigation Links */
-    .nav-link {
-      @apply relative flex items-center gap-2 px-4 py-2 text-zinc-300 rounded-lg;
+    /* Mobile Menu Toggle Button */
+    .mobile-menu-toggle {
+      @apply flex flex-col justify-center items-center w-8 h-8 cursor-pointer;
       @apply transition-all duration-300 ease-in-out;
-      @apply hover:text-yellow-300 hover:bg-yellow-400/5;
+      @apply hover:bg-yellow-400/10 rounded-lg p-1;
+      @apply md:hidden;
 
-      .nav-icon-wrapper {
-        @apply relative overflow-hidden;
-        
-        svg {
-          @apply transition-transform duration-300 group-hover:scale-110;
-        }
+      .hamburger-line {
+        @apply w-6 h-0.5 bg-zinc-300 transition-all duration-300 ease-in-out;
+        @apply mb-1 last:mb-0;
       }
+    }
 
-      .nav-text {
-        @apply font-medium transition-all duration-300;
-      }
-
+    /* Desktop Navigation Links - Special Effects Only */
+    .nav-link {
       /* Subtle hover glow effect */
       &::before {
         content: '';
@@ -84,6 +79,16 @@ header {
       }
     }
   }
+}
+
+/* Mobile Navigation Active State */
+.nav-links-mobile.active {
+  @apply transform translate-x-0;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+  @apply overflow-hidden;
 }
 
 h1 {
@@ -167,8 +172,13 @@ pre {
 
 /* Smooth animations for blog cards */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-4px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 .blog-card-hover:hover {
@@ -206,4 +216,11 @@ pre {
 
 .blog-scroll::-webkit-scrollbar-thumb:hover {
   @apply bg-yellow-400/50;
+}
+
+/* Tablet-specific adjustments for desktop navigation */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-link {
+    @apply px-3;
+  }
 }

@@ -4,39 +4,90 @@
 
 <header>
     <nav class="container mx-auto flex w-full items-center justify-between px-8 py-4">
-        <a href="/" class="brand-logo transition-all duration-300 hover:text-yellow-300 text-2xl font-bold group">
+        <a href="/" class="brand-logo relative flex-shrink-0 transition-all duration-300 hover:text-yellow-300 text-2xl font-bold group">
             <span class="flex items-center">
                 <span class="brand-text">Liam Goldfinch</span>
                 <span class="brand-indicator w-2 h-2 bg-yellow-400 rounded-full ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
             </span>
         </a>
         
-        <!-- Navigation -->
-        <div class="flex items-center gap-2">
-            <a class="nav-link group" title="Home" href="/">
-                <div class="nav-icon-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" /></svg>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-2 nav-links-desktop">
+            <a class="relative flex items-center gap-2 px-4 py-2 text-zinc-300 rounded-lg transition-all duration-300 ease-in-out hover:text-yellow-300 hover:bg-yellow-400/5 nav-link group" title="Home" href="/">
+                <div class="relative overflow-hidden nav-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0" class="transition-transform duration-300 group-hover:scale-110"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" /></svg>
                 </div>
-                <span class="nav-text">Home</span>
+                <span class="font-medium transition-all duration-300 hidden sm:block lg:block nav-text">Home</span>
             </a>
-            <a class="nav-link group" title="Blog" href="/blog">
-                <div class="nav-icon-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" /></svg>
+            <a class="relative flex items-center gap-2 px-4 py-2 text-zinc-300 rounded-lg transition-all duration-300 ease-in-out hover:text-yellow-300 hover:bg-yellow-400/5 nav-link group" title="Blog" href="/blog">
+                <div class="relative overflow-hidden nav-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0" class="transition-transform duration-300 group-hover:scale-110"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" /></svg>
                 </div>
-                <span class="nav-text">Blog</span>
+                <span class="font-medium transition-all duration-300 hidden sm:block lg:block nav-text">Blog</span>
             </a>
-            <a class="nav-link group" title="About" href="/about">
-                <div class="nav-icon-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
+            <a class="relative flex items-center gap-2 px-4 py-2 text-zinc-300 rounded-lg transition-all duration-300 ease-in-out hover:text-yellow-300 hover:bg-yellow-400/5 nav-link group" title="About" href="/about">
+                <div class="relative overflow-hidden nav-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0" class="transition-transform duration-300 group-hover:scale-110"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
                 </div>
-                <span class="nav-text">About</span>
+                <span class="font-medium transition-all duration-300 hidden sm:block lg:block nav-text">About</span>
             </a>
-            <a class="nav-link group" title="Speaking" href="/public-speaking">
-                <div class="nav-icon-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M96 96l0 160c0 53 43 96 96 96s96-43 96-96l-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0c0-53-43-96-96-96S96 43 96 96zM320 240l0 16c0 70.7-57.3 128-128 128s-128-57.3-128-128l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 89.1 66.2 162.7 152 174.4l0 33.6-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l72 0 72 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-33.6c85.8-11.7 152-85.3 152-174.4l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 24z" /></svg>
+            <a class="relative flex items-center gap-2 px-4 py-2 text-zinc-300 rounded-lg transition-all duration-300 ease-in-out hover:text-yellow-300 hover:bg-yellow-400/5 nav-link group" title="Speaking" href="/public-speaking">
+                <div class="relative overflow-hidden nav-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0" class="transition-transform duration-300 group-hover:scale-110"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M96 96l0 160c0 53 43 96 96 96s96-43 96-96l-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0c0-53-43-96-96-96S96 43 96 96zM320 240l0 16c0 70.7-57.3 128-128 128s-128-57.3-128-128l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 89.1 66.2 162.7 152 174.4l0 33.6-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l72 0 72 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-33.6c85.8-11.7 152-85.3 152-174.4l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 24z" /></svg>
                 </div>
-                <span class="nav-text">Speaking</span>
+                <span class="font-medium transition-all duration-300 hidden sm:block lg:block nav-text">Speaking</span>
             </a>
         </div>
     </nav>
+    
+    <!-- Mobile Navigation Overlay -->
+    <div class="fixed inset-0 bg-zinc-950/95 backdrop-blur-sm z-40 flex flex-col items-center justify-center transform translate-x-full transition-transform duration-300 ease-in-out md:hidden nav-links-mobile">
+        <!-- Close Button -->
+        <button class="absolute top-4 right-10 w-10 h-10 flex items-center justify-center text-zinc-400 hover:text-yellow-300 transition-colors duration-300 cursor-pointer mobile-close-btn" aria-label="Close mobile menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0" class="w-6 h-6"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
+        </button>
+        
+        <!-- Mobile Logo and Navigation -->
+        <div class="flex flex-col items-center gap-8 w-full max-w-sm px-8 mobile-nav-container">
+            <a href="/" class="brand-logo transition-all duration-300 hover:text-yellow-300 text-3xl font-bold group mb-8">
+                <span class="flex items-center">
+                    <span class="brand-text">Liam Goldfinch</span>
+                    <span class="brand-indicator w-3 h-3 bg-yellow-400 rounded-full ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                </span>
+            </a>
+            
+            <!-- Mobile Navigation Links as Cards -->
+            <a class="w-full text-center py-4 px-6 text-xl border border-zinc-800 rounded-lg bg-zinc-900/50 backdrop-blur-sm hover:border-yellow-400/50 hover:bg-yellow-400/5 nav-link group" title="Home" href="/">
+                <div class="mb-2 nav-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0" class="w-6 h-6 mx-auto"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" /></svg>
+                </div>
+                <span class="block nav-text">Home</span>
+            </a>
+            <a class="w-full text-center py-4 px-6 text-xl border border-zinc-800 rounded-lg bg-zinc-900/50 backdrop-blur-sm hover:border-yellow-400/50 hover:bg-yellow-400/5 nav-link group" title="Blog" href="/blog">
+                <div class="mb-2 nav-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0" class="w-6 h-6 mx-auto"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" /></svg>
+                </div>
+                <span class="block nav-text">Blog</span>
+            </a>
+            <a class="w-full text-center py-4 px-6 text-xl border border-zinc-800 rounded-lg bg-zinc-900/50 backdrop-blur-sm hover:border-yellow-400/50 hover:bg-yellow-400/5 nav-link group" title="About" href="/about">
+                <div class="mb-2 nav-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0" class="w-6 h-6 mx-auto"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
+                </div>
+                <span class="block nav-text">About</span>
+            </a>
+            <a class="w-full text-center py-4 px-6 text-xl border border-zinc-800 rounded-lg bg-zinc-900/50 backdrop-blur-sm hover:border-yellow-400/50 hover:bg-yellow-400/5 nav-link group" title="Speaking" href="/public-speaking">
+                <div class="mb-2 nav-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="1em" width="1em" stroke="currentColor" fill="currentColor" stroke-width="0" class="w-6 h-6 mx-auto"><!--!Font Awesome Free 6.7.2 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M96 96l0 160c0 53 43 96 96 96s96-43 96-96l-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0c0-53-43-96-96-96S96 43 96 96zM320 240l0 16c0 70.7-57.3 128-128 128s-128-57.3-128-128l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 89.1 66.2 162.7 152 174.4l0 33.6-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l72 0 72 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-33.6c85.8-11.7 152-85.3 152-174.4l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 24z" /></svg>
+                </div>
+                <span class="block nav-text">Speaking</span>
+            </a>
+        </div>
+    </div>
 </header>

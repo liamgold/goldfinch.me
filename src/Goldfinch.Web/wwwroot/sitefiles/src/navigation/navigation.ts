@@ -61,3 +61,60 @@ navLinks.forEach((link) => {
     element.style.transform = 'translateY(0)';
   });
 });
+
+// Mobile Menu Functionality
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle') as HTMLButtonElement;
+const mobileMenuOverlay = document.querySelector('.nav-links-mobile') as HTMLElement;
+const mobileCloseBtn = document.querySelector('.mobile-close-btn') as HTMLButtonElement;
+const body = document.body;
+
+function openMobileMenu() {
+  mobileMenuToggle?.classList.add('active');
+  mobileMenuOverlay?.classList.add('active');
+  body.classList.add('mobile-menu-open');
+}
+
+function closeMobileMenu() {
+  mobileMenuToggle?.classList.remove('active');
+  mobileMenuOverlay?.classList.remove('active');
+  body.classList.remove('mobile-menu-open');
+}
+
+// Toggle mobile menu when burger button is clicked
+mobileMenuToggle?.addEventListener('click', () => {
+  if (mobileMenuOverlay?.classList.contains('active')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+});
+
+// Close mobile menu when close button is clicked
+mobileCloseBtn?.addEventListener('click', closeMobileMenu);
+
+// Close mobile menu when clicking on a navigation link
+const mobileNavLinks = document.querySelectorAll('.nav-links-mobile .nav-link');
+mobileNavLinks.forEach((link) => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
+// Close mobile menu when clicking outside the menu
+mobileMenuOverlay?.addEventListener('click', (e) => {
+  if (e.target === mobileMenuOverlay) {
+    closeMobileMenu();
+  }
+});
+
+// Close mobile menu on escape key press
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenuOverlay?.classList.contains('active')) {
+    closeMobileMenu();
+  }
+});
+
+// Handle window resize - close mobile menu if screen becomes large
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768 && mobileMenuOverlay?.classList.contains('active')) {
+    closeMobileMenu();
+  }
+});
