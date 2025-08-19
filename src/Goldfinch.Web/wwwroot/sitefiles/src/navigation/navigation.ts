@@ -16,20 +16,105 @@ toggleScrolledClass();
 // Add a scroll event listener to update the data-scrolled attribute as the page scrolls
 window.addEventListener('scroll', toggleScrolledClass);
 
-// Get the burger icon button, mobile navigation container, and close button (X) elements
-const burgerIcon = document.getElementById('burgerIcon') as HTMLButtonElement;
-const mobileNav = document.getElementById('mobileNav') as HTMLDivElement;
-const closeNavButton = document.getElementById('closeNav') as HTMLButtonElement;
+// Enhanced header scroll effects
+let lastScrollY = window.scrollY;
+let ticking = false;
 
-// Check if the elements are found before adding event listeners
-if (burgerIcon && mobileNav && closeNavButton) {
-  // Add a click event listener to toggle mobile navigation visibility when the burger icon is clicked
-  burgerIcon.addEventListener('click', () => {
-    mobileNav.classList.toggle('hidden');
-  });
-
-  // Add a click event listener to close the mobile navigation when the close (X) button is clicked
-  closeNavButton.addEventListener('click', () => {
-    mobileNav.classList.add('hidden');
-  });
+function updateHeaderOnScroll() {
+  const currentScrollY = window.scrollY;
+  
+  if (header) {
+    // Add/remove scrolled state
+    if (currentScrollY > 50) {
+      header.setAttribute('data-scrolled', 'true');
+    } else {
+      header.setAttribute('data-scrolled', 'false');
+    }
+  }
+  
+  lastScrollY = currentScrollY;
+  ticking = false;
 }
+
+// Throttle scroll events for better performance
+function requestTick() {
+  if (!ticking) {
+    requestAnimationFrame(updateHeaderOnScroll);
+    ticking = true;
+  }
+}
+
+// Update scroll listener to use throttled function
+window.removeEventListener('scroll', toggleScrolledClass);
+window.addEventListener('scroll', requestTick);
+
+// Add smooth hover effects for navigation links
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach((link) => {
+  const element = link as HTMLElement;
+  element.addEventListener('mouseenter', () => {
+    element.style.transform = 'translateY(-1px)';
+  });
+  
+  element.addEventListener('mouseleave', () => {
+    element.style.transform = 'translateY(0)';
+  });
+});
+
+// Mobile Menu Functionality
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle') as HTMLButtonElement;
+const mobileMenuOverlay = document.querySelector('.nav-links-mobile') as HTMLElement;
+const mobileCloseBtn = document.querySelector('.mobile-close-btn') as HTMLButtonElement;
+const body = document.body;
+
+function openMobileMenu() {
+  mobileMenuToggle?.classList.add('active');
+  mobileMenuOverlay?.classList.add('active');
+  body.classList.add('mobile-menu-open');
+}
+
+function closeMobileMenu() {
+  mobileMenuToggle?.classList.remove('active');
+  mobileMenuOverlay?.classList.remove('active');
+  body.classList.remove('mobile-menu-open');
+}
+
+// Toggle mobile menu when burger button is clicked
+mobileMenuToggle?.addEventListener('click', () => {
+  if (mobileMenuOverlay?.classList.contains('active')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+});
+
+// Close mobile menu when close button is clicked
+mobileCloseBtn?.addEventListener('click', closeMobileMenu);
+
+// Close mobile menu when clicking on a navigation link
+const mobileNavLinks = document.querySelectorAll('.nav-links-mobile .nav-link');
+mobileNavLinks.forEach((link) => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
+// Close mobile menu when clicking outside the menu
+mobileMenuOverlay?.addEventListener('click', (e) => {
+  if (e.target === mobileMenuOverlay) {
+    closeMobileMenu();
+  }
+});
+
+// Close mobile menu on escape key press
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenuOverlay?.classList.contains('active')) {
+    closeMobileMenu();
+  }
+});
+
+// Handle window resize - close mobile menu if screen becomes large
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768 && mobileMenuOverlay?.classList.contains('active')) {
+    closeMobileMenu();
+  }
+});
