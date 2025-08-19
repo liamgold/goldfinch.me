@@ -219,7 +219,7 @@ pre {
 }
 
 /* Tablet-specific adjustments for desktop navigation */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: theme('screens.md')) and (max-width: calc(theme('screens.lg') - 1px)) {
   .nav-link {
     @apply px-3;
   }

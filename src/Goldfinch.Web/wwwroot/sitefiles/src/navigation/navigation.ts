@@ -1,6 +1,9 @@
 // Get the header element
 const header = document.querySelector('header') as HTMLElement;
 
+// Tailwind breakpoint constants
+const TAILWIND_MD_BREAKPOINT = 768; // Tailwind's md breakpoint
+
 // Function to toggle the data-scrolled attribute based on the scroll position
 function toggleScrolledClass() {
   if (window.scrollY > 0) {
@@ -12,9 +15,6 @@ function toggleScrolledClass() {
 
 // Call the function on page load in case the page is already scrolled
 toggleScrolledClass();
-
-// Add a scroll event listener to update the data-scrolled attribute as the page scrolls
-window.addEventListener('scroll', toggleScrolledClass);
 
 // Enhanced header scroll effects
 let lastScrollY = window.scrollY;
@@ -45,7 +45,6 @@ function requestTick() {
 }
 
 // Update scroll listener to use throttled function
-window.removeEventListener('scroll', toggleScrolledClass);
 window.addEventListener('scroll', requestTick);
 
 // Add smooth hover effects for navigation links
@@ -114,7 +113,7 @@ document.addEventListener('keydown', (e) => {
 
 // Handle window resize - close mobile menu if screen becomes large
 window.addEventListener('resize', () => {
-  if (window.innerWidth >= 768 && mobileMenuOverlay?.classList.contains('active')) {
+  if (window.innerWidth >= TAILWIND_MD_BREAKPOINT && mobileMenuOverlay?.classList.contains('active')) {
     closeMobileMenu();
   }
 });
