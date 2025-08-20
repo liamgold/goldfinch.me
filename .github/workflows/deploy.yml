@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -28,7 +31,8 @@ jobs:
           dotnet publish ./src/Goldfinch.Web/Goldfinch.Web.csproj
           -c Release -o ./out
           -r linux-x64 --self-contained true
-          /p:PublishSingleFile=true
+          /p:PublishSingleFile=false
+          /p:PublishTrimmed=false
 
       - name: Deploy to Azure WebApp
         uses: azure/webapps-deploy@v3
