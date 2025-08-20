@@ -1,0 +1,38 @@
+name: Build & Deploy (Publish Profile)
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.106'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Publish self-contained
+        run: >
+          dotnet publish ./src/Goldfinch.Web/Goldfinch.Web.csproj
+          -c Release -o ./out
+          -r linux-x64 --self-contained true
+          /p:PublishSingleFile=true
+
+      - name: Deploy to Azure WebApp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: goldfinch-blog
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ./out
