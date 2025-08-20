@@ -15,10 +15,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup .NET
+      - name: Setup .NET from global.json
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.106'
+          global-json-file: global.json
+
+      - name: Setup Node 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+          cache-dependency-path: src/Goldfinch.Web/wwwroot/SiteFiles/package-lock.json
+          
+      - name: npm ci
+        working-directory: src/Goldfinch.Web/wwwroot/SiteFiles
+        run: npm ci
+        
+      - name: npm run build
+        working-directory: src/Goldfinch.Web/wwwroot/SiteFiles
+        env:
+          NODE_ENV: production
+        run: npm run build          
 
       - name: Restore
         run: dotnet restore
