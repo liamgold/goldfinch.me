@@ -1,3 +1,4 @@
+using CMS.Websites;
 using Goldfinch.Core;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Web.Middleware;
@@ -22,8 +23,9 @@ var builder = WebApplication.CreateBuilder(args);
 var env = builder.Environment;
 var config = builder.Configuration;
 
-// Local connection strings file (should not be committed into source control).
 config.AddJsonFile("connectionstrings.json", optional: true);
+
+builder.Services.Configure<WebsiteChannelDomainOptions>(builder.Configuration.GetSection("WebsiteChannelDomains"));
 
 // Enable desired Kentico Xperience features
 builder.Services.AddKentico(features =>
