@@ -7,6 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Kentico.Xperience.Admin" Version="30.6.0" />
+    <PackageVersion Include="Kentico.Xperience.AzureStorage" Version="30.6.0" />
     <PackageVersion Include="Kentico.Xperience.MiniProfiler" Version="2.1.0" />
     <PackageVersion Include="Kentico.Xperience.WebApp" Version="30.6.0" />
     <PackageVersion Include="Schema.NET" Version="13.0.0" />

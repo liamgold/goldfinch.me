@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 	<ItemGroup>
 		<PackageReference Include="Kentico.Xperience.Admin" />
+		<PackageReference Include="Kentico.Xperience.AzureStorage" />
 		<PackageReference Include="Kentico.Xperience.MiniProfiler" />
 		<PackageReference Include="Kentico.Xperience.WebApp" />
 		<PackageReference Include="Schema.NET" />
