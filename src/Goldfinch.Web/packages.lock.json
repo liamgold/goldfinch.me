@@ -14,6 +14,17 @@
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.16"
         }
       },
+      "Kentico.Xperience.AzureStorage": {
+        "type": "Direct",
+        "requested": "[30.6.0, )",
+        "resolved": "30.6.0",
+        "contentHash": "nX+7+vTAP+C7I9Sj2ils/d4Wxxm6uKK9at3qkRAezlMZg15cCtuzr0J2q+qFcIAze9hO2Z1hzVgNSD9+P/wXgA==",
+        "dependencies": {
+          "Azure.Storage.Blobs": "12.24.0",
+          "Kentico.Xperience.Core": "30.6.0",
+          "Newtonsoft.Json": "13.0.3"
+        }
+      },
       "Kentico.Xperience.MiniProfiler": {
         "type": "Direct",
         "requested": "[2.1.0, )",
@@ -538,16 +549,6 @@
           "Microsoft.Extensions.Options": "8.0.2",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0",
           "Microsoft.IdentityModel.JsonWebTokens": "7.6.2"
-        }
-      },
-      "Kentico.Xperience.AzureStorage": {
-        "type": "Transitive",
-        "resolved": "30.5.1",
-        "contentHash": "ti6eZjJjx7j0BJjPy6GAICwhamOkhNMe/QNs3Ql/s+KAZCUoJAWa8wlFwbL836m/z3MVwha1C6Bc/xCazG5a8Q==",
-        "dependencies": {
-          "Azure.Storage.Blobs": "12.24.0",
-          "Kentico.Xperience.Core": "30.5.1",
-          "Newtonsoft.Json": "13.0.3"
         }
       },
       "Kentico.Xperience.Core": {
