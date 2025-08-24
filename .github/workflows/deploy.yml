@@ -10,6 +10,9 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
     steps:
       - name: Checkout code
@@ -19,6 +22,11 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
+
+      - name: Show .NET info (SDK & runtimes on runner)
+        run: |
+          dotnet --info
+          echo "SDK version: $(dotnet --version)"
 
       - name: Setup Node 22.x
         uses: actions/setup-node@v4
@@ -35,7 +43,7 @@ jobs:
         working-directory: src/Goldfinch.Web/wwwroot/sitefiles
         env:
           NODE_ENV: production
-        run: npm run build          
+        run: npm run build
 
       - name: Restore
         run: dotnet restore
