@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>ce05e668-649a-4241-9312-7a3e696b9c6f</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>DPAPI-LocalStorage-n33g2u22</CodeName>
+      <GUID>c3333312-3c72-44cf-8269-1d193a35b1d4</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d921e73d-095d-4ac0-a3c9-1659d6e7701c</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":465,"Y":183},"Identifier":"8b0ba0a8-3c5a-4f94-bcb9-1fe4b2b37cb6","Name":"DPAPI - Local Storage.png","Extension":".png","Size":10404,"Width":930,"Height":366,"LastModified":"2025-03-17T23:58:37.1815444Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Each server (Server 1 and Server 2) manages its own encryption keys locally.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>DPAPI - Local Storage</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

@@ -13,7 +13,7 @@
   <DocumentName>404 - Page Not Found</DocumentName>
   <ErrorCode>404</ErrorCode>
   <ErrorText>
-    <![CDATA[<p>Looks like something went wrong...</p>]]>
+    <![CDATA[<p>It seems the page you're looking for doesn't exist or has been moved.</p>]]>
   </ErrorText>
-  <ErrorTitle>Oops... Page Not Found!</ErrorTitle>
+  <ErrorTitle>Oops! Page not found...</ErrorTitle>
 </contentitemdata.goldfinch.errorpage>

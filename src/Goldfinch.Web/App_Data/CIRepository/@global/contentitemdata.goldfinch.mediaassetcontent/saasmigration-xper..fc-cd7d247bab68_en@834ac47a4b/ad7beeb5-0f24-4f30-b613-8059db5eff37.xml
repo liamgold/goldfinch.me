@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>1528ede8-9e29-44c3-85fc-cd7d247bab68</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SaaSMigration-XperiencePortal-CreatePAT-eai5hqsy</CodeName>
+      <GUID>a10ba675-6bab-4522-9a02-25eb9c31b108</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>ad7beeb5-0f24-4f30-b613-8059db5eff37</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":694,"Y":345},"Identifier":"78145c0d-55d9-469a-bede-5f844dfd5c86","Name":"Create PAT.jpeg","Extension":".jpeg","Size":25027,"Width":1388,"Height":690,"LastModified":"2025-04-25T20:09:03.2773275Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Creating a Personal Access Token (PAT) in the Xperience Portal.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>SaaS Migration - Xperience Portal - Create PAT</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

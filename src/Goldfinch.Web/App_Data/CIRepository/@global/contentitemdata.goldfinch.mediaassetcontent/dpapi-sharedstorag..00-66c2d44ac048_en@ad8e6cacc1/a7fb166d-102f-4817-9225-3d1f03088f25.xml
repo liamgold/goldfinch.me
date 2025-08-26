@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>30ee05c3-c8b7-4ae7-8600-66c2d44ac048</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>DPAPI-SharedStorage-grbaszn4</CodeName>
+      <GUID>fe7d140f-5db5-4b96-8f00-5896d57cb15b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a7fb166d-102f-4817-9225-3d1f03088f25</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":465,"Y":340},"Identifier":"afdabe76-e50f-4507-a27a-c80a21c896b1","Name":"DPAPI - Shared Storage.png","Extension":".png","Size":17148,"Width":930,"Height":681,"LastModified":"2025-03-17T23:59:12.8540208Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Both servers (Server 1 and Server 2) share encryption keys from a shared storage.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>DPAPI - Shared Storage</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

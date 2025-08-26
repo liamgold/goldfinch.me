@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2025-08-10 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[Learn about why I’ve made the source code for my personal blog site publicly available on GitHub.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>732bdfb8-7668-48e2-b4be-71c06b3a8785</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch.meIsNowOpenSource-sc33x623</CodeName>
+      <GUID>cfba8eb9-a13b-44a3-8da4-bd1bdf233f9f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>cdc27977-67ed-44ee-8839-3277c60fdbef</ContentItemDataGUID>
+  <DocumentName>Goldfinch.me is Now Open Source</DocumentName>
+</contentitemdata.goldfinch.blogpost>

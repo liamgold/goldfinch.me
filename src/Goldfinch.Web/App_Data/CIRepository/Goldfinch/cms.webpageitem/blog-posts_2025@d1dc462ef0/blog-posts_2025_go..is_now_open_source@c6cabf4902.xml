@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Goldfinch.meIsNowOpenSource-sc33x623</CodeName>
+    <GUID>cfba8eb9-a13b-44a3-8da4-bd1bdf233f9f</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>4713de96-c234-4c7b-9346-de057200b734</WebPageItemGUID>
+  <WebPageItemName>Goldfinch.meIsNowOpenSource-sc33x623</WebPageItemName>
+  <WebPageItemOrder>1</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>2025-psyg3hoc</CodeName>
+    <GUID>9e05f032-20da-4aa1-ac01-4870a5e9fc6d</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Blog-Posts/2025/Goldfinch.me_is_Now_Open_Source</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

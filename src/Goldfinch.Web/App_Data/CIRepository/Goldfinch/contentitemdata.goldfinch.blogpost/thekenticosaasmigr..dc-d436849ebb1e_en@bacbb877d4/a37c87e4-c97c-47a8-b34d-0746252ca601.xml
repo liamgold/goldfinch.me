@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.blogpost>
+  <BlogPostCanonicalUrl />
+  <BlogPostDate>2025-04-22 23:00:00Z</BlogPostDate>
+  <BlogPostSummary>
+    <![CDATA[A practical guide to migrating an Xperience by Kentico site to Kentico SaaS - covering prep, code updates, and your first deployment.]]>
+  </BlogPostSummary>
+  <ContentItemDataCommonDataID>
+    <GUID>6f85e11c-4d87-4c6c-94dc-d436849ebb1e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TheKenticoSaaSMigration_AStep-by-StepGuide-jal13gb7</CodeName>
+      <GUID>8d1a9a13-6eab-4168-a02f-c05518c0d907</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a37c87e4-c97c-47a8-b34d-0746252ca601</ContentItemDataGUID>
+  <DocumentName>The Kentico SaaS Migration: A Step-by-Step Guide</DocumentName>
+</contentitemdata.goldfinch.blogpost>
