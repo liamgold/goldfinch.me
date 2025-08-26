@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>TheKenticoSaaSMigration_AStep-by-StepGuide-jal13gb7</CodeName>
+    <GUID>8d1a9a13-6eab-4168-a02f-c05518c0d907</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>2a88e0a3-ed33-4b24-983e-a1ae14311399</WebPageItemGUID>
+  <WebPageItemName>
+    <![CDATA[TheKenticoSaaSMigration_AStep-by-StepGuide-jal13gb7]]>
+  </WebPageItemName>
+  <WebPageItemOrder>6</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>2025-psyg3hoc</CodeName>
+    <GUID>9e05f032-20da-4aa1-ac01-4870a5e9fc6d</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Blog-Posts/2025/The_Kentico_SaaS_Migration_A_Step-by-Step_Guide]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>Goldfinch</CodeName>
+      <GUID>8d6b2e28-87c3-4ea4-8a3d-dfff7c209710</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

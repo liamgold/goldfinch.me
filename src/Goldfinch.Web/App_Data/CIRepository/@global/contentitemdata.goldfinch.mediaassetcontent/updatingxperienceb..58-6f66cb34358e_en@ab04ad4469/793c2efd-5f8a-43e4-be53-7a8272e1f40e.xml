@@ -11,7 +11,7 @@
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>793c2efd-5f8a-43e4-be53-7a8272e1f40e</ContentItemDataGUID>
   <MediaAssetContentAsset>
-    <![CDATA[{"Identifier":"6d34d620-0335-40f1-b8ad-b2d096cf7d12","Name":"XAP-Updated-database.PNG","Extension":".PNG","Size":15091,"Width":1219,"Height":554,"LastModified":"2024-07-11T21:38:26.6510909Z"}]]>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":403,"Y":263},"Identifier":"136fb6cd-a13e-4410-9309-29eaf1c64a49","Name":"6d34d620-0335-40f1-b8ad-b2d096cf7d12.png","Extension":".png","Size":15091,"Width":1219,"Height":554,"LastModified":"2025-08-26T10:22:45.03506Z"}]]>
   </MediaAssetContentAsset>
   <MediaAssetContentShortDescription>Updating the database through the CLI</MediaAssetContentShortDescription>
   <MediaAssetContentTitle>Updating Xperience by Kentico - Update CLI</MediaAssetContentTitle>

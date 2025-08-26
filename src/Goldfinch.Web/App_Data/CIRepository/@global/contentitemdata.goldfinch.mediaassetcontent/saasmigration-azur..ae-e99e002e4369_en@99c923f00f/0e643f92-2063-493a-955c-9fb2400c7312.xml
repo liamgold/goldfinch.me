@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>f47c20ee-34be-490c-b5ae-e99e002e4369</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SaaSMigration-AzureDevOps-OldPipeline-cn3lf1be</CodeName>
+      <GUID>eb203deb-70db-420d-83cf-eb9cdcd47ac7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>0e643f92-2063-493a-955c-9fb2400c7312</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":172,"Y":197},"Identifier":"338739b5-3830-44a6-940e-e6759fba0043","Name":"Azure DevOps - Old Pipeline.png","Extension":".png","Size":6337,"Width":345,"Height":394,"LastModified":"2025-04-25T20:04:28.2479532Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Azure DevOps pipeline steps for building the self-hosted website.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>SaaS Migration - Azure DevOps - Old Pipeline</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

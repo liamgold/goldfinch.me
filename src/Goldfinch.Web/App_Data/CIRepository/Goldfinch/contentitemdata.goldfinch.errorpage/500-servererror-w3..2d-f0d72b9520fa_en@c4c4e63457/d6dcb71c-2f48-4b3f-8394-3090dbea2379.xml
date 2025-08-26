@@ -13,7 +13,7 @@
   <DocumentName>500 - Server Error</DocumentName>
   <ErrorCode>500</ErrorCode>
   <ErrorText>
-    <![CDATA[<p>Oops! Something went wrong...</p>]]>
+    <![CDATA[<p>It’s not you, it’s me. The server encountered an error and couldn’t complete your request.</p>]]>
   </ErrorText>
-  <ErrorTitle>Server Error</ErrorTitle>
+  <ErrorTitle>Oops! Something went wrong...</ErrorTitle>
 </contentitemdata.goldfinch.errorpage>

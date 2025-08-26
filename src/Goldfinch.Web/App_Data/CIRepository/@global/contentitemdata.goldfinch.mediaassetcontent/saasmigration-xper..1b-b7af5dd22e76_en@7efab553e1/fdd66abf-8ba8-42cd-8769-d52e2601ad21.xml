@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>af2487bc-496f-4cdd-861b-b7af5dd22e76</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SaaSMigration-XperiencePortal-DeploymentDashboard-u6a3ouue</CodeName>
+      <GUID>f2fdd084-9433-4318-8323-fe562239d437</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>fdd66abf-8ba8-42cd-8769-d52e2601ad21</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":756,"Y":372},"Identifier":"8a9b2215-1465-4d3a-8e20-27ae0f882e40","Name":"Azure DevOps Deploy.png","Extension":".png","Size":61185,"Width":1512,"Height":745,"LastModified":"2025-04-25T20:06:54.2640443Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Deployment to Xperience Portal using Azure DevOps pipeline.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>
+    <![CDATA[SaaS Migration - Xperience Portal - Deployment Dashboard]]>
+  </MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

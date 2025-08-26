@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>3437d04d-8581-4fdf-ac98-34d3fa023a80</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SaaSMigration-AzureDevOps-NewPipeline-y9fp15h1</CodeName>
+      <GUID>c07050de-6d62-4afe-806e-1fe5a80dcb2a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f23df7f0-8e8a-4cd9-a113-a14e2d86486c</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":200,"Y":418},"Identifier":"14903d3d-3a87-4b76-8613-95118ff62f99","Name":"Azure DevOps - New Pipeline.png","Extension":".png","Size":14080,"Width":400,"Height":837,"LastModified":"2025-04-25T20:05:18.5137709Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Azure DevOps pipeline steps for building and deploying the SaaS website.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>SaaS Migration - Azure DevOps - New Pipeline</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

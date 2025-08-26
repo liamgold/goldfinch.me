@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>0994406f-1c23-4def-8b30-2e96d0975733</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SustainabilityPackage-PageTab-v4wqnnrx</CodeName>
+      <GUID>7774a724-d381-40dc-ad68-9583bdcd3b0d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>858e459c-4bd3-42eb-9caf-3c815922e035</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":919,"Y":538},"Identifier":"00e01137-01b1-41a5-b568-4eaf9dc98982","Name":"Sustainability Report - Page Tab.png","Extension":".png","Size":183319,"Width":1838,"Height":1077,"LastModified":"2025-05-20T20:15:41.7294609Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>
+    <![CDATA[Sample sustainability report for a page on the Dancing Goat demo website.]]>
+  </MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Sustainability Package - Page Tab</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>
