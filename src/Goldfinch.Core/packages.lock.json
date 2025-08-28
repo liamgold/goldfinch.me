@@ -4,12 +4,12 @@
     "net9.0": {
       "Kentico.Xperience.Admin": {
         "type": "Direct",
-        "requested": "[30.9.0, )",
-        "resolved": "30.9.0",
-        "contentHash": "PEfDS0v3ZRhRKEqza/kgAFSJQOSGXX3HSz1Bm7Kn7dKc0qYHtvPUH5sV2kBjJXSBfB0gubeWw1rghFy9JMzoYw==",
+        "requested": "[30.9.1, )",
+        "resolved": "30.9.1",
+        "contentHash": "qdw9WG8TT4gtmRRW2qVZGni2rJecYKAzvV5uQ9BseXRQ0aQdzL1mD1QxmqUBW07K8Yf9+2azEWP8ZRqntp3VsA==",
         "dependencies": {
           "Kentico.Aira.Client": "3.6.1",
-          "Kentico.Xperience.WebApp": "[30.9.0]",
+          "Kentico.Xperience.WebApp": "[30.9.1]",
           "Microsoft.AspNetCore.SpaServices.Extensions": "8.0.19",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.19",
           "Microsoft.SemanticKernel": "1.62.0",
@@ -19,15 +19,15 @@
       },
       "Kentico.Xperience.WebApp": {
         "type": "Direct",
-        "requested": "[30.9.0, )",
-        "resolved": "30.9.0",
-        "contentHash": "ECiq2eWZ//ndZnlSFKaI5HZYEdkg5cRa1F651r2M+8nhcnehULq8qzNQj+1mOL/7Cr6H+HTh0vWbv/K1yfD8Ww==",
+        "requested": "[30.9.1, )",
+        "resolved": "30.9.1",
+        "contentHash": "CrAIVnnaXnjmLVXOuk1kaHLmjqPQsg4rtPuAxxvIygvwOaTHIjZNxCj+DvyFUS7muZwPyQPj3IbCxIbS/JhL0A==",
         "dependencies": {
           "CommandLineParser": "2.9.1",
           "HotChocolate.AspNetCore": "15.0.3",
           "HotChocolate.Data": "15.0.3",
           "HtmlSanitizer": "9.0.886",
-          "Kentico.Xperience.Core": "[30.9.0]",
+          "Kentico.Xperience.Core": "[30.9.1]",
           "Microsoft.AspNetCore.Components": "8.0.19",
           "Microsoft.Extensions.Caching.Memory": "8.0.1",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.19"
@@ -470,12 +470,12 @@
       },
       "Kentico.Xperience.Core": {
         "type": "Transitive",
-        "resolved": "30.9.0",
-        "contentHash": "R71dxFHGuMm4epZQYvSk7GsYiVING7a6PR/fdNTbdhZ4r4zxU1VxowCuNCZP52D4iBY/UmdL//XAdSxuDfEa9A==",
+        "resolved": "30.9.1",
+        "contentHash": "jVyaYsP5sOq5wtz8kdsYzh3snRbYKjrmBEyMa9mgJQCuEeoj+0hcUXUKdozGPO9hGl3f/BWNwWxCLApXjtJo1w==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "Kentico.Aira.Client": "3.6.1",
-          "Magick.NET-Q8-AnyCPU": "14.7.0",
+          "Magick.NET-Q8-AnyCPU": "14.8.1",
           "MailKit": "4.13.0",
           "Microsoft.Data.SqlClient": "5.2.3",
           "Microsoft.Extensions.Caching.Memory": "8.0.1",
@@ -493,16 +493,16 @@
       },
       "Magick.NET-Q8-AnyCPU": {
         "type": "Transitive",
-        "resolved": "14.7.0",
-        "contentHash": "JQiOjOPXJar57Ew5YeD28zE1pbHpSKBYYQZBNkqhvXbLxCcTmu8djfVLKkqTcTAxFX/Mcj14j2RB+ORkCYD9Jw==",
+        "resolved": "14.8.1",
+        "contentHash": "Q8+Y2ht0w015IIgomYVUJl45uYIEUmG1fTQ/cwL9iHsQ5z6TBofLAkGD2trOpPEHQlpHK9qD837bN34Ak8VS1g==",
         "dependencies": {
-          "Magick.NET.Core": "14.7.0"
+          "Magick.NET.Core": "14.8.1"
         }
       },
       "Magick.NET.Core": {
         "type": "Transitive",
-        "resolved": "14.7.0",
-        "contentHash": "eXNEgZwUQ+QerJgIoAe9BlFolm3RzQ0k677AK5PLiLh701XQX1p878mt+jEQYJD58Jwcayto1UtFvtvnChyGyg=="
+        "resolved": "14.8.1",
+        "contentHash": "XkfFOOpak9Rsj6El18x3z+4Gr/W71uDQvoHz3WvEfZUUh32G2X6HC+r1VzR/DgUssvsbkDLr5a82/QCf7Xrbxw=="
       },
       "MailKit": {
         "type": "Transitive",
