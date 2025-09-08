@@ -2,14 +2,14 @@
 using CMS.Core;
 using CMS.DataEngine;
 using CMS.IO;
-using Goldfinch.Web;
+using Goldfinch.Web.Infrastructure.Storage;
 using Kentico.Xperience.AzureStorage;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
 [assembly: RegisterModule(typeof(StorageInitializationModule))]
 
-namespace Goldfinch.Web;
+namespace Goldfinch.Web.Infrastructure.Storage;
 
 public class StorageInitializationModule : Module
 {
