@@ -5,6 +5,7 @@ using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Membership;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
+using Kentico.Xperience.Admin.Base;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -47,6 +48,19 @@ builder.Services.AddAuthentication();
 // services.AddAuthorization();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<AdminLocalizationOptions>(options =>
+{
+    options.DefaultCultureCode = "en-GB";
+    options.SupportedCultures =
+    [
+        new AdminCulture
+        {
+            CultureCode = "en-GB",
+            DisplayName = "English (United Kingdom)",
+        },
+    ];
+});
 
 builder.Services.Configure<RouteOptions>(options =>
 {
