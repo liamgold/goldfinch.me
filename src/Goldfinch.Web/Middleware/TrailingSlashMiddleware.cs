@@ -82,8 +82,15 @@ public sealed class TrailingSlashMiddleware
         {
             // Build safe relative URL
             var target = UriHelper.BuildRelative(pathBase, newPath, query);
+            
+            // Enhanced safety check - ensure the target is truly relative and safe
+            if (!Uri.TryCreate(target, UriKind.Relative, out var uri))
+            {
+                await _next(context);
+                return;
+            }
 
-            // Additional safety check - ensure the target is relative
+            // Also check for double slash (protocol-relative) and must start with single slash
             if (!target.StartsWith('/') || target.StartsWith("//"))
             {
                 await _next(context);
