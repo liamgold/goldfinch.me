@@ -100,6 +100,8 @@ builder.Services
     .AddHttpContextAccessor()
     .AddDefaultSitemapServices<HttpContextBaseUrlProvider>();
 
+builder.Services.AddTrailingSlash(builder.Configuration);
+
 var app = builder.Build();
 
 app.InitKentico();
