@@ -124,7 +124,8 @@ public sealed class TrailingSlashMiddleware
     /// </summary>
     private static bool LooksLikeFile(string path)
     {
-        var lastSegment = path.Split('/').LastOrDefault();
+        int lastSlash = path.LastIndexOf('/');
+        var lastSegment = lastSlash >= 0 ? path.Substring(lastSlash + 1) : path;
         return !string.IsNullOrEmpty(lastSegment) && lastSegment.Contains('.');
     }
 }
