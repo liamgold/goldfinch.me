@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2023-08-03 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Kentico has always excelled at allowing developers to extend the admin site. However, with Xperience by Kentico, there are some notable differences. Let's walk through a step-by-step process for creating custom modules in Xperience by Kentico.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>3e42a82e-c3b7-4205-8a01-fb44f01a230b</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,5 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>c7e4eda5-5ef1-4830-81b6-a7c5422ba111</ContentItemDataGUID>
-  <DocumentName>Creating a Custom Module in Xperience by Kentico</DocumentName>
 </contentitemdata.goldfinch.blogpost>

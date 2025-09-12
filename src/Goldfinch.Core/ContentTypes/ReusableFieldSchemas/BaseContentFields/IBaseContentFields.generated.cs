@@ -15,43 +15,25 @@ using System.Collections.Generic;
 namespace Goldfinch.Core.ContentTypes
 {
 	/// <summary>
-	/// Defines a contract for content types with the <see cref="IWebPageMeta"/> reusable schema assigned.
+	/// Defines a contract for content types with the <see cref="IBaseContentFields"/> reusable schema assigned.
 	/// </summary>
-	public interface IWebPageMeta
+	public interface IBaseContentFields
 	{
 		/// <summary>
 		/// Code name of the reusable field schema.
 		/// </summary>
-		public const string REUSABLE_FIELD_SCHEMA_NAME = "WebPageMeta";
+		public const string REUSABLE_FIELD_SCHEMA_NAME = "BaseContentFields";
 
 
 		/// <summary>
-		/// WebPageMetaTitle.
+		/// BaseContentTitle.
 		/// </summary>
-		public string WebPageMetaTitle { get; set; }
+		public string BaseContentTitle { get; set; }
 
 
 		/// <summary>
-		/// WebPageMetaDescription.
+		/// BaseContentShortDescription.
 		/// </summary>
-		public string WebPageMetaDescription { get; set; }
-
-
-		/// <summary>
-		/// WebPageMetaExcludeFromSitemap.
-		/// </summary>
-		public bool WebPageMetaExcludeFromSitemap { get; set; }
-
-
-		/// <summary>
-		/// WebPageMetaRobots.
-		/// </summary>
-		public string WebPageMetaRobots { get; set; }
-
-
-		/// <summary>
-		/// WebPageCanonicalURL.
-		/// </summary>
-		public string WebPageCanonicalURL { get; set; }
+		public string BaseContentShortDescription { get; set; }
 	}
 }

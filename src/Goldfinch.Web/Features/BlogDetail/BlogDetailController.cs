@@ -45,8 +45,8 @@ public class BlogDetailController : Controller
         var currentPage = await _blogPostRepository.GetBlogPost(page.WebPageItemID);
 
         _metaService.SetMeta(new Meta(
-            Title: currentPage.DocumentName,
-            Description: currentPage.BlogPostSummary,
+            Title: currentPage.BaseContentTitle,
+            Description: currentPage.BaseContentShortDescription,
             WebPageItemGUID: currentPage.SystemFields.WebPageItemGUID,
             CanonicalUrl: currentPage.BlogPostCanonicalUrl,
             NextUrl: string.Empty,

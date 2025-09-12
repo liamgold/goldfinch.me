@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.goldfinch.blogpost>
   <BlogPostDate>2023-10-22 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Azure Key Vault is useful for securing sensitive data for both Kentico Xperience 13 presentation and administration websites, but how do you implement it? Let's take a look!]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>0cbd0d7b-450f-411f-b3d6-f0d7ee79374f</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -14,5 +11,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>c892f84f-6531-4065-9fa1-eb5ed4099170</ContentItemDataGUID>
-  <DocumentName>Setting up Azure Key Vault in Kentico Xperience 13</DocumentName>
 </contentitemdata.goldfinch.blogpost>

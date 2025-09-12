@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Learn about why I’ve made the source code for my personal blog site publicly available on GitHub.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>Goldfinch.me is Now Open Source</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>Goldfinch.meIsNowOpenSource-sc33x623</CodeName>
     <GUID>cfba8eb9-a13b-44a3-8da4-bd1bdf233f9f</GUID>
@@ -13,7 +17,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2025-08-10 21:45:14Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>732bdfb8-7668-48e2-b4be-71c06b3a8785</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-08-10 21:48:16Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 21:41:32Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration />
   <ContentItemCommonDataVisualBuilderWidgets>

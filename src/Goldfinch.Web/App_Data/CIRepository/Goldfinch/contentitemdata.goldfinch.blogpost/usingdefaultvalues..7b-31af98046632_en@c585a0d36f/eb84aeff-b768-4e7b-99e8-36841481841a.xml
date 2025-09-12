@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.goldfinch.blogpost>
   <BlogPostDate>2020-08-16 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[With Kentico MVC forms no longer resolving query string macros for default field values, let's figure out how to work around it!]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>8c8288d9-53a9-40e9-857b-31af98046632</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -14,5 +11,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>eb84aeff-b768-4e7b-99e8-36841481841a</ContentItemDataGUID>
-  <DocumentName>Using default values in Kentico MVC Forms</DocumentName>
 </contentitemdata.goldfinch.blogpost>

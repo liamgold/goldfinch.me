@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2024-07-01 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[In today's digital landscape, ensuring the security of web applications is more critical than ever. With cyber threats continuously evolving, developers and administrators must implement robust security measures to protect their applications and user data. One such measure is the Content Security Policy (CSP). In this blog post, we'll dive into what CSP is, why it's essential, and how you can easily manage CSP headers for Xperience by Kentico.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>52c8d810-337d-4289-95f5-f8c183fd3bd1</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,7 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>c4851265-587e-42f9-b38f-afef069a28a6</ContentItemDataGUID>
-  <DocumentName>
-    <![CDATA[Understanding Content Security Policy (CSP) and Its Importance]]>
-  </DocumentName>
 </contentitemdata.goldfinch.blogpost>

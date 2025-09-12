@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.goldfinch.blogpost>
   <BlogPostDate>2020-09-26 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[When adding forms to websites, there may be occasions where you might prefer to restrict form respondents from making multiple form submissions.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>a3df53c5-93cb-499b-91cf-d880b0b30c3d</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -14,5 +11,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>d824aecd-f058-430d-991d-ecd1f6698050</ContentItemDataGUID>
-  <DocumentName>Unique form submissions in Kentico 12 MVC</DocumentName>
 </contentitemdata.goldfinch.blogpost>

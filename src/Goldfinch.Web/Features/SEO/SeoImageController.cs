@@ -50,7 +50,7 @@ namespace Goldfinch.Web.Features.SEO
                 Origin = new PointF(50, (image.Height / 2) - 100),
                 TextAlignment = TextAlignment.Center,
             };
-            image.Mutate(ctx => ctx.DrawText(textOptions, currentPage.DocumentName, _titleColour));
+            image.Mutate(ctx => ctx.DrawText(textOptions, currentPage.BaseContentTitle, _titleColour));
 
             // Add Footer text
             textOptions = new RichTextOptions(_footerFont)

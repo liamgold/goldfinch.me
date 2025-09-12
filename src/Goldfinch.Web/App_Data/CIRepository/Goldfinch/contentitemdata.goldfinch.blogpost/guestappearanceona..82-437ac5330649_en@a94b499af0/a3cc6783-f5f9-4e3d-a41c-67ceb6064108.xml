@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2021-11-15 00:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Learn about my recent guest appearance on Kentico Xperience's Ask the Experts YouTube session.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>1201bee7-122f-4863-b982-437ac5330649</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,5 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>a3cc6783-f5f9-4e3d-a41c-67ceb6064108</ContentItemDataGUID>
-  <DocumentName>Guest appearance on Ask the Experts</DocumentName>
 </contentitemdata.goldfinch.blogpost>

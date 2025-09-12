@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2022-07-12 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[For just over half a year, my website has been running on an early pre-release version of Xperience by Kentico.  Discover how I updated to the very latest version of Xperience by Kentico.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>930a72fb-a286-4d5c-bc96-b5ec3eaae99c</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,7 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>23c3b4a6-5001-4690-8d38-b047d15dfb5d</ContentItemDataGUID>
-  <DocumentName>
-    <![CDATA[Updating to the latest version of Xperience by Kentico]]>
-  </DocumentName>
 </contentitemdata.goldfinch.blogpost>

@@ -20,7 +20,7 @@ namespace Goldfinch.Core.ContentTypes
 	/// Represents a page of type <see cref="BlogPost"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class BlogPost : IWebPageFieldsSource
+	public partial class BlogPost : IWebPageFieldsSource, IBaseContentFields
 	{
 		/// <summary>
 		/// Code name of the content type.
@@ -36,18 +36,6 @@ namespace Goldfinch.Core.ContentTypes
 
 
 		/// <summary>
-		/// DocumentName.
-		/// </summary>
-		public string DocumentName { get; set; }
-
-
-		/// <summary>
-		/// BlogPostSummary.
-		/// </summary>
-		public string BlogPostSummary { get; set; }
-
-
-		/// <summary>
 		/// BlogPostDate.
 		/// </summary>
 		public DateTime BlogPostDate { get; set; }
@@ -57,5 +45,17 @@ namespace Goldfinch.Core.ContentTypes
 		/// BlogPostCanonicalUrl.
 		/// </summary>
 		public string BlogPostCanonicalUrl { get; set; }
+
+
+		/// <summary>
+		/// BaseContentTitle.
+		/// </summary>
+		public string BaseContentTitle { get; set; }
+
+
+		/// <summary>
+		/// BaseContentShortDescription.
+		/// </summary>
+		public string BaseContentShortDescription { get; set; }
 	}
 }

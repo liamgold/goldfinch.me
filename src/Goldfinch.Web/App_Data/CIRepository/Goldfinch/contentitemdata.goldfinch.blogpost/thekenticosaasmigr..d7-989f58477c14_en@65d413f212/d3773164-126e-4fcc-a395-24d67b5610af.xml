@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2025-04-29 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[A few surprises, some near misses, and plenty of lessons learned while getting my Kentico SaaS setup running smoothly.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>86f0b1ba-2059-4f47-9ad7-989f58477c14</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,7 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>d3773164-126e-4fcc-a395-24d67b5610af</ContentItemDataGUID>
-  <DocumentName>
-    <![CDATA[The Kentico SaaS Migration: Lessons Learned and Troubleshooting Tips]]>
-  </DocumentName>
 </contentitemdata.goldfinch.blogpost>

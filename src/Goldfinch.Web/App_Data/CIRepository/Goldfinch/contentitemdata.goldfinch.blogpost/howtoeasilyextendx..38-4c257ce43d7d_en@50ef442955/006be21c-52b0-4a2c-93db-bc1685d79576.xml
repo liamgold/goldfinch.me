@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2024-09-12 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[UI page extenders in Xperience by Kentico allow you to customise existing UI pages without modifying their source code. In this post, we’ll walk through a simple example of reordering columns in a listing layout to better suit your needs.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>f471ab90-e1ac-4cce-a138-4c257ce43d7d</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,7 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>006be21c-52b0-4a2c-93db-bc1685d79576</ContentItemDataGUID>
-  <DocumentName>
-    <![CDATA[How to Easily Extend Xperience by Kentico UI Pages with Page Extenders]]>
-  </DocumentName>
 </contentitemdata.goldfinch.blogpost>

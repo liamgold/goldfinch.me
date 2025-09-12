@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2025-03-18 00:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Securing sensitive data is essential in modern CMS platforms. ASP.NET Core provides the Data Protection API (DPAPI) to help simplify encryption, decryption, and key management. DPAPI is used in many features, including ASP.NET authentication, so even if you're not using it directly, it is important to understand the basics.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>79f3ab5b-e7d7-4cd7-8396-5f3966a8c23c</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,7 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>bd877fb5-0f37-4e09-875c-72762865ea69</ContentItemDataGUID>
-  <DocumentName>
-    <![CDATA[How Data Protection APIs (DPAPI) Enhance Security in Your CMS]]>
-  </DocumentName>
 </contentitemdata.goldfinch.blogpost>
