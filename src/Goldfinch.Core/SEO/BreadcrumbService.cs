@@ -78,15 +78,15 @@ public class BreadcrumbService(WebPageQueryTools tools) : WebPageRepository(tool
 
             var documentName = string.Empty;
 
+            if (ancestorPage is IBaseContentFields baseContent)
+            {
+                documentName = baseContent.BaseContentTitle;
+            }
+
             // TODO: Change to use RFS
             if (ancestorPage is BlogListing blogListing)
             {
                 documentName = blogListing.DocumentName;
-            }
-
-            if (ancestorPage is BlogPost blogPost)
-            {
-                documentName = blogPost.DocumentName;
             }
 
             if (ancestorPage is ErrorPage errorPage)

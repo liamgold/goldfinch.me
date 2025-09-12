@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2020-08-21 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Sometimes adding too many widgets to a site can cause problems for content editors, there are a couple techniques you can use to ease the problem.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>9face779-188c-46db-a7d1-a4f43ded231c</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,5 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>f100eceb-98f6-4d58-a8ee-667a43e8efe5</ContentItemDataGUID>
-  <DocumentName>Have you made your Kentico MVC site widget heavy?</DocumentName>
 </contentitemdata.goldfinch.blogpost>

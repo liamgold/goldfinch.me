@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2024-08-04 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Discover how the XperienceCommunity.ImageProcessing package can significantly enhance your website's performance in Xperience by Kentico. This integration allows for resizing images and converting them to modern formats like WebP, resulting in faster page loads and improved user experience.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>18374fe2-4251-40dc-9794-e66a5c8099c0</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,7 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>a150a4ec-7810-4934-ad26-f9fb0426dfe9</ContentItemDataGUID>
-  <DocumentName>
-    <![CDATA[Boost Site Speed Using Image Processing for Xperience by Kentico]]>
-  </DocumentName>
 </contentitemdata.goldfinch.blogpost>

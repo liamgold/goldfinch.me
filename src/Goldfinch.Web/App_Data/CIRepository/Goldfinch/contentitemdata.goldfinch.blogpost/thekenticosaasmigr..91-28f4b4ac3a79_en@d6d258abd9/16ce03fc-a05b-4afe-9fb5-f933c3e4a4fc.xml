@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2025-04-28 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Learn how I adapted my existing Azure DevOps CI/CD pipelines to automate deployments to Kentico SaaS. This guide covers building, testing, packaging, and deploying to SaaS environments.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>8bccfdc5-1553-4080-9f91-28f4b4ac3a79</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,5 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>16ce03fc-a05b-4afe-9fb5-f933c3e4a4fc</ContentItemDataGUID>
-  <DocumentName>The Kentico SaaS Migration: Automated Deployments</DocumentName>
 </contentitemdata.goldfinch.blogpost>

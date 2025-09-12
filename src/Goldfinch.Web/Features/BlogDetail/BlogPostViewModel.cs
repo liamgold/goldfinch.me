@@ -21,8 +21,8 @@ public class BlogPostViewModel
     {
         return new BlogPostViewModel
         {
-            Title = blogPost.DocumentName,
-            Summary = blogPost.BlogPostSummary,
+            Title = blogPost.BaseContentTitle,
+            Summary = blogPost.BaseContentShortDescription,
             BlogPostDate = blogPost.BlogPostDate,
             Url = (await pageUrlRetriever.Retrieve(blogPost)).RelativePath,
         };

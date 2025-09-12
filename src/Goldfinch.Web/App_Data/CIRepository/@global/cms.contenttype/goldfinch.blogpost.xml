@@ -8,25 +8,9 @@
       <field column="ContentItemDataID" columntype="integer" enabled="true" guid="7054e547-f974-422a-b488-7223e3b5ecaa" isPK="true" />
       <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="fe2ab21e-75b3-411d-b1b5-616d12c451ca" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
       <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="2ffba672-fc47-47a0-a22b-bedc2bb9c581" isunique="true" system="true" />
-      <field column="DocumentName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="04918c7c-1751-4719-a59b-fbac5fb2ed80" visible="true">
-        <properties>
-          <fieldcaption>Page name</fieldcaption>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
-        </settings>
-      </field>
-      <field column="BlogPostSummary" columnprecision="0" columntype="longtext" enabled="true" guid="f7c4057c-6523-4ad9-ba8b-2a620718965e" visible="true">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Summary</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.TextArea</controlname>
-          <CopyButtonVisible>False</CopyButtonVisible>
-        </settings>
-      </field>
+      <schema guid="f568c89f-2ff0-48c3-81a7-af020e953c3b" name="f568c89f-2ff0-48c3-81a7-af020e953c3b">
+        <properties />
+      </schema>
       <field column="BlogPostDate" columnprecision="0" columntype="date" enabled="true" guid="5297ab96-9ac0-4a56-a398-646ee2249bd4" visible="true">
         <properties>
           <explanationtext>{$base.forms.dateinput.explanation$}</explanationtext>

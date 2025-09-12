@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2024-01-25 00:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Secure your Xperience by Kentico website with Dependabot - an automated package scanner for timely updates. Learn how I integrated it into Azure DevOps for my blog site.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>9b0c43cc-e829-4e6e-94f2-e2a104732df0</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,7 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>645f5c24-093c-4a7f-9d40-9f2fa7ba0116</ContentItemDataGUID>
-  <DocumentName>
-    <![CDATA[Keeping your Xperience by Kentico project up-to-date using Dependabot]]>
-  </DocumentName>
 </contentitemdata.goldfinch.blogpost>

@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2025-05-19 23:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Open source meets sustainability: the XperienceCommunity.Sustainability package brings green tooling to Xperience by Kentico - inspired by Umbraco, and already giving back to it.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>c280914c-cd92-4e32-8355-1b22355da023</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,7 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>4a68c672-2f53-43e4-a34e-e924f9167dde</ContentItemDataGUID>
-  <DocumentName>
-    <![CDATA[Bringing Sustainability Insights to Xperience by Kentico]]>
-  </DocumentName>
 </contentitemdata.goldfinch.blogpost>

@@ -69,7 +69,7 @@ public class RSSFeedController : Controller
             var relativeUrl = blogPostUrl.Replace("~/", "/");
             var pageUrl = $"https://www.goldfinch.me{relativeUrl}";
 
-            var item = new SyndicationItem(blogPost.DocumentName, blogPost.BlogPostSummary, new Uri(pageUrl), pageGuid, blogPost.BlogPostDate)
+            var item = new SyndicationItem(blogPost.BaseContentTitle, blogPost.BaseContentShortDescription, new Uri(pageUrl), pageGuid, blogPost.BlogPostDate)
             {
                 PublishDate = blogPost.BlogPostDate,
             };

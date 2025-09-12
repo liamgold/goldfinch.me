@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2021-12-08 00:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[Kentico Xperience 13 Refresh 4 adds automatic alt text generation using Azure's Computer Vision API, and introduces further integrations with other platforms.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>2e25e02f-4eba-40c4-9305-2fd2ad4e8fff</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,7 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>d593a56a-7778-4e5b-9e17-abdbe99f5ebd</ContentItemDataGUID>
-  <DocumentName>
-    <![CDATA[Automatic alternative text for images in Kentico Xperience 13 Refresh 4]]>
-  </DocumentName>
 </contentitemdata.goldfinch.blogpost>

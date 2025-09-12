@@ -2,9 +2,6 @@
 <contentitemdata.goldfinch.blogpost>
   <BlogPostCanonicalUrl />
   <BlogPostDate>2021-01-27 00:00:00Z</BlogPostDate>
-  <BlogPostSummary>
-    <![CDATA[See how easy it is to set up a basic GraphQL API for a .NET Core website.]]>
-  </BlogPostSummary>
   <ContentItemDataCommonDataID>
     <GUID>fa7d0c0f-c33d-4644-b741-e231dc92c564</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -15,5 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>de8ce33c-1ba4-435e-84e1-6c90c8ea94a8</ContentItemDataGUID>
-  <DocumentName>Setting up GraphQL with a .NET Core site</DocumentName>
 </contentitemdata.goldfinch.blogpost>
