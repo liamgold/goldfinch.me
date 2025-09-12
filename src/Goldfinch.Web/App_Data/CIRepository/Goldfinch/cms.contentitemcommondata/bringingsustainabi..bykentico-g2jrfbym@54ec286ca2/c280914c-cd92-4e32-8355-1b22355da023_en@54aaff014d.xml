@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Open source meets sustainability: the XperienceCommunity.Sustainability package brings green tooling to Xperience by Kentico - inspired by Umbraco, and already giving back to it.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>
+    <![CDATA[Bringing Sustainability Insights to Xperience by Kentico]]>
+  </BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>BringingSustainabilityInsightsToXperienceByKentico-g2jrfbym</CodeName>
     <GUID>dec7e30b-3936-48a7-acd8-5848529eaafb</GUID>
@@ -13,7 +19,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2025-05-20 21:04:28Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>c280914c-cd92-4e32-8355-1b22355da023</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-05-20 21:33:17Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:51:25Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration />
   <ContentItemCommonDataVisualBuilderWidgets>
@@ -22,7 +28,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>c3c7d1e3-5a17-4cf7-b7ca-2551d74fc8fa</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>14620c86-92d3-4797-be36-8f60fbbf9fd7</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>5a37f6b3-63a3-4160-8c9e-bbcbc9d5687b</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>c280914c-cd92-4e32-8355-1b22355da023</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

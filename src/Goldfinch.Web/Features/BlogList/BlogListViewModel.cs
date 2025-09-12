@@ -28,7 +28,7 @@ namespace Goldfinch.Web.Features.BlogList
         {
             return new BlogListViewModel
             {
-                Title = blogListing.DocumentName,
+                Title = blogListing.BaseContentTitle,
                 Url = (await pageUrlRetriever.Retrieve(blogListing)).RelativePath,
                 PageIndex = pageIndex,
                 PageCount = pageCount,

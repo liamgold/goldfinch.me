@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[I have published my first Umbraco related article in the calendar, 24 Days in Umbraco. It provides insights for newcomers, some tips on how to get started. Read more about the article.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>
+    <![CDATA[Umbraco Tips for Newcomers: Insights from an Outsider]]>
+  </BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>UmbracoTipsForNewcomers_InsightsFromAnOutsider-spz264yj</CodeName>
     <GUID>8440cb45-692a-412b-bebb-0b0d3a8b5999</GUID>
@@ -13,7 +19,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2024-12-19 22:30:50Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>4882eec5-6c7e-423e-a6eb-b0ed619eee78</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-12-19 22:32:27Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:52:28Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"d0c4f8f3-d8a0-44e3-91d4-b96716633b88","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"5c092664-8a75-48f5-a725-b46aed2c9823","widgets":[{"identifier":"9355ce51-65bc-4496-8a06-50dc59b533d6","type":"Kentico.Widget.RichText","variants":[{"identifier":"bb9018bc-8f71-4a89-9068-500f3f64e82f","properties":{"content":"<p>Wait… you thought this was going to be about Kentico? 👀</p><p>Today, I have published my first Umbraco related article in the calendar, <a href=\"https://24days.in/umbraco-cms/2024/\" target=\"_blank\" rel=\"noopener noreferrer\">24 Days in Umbraco</a>. It provides insights for newcomers, some tips on how to get started.</p><p>Obviously I couldn't write the entire article without mentioning Kentico a number of times 😅</p><p>👉 Check out <a href=\"https://24days.in/umbraco-cms/2024/outsider-insights/\" target=\"_blank\" rel=\"noopener noreferrer\">the article</a>.</p>"},"fieldIdentifiers":{"content":"b4f4ab1c-0b30-4cea-900f-805c446d2272"}}]}]}],"fieldIdentifiers":{}}]}]}]]>

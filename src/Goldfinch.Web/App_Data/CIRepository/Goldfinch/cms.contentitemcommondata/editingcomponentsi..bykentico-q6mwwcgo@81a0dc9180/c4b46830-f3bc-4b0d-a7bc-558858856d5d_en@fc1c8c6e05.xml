@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Xperience by Kentico currently offers backwards compatibility with Kentico Xperience 13 editing components, but switching to ReactJS based editing components is so simple!]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>Editing components in Xperience by Kentico</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>EditingComponentsInXperienceByKentico-q6mwwcgo</CodeName>
     <GUID>45579b5e-6403-4f8b-b841-e5e8833e4551</GUID>
@@ -12,7 +16,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>c4b46830-f3bc-4b0d-a7bc-558858856d5d</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-08-22 20:42:00Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:54:21Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration />
   <ContentItemCommonDataVisualBuilderWidgets>
@@ -21,7 +25,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>3a1822b3-5144-4cd5-b48b-af9aa63881c1</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>4b1332f1-b931-432d-aa3a-8cb04593bbc9</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>ac889b85-a7ff-4d39-aa00-1224966c726b</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>c4b46830-f3bc-4b0d-a7bc-558858856d5d</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -34,7 +38,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>63443eec-c610-4c9b-a5c9-e7336393be55</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>64852552-e380-4bad-b2f0-e017918abaa5</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>79826992-fa88-4392-b818-564d9c070788</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>c4b46830-f3bc-4b0d-a7bc-558858856d5d</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

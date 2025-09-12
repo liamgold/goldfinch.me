@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Learn about Kentico 12's new page template functionality that was introduced with K12 SP1.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>Using Page Templates in Kentico MVC</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>UsingPageTemplatesInKenticoMVC-x5etxbu6</CodeName>
     <GUID>0d92e767-5b72-4988-a1f3-e30b853a98c6</GUID>
@@ -12,7 +16,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>032fa3d3-2aa1-442a-9cc5-c1f37cd310bd</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-07-24 13:39:52Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:57:19Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"bc86b5ac-6699-4bda-b754-290f0228c410","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"1242e3b2-31cc-4231-a39c-f6ff776dd78f","name":null,"widgets":[{"identifier":"43054aec-c707-4bc7-9047-f61817a63161","type":"Kentico.Widget.RichText","conditionType":null,"variants":[{"identifier":"ab193e97-0732-484d-b91e-ed65ec19850a","name":null,"properties":{"content":"<h2>The launch of Kentico 12</h2><p>Since the launch of Kentico 12, we now use the MVC approach as our preferred and default development route. This is primarily down to the key features that our clients love being migrated from Kentico’s Portal Engine. For example, in Portal Engine, clients enjoyed using Kentico’s admin panel to build new pages using widgets and seeing exactly what the page looks like before publishing it. This was not possible before Kentico 12. As such, the CMS solution launched the much-loved feature as a part of Kentico 12.</p><h2>Page Builder functionality</h2><p>Kentico 12 introduced Page Builder functionality, allowing content editors to create pages using different sections for different layouts and configure MVC based widgets to add relevant content. &nbsp;Although this was a great addition, making websites entirely widget-based does have its side effects.</p><p>For example, if every component on a site is built as a widget when a content editor is creating a brand-new page, it is entirely blank from the start. This means editors need to add the same banners, sections, widgets, etc. repeatedly for every page, even if it was similar to another page they’ve already created. To tackle this issue, Kentico made another addition to their page template functionality with the introduction of the Service Pack.</p><h2>MVC Page Templates</h2><p>The launch of Kentico 12’s Service Pack brought the much-needed functionality of MVC Page Templates. Content editors were finally able to save a snapshot of preconfigured sections and widgets of a page builder enabled page, and then reuse that for other pages going forward.</p><p>This is a significant timesaver for content editors when building a similar layout repeatedly which is often the case on websites, such as campaign landing pages, news articles and blog posts.</p>"},"conditionTypeParameters":null,"fieldIdentifiers":{}}]}]}]}]}]}]]>

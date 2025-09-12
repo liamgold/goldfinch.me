@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Secure your Xperience by Kentico website with Dependabot - an automated package scanner for timely updates. Learn how I integrated it into Azure DevOps for my blog site.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>
+    <![CDATA[Keeping your Xperience by Kentico project up-to-date using Dependabot]]>
+  </BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>KeepingYourXperienceByKenticoProjectUp-to-dateUsingDependabot-y1hi6yew</CodeName>
     <GUID>354a951a-5a60-4e1c-9f08-5750642c31c2</GUID>
@@ -13,7 +19,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2024-01-25 00:00:32Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>9b0c43cc-e829-4e6e-94f2-e2a104732df0</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-08-22 20:44:35Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:53:39Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration />
   <ContentItemCommonDataVisualBuilderWidgets>
@@ -22,7 +28,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>1bd8ea5b-a97a-40ba-a79c-aad4a8758bd7</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>f5e0a4c2-7974-42d0-9522-86ac4f85d1e1</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>3db5ff83-b20c-43a7-9f8d-4cef342df94a</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>9b0c43cc-e829-4e6e-94f2-e2a104732df0</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -35,7 +41,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>be1baaf7-29dd-4bed-a8bd-cbf6307b8c4f</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>e26d99ac-76c6-402a-85c6-a0551a99d7a5</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>1371d344-8dac-4fd6-b73b-49fd23bf90e5</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>9b0c43cc-e829-4e6e-94f2-e2a104732df0</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

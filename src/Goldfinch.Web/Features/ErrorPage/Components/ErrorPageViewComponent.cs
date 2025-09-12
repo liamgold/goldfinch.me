@@ -23,7 +23,7 @@ public class ErrorPageViewComponent : ViewComponent
         var errorPage = await _errorPageRepository.GetErrorPage(page.WebPageItemID);
 
         _metaService.SetMeta(new Meta(
-            Title: errorPage.DocumentName,
+            Title: errorPage.BaseContentTitle,
             Description: string.Empty,
             WebPageItemGUID: Guid.Empty,
             CanonicalUrl: string.Empty,

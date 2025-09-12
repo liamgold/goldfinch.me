@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[The Kentico Xperience 13 Refresh 3 update improves widget zones and brings important changes to page/path selector functionality.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>
+    <![CDATA[Kentico Xperience 13 Refresh 3: The inevitable page selector update]]>
+  </BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>KenticoXperience13Refresh3_TheInevitablePageSelectorUpdate-mp6mir8y</CodeName>
     <GUID>613969c0-abf9-43df-b968-4e16f88a1ebd</GUID>
@@ -12,7 +18,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>0c588335-0314-4f00-893d-8e2e42f7c891</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-07-13 00:43:04Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:55:19Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"589c0142-4175-422f-94fc-b8f2bde02e16","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"57c970a6-65ee-4888-bbe5-17cb5afc835e","widgets":[{"identifier":"244e922f-e352-44ee-aaaa-b108a3b89971","type":"Kentico.Widget.RichText","variants":[{"identifier":"70949b52-f2c2-4a08-8f14-e0b04416724a","properties":{"content":"<p>September marks the launch of Kentico Xperience 13's third refresh - the update that brings us improvements to widget zones and important changes to page and path selector functionality.</p><p><strong>Page and path selectors</strong></p><p>I'm so happy this change makes its way into refresh 3. Until now, you have only been able to select a single page or path when using the appropriate selector, but this update allows you to select multiple pages or paths. 🎉</p><p>I have lost count of how many times developers (old and new to the Kentico Xperience platform) have asked me about why the return type of these selectors is a collection when you can only ever have one item selected.</p><p>The Kentico 12 documentation has hinted at the possibility of multiple choice selectors in the future, by stating the reason for a collection return type is \"due to forward compatibility\". Finally the return type has a proper use case. 😁</p><p>In the Dancing Goat sample website, there is a Cafe widget which makes use of the existing single Page Selector component.</p>"},"fieldIdentifiers":{"content":"8c931c14-3fea-4c68-8255-1302318175e0"}}]},{"identifier":"5d9e9e7e-29fe-451e-aed8-89f16d71de56","type":"Goldfinch.ImageWidget","variants":[{"identifier":"a4778dbe-8aae-4a6c-bbfc-3fa6226a472c","properties":{"selectedAssets":[{"identifier":"b3c82b0d-67a4-4c38-b7aa-ee53dd560071"}]},"fieldIdentifiers":{"selectedAssets":"5cee7f1f-223c-453e-a97d-48f6f1ae29ec"}}]},{"identifier":"05a00f0d-ff8f-4f72-9d03-8911c218ff15","type":"Kentico.Widget.RichText","variants":[{"identifier":"eb38b2ad-bc9e-49bb-bb29-f19b60607f7d","properties":{"content":"<p>The example above, shows three instances of the Cafe widget each configured to show a single Cafe card. &nbsp;One is configured for Boston, one for Chicago, and the final one for New York.</p><p>As the widget was created prior to refresh 3, it only supports selecting a single Cafe at a time.</p>"},"fieldIdentifiers":{"content":"e456393f-a028-4f99-9810-ad83bd6b86a4"}}]},{"identifier":"77304e0b-e44a-4c8d-ad28-6169b6e96cc8","type":"Goldfinch.ImageWidget","variants":[{"identifier":"e3682acf-95b6-4a23-b764-b6508878621a","properties":{"selectedAssets":[{"identifier":"f85478ac-2f9e-41f9-8063-2d7de851a90b"}]},"fieldIdentifiers":{"selectedAssets":"c5b8ff75-ab0d-4e3e-9642-baa549939026"}}]},{"identifier":"cd340966-8936-40a2-82ab-10d36d204127","type":"Kentico.Widget.RichText","variants":[{"identifier":"6826cbb1-e0bd-410f-ba82-acc7f82c22a4","properties":{"content":"<p>With the latest refresh, you could modify the existing widget or create a new Cafe List widget that is configured in such a way that the Page Selector allows for multiple pages to be selected.</p><p>This can be done using the new \"MaxPagesLimit\" property as seen below. &nbsp;By leaving this property out, the selector will default to single selection mode, and if you specify 0 it will be unlimited.</p>"},"fieldIdentifiers":{"content":"9d9aee02-88f6-4753-95b0-d1cce4e59691"}}]},{"identifier":"c61b035d-1490-4bb3-8ca2-d0fbe990e66d","type":"Goldfinch.CodeBlockWidget","variants":[{"identifier":"619faca7-2f74-4f59-a554-77b213118198","properties":{"language":"csharp","code":"[EditingComponent(PageSelector.IDENTIFIER, Label = \"Cafe\", Order = 1)]\r\n[EditingComponentProperty(nameof(PageSelectorProperties.RootPath), ContentItemIdentifiers.CAFES)]\r\n[Required]\r\n[EditingComponentProperty(nameof(PageSelectorProperties.MaxPagesLimit), 3)]\r\npublic IEnumerable<PageSelectorItem> SelectedCafes { get; set; } = new List<PageSelectorItem>();"},"fieldIdentifiers":{"language":"2f180089-5233-4204-8859-c00eba0a2b46","code":"dc38955a-2a92-4ab2-8fde-d5e08fbca611"}}]},{"identifier":"4a9c7fcf-d9f3-429a-a160-373389e90f6f","type":"Kentico.Widget.RichText","variants":[{"identifier":"d7bf27b3-47c8-44fb-996e-c6d6a94c9452","properties":{"content":"<p>Now the property has been updated and allows for multiple choice - up to three Cafe pages 👏.</p><p>There appears to be a small visual bug with the select all checkbox, I have logged this with Kentico Support to confirm whether it is just a problem with my local copy of Dancing Goat.</p><p><strong>Update</strong> - what I thought was a bug isn't a bug, it is just an interesting UX choice. The top left checkbox is for selecting all at the parent level, and the checkbox that looks visually out of place on the right hand side, is actually for selecting all of the child items. This ideally needs to be made clearer by using improved tooltips, a layout change or styling differently.</p>"},"fieldIdentifiers":{"content":"4605f263-b69d-44ab-866b-5c68fa29c3a8"}}]},{"identifier":"0d4b0999-044c-47c0-9ee9-23bb7186373f","type":"Goldfinch.ImageWidget","variants":[{"identifier":"6de41aab-45d0-4a17-9511-e427c14a4112","properties":{"selectedAssets":[{"identifier":"9929e1cb-dad2-495f-81ed-d412cbeb0d63"}]},"fieldIdentifiers":{"selectedAssets":"a125177c-84d4-4132-a46b-9629f694d4e3"}}]},{"identifier":"0552f0bc-f8eb-4851-b063-6ad3917d3a76","type":"Kentico.Widget.RichText","variants":[{"identifier":"ce9f647e-f778-41f3-a533-347d492a4653","properties":{"content":"<p><strong>Restricting widgets in widget zones</strong></p><p>In a <a data-channel-guid=\"b3f8d8a7-ead7-433c-b0fb-225567a185c3\" href=\"~/blog/have-you-made-your-kentico-mvc-site-widget-heavy\">previous blog post</a> I described different techniques of improving the widget selection modal if you have too many widgets registered on your website.</p><p>One of the techniques discussed was to utilise the allowed widgets property on editable areas, this meant you could restrict the types of widgets that are available to choose from within that editable area.</p><p>Being able to restrict widget usage on an editable area is great, but sometimes it felt too high up in the page builder hierarchy. What if that editable area contains multiple sections and multiple widget zones? All widget zones in that area fell under the same widget whitelist, and you couldn't have different zones with different whitelists.</p><p>Well...with refresh 3 now you can! 😎 and it essentially works in the same fashion as editable areas.</p>"},"fieldIdentifiers":{"content":"6776f0e6-e87f-4fb5-92bc-db3b2320893b"}}]},{"identifier":"bb556624-3423-49fd-b29b-19585b3925f0","type":"Goldfinch.CodeBlockWidget","variants":[{"identifier":"e5a6f356-223a-4921-87f5-93c3553f93e7","properties":{"language":"csharp","code":"    <div class=\"col-md-4\">\r\n        @{\r\n            var widgetsWhitelist = new[] { Kentico.Content.Web.Mvc.SystemComponentIdentifiers.FORM_WIDGET_IDENTIFIER };\r\n        }\r\n        <widget-zone allowed-widgets=\"@widgetsWhitelist\" />\r\n    </div>"},"fieldIdentifiers":{"language":"335ee956-a73d-40d3-9b27-56b44a166831","code":"6facbff7-aa8e-43f0-96b1-2bb8d8147d53"}}]},{"identifier":"3a790184-a6ef-4b8f-a6ec-a96f2d521f35","type":"Kentico.Widget.RichText","variants":[{"identifier":"6b87ba2b-cc24-4ef0-9e22-79b65add3473","properties":{"content":"<p>It is probably worth noting that widget zones with restrictions are merged with restrictions set on the containing editable areas, so you'll need to ensure both whitelists joined together give the expected whitelist for your widget zone.</p><p><strong>Widget zone &amp; Form zone identifiers</strong></p><p>From my experience, not many content editors have complained about widgets being incorrectly repositioned after changing sections. This could potentially be that content editors just accept that changing sections is a big enough change to warrant widgets being incorrectly positioned, and that they need to correct them manually.</p><p>Refresh 3 introduces zone identifiers for widget zones and form zones, meaning developers can now name them. So now when a content editor changes between sections, widgets and form components are guided into the correct zone based on zone name.</p>"},"fieldIdentifiers":{"content":"4ef91399-8bc1-4fe2-ab1a-46ab25765b33"}}]},{"identifier":"eb3673ec-3e09-4f9e-80af-03ae97836569","type":"Goldfinch.ImageWidget","variants":[{"identifier":"98aeb740-bdb7-45dd-b11c-57831ac7ab0d","properties":{"selectedAssets":[{"identifier":"e921d90d-fcc8-44fc-8bb2-9f3cca6b8884"}]},"fieldIdentifiers":{"selectedAssets":"a98a87fe-2a5e-435d-85e8-e224928b441a"}}]},{"identifier":"9333f0a8-de4f-48b5-b5c6-d16ab3f4ac3f","type":"Kentico.Widget.RichText","variants":[{"identifier":"f3103b15-1337-4d26-976b-818b91434c10","properties":{"content":"<p>Another great update from the Kentico Xperience team! 😍&nbsp;</p>"},"fieldIdentifiers":{"content":"20268826-c161-4929-8121-a94cb2d5f26c"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
@@ -20,7 +26,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>5cee7f1f-223c-453e-a97d-48f6f1ae29ec</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>5c9b5af8-cf92-4089-897d-9cbeaf16ae1a</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>b2d5f88b-e803-4812-857d-7da0094a74c6</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>0c588335-0314-4f00-893d-8e2e42f7c891</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -33,7 +39,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>a125177c-84d4-4132-a46b-9629f694d4e3</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>f7708df4-8645-4c15-b611-4c90c8c1431b</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>e229b333-784c-4ec5-92b7-c27ce1bea0bf</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>0c588335-0314-4f00-893d-8e2e42f7c891</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -46,7 +52,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>c5b8ff75-ab0d-4e3e-9642-baa549939026</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>5065607d-f4e5-44e3-9c10-4bf0a1049004</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>0a320bed-5fbd-491a-bcf3-ff17d70cc75f</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>0c588335-0314-4f00-893d-8e2e42f7c891</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -59,7 +65,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>6776f0e6-e87f-4fb5-92bc-db3b2320893b</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>7b83c1ea-e03b-47e6-975e-1c71498562a5</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>63991d31-74b5-4205-aa19-7fa5757ce5d0</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>0c588335-0314-4f00-893d-8e2e42f7c891</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -72,7 +78,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>a98a87fe-2a5e-435d-85e8-e224928b441a</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>f4e0e1ee-a315-4c73-a528-f88af7b6732c</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>860da2e1-1051-4c5b-81d5-1de1467b8d1f</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>0c588335-0314-4f00-893d-8e2e42f7c891</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

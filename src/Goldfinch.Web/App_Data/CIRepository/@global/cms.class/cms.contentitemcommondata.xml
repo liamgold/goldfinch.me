@@ -17,18 +17,18 @@
       <field allowempty="true" column="ContentItemCommonDataVisualBuilderTemplateConfiguration" columnprecision="0" columntype="longtext" enabled="true" guid="0d5a573b-759a-4dd7-a86b-be2ef2f5bac4" system="true" />
       <field allowempty="true" column="ContentItemCommonDataFirstPublishedWhen" columnprecision="7" columntype="datetime" enabled="true" guid="1318327e-9a4c-47e7-be2e-3da0fe99c15e" system="true" />
       <field allowempty="true" column="ContentItemCommonDataLastPublishedWhen" columnprecision="7" columntype="datetime" enabled="true" guid="169ce320-e362-4b70-b4dd-cc055082c254" system="true" />
-      <schema guid="f568c89f-2ff0-48c3-81a7-af020e953c3b" name="BaseContentFields">
+      <schema guid="c5126ac7-4df1-481c-b978-987e59554cda" name="BaseContentFields">
         <properties>
           <fieldcaption>Content fields</fieldcaption>
         </properties>
       </schema>
-      <field allowempty="true" column="BaseContentTitle" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="a8ad98ef-48cc-4f56-b7ac-c4d2eef44708" visible="true">
+      <field allowempty="true" column="BaseContentTitle" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="bf8ebd7b-cc11-46f7-97b4-67e89f745e7b" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Title</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
           <includeintranslation>True</includeintranslation>
-          <kxp_schema_identifier>f568c89f-2ff0-48c3-81a7-af020e953c3b</kxp_schema_identifier>
+          <kxp_schema_identifier>c5126ac7-4df1-481c-b978-987e59554cda</kxp_schema_identifier>
         </properties>
         <settings>
           <controlname>Kentico.Administration.TextInput</controlname>
@@ -40,13 +40,13 @@
           </ValidationRuleConfiguration>
         </validationrulesdata>
       </field>
-      <field allowempty="true" column="BaseContentShortDescription" columnprecision="0" columntype="longtext" enabled="true" guid="b73e9d55-1afa-41cf-a5d5-fc0267496a9b" visible="true">
+      <field allowempty="true" column="BaseContentShortDescription" columnprecision="0" columntype="longtext" enabled="true" guid="f1f47627-1356-43ad-8c15-6c40ece984b2" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Short Description</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
           <includeintranslation>True</includeintranslation>
-          <kxp_schema_identifier>f568c89f-2ff0-48c3-81a7-af020e953c3b</kxp_schema_identifier>
+          <kxp_schema_identifier>c5126ac7-4df1-481c-b978-987e59554cda</kxp_schema_identifier>
         </properties>
         <settings>
           <controlname>Kentico.Administration.TextArea</controlname>

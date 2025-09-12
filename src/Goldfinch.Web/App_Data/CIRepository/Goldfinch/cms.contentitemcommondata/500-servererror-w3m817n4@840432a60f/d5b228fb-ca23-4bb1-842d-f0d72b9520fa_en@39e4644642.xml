@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentTitle>500 - Server Error</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>500-ServerError-w3m817n4</CodeName>
     <GUID>304f5b05-9b11-4b00-acbe-7201a77c22ce</GUID>
@@ -12,7 +13,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>d5b228fb-ca23-4bb1-842d-f0d72b9520fa</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-05-03 23:19:47Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 22:31:41Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"Goldfinch.ErrorPage_Default","properties":{},"fieldIdentifiers":{}}]]>

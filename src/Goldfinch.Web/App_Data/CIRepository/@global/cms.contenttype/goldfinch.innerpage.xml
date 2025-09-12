@@ -8,24 +8,9 @@
       <field column="ContentItemDataID" columntype="integer" enabled="true" guid="4f5a37db-f0ac-45b9-971b-74d291c59baf" isPK="true" />
       <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="a5f37717-6345-4c75-a9a3-c74d1a804c7b" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
       <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="bedebe21-fa39-4d91-a47c-f62430ece5bd" isunique="true" system="true" />
-      <field column="DocumentName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="5ac0bc21-015d-44a1-91e0-e1531132f0f4" visible="true">
-        <properties>
-          <fieldcaption>Page name</fieldcaption>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
-        </settings>
-      </field>
-      <field allowempty="true" column="SummaryText" columnprecision="0" columntype="richtexthtml" enabled="true" guid="fcbbfebb-e0d6-44e5-936e-bd4b1c8ca00c" visible="true">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Summary Text</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.RichTextEditor</controlname>
-        </settings>
-      </field>
+      <schema guid="c5126ac7-4df1-481c-b978-987e59554cda" name="c5126ac7-4df1-481c-b978-987e59554cda">
+        <properties />
+      </schema>
     </form>
   </ClassFormDefinition>
   <ClassGUID>f6d0a93a-9702-468e-a486-6be664422e59</ClassGUID>

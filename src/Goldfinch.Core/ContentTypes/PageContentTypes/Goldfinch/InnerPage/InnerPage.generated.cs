@@ -20,7 +20,7 @@ namespace Goldfinch.Core.ContentTypes
 	/// Represents a page of type <see cref="InnerPage"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class InnerPage : IWebPageFieldsSource
+	public partial class InnerPage : IWebPageFieldsSource, IBaseContentFields
 	{
 		/// <summary>
 		/// Code name of the content type.
@@ -36,14 +36,14 @@ namespace Goldfinch.Core.ContentTypes
 
 
 		/// <summary>
-		/// DocumentName.
+		/// BaseContentTitle.
 		/// </summary>
-		public string DocumentName { get; set; }
+		public string BaseContentTitle { get; set; }
 
 
 		/// <summary>
-		/// SummaryText.
+		/// BaseContentShortDescription.
 		/// </summary>
-		public string SummaryText { get; set; }
+		public string BaseContentShortDescription { get; set; }
 	}
 }

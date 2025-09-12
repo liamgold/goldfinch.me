@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentTitle>Blog</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>Blog-up0c7ss3</CodeName>
     <GUID>88efccac-b170-4e4c-8c95-f7c8e1679166</GUID>
@@ -12,5 +13,6 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>ad955e07-d482-4d79-b253-6e77493a4817</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 22:30:23Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
 </cms.contentitemcommondata>

@@ -8,15 +8,9 @@
       <field column="ContentItemDataID" columntype="integer" enabled="true" guid="9a743622-3891-4f1d-97a6-7b4194edea2d" isPK="true" />
       <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="2cb0a23f-189d-4b9e-9296-0cffb5933af0" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
       <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="84d51943-d384-4ecd-88e8-4b5cdabf100c" isunique="true" system="true" />
-      <field column="DocumentName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="623908e7-8392-4eea-bb5a-3f528fe3c9cf" visible="true">
-        <properties>
-          <fieldcaption>Page name</fieldcaption>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
-        </settings>
-      </field>
-      <field column="BlogListingName" columnprecision="0" columnsize="200" columntype="text" guid="0c612a96-d7e9-42a6-ba7b-b40f48240690" />
+      <schema guid="c5126ac7-4df1-481c-b978-987e59554cda" name="c5126ac7-4df1-481c-b978-987e59554cda">
+        <properties />
+      </schema>
     </form>
   </ClassFormDefinition>
   <ClassGUID>e9929c98-4628-4b79-847a-8b0f532b63e4</ClassGUID>
