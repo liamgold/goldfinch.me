@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Learn about my recent guest appearance on Kentico Xperience's Ask the Experts YouTube session.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>Guest appearance on Ask the Experts</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>GuestAppearanceOnAskTheExperts-l0xq7w5a</CodeName>
     <GUID>ec9beee4-fab3-43e2-9e6a-e34c7f2124ae</GUID>
@@ -12,7 +16,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>1201bee7-122f-4863-b982-437ac5330649</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-07-24 13:59:38Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:55:09Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"55149b4c-bdca-402b-9b5e-a2c3dd7d9714","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"59530e32-589a-4353-a6cf-625eedf27b95","widgets":[{"identifier":"d36939bf-fd9c-4606-a03d-f05a019ef023","type":"Kentico.Widget.RichText","variants":[{"identifier":"e7bbff26-2120-43a7-8cf1-5c1045b1f72b","properties":{"content":"<p>Just under a year ago, Kentico launched a revamped Ask the Experts show on their&nbsp;<a href=\"https://www.youtube.com/channel/UCTG_CvDzyYioDhEP2VYBMvg\" rel=\"noopener noreferrer\" target=\"_blank\">YouTube channel</a>. It is the perfect place for&nbsp;<a href=\"https://xperience.io/partnership/mvp-program\" rel=\"noopener noreferrer\" target=\"_blank\">MVPs</a>, guest attendees, and viewers to get together and discuss all things&nbsp;<a href=\"https://xperience.io/\" rel=\"noopener noreferrer\" target=\"_blank\">Kentico Xperience</a>.</p><p>With episodes having running times of around 90 minutes, there is plenty of time for panellists&nbsp;to discuss dedicated topics and share their experiences through mini presentations. Panellists are not the only people involved, live viewers are encouraged to ask questions and discuss topics through the live chat. Viewers that cannot watch live can still join in by leaving comments or questions, or by continuing the discussion on the community Slack channel.</p><p>After watching the first seven Ask the Experts shows live, I was really excited to be invited to attend the eighth episode as a guest attendee (of course I accepted 😁).</p>"},"fieldIdentifiers":{"content":"a99cedea-0605-466b-bde2-81396ec3f6c9"}}]},{"identifier":"1c35aa2f-9e9f-4647-86de-6f86ccdb2945","type":"Goldfinch.ImageWidget","variants":[{"identifier":"4afe5a6e-a9c5-4af0-aca6-09f928e739fe","properties":{"selectedAssets":[{"identifier":"1f5a3909-d77a-4cd8-9966-9c44ea1657b1"}]},"fieldIdentifiers":{"selectedAssets":"7aaee7dd-7687-438c-8f3b-5f7136c29004"}}]},{"identifier":"eb7665f4-276c-4c47-acf4-85e0739ac342","type":"Kentico.Widget.RichText","variants":[{"identifier":"d5295fe6-b11b-4aaa-ba2a-175dbfeb0162","properties":{"content":"<p>Once that was agreed I then had to decide on my topic, I eventually settled on sharing my experience of&nbsp;<strong>Growing as a Kentico Xperience Developer</strong>. I have built and worked on many Kentico Xperience websites over the years, and I have trained up new developers at&nbsp;<a href=\"https://www.idhlagency.com/\" rel=\"noopener noreferrer\" target=\"_blank\">IDHL</a>, so it just felt like the right topic for my first appearance on Ask the Experts.</p><p>So, how do you watch the episode back? You can go to the&nbsp;<a href=\"https://youtu.be/XvOntW485Pw\" rel=\"noopener noreferrer\" target=\"_blank\">YouTube video</a> directly, or click the embed below. &nbsp;Hope you enjoy. 👍</p>"},"fieldIdentifiers":{"content":"aac63e9d-ed4e-43c3-ab25-8c05d24d7981"}}]},{"identifier":"4297d787-f636-4c41-9f38-3b9cbca94bf9","type":"Goldfinch.YouTubeVideoWidget","variants":[{"identifier":"79e3ff70-d16f-4f92-9245-3b9ff4934869","properties":{"videoId":"XvOntW485Pw"},"fieldIdentifiers":{"videoId":"8f42e7a4-0e73-4c3f-9db1-34d9ba92790d"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
@@ -20,7 +24,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>7aaee7dd-7687-438c-8f3b-5f7136c29004</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>f6900cd4-a166-438c-ad7d-db044ecf8246</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>a071dd32-3466-44f3-8fb2-6e43b7984e56</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>1201bee7-122f-4863-b982-437ac5330649</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

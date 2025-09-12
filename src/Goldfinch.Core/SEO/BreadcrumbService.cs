@@ -83,34 +83,13 @@ public class BreadcrumbService(WebPageQueryTools tools) : WebPageRepository(tool
                 documentName = baseContent.BaseContentTitle;
             }
 
-            // TODO: Change to use RFS
-            if (ancestorPage is BlogListing blogListing)
-            {
-                documentName = blogListing.DocumentName;
-            }
-
-            if (ancestorPage is ErrorPage errorPage)
-            {
-                documentName = errorPage.DocumentName;
-            }
-
-            if (ancestorPage is InnerPage inner)
-            {
-                documentName = inner.DocumentName;
-            }
-
-            if (ancestorPage is PublicSpeakingPage publicSpeakingPage)
-            {
-                documentName = publicSpeakingPage.DocumentName;
-            }
-
             breadcrumbs.Add(new Breadcrumb
             {
                 Name = documentName,
                 Url = $"https://www.goldfinch.me{url.RelativePath.TrimStart('~')}",
                 Position = position++,
             });
-        }
+         }
 
         breadcrumbs.Insert(0, new()
         {

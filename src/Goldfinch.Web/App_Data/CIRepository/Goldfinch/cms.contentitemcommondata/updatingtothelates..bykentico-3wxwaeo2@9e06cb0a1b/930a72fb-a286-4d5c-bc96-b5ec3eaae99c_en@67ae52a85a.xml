@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[For just over half a year, my website has been running on an early pre-release version of Xperience by Kentico.  Discover how I updated to the very latest version of Xperience by Kentico.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>
+    <![CDATA[Updating to the latest version of Xperience by Kentico]]>
+  </BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>UpdatingToTheLatestVersionOfXperienceByKentico-3wxwaeo2</CodeName>
     <GUID>e7984ea8-6464-475f-ae3a-e00a3835206c</GUID>
@@ -12,7 +18,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>930a72fb-a286-4d5c-bc96-b5ec3eaae99c</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-08-22 20:47:11Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:54:30Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration />
   <ContentItemCommonDataVisualBuilderWidgets>
@@ -21,7 +27,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>d9364734-8207-4af5-8173-5bc95b9b6732</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>581fa5f7-ea19-44bc-876a-15ab67626741</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>7fe795a6-ff63-4485-9140-758539d7a03a</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>930a72fb-a286-4d5c-bc96-b5ec3eaae99c</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -34,7 +40,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>ed4f88f0-3dda-4ee3-bb89-ac96e0c8eba5</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>895f1b5a-69a8-4ed5-8696-0eee5dd77fa6</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>e925dd90-11bb-4888-8483-5a362f1b0ac5</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>930a72fb-a286-4d5c-bc96-b5ec3eaae99c</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -47,7 +53,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>537ba65c-b88d-45d1-a45c-ff47f520ed3d</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>69ea2a32-2760-45c5-b695-005ff95373ef</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>93995c66-2a55-477c-8857-fd380227067d</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>930a72fb-a286-4d5c-bc96-b5ec3eaae99c</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

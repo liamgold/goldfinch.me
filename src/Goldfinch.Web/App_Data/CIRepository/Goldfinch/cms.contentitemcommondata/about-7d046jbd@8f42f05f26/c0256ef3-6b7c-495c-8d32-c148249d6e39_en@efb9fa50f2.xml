@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentTitle>About</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>About-7d046jbd</CodeName>
     <GUID>a967a64c-dd0f-497a-b6ae-51d5b2a5c1b5</GUID>
@@ -12,7 +13,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>c0256ef3-6b7c-495c-8d32-c148249d6e39</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-04-23 23:22:51Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 22:33:54Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"Goldfinch.InnerPage_Default","properties":{},"fieldIdentifiers":{}}]]>

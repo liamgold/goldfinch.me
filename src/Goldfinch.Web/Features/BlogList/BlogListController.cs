@@ -86,7 +86,7 @@ namespace Goldfinch.Web.Features.BlogList
             }
 
             _metaService.SetMeta(new Meta(
-                Title: blogListing.DocumentName,
+                Title: blogListing.BaseContentTitle,
                 Description: string.Empty,
                 WebPageItemGUID: Guid.Empty,
                 CanonicalUrl: pageUrl,

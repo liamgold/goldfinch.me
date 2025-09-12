@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.goldfinch.bloglisting>
-  <BlogListingName />
   <ContentItemDataCommonDataID>
     <GUID>ad955e07-d482-4d79-b253-6e77493a4817</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -11,5 +10,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>ee392440-dc34-4fd4-9482-ee9fd9a09ddc</ContentItemDataGUID>
-  <DocumentName>Blog</DocumentName>
 </contentitemdata.goldfinch.bloglisting>

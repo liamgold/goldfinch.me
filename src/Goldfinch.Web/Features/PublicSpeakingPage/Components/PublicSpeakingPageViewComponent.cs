@@ -28,7 +28,7 @@ public class PublicSpeakingPageViewComponent : ViewComponent
         }
 
         _metaService.SetMeta(new Meta(
-            Title: publicSpeakingModel.Page.DocumentName,
+            Title: publicSpeakingModel.Page.BaseContentTitle,
             Description: string.Empty,
             WebPageItemGUID: Guid.Empty,
             CanonicalUrl: string.Empty,

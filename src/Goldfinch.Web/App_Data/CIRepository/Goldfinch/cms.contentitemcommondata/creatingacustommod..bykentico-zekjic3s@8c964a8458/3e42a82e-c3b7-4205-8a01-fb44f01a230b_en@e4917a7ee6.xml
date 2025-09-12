@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Kentico has always excelled at allowing developers to extend the admin site. However, with Xperience by Kentico, there are some notable differences. Let's walk through a step-by-step process for creating custom modules in Xperience by Kentico.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>Creating a Custom Module in Xperience by Kentico</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>CreatingACustomModuleInXperienceByKentico-zekjic3s</CodeName>
     <GUID>c891ef8c-ccd5-4a8f-9a39-e3ea34cedff6</GUID>
@@ -12,7 +16,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>3e42a82e-c3b7-4205-8a01-fb44f01a230b</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-08-22 20:35:40Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:53:59Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration />
   <ContentItemCommonDataVisualBuilderWidgets>
@@ -21,7 +25,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>303068e2-4728-40fe-a3ff-0c9279204c59</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>ef27411d-24a5-4edd-af9e-6cd457723b6a</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>c745f578-9608-4008-bbc3-3200f37cbb8f</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>3e42a82e-c3b7-4205-8a01-fb44f01a230b</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -34,7 +38,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>147f2441-929c-40a7-aa54-1a690414fd2c</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>f314ba57-e45b-4a43-9968-0608243366ae</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>323376ba-edbe-4c04-ad32-652cde3b7305</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>3e42a82e-c3b7-4205-8a01-fb44f01a230b</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -47,7 +51,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>0c4b18bb-c57a-4b98-b2b7-2c5e6b3d84d5</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>4388868e-ebb2-4a2a-99af-52e7a39f4c82</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>a05e21a6-0149-4163-8b8c-7c750a6dd090</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>3e42a82e-c3b7-4205-8a01-fb44f01a230b</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -60,7 +64,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>9f16f32f-cf1b-428b-8054-4dbc86064b99</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>f3808e60-9423-4b62-8a7c-14c29826144f</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>2f456682-b173-442a-90ec-7d0ecc6d58a2</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>3e42a82e-c3b7-4205-8a01-fb44f01a230b</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -73,7 +77,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>138a9da8-854d-4fba-b16b-78b57e0d9b3b</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>db999701-8f44-444b-8aab-4d058e91cf3b</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>ef4719d1-c14b-404e-9a52-57321b9c6993</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>3e42a82e-c3b7-4205-8a01-fb44f01a230b</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -86,7 +90,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>52491390-f9f3-457f-9bb6-91868a91a8e5</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>3446dabf-6e57-4b0c-ad23-45635e5f546e</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>9447d57b-993c-4617-9aa1-48771a75913a</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>3e42a82e-c3b7-4205-8a01-fb44f01a230b</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

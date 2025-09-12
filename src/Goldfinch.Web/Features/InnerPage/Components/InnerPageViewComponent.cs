@@ -23,7 +23,7 @@ public class InnerPageViewComponent : ViewComponent
         var innerPage = await _innerPageRepository.GetInnerPage(page.WebPageItemID);
 
         _metaService.SetMeta(new Meta(
-            Title: innerPage.DocumentName,
+            Title: innerPage.BaseContentTitle,
             Description: string.Empty,
             WebPageItemGUID: Guid.Empty,
             CanonicalUrl: string.Empty,

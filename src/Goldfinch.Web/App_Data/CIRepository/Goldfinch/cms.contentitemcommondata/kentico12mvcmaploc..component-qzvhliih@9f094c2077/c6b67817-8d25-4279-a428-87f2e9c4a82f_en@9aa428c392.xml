@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Learn about the new Map Location form component submitted to the Kentico MVC Marketplace.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>Kentico 12 MVC Map Location Form Component</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>Kentico12MVCMapLocationFormComponent-qzvhliih</CodeName>
     <GUID>aee7abd4-7429-4a22-b878-b09307761dde</GUID>
@@ -12,7 +16,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>c6b67817-8d25-4279-a428-87f2e9c4a82f</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-07-13 01:05:11Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:57:12Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"38c971b1-0376-4ecf-823b-77141a30afea","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"a1085056-8248-4b01-9569-02230dd59ef2","widgets":[{"identifier":"d94f6e71-3848-4a4e-93e6-c1acbfd76be3","type":"Kentico.Widget.RichText","variants":[{"identifier":"2531c759-7364-454e-927a-de219c36b9ec","properties":{"content":"<p>When building websites in Kentico 12, there are two different <a href=\"https://docs.kentico.com/k12sp/kentico-development-models\" rel=\"noopener noreferrer\" target=\"_blank\">development approaches</a> you can choose from.</p><p>One option is the traditional Portal Engine development model which offers plenty of out of the box functionality, e.g. form controls, widgets, and other modules that content editors have become used to. &nbsp;However, when choosing the MVC development model, you benefit from gaining full control over the implementation of your website, but lose out on a number of out of the box features previously found in Portal Engine.</p><p>Common development tasks when working on Kentico 12 MVC include creating <a href=\"https://docs.kentico.com/k12sp/developing-websites/page-builder-development/developing-widgets-in-mvc\" rel=\"noopener noreferrer\" target=\"_blank\">page builder widgets</a>, and also <a href=\"https://docs.kentico.com/k12sp/developing-websites/form-builder-development/developing-form-components\" rel=\"noopener noreferrer\" target=\"_blank\">developing form components</a> which allow content editors to configure these page builder widgets. &nbsp;These tasks can be quite repetitive if you're adding the same widgets and form components to each website you build, a good way of alleviating the repetitiveness is to package up the most commonly used tools into NuGet packages and then share them with the Kentico community on the <a href=\"https://devnet.kentico.com/marketplace\" rel=\"noopener noreferrer\" target=\"_blank\">marketplace</a> for others to use.</p><p>The first tool I've uploaded to the Kentico marketplace is the <a href=\"https://devnet.kentico.com/marketplace/map%20location%20form%20component\" rel=\"noopener noreferrer\" target=\"_blank\">Kentico 12 MVC Map Location Form Component</a>. &nbsp;This allows content editors to select a location on a map and stores the selected latitude and longitude values against the page builder widget. &nbsp;You can then use a map plugin (e.g. Google Maps, Bing Maps, OpenStreetMap) to display a map location using the GeoCoordinate property.</p>"},"fieldIdentifiers":{"content":"9d528890-3018-449f-ae47-73bbc773862d"}}]},{"identifier":"4becd4f2-b8e3-4079-8985-a77f7fbe568c","type":"Goldfinch.ImageWidget","variants":[{"identifier":"45039d40-80ea-4b00-9a9b-20169beeb32c","properties":{"selectedAssets":[{"identifier":"1d309f24-9293-46a5-a787-3c8dcf6a6650"}],"image":[],"description":""},"fieldIdentifiers":{"selectedAssets":"13b3a2f8-f6cc-43e1-9b3c-16a379be74a7","image":"085e3198-c27f-4090-9927-99bb3611c8f0","description":"8546d307-4219-4126-944f-1c9c1c9c63c3"}}]},{"identifier":"e7981a14-206d-4efe-90ad-dee62de55f59","type":"Kentico.Widget.RichText","variants":[{"identifier":"702b2b4e-1236-4af3-a73c-c8f56666d9ad","properties":{"content":"<p>You can view the source code over at the&nbsp;<a href=\"https://github.com/liamgold/map-location-form-component\" rel=\"noopener noreferrer\" target=\"_blank\">GitHub repository</a>. &nbsp;Feel free to look around the project, provide suggestions by submitting an&nbsp;<a href=\"https://github.com/liamgold/map-location-form-component/issues\" rel=\"noopener noreferrer\" target=\"_blank\">Issue</a>, or submit new features through a&nbsp;<a href=\"https://github.com/liamgold/map-location-form-component/pulls\" rel=\"noopener noreferrer\" target=\"_blank\">pull request</a>.&nbsp;</p>"},"fieldIdentifiers":{"content":"aa5c13cb-def3-4d6b-ac90-97b89a36b180"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
@@ -20,7 +24,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>13b3a2f8-f6cc-43e1-9b3c-16a379be74a7</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>9ff7a5e4-c541-4645-8cde-3afe83d6292b</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>6cba7972-86b7-4bfc-a407-ba1e87f158f4</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>c6b67817-8d25-4279-a428-87f2e9c4a82f</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

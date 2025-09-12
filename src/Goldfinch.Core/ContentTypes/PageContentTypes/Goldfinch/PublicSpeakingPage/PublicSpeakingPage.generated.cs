@@ -20,7 +20,7 @@ namespace Goldfinch.Core.ContentTypes
 	/// Represents a page of type <see cref="PublicSpeakingPage"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class PublicSpeakingPage : IWebPageFieldsSource
+	public partial class PublicSpeakingPage : IWebPageFieldsSource, IBaseContentFields
 	{
 		/// <summary>
 		/// Code name of the content type.
@@ -36,8 +36,14 @@ namespace Goldfinch.Core.ContentTypes
 
 
 		/// <summary>
-		/// DocumentName.
+		/// BaseContentTitle.
 		/// </summary>
-		public string DocumentName { get; set; }
+		public string BaseContentTitle { get; set; }
+
+
+		/// <summary>
+		/// BaseContentShortDescription.
+		/// </summary>
+		public string BaseContentShortDescription { get; set; }
 	}
 }

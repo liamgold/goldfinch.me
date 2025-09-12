@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Discover how SaaS DXPs are helping marketers streamline content and commerce for faster, smoother customer experiences.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>Content and Commerce Without the Headaches</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>ContentAndCommerceWithoutTheHeadaches-67likqkv</CodeName>
     <GUID>e08781fa-30b0-41a0-a071-d1579db9658b</GUID>
@@ -13,7 +17,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2025-07-21 11:51:18Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>bcc15d95-50c0-4e18-ac02-f4d004f5fe7c</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-07-21 16:46:17Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:51:12Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration />
   <ContentItemCommonDataVisualBuilderWidgets>

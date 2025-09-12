@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Xperience by Kentico is set to launch in June 2022 with the commencement of an early adopters programme.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>Introducing The Xperience Adopters Program</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>IntroducingTheXperienceAdoptersProgram-satrl7zu</CodeName>
     <GUID>12e0b305-c3d2-4180-8f2a-a80f3ed35334</GUID>
@@ -12,7 +16,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>63d2fb5a-168e-4b80-8d35-0eb8ab6b90b6</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-07-13 00:37:06Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:54:39Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"666d6061-77a0-4a54-9ce3-8f3cb135d003","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"5090656d-99c4-426b-b671-8789fc513413","widgets":[{"identifier":"712b8f1e-f7ee-4023-91bb-31edd5ea66f5","type":"Kentico.Widget.RichText","variants":[{"identifier":"f6677585-82d5-4e26-9427-ca6c0c892866","properties":{"content":"<p>At Kentico Xperience Connection 2022, we were showcased the next generation of Kentico Xperience. The new platform was unveiled with the name Xperience by Kentico and has been completely rewritten using the latest cutting-edge technology (.NET 6 and ReactJS).</p>"},"fieldIdentifiers":{"content":"953ccbed-fb34-41c2-baa3-6b0cfb1acb6a"}}]},{"identifier":"09f8a799-a300-4f00-9328-941a96ddfe4b","type":"Goldfinch.ImageWidget","variants":[{"identifier":"5337bd27-92ab-442f-87b1-3fc7e6aec2f3","properties":{"selectedAssets":[{"identifier":"18a9f068-7d0c-4ea4-a240-daf2b8250b8b"}],"image":[],"description":""},"fieldIdentifiers":{"selectedAssets":"82a469ea-501f-402d-9bc6-aff50b099a69","image":"155cdad2-789f-4392-a870-da926ac646c9","description":"b8d16ad0-18a0-47bd-9b57-282eab22d0a6"}}]},{"identifier":"490b363b-5d5e-4b86-bf56-4d7d6923b5cd","type":"Kentico.Widget.RichText","variants":[{"identifier":"93370771-ef3f-4966-8bf8-94045e1d03c2","properties":{"content":"<p>At launch, Xperience by Kentico will not be a fully featured DXP. It will initially begin with the basics (content management, digital marketing, and user management capabilities) before expanding the feature set over the coming months with quarterly milestones.</p>"},"fieldIdentifiers":{"content":"8c28c409-89a0-4bdb-bab9-e4ec9ee7a18d"}}]},{"identifier":"41c47abc-7c90-44f4-adb7-3e2964e6c99b","type":"Goldfinch.ImageWidget","variants":[{"identifier":"37b36cde-246a-4890-a475-32a60bf20b1a","properties":{"selectedAssets":[{"identifier":"edd4b455-7298-4128-ad94-12bfecdc35f4"}],"image":[],"description":""},"fieldIdentifiers":{"selectedAssets":"e46abdc0-c00f-4dbb-abdd-bdd4260dc6bd","image":"3df32a30-7303-4015-9142-c6d362a455ff","description":"cda17724-c2cd-4b1f-bb75-173001c53975"}}]},{"identifier":"889cf2c9-ec5a-4697-a742-ed09366a6754","type":"Kentico.Widget.RichText","variants":[{"identifier":"cd05a0f7-8be9-474e-bcfd-ea6d482d7d17","properties":{"content":"<p>Xperience by Kentico is set to launch in June 2022, with the commencement of an early adopters programme entitled Xperience Adopters Program (XAP).</p><p>The Xperience Adopters Program will run for at least a year and will allow you to manage a website using the latest version of Xperience by Kentico. While taking part in the programme, you’ll be offered high-priority support from the Kentico Xperience team, and you’ll be able to provide feedback on the current and future planned features enabling you to help mould the future of the product!</p><p>If your current website is running on Kentico Xperience 13, you will be able to migrate to Xperience by Kentico. When the Xperience Adopters Program begins, access to a migration toolkit will be provided which will help you to migrate data safely to the new platform. While the toolkit will support you in migrating data, it won’t recreate custom modules, custom form controls or anything else that you might have custom-built within the admin portal. Development will still need in order to rewrite parts of the code to work with .NET 6, which is why it’s classed as a migration rather than an upgrade.</p><p>If your website is running on Kentico 12 or earlier, then unfortunately you don’t have a direct migration path. You need to plan an upgrade to Kentico Xperience 13 first, so you have the migration path discussed above. An alternative could be that you stay in your Kentico 12 or earlier version and plan a future rebuild in Xperience by Kentico.</p><p>It is very important that you should only consider migrating to Xperience by Kentico when the time is right for <strong>you&nbsp;</strong>and for <strong>Xperience by Kentico</strong>. The initial feature set of Xperience by Kentico might not have everything you need, or you might need to plan your budget further ahead if the migration cost is going to be larger than expected. With Xperience by Kentico gaining new features and functionality every quarter, you should be frequently asking yourself the question - am I ready for Xperience by Kentico?</p><p>If you need help answering that vital question, we are in the perfect position to assist you as a Kentico Xperience Gold Partner, and myself as a Kentico Xperience <a href=\"https://xperience.io/partners/mvp-program\" rel=\"noopener noreferrer\" target=\"_blank\">MVP</a>. Please <a href=\"https://www.netconstruct.com/contact-us\" rel=\"noopener noreferrer\" target=\"_blank\">get in touch</a> with us and we can help plan your migration journey ahead.</p>"},"fieldIdentifiers":{"content":"3c3097f8-1789-4f91-81f4-dc2a3fa8f1bc"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
@@ -20,7 +24,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>82a469ea-501f-402d-9bc6-aff50b099a69</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>b06ee67c-0ad8-4cab-9e7b-68a7395ebbd8</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>f1083d3c-533e-4cc6-91a8-3413df377750</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>63d2fb5a-168e-4b80-8d35-0eb8ab6b90b6</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -33,7 +37,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e46abdc0-c00f-4dbb-abdd-bdd4260dc6bd</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>484eae7f-6349-438c-bc21-cc2d7179b2d8</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>4269d5c1-ede4-4c02-a1ac-b65d0d042021</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>63d2fb5a-168e-4b80-8d35-0eb8ab6b90b6</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

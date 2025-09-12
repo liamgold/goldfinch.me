@@ -20,7 +20,7 @@ namespace Goldfinch.Core.ContentTypes
 	/// Represents a page of type <see cref="ErrorPage"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class ErrorPage : IWebPageFieldsSource
+	public partial class ErrorPage : IWebPageFieldsSource, IBaseContentFields
 	{
 		/// <summary>
 		/// Code name of the content type.
@@ -33,12 +33,6 @@ namespace Goldfinch.Core.ContentTypes
 		/// </summary>
 		[SystemField]
 		public WebPageFields SystemFields { get; set; }
-
-
-		/// <summary>
-		/// DocumentName.
-		/// </summary>
-		public string DocumentName { get; set; }
 
 
 		/// <summary>
@@ -57,5 +51,17 @@ namespace Goldfinch.Core.ContentTypes
 		/// ErrorText.
 		/// </summary>
 		public string ErrorText { get; set; }
+
+
+		/// <summary>
+		/// BaseContentTitle.
+		/// </summary>
+		public string BaseContentTitle { get; set; }
+
+
+		/// <summary>
+		/// BaseContentShortDescription.
+		/// </summary>
+		public string BaseContentShortDescription { get; set; }
 	}
 }

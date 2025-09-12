@@ -7,16 +7,9 @@
       <field column="ContentItemDataID" columntype="integer" enabled="true" guid="95ae1367-dbfa-4726-b22b-974fbbef485a" isPK="true" />
       <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="5d658e6a-55e8-4c7f-896b-a92721fa9d43" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
       <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="b02f4d47-4e6f-4d09-9ac3-c4da6f260f12" isunique="true" system="true" />
-      <field column="DocumentName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="11afffa1-dc12-48e0-bf09-56dda4a2aa2a" visible="true">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Page name</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
-        </settings>
-      </field>
+      <schema guid="c5126ac7-4df1-481c-b978-987e59554cda" name="c5126ac7-4df1-481c-b978-987e59554cda">
+        <properties />
+      </schema>
     </form>
   </ClassFormDefinition>
   <ClassGUID>5bc15224-64d7-48e8-a034-9257d476d92f</ClassGUID>

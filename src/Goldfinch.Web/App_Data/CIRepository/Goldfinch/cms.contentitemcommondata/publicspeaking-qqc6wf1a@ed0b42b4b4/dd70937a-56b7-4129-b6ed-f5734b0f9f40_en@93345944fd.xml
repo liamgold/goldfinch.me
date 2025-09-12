@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentTitle>Public Speaking</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>PublicSpeaking-qqc6wf1a</CodeName>
     <GUID>a94242a8-2b08-48bd-adc7-f9ddf7ca20ef</GUID>
@@ -13,7 +14,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2024-11-10 23:30:21Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>dd70937a-56b7-4129-b6ed-f5734b0f9f40</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-11-10 23:31:10Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 22:35:03Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"Goldfinch.PublicSpeakingPage_Default","properties":{},"fieldIdentifiers":{}}]]>

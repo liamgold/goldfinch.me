@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentShortDescription>
+    <![CDATA[Learn about the new Font Awesome form component submitted to the Kentico MVC Marketplace.]]>
+  </BaseContentShortDescription>
+  <BaseContentTitle>Kentico 12 MVC Font Awesome Form Component</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>Kentico12MVCFontAwesomeFormComponent-r28lorth</CodeName>
     <GUID>0b54b727-062a-4487-8ff0-0a3d0502c1ee</GUID>
@@ -12,7 +16,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-07-13 01:04:00Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:57:04Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"d03c002c-cd7a-480e-8391-e8eb8f4ad68f","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"19edf49a-31bb-47c0-a3e1-48f7a8218875","widgets":[{"identifier":"fa9b88c8-f549-48be-aa22-b20f21515f9f","type":"Kentico.Widget.RichText","variants":[{"identifier":"bff4b1cd-3f50-49db-9036-e36eafaafb1b","properties":{"content":"<p>Following on from my previous blog post about the <a data-channel-guid=\"b3f8d8a7-ead7-433c-b0fb-225567a185c3\" href=\"~/blog/kentico-12-mvc-map-location-form-component\">Kentico 12 MVC Map Location Form Component</a>, I've continued with another contribution to the Kentico MVC marketplace.</p><p>This time I've created a <a href=\"https://fontawesome.com/\" rel=\"noopener noreferrer\" target=\"_blank\">Font Awesome</a> form component which allows content editors to search and choose from all available Font Awesome 5.x icons. There are a number of scenarios where a developer may want to allow a content editor to customise an icon, such as icons used on navigation menus, CTA buttons or social media links.</p><p>With this form component added to a widget, a preview of the currently selected icon will be shown, and a button next to it will open up the modal dialog for searching and choosing a new icon.</p>"},"fieldIdentifiers":{"content":"d3b2d071-7d51-442a-8746-10a72c41dd9d"}}]},{"identifier":"5ae1031c-126e-4b86-bb81-d23412f49c5e","type":"Goldfinch.ImageWidget","variants":[{"identifier":"609a97ab-f32f-4f5a-b1b6-c8dfb4c30ecc","properties":{"selectedAssets":[{"identifier":"74c0b943-e0cd-41bf-b5fd-23c850c8d69b"}]},"fieldIdentifiers":{"selectedAssets":"06539ec8-c00d-4edb-8c5e-64f9c702b247"}}]},{"identifier":"7cfb7780-b055-487b-bad6-035331f79f10","type":"Kentico.Widget.RichText","variants":[{"identifier":"41c86db9-3c6c-4641-9329-458c20edc8ec","properties":{"content":"<p>This modal dialog is triggered using the&nbsp;<a href=\"https://docs.kentico.com/k12sp/developing-websites/page-builder-development/developing-modal-dialogs-for-builder-component-properties\" rel=\"noopener noreferrer\" target=\"_blank\">modal API</a> which was introduced in the Kentico 12 Service Pack. Having access to the modal API means you're now able to create complex form components without bloating the widget UI directly.&nbsp;</p>"},"fieldIdentifiers":{"content":"5fcdbf51-ee91-4ee7-a401-a944362deec1"}}]},{"identifier":"456859be-b9ab-406b-af6c-fe6680d65e46","type":"Goldfinch.ImageWidget","variants":[{"identifier":"d58d6626-b4e5-4d0f-86bc-254cd189b5ff","properties":{"selectedAssets":[{"identifier":"fd13f54a-eb13-441f-8f69-5ed930084cba"}]},"fieldIdentifiers":{"selectedAssets":"0e5cd4f8-4f64-423c-ab3a-d457974bdfef"}}]},{"identifier":"cd1be2fb-5456-4137-8395-9734477ddf57","type":"Kentico.Widget.RichText","variants":[{"identifier":"e4a4bf53-3988-4219-a8f8-39f06f47947c","properties":{"content":"<p>You can view the source code over at the&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component\" rel=\"noopener noreferrer\" target=\"_blank\">GitHub repository</a>. &nbsp;Feel free to look around the project, provide suggestions by submitting an&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/issues\">Issue</a>, or submit new features through a&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/pulls\">pull request</a>.&nbsp;</p>"},"fieldIdentifiers":{"content":"d4cf6d67-975a-49e5-8cc5-179154780c1e"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
@@ -20,7 +24,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>d3b2d071-7d51-442a-8746-10a72c41dd9d</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>35dbf47a-523e-4f05-9f23-85962a88bc29</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>3621e073-063a-44bb-94bb-3b0313f2da40</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -33,7 +37,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>06539ec8-c00d-4edb-8c5e-64f9c702b247</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>517a0839-cce0-4882-8415-7b24d43c2bcb</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>2942afb3-5c48-4e1a-8f87-2a63725c6806</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -46,7 +50,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>0e5cd4f8-4f64-423c-ab3a-d457974bdfef</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>3f94644a-cad8-4ed0-827e-499e87cc351d</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>a6a09445-1370-48c8-8f48-c61629f4ef9f</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
