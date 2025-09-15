@@ -55,6 +55,50 @@
           <MinRowsNumber>3</MinRowsNumber>
         </settings>
       </field>
+      <schema guid="3138457c-5e09-499c-b596-a4cfdaac350d" name="SeoFields">
+        <properties>
+          <fieldcaption>SEO fields</fieldcaption>
+        </properties>
+      </schema>
+      <field allowempty="true" column="SeoTitle" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="a53c2a40-dd4b-417d-9079-48d6efca3357" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Title</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <includeintranslation>True</includeintranslation>
+          <kxp_schema_identifier>3138457c-5e09-499c-b596-a4cfdaac350d</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SeoShortDescription" columnprecision="0" columntype="longtext" enabled="true" guid="081c97b5-7ca9-4b86-b3c2-11a1943aa78b" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Short Description</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <includeintranslation>True</includeintranslation>
+          <kxp_schema_identifier>3138457c-5e09-499c-b596-a4cfdaac350d</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="SeoCanonicalUrl" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="e162a8c8-4f2e-485e-b35c-088ce53ffe82" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Canonical Url</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <includeintranslation>True</includeintranslation>
+          <kxp_schema_identifier>3138457c-5e09-499c-b596-a4cfdaac350d</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>a6581fb3-892a-45b4-981a-012ce4b50b43</ClassGUID>

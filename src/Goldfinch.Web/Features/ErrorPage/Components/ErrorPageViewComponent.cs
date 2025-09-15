@@ -25,7 +25,6 @@ public class ErrorPageViewComponent : ViewComponent
         _metaService.SetMeta(new Meta(
             Title: errorPage.BaseContentTitle,
             Description: string.Empty,
-            WebPageItemGUID: Guid.Empty,
             CanonicalUrl: string.Empty,
             NextUrl: string.Empty,
             PreviousUrl: string.Empty)

@@ -88,7 +88,6 @@ namespace Goldfinch.Web.Features.BlogList
             _metaService.SetMeta(new Meta(
                 Title: blogListing.BaseContentTitle,
                 Description: string.Empty,
-                WebPageItemGUID: Guid.Empty,
                 CanonicalUrl: pageUrl,
                 NextUrl: viewModel.NextUrl,
                 PreviousUrl: viewModel.PreviousUrl)

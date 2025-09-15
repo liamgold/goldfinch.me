@@ -8,6 +8,9 @@
       <field column="ContentItemDataID" columntype="integer" enabled="true" guid="80140ddb-ae9c-4887-84b7-fa73be65c3e8" isPK="true" />
       <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="94c43ebd-3630-4b5f-bce0-a4381cd083c0" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
       <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="d8032b01-aa7b-4b58-be59-da1a7293aa27" isunique="true" system="true" />
+      <schema guid="c5126ac7-4df1-481c-b978-987e59554cda" name="c5126ac7-4df1-481c-b978-987e59554cda">
+        <properties />
+      </schema>
       <field column="DocumentName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="70a12964-7c74-48ba-b29d-d82a0c1c00f0" visible="true">
         <properties>
           <fieldcaption>Page name</fieldcaption>
@@ -36,6 +39,9 @@
           <controlname>Kentico.Administration.RichTextEditor</controlname>
         </settings>
       </field>
+      <schema guid="3138457c-5e09-499c-b596-a4cfdaac350d" name="3138457c-5e09-499c-b596-a4cfdaac350d">
+        <properties />
+      </schema>
     </form>
   </ClassFormDefinition>
   <ClassGUID>2c924c3d-6207-4e48-875c-a6fb4eed3921</ClassGUID>

@@ -20,7 +20,7 @@ namespace Goldfinch.Core.ContentTypes
 	/// Represents a page of type <see cref="Home"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class Home : IWebPageFieldsSource
+	public partial class Home : IWebPageFieldsSource, IBaseContentFields, ISeoFields
 	{
 		/// <summary>
 		/// Code name of the content type.
@@ -51,5 +51,35 @@ namespace Goldfinch.Core.ContentTypes
 		/// MainContent.
 		/// </summary>
 		public string MainContent { get; set; }
+
+
+		/// <summary>
+		/// BaseContentTitle.
+		/// </summary>
+		public string BaseContentTitle { get; set; }
+
+
+		/// <summary>
+		/// BaseContentShortDescription.
+		/// </summary>
+		public string BaseContentShortDescription { get; set; }
+
+
+		/// <summary>
+		/// SeoTitle.
+		/// </summary>
+		public string SeoTitle { get; set; }
+
+
+		/// <summary>
+		/// SeoShortDescription.
+		/// </summary>
+		public string SeoShortDescription { get; set; }
+
+
+		/// <summary>
+		/// SeoCanonicalUrl.
+		/// </summary>
+		public string SeoCanonicalUrl { get; set; }
 	}
 }
