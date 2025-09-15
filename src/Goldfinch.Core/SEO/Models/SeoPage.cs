@@ -32,4 +32,9 @@ public class SeoPage : ISeoFields, IBaseContentFields
     /// BaseContentShortDescription.
     /// </summary>
     public string BaseContentShortDescription { get; set; }
+
+
+    public string MetaTitle => string.IsNullOrWhiteSpace(SeoTitle) ? BaseContentTitle : SeoTitle;
+
+    public string MetaDescription => string.IsNullOrWhiteSpace(SeoShortDescription) ? BaseContentShortDescription : SeoShortDescription;
 }

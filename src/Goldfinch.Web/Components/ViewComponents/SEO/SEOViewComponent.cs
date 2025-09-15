@@ -45,22 +45,14 @@ public class SEOViewComponent : ViewComponent
             pageUrl = "https://www.goldfinch.me/blog";
         }
 
-        var metaTitle = string.IsNullOrWhiteSpace(seoPage?.SeoTitle)
-            ? seoPage?.BaseContentTitle
-            : seoPage?.SeoTitle;
-
-        var metaDescription = string.IsNullOrWhiteSpace(seoPage?.SeoShortDescription)
-            ? seoPage?.BaseContentShortDescription
-            : seoPage?.SeoShortDescription;
-
         var pageTitle = page.ContentTypeName.Equals(Home.CONTENT_TYPE_NAME)
             ? ".NET Developer · Liam Goldfinch"
-            : $"{metaTitle} · Liam Goldfinch";
+            : $"{seoPage.MetaTitle} · Liam Goldfinch";
 
         var viewModel = new SEOViewModel
         {
             Title = pageTitle,
-            Description = metaDescription,
+            Description = seoPage.MetaDescription,
             Url = pageUrl,
             ContentType = page.ContentTypeName,
             Schema = schema,

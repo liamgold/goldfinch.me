@@ -28,13 +28,9 @@ public class PageTitleViewComponent : ViewComponent
 
         var seoPage = await _contentRetriever.RetrieveCurrentPage<SeoPage>();
 
-        var metaTitle = string.IsNullOrWhiteSpace(seoPage?.SeoTitle)
-            ? seoPage?.BaseContentTitle
-            : seoPage?.SeoTitle;
-
         var pageTitle = page.ContentTypeName.Equals(Home.CONTENT_TYPE_NAME)
             ? ".NET Developer · Liam Goldfinch"
-            : $"{metaTitle} · Liam Goldfinch";
+            : $"{seoPage.MetaTitle} · Liam Goldfinch";
 
         var viewModel = new PageTitleViewModel
         {
