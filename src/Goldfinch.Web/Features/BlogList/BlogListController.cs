@@ -1,7 +1,8 @@
 ﻿using CMS.Websites;
-using Goldfinch.Core.ContentTypes;
+using CMS.Websites.Routing;
 using Goldfinch.Core.BlogListings;
 using Goldfinch.Core.BlogPosts;
+using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.SEO;
 using Goldfinch.Web.Features.BlogDetail;
 using Goldfinch.Web.Features.BlogList;
@@ -29,8 +30,16 @@ namespace Goldfinch.Web.Features.BlogList
         private readonly BlogPostRepository _blogPostRepository;
         private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
         private readonly WebPageMetaService _metaService;
+        private readonly IWebsiteChannelContext _websiteChannelContext;
 
-        public BlogListController(IWebPageDataContextInitializer webPageDataContextInitializer, IWebPageUrlRetriever webPageUrlRetriever, BlogListingRepository blogListingRepository, BlogPostRepository blogPostRepository, IPreferredLanguageRetriever preferredLanguageRetriever, WebPageMetaService metaService)
+        public BlogListController(
+            IWebPageDataContextInitializer webPageDataContextInitializer,
+            IWebPageUrlRetriever webPageUrlRetriever,
+            BlogListingRepository blogListingRepository,
+            BlogPostRepository blogPostRepository,
+            IPreferredLanguageRetriever preferredLanguageRetriever,
+            WebPageMetaService metaService,
+            IWebsiteChannelContext websiteChannelContext)
         {
             _webPageDataContextInitializer = webPageDataContextInitializer;
             _webPageUrlRetriever = webPageUrlRetriever;
@@ -38,6 +47,7 @@ namespace Goldfinch.Web.Features.BlogList
             _blogPostRepository = blogPostRepository;
             _preferredLanguageRetriever = preferredLanguageRetriever;
             _metaService = metaService;
+            _websiteChannelContext = websiteChannelContext;
         }
 
         public async Task<IActionResult> Index(int pageIndex = 1)
@@ -53,9 +63,6 @@ namespace Goldfinch.Web.Features.BlogList
 
             var blogListingUrl = await _webPageUrlRetriever.Retrieve(blogListing);
 
-            var relativeUrl = blogListingUrl.RelativePath.Replace("~/", "/");
-            var pageUrl = $"https://www.goldfinch.me{relativeUrl}";
-
             var languageName = _preferredLanguageRetriever.Get();
 
             _webPageDataContextInitializer.Initialize(new RoutedWebPage
@@ -64,6 +71,9 @@ namespace Goldfinch.Web.Features.BlogList
                 WebPageItemID = blogListing.SystemFields.WebPageItemID,
                 ContentTypeName = BlogListing.CONTENT_TYPE_NAME,
                 LanguageName = languageName,
+                WebsiteChannelID = blogListing.SystemFields.WebPageItemWebsiteChannelId,
+                WebsiteChannelName = _websiteChannelContext.WebsiteChannelName,
+                ContentTypeID = blogListing.SystemFields.ContentItemContentTypeID,
             });
 
             var viewModel = await BlogListViewModel.GetViewModelAsync(blogListing, _webPageUrlRetriever, pageIndex, pageCount);
@@ -86,9 +96,6 @@ namespace Goldfinch.Web.Features.BlogList
             }
 
             _metaService.SetMeta(new Meta(
-                Title: blogListing.BaseContentTitle,
-                Description: string.Empty,
-                CanonicalUrl: pageUrl,
                 NextUrl: viewModel.NextUrl,
                 PreviousUrl: viewModel.PreviousUrl)
             );

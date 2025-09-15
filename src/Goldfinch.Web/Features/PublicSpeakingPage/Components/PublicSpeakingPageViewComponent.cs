@@ -2,7 +2,6 @@ using Goldfinch.Core.PublicSpeaking;
 using Goldfinch.Core.SEO;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace Goldfinch.Web.Features.PublicSpeakingPage;
@@ -28,9 +27,6 @@ public class PublicSpeakingPageViewComponent : ViewComponent
         }
 
         _metaService.SetMeta(new Meta(
-            Title: publicSpeakingModel.Page.BaseContentTitle,
-            Description: string.Empty,
-            CanonicalUrl: string.Empty,
             NextUrl: string.Empty,
             PreviousUrl: string.Empty)
         );

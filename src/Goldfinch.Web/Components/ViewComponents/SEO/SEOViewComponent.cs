@@ -1,5 +1,6 @@
 ﻿using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.SEO;
+using Goldfinch.Core.SEO.Models;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -12,14 +13,14 @@ namespace Goldfinch.Web.Components.ViewComponents.SEO;
 
 public class SEOViewComponent : ViewComponent
 {
-    private readonly BreadcrumbService _breadcrumbService;
-    private readonly WebPageMetaService _metaService;
     private readonly IWebPageDataContextRetriever _webPageDataContextRetriever;
+    private readonly IContentRetriever _contentRetriever;
+    private readonly BreadcrumbService _breadcrumbService;
 
-    public SEOViewComponent(WebPageMetaService metaService, IWebPageDataContextRetriever webPageDataContextRetriever, BreadcrumbService breadcrumbService)
+    public SEOViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever, IContentRetriever contentRetriever, BreadcrumbService breadcrumbService)
     {
-        _metaService = metaService;
         _webPageDataContextRetriever = webPageDataContextRetriever;
+        _contentRetriever = contentRetriever;
         _breadcrumbService = breadcrumbService;
     }
 
@@ -32,21 +33,34 @@ public class SEOViewComponent : ViewComponent
 
         var page = data.WebPage;
 
-        var schema = await GetSchema(page);
+        var seoPage = await _contentRetriever.RetrieveCurrentPage<SeoPage>();
 
-        var meta = _metaService.GetMeta();
+        var schema = await GetSchema(page);
 
         var pageUrl = HttpContext.Request.GetEncodedUrl();
 
-        if (page.ContentTypeName.Equals(BlogListing.CONTENT_TYPE_NAME) && !string.IsNullOrWhiteSpace(meta.CanonicalUrl))
+        if (page.ContentTypeName.Equals(BlogListing.CONTENT_TYPE_NAME))
         {
-            pageUrl = meta.CanonicalUrl;
+            // TODO: replace this later
+            pageUrl = "https://www.goldfinch.me/blog";
         }
+
+        var metaTitle = string.IsNullOrWhiteSpace(seoPage?.SeoTitle)
+            ? seoPage?.BaseContentTitle
+            : seoPage?.SeoTitle;
+
+        var metaDescription = string.IsNullOrWhiteSpace(seoPage?.SeoShortDescription)
+            ? seoPage?.BaseContentShortDescription
+            : seoPage?.SeoShortDescription;
+
+        var pageTitle = page.ContentTypeName.Equals(Home.CONTENT_TYPE_NAME)
+            ? ".NET Developer · Liam Goldfinch"
+            : $"{metaTitle} · Liam Goldfinch";
 
         var viewModel = new SEOViewModel
         {
-            Title = meta.Title,
-            Description = meta.Description,
+            Title = pageTitle,
+            Description = metaDescription,
             Url = pageUrl,
             ContentType = page.ContentTypeName,
             Schema = schema,

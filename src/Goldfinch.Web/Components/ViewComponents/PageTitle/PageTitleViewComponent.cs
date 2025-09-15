@@ -1,22 +1,23 @@
 ﻿using Goldfinch.Core.ContentTypes;
-using Goldfinch.Core.SEO;
+using Goldfinch.Core.SEO.Models;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Goldfinch.Web.Components.ViewComponents.PageTitle;
 
 public class PageTitleViewComponent : ViewComponent
 {
     private readonly IWebPageDataContextRetriever _webPageDataContextRetriever;
-    private readonly WebPageMetaService _metaService;
+    private readonly IContentRetriever _contentRetriever;
 
-    public PageTitleViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever, WebPageMetaService metaService)
+    public PageTitleViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever, IContentRetriever contentRetriever)
     {
         _webPageDataContextRetriever = webPageDataContextRetriever;
-        _metaService = metaService;
+        _contentRetriever = contentRetriever;
     }
 
-    public IViewComponentResult Invoke()
+    public async Task<IViewComponentResult> InvokeAsync()
     {
         if (!_webPageDataContextRetriever.TryRetrieve(out var data))
         {
@@ -25,11 +26,15 @@ public class PageTitleViewComponent : ViewComponent
 
         var page = data.WebPage;
 
-        var meta = _metaService.GetMeta();
+        var seoPage = await _contentRetriever.RetrieveCurrentPage<SeoPage>();
+
+        var metaTitle = string.IsNullOrWhiteSpace(seoPage?.SeoTitle)
+            ? seoPage?.BaseContentTitle
+            : seoPage?.SeoTitle;
 
         var pageTitle = page.ContentTypeName.Equals(Home.CONTENT_TYPE_NAME)
             ? ".NET Developer · Liam Goldfinch"
-            : $"{meta.Title} · Liam Goldfinch";
+            : $"{metaTitle} · Liam Goldfinch";
 
         var viewModel = new PageTitleViewModel
         {
