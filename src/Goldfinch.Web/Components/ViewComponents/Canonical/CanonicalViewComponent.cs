@@ -24,9 +24,9 @@ public class CanonicalViewComponent : ViewComponent
     {
         var meta = _metaService.GetMeta();
 
-        var seoPage = await _contentRetriever.RetrieveCurrentPage<SeoPage>();
+        var seoPageFields = await _contentRetriever.RetrieveCurrentPage<SeoPageFields>();
 
-        var canonicalUrl = seoPage.SeoCanonicalUrl;
+        var canonicalUrl = seoPageFields.SeoCanonicalUrl;
 
         if (string.IsNullOrEmpty(canonicalUrl))
         {

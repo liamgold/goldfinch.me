@@ -33,7 +33,7 @@ public class SEOViewComponent : ViewComponent
 
         var page = data.WebPage;
 
-        var seoPage = await _contentRetriever.RetrieveCurrentPage<SeoPage>();
+        var seoPageFields = await _contentRetriever.RetrieveCurrentPage<SeoPageFields>();
 
         var schema = await GetSchema(page);
 
@@ -47,12 +47,12 @@ public class SEOViewComponent : ViewComponent
 
         var pageTitle = page.ContentTypeName.Equals(Home.CONTENT_TYPE_NAME)
             ? ".NET Developer · Liam Goldfinch"
-            : $"{seoPage.MetaTitle} · Liam Goldfinch";
+            : $"{seoPageFields.MetaTitle} · Liam Goldfinch";
 
         var viewModel = new SEOViewModel
         {
             Title = pageTitle,
-            Description = seoPage.MetaDescription,
+            Description = seoPageFields.MetaDescription,
             Url = pageUrl,
             ContentType = page.ContentTypeName,
             Schema = schema,

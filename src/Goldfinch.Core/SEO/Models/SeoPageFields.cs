@@ -2,7 +2,7 @@
 
 namespace Goldfinch.Core.SEO.Models;
 
-public class SeoPage : ISeoFields, IBaseContentFields
+public class SeoPageFields : ISeoFields, IBaseContentFields
 {
     /// <summary>
     /// SeoTitle.
