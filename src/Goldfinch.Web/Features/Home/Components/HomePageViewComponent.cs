@@ -27,7 +27,6 @@ public class HomePageViewComponent : ViewComponent
         _metaService.SetMeta(new Meta(
             Title: home.DocumentName,
             Description: description,
-            WebPageItemGUID: Guid.Empty,
             CanonicalUrl: string.Empty,
             NextUrl: string.Empty,
             PreviousUrl: string.Empty)

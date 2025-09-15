@@ -47,8 +47,7 @@ public class BlogDetailController : Controller
         _metaService.SetMeta(new Meta(
             Title: currentPage.BaseContentTitle,
             Description: currentPage.BaseContentShortDescription,
-            WebPageItemGUID: currentPage.SystemFields.WebPageItemGUID,
-            CanonicalUrl: currentPage.BlogPostCanonicalUrl,
+            CanonicalUrl: currentPage.SeoCanonicalUrl,
             NextUrl: string.Empty,
             PreviousUrl: string.Empty)
         );

@@ -25,7 +25,6 @@ public class InnerPageViewComponent : ViewComponent
         _metaService.SetMeta(new Meta(
             Title: innerPage.BaseContentTitle,
             Description: string.Empty,
-            WebPageItemGUID: Guid.Empty,
             CanonicalUrl: string.Empty,
             NextUrl: string.Empty,
             PreviousUrl: string.Empty)

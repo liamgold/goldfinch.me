@@ -52,10 +52,10 @@ public class SEOViewComponent : ViewComponent
             Schema = schema,
         };
 
-        if (page.ContentTypeName.Equals(BlogPost.CONTENT_TYPE_NAME))
-        {
-            viewModel.Image = $"https://www.goldfinch.me/seo-image/{meta.WebPageItemGUID}/card.jpg";
-        }
+        //if (page.ContentTypeName.Equals(BlogPost.CONTENT_TYPE_NAME))
+        //{
+        //    viewModel.Image = "TODO - replace with a real image";
+        //}
 
         return View("~/Components/ViewComponents/SEO/SEO.cshtml", viewModel);
     }

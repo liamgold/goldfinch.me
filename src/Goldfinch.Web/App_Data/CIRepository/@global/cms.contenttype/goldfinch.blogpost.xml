@@ -22,16 +22,9 @@
           <controlname>Kentico.Administration.DateInput</controlname>
         </settings>
       </field>
-      <field allowempty="true" column="BlogPostCanonicalUrl" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="ba17fca4-f51e-474e-9437-d862391dcdd5" visible="true">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Canonical Url</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
-        </settings>
-      </field>
+      <schema guid="3138457c-5e09-499c-b596-a4cfdaac350d" name="3138457c-5e09-499c-b596-a4cfdaac350d">
+        <properties />
+      </schema>
     </form>
   </ClassFormDefinition>
   <ClassGUID>c3495cd5-11e9-4fca-a6be-85123e9e4b6e</ClassGUID>

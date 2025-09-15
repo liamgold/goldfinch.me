@@ -48,6 +48,9 @@
           <controlname>Kentico.Administration.RichTextEditor</controlname>
         </settings>
       </field>
+      <schema guid="3138457c-5e09-499c-b596-a4cfdaac350d" name="3138457c-5e09-499c-b596-a4cfdaac350d">
+        <properties />
+      </schema>
     </form>
   </ClassFormDefinition>
   <ClassGUID>13e64b1d-70f8-44b6-ab90-103abb5c6a3d</ClassGUID>

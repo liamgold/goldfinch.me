@@ -11,40 +11,18 @@
 
 using System;
 using System.Collections.Generic;
-using CMS.ContentEngine;
-using CMS.Websites;
 
 namespace Goldfinch.Core.ContentTypes
 {
 	/// <summary>
-	/// Represents a page of type <see cref="InnerPage"/>.
+	/// Defines a contract for content types with the <see cref="ISeoFields"/> reusable schema assigned.
 	/// </summary>
-	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class InnerPage : IWebPageFieldsSource, IBaseContentFields, ISeoFields
+	public interface ISeoFields
 	{
 		/// <summary>
-		/// Code name of the content type.
+		/// Code name of the reusable field schema.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "Goldfinch.InnerPage";
-
-
-		/// <summary>
-		/// Represents system properties for a web page item.
-		/// </summary>
-		[SystemField]
-		public WebPageFields SystemFields { get; set; }
-
-
-		/// <summary>
-		/// BaseContentTitle.
-		/// </summary>
-		public string BaseContentTitle { get; set; }
-
-
-		/// <summary>
-		/// BaseContentShortDescription.
-		/// </summary>
-		public string BaseContentShortDescription { get; set; }
+		public const string REUSABLE_FIELD_SCHEMA_NAME = "SeoFields";
 
 
 		/// <summary>
