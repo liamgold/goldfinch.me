@@ -45,13 +45,9 @@ public class SEOViewComponent : ViewComponent
             pageUrl = "https://www.goldfinch.me/blog";
         }
 
-        var pageTitle = page.ContentTypeName.Equals(Home.CONTENT_TYPE_NAME)
-            ? ".NET Developer · Liam Goldfinch"
-            : $"{seoPageFields.MetaTitle} · Liam Goldfinch";
-
         var viewModel = new SEOViewModel
         {
-            Title = pageTitle,
+            Title = seoPageFields.MetaTitle,
             Description = seoPageFields.MetaDescription,
             Url = pageUrl,
             ContentType = page.ContentTypeName,
