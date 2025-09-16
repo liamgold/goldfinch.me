@@ -27,8 +27,6 @@ public static class ServiceConfiguration
             .AddSingleton<PublicSpeakingRepository>()
             .AddSingleton<SitemapRepository>()
 
-            .AddScoped<WebPageMetaService>()
-
             .AddTransient<WebPageQueryTools>();
     }
 }

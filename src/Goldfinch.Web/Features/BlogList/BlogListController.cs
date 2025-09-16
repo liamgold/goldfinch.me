@@ -3,7 +3,7 @@ using CMS.Websites.Routing;
 using Goldfinch.Core.BlogListings;
 using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.ContentTypes;
-using Goldfinch.Core.SEO;
+using Goldfinch.Core.SEO.Constants;
 using Goldfinch.Web.Features.BlogDetail;
 using Goldfinch.Web.Features.BlogList;
 using Kentico.Content.Web.Mvc;
@@ -29,7 +29,6 @@ namespace Goldfinch.Web.Features.BlogList
         private readonly BlogListingRepository _blogListingRepository;
         private readonly BlogPostRepository _blogPostRepository;
         private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
-        private readonly WebPageMetaService _metaService;
         private readonly IWebsiteChannelContext _websiteChannelContext;
 
         public BlogListController(
@@ -38,7 +37,6 @@ namespace Goldfinch.Web.Features.BlogList
             BlogListingRepository blogListingRepository,
             BlogPostRepository blogPostRepository,
             IPreferredLanguageRetriever preferredLanguageRetriever,
-            WebPageMetaService metaService,
             IWebsiteChannelContext websiteChannelContext)
         {
             _webPageDataContextInitializer = webPageDataContextInitializer;
@@ -46,7 +44,6 @@ namespace Goldfinch.Web.Features.BlogList
             _blogListingRepository = blogListingRepository;
             _blogPostRepository = blogPostRepository;
             _preferredLanguageRetriever = preferredLanguageRetriever;
-            _metaService = metaService;
             _websiteChannelContext = websiteChannelContext;
         }
 
@@ -58,10 +55,7 @@ namespace Goldfinch.Web.Features.BlogList
             {
                 return NotFound();
             }
-
             var blogListing = await _blogListingRepository.GetBlogListing();
-
-            var blogListingUrl = await _webPageUrlRetriever.Retrieve(blogListing);
 
             var languageName = _preferredLanguageRetriever.Get();
 
@@ -95,10 +89,8 @@ namespace Goldfinch.Web.Features.BlogList
                 viewModel.NextUrl = $"https://www.goldfinch.me{Url.Content(viewModel.NextUrl)}";
             }
 
-            _metaService.SetMeta(new Meta(
-                NextUrl: viewModel.NextUrl,
-                PreviousUrl: viewModel.PreviousUrl)
-            );
+            ViewData[SEOConstants.NEXT_URL_KEY] = viewModel.NextUrl;
+            ViewData[SEOConstants.PREVIOUS_URL_KEY] = viewModel.PreviousUrl;
 
             var blogPosts = await _blogPostRepository.GetBlogPosts(pageIndex);
 
