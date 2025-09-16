@@ -10,7 +10,6 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>9042b70b-0d86-4da7-9fc5-9335b6da8fd7</ContentItemDataGUID>
-  <DocumentName>Home</DocumentName>
   <Heading>Principal Systems Developer and Kentico MVP</Heading>
   <MainContent>
     <![CDATA[<p>Hello, my name is Liam Goldfinch. 👋</p><p>Welcome to my website! I will be sharing knowledge, learnings, and experiences of working with <a href="https://www.kentico.com/" rel="noopener noreferrer" target="_blank">Kentico</a> and the .NET world. I hope that you will find my blog posts valuable, and that they will be useful in assisting with working on your own projects. If you want to know more about myself, head over to the <a href="~/about/">about</a> page.</p>]]>

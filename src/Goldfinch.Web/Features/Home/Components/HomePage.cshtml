@@ -1,17 +1,14 @@
 @model Goldfinch.Core.ContentTypes.Home
 
 <section class="relative">
-    <!-- Enhanced hero section -->
     <div class="hero-section mb-16">
         <h1 class="mb-6">@Model.Heading</h1>
         
         <div class="introduction mb-8">@Html.Raw(Model.MainContent)</div>
         
-        <!-- Call-to-action buttons -->
         <div class="flex flex-wrap gap-4">
             <a href="/blog" 
                class="inline-flex items-center px-6 py-3 bg-yellow-400/10 hover:bg-yellow-400/20 border border-yellow-400/20 hover:border-yellow-400/40 rounded-lg text-yellow-300 hover:text-yellow-200 font-medium transition-all duration-200 group">
-                <!-- Same Font Awesome book icon as navigation -->
                 <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor">
                     <path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" />
                 </svg>
@@ -22,7 +19,6 @@
             </a>
             <a href="/public-speaking" 
                class="inline-flex items-center px-6 py-3 border border-zinc-600 hover:border-zinc-500 rounded-lg text-zinc-300 hover:text-zinc-200 font-medium transition-all duration-200 group">
-                <!-- Same Font Awesome microphone icon as navigation -->
                 <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor">
                     <path d="M96 96l0 160c0 53 43 96 96 96s96-43 96-96l-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0c0-53-43-96-96-96S96 43 96 96zM320 240l0 16c0 70.7-57.3 128-128 128s-128-57.3-128-128l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 89.1 66.2 162.7 152 174.4l0 33.6-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l72 0 72 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-33.6c85.8-11.7 152-85.3 152-174.4l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 24z" />
                 </svg>
@@ -34,7 +30,6 @@
         </div>
     </div>
     
-    <!-- Subtle background decoration -->
     <div class="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-yellow-400/5 to-transparent rounded-full blur-3xl -z-10"></div>
 </section>
 
