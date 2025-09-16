@@ -8,12 +8,10 @@ namespace Goldfinch.Web.Features.PublicSpeakingPage;
 
 public class PublicSpeakingPageViewComponent : ViewComponent
 {
-    private readonly WebPageMetaService _metaService;
     private readonly PublicSpeakingRepository _publicSpeakingRepository;
 
-    public PublicSpeakingPageViewComponent(WebPageMetaService metaService, PublicSpeakingRepository publicSpeakingRepository)
+    public PublicSpeakingPageViewComponent(PublicSpeakingRepository publicSpeakingRepository)
     {
-        _metaService = metaService;
         _publicSpeakingRepository = publicSpeakingRepository;
     }
 
@@ -25,11 +23,6 @@ public class PublicSpeakingPageViewComponent : ViewComponent
         {
             return Content(string.Empty);
         }
-
-        _metaService.SetMeta(new Meta(
-            NextUrl: string.Empty,
-            PreviousUrl: string.Empty)
-        );
 
         return View("~/Features/PublicSpeakingPage/Components/PublicSpeakingPage.cshtml", publicSpeakingModel);
     }

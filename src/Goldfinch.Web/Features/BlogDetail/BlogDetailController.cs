@@ -1,7 +1,6 @@
 ﻿using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.ContentTypes;
-using Goldfinch.Core.SEO;
 using Goldfinch.Web.Features.BlogDetail;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
@@ -23,13 +22,11 @@ public class BlogDetailController : Controller
     private readonly BlogPostRepository _blogPostRepository;
     private readonly IWebPageUrlRetriever _webPageUrlRetriever;
     private readonly IWebPageDataContextRetriever _webPageDataContextRetriever;
-    private readonly WebPageMetaService _metaService;
 
-    public BlogDetailController(BlogPostRepository blogPostRepository, IWebPageDataContextRetriever webPageDataContextRetriever, WebPageMetaService metaService, IWebPageUrlRetriever webPageUrlRetriever)
+    public BlogDetailController(BlogPostRepository blogPostRepository, IWebPageDataContextRetriever webPageDataContextRetriever, IWebPageUrlRetriever webPageUrlRetriever)
     {
         _blogPostRepository = blogPostRepository;
         _webPageDataContextRetriever = webPageDataContextRetriever;
-        _metaService = metaService;
         _webPageUrlRetriever = webPageUrlRetriever;
     }
 
@@ -43,11 +40,6 @@ public class BlogDetailController : Controller
         var page = data.WebPage;
 
         var currentPage = await _blogPostRepository.GetBlogPost(page.WebPageItemID);
-
-        _metaService.SetMeta(new Meta(
-            NextUrl: string.Empty,
-            PreviousUrl: string.Empty)
-        );
 
         var viewModel = await BlogPostViewModel.GetViewModelAsync(currentPage, _webPageUrlRetriever);
 

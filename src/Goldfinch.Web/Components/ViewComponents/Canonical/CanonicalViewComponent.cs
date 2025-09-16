@@ -1,4 +1,4 @@
-﻿using Goldfinch.Core.SEO;
+﻿using Goldfinch.Core.SEO.Constants;
 using Goldfinch.Core.SEO.Models;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Http;
@@ -12,18 +12,14 @@ namespace Goldfinch.Web.Components.ViewComponents.Canonical;
 public class CanonicalViewComponent : ViewComponent
 {
     private readonly IContentRetriever _contentRetriever;
-    private readonly WebPageMetaService _metaService;
 
-    public CanonicalViewComponent(IContentRetriever contentRetriever, WebPageMetaService metaService)
+    public CanonicalViewComponent(IContentRetriever contentRetriever)
     {
         _contentRetriever = contentRetriever;
-        _metaService = metaService;
     }
 
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        var meta = _metaService.GetMeta();
-
         var seoPageFields = await _contentRetriever.RetrieveCurrentPage<SeoPageFields>();
 
         var canonicalUrl = seoPageFields.SeoCanonicalUrl;
@@ -36,11 +32,14 @@ public class CanonicalViewComponent : ViewComponent
             canonicalUrl = $"{uri.Scheme}://{uri.Host}{uri.AbsolutePath}";
         }
 
+        var nextUrl = ViewContext.ViewData[SEOConstants.NEXT_URL_KEY] as string ?? string.Empty;
+        var previousUrl = ViewContext.ViewData[SEOConstants.PREVIOUS_URL_KEY] as string ?? string.Empty;
+
         var viewModel = new CanonicalViewModel
         {
             CanonicalUrl = canonicalUrl,
-            NextUrl = meta.NextUrl,
-            PreviousUrl = meta.PreviousUrl,
+            NextUrl = nextUrl,
+            PreviousUrl = previousUrl,
         };
 
         return View("~/Components/ViewComponents/Canonical/Canonical.cshtml", viewModel);
