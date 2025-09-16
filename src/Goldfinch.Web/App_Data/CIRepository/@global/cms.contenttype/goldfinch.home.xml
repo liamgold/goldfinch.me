@@ -11,14 +11,6 @@
       <schema guid="c5126ac7-4df1-481c-b978-987e59554cda" name="c5126ac7-4df1-481c-b978-987e59554cda">
         <properties />
       </schema>
-      <field column="DocumentName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="70a12964-7c74-48ba-b29d-d82a0c1c00f0" visible="true">
-        <properties>
-          <fieldcaption>Page name</fieldcaption>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
-        </settings>
-      </field>
       <field column="Heading" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="5cd8e477-e2af-429b-a1b4-dde38dea7a24" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>

@@ -36,12 +36,6 @@ namespace Goldfinch.Core.ContentTypes
 
 
 		/// <summary>
-		/// DocumentName.
-		/// </summary>
-		public string DocumentName { get; set; }
-
-
-		/// <summary>
 		/// Heading.
 		/// </summary>
 		public string Heading { get; set; }
