@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <BaseContentTitle>Home</BaseContentTitle>
   <ContentItemCommonDataContentItemID>
     <CodeName>Home-f45dz6v3</CodeName>
     <GUID>de42ab4e-52b1-44dd-9243-c90c4dec9c68</GUID>
@@ -12,9 +13,12 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>1688f44a-b530-4be3-814f-b5b46de608fb</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-08-22 19:33:49Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2025-09-15 22:58:34Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"Goldfinch.HomePage_Default","properties":{},"fieldIdentifiers":{}}]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <SeoShortDescription>
+    <![CDATA[Explore expert insights on Kentico Xperience and .NET development. Access valuable blog posts, tutorials, and updates to enhance your projects and secure your applications.]]>
+  </SeoShortDescription>
 </cms.contentitemcommondata>

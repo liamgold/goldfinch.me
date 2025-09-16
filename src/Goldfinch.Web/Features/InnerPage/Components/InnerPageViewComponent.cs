@@ -2,7 +2,6 @@ using Goldfinch.Core.InnerPages;
 using Goldfinch.Core.SEO;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace Goldfinch.Web.Features.InnerPage;
@@ -23,9 +22,6 @@ public class InnerPageViewComponent : ViewComponent
         var innerPage = await _innerPageRepository.GetInnerPage(page.WebPageItemID);
 
         _metaService.SetMeta(new Meta(
-            Title: innerPage.BaseContentTitle,
-            Description: string.Empty,
-            CanonicalUrl: string.Empty,
             NextUrl: string.Empty,
             PreviousUrl: string.Empty)
         );

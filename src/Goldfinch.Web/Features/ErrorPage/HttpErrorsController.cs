@@ -1,4 +1,4 @@
-﻿using Goldfinch.Core.ContentTypes;
+﻿using CMS.Websites.Routing;
 using Goldfinch.Core.ErrorPages;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
@@ -13,12 +13,14 @@ namespace Goldfinch.Web.Features.ErrorPage
         private readonly ErrorPageRepository _errorPageRepository;
         private readonly IWebPageDataContextInitializer _webPageDataContextInitializer;
         private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
+        private readonly IWebsiteChannelContext _websiteChannelContext;
 
-        public HttpErrorsController(ErrorPageRepository errorPageRepository, IWebPageDataContextInitializer webPageDataContextInitializer, IPreferredLanguageRetriever preferredLanguageRetriever)
+        public HttpErrorsController(ErrorPageRepository errorPageRepository, IWebPageDataContextInitializer webPageDataContextInitializer, IPreferredLanguageRetriever preferredLanguageRetriever, IWebsiteChannelContext websiteChannelContext)
         {
             _errorPageRepository = errorPageRepository;
             _webPageDataContextInitializer = webPageDataContextInitializer;
             _preferredLanguageRetriever = preferredLanguageRetriever;
+            _websiteChannelContext = websiteChannelContext;
         }
 
         public async Task<IActionResult> ErrorAsync(int code)
@@ -50,8 +52,11 @@ namespace Goldfinch.Web.Features.ErrorPage
             {
                 WebPageItemGUID = errorPage.SystemFields.WebPageItemGUID,
                 WebPageItemID = errorPage.SystemFields.WebPageItemID,
-                ContentTypeName = BlogListing.CONTENT_TYPE_NAME,
+                ContentTypeName = Core.ContentTypes.ErrorPage.CONTENT_TYPE_NAME,
                 LanguageName = languageName,
+                WebsiteChannelID = errorPage.SystemFields.WebPageItemWebsiteChannelId,
+                WebsiteChannelName = _websiteChannelContext.WebsiteChannelName,
+                ContentTypeID = errorPage.SystemFields.ContentItemContentTypeID,
             });
 
             return new TemplateResult(errorPage);
