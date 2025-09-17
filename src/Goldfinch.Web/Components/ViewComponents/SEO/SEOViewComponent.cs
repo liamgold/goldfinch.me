@@ -1,5 +1,4 @@
-﻿using Goldfinch.Core.ContentTypes;
-using Goldfinch.Core.SEO;
+﻿using Goldfinch.Core.SEO;
 using Goldfinch.Core.SEO.Models;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Http.Extensions;
@@ -38,12 +37,6 @@ public class SEOViewComponent : ViewComponent
         var schema = await GetSchema(page);
 
         var pageUrl = HttpContext.Request.GetEncodedUrl();
-
-        if (page.ContentTypeName.Equals(BlogListing.CONTENT_TYPE_NAME))
-        {
-            // TODO: replace this later
-            pageUrl = "https://www.goldfinch.me/blog";
-        }
 
         var viewModel = new SEOViewModel
         {
