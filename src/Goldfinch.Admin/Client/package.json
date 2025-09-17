@@ -8,10 +8,10 @@
     "build": "webpack --mode=production"
   },
   "dependencies": {
-    "@kentico/xperience-admin-base": "30.3.0",
-    "@kentico/xperience-admin-components": "30.3.0",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0"
+    "@kentico/xperience-admin-base": "30.9.2",
+    "@kentico/xperience-admin-components": "30.9.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
@@ -19,9 +19,9 @@
     "@babel/preset-env": "^7.28.3",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
-    "@kentico/xperience-webpack-config": "30.3.0",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@kentico/xperience-webpack-config": "30.9.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
     "babel-loader": "^10.0.0",
     "webpack": "5.101.3",
     "webpack-cli": "^6.0.1",
