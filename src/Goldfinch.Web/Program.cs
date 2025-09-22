@@ -16,7 +16,6 @@ using Sidio.Sitemap.AspNetCore;
 using Sidio.Sitemap.Core.Services;
 using StackExchange.Profiling;
 using XperienceCommunity.CSP;
-using XperienceCommunity.ImageProcessing;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,7 +77,6 @@ builder.Services.AddCoreServices();
 builder.Services.AddXperienceCommunityCspManagement();
 
 builder.Services.Configure<ContentSecurityPolicyOptions>(builder.Configuration.GetSection("ContentSecurityPolicy"));
-builder.Services.Configure<ImageProcessingOptions>(builder.Configuration.GetSection("ImageProcessing"));
 
 if (env.IsDevelopment())
 {
@@ -129,8 +127,6 @@ app.UseAuthentication();
 app.UseTrailingSlashMiddleware();
 
 app.UseXperienceCommunityCspManagement();
-
-app.UseXperienceCommunityImageProcessing();
 
 app.UseSecurityHeadersMiddleware();
 
