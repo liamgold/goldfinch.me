@@ -25,7 +25,8 @@ namespace Goldfinch.Web.Components.Widgets.Image
         {
             var viewModel = new ImageWidgetViewModel
             {
-                ImageSet = null,
+                ContentItemAsset = null,
+                Description = null
             };
 
             if (properties.SelectedAssets.Any())
@@ -37,23 +38,11 @@ namespace Goldfinch.Web.Components.Widgets.Image
                     var mediaFile = await _mediaAssetRepository.GetMediaAssetContent(asset.Identifier);
                     if (mediaFile != null)
                     {
-                        var url = mediaFile.MediaAssetContentAsset.Url;
-
-                        var imageSet = new ImageWidgetImageSet
-                        {
-                            FullWidthUrl = url,
-                            Width480Url = $"{url}&maxsidesize=480&format=webp",
-                            Width800Url = $"{url}&maxsidesize=800&format=webp",
-                            Width1000Url = $"{url}&maxsidesize=1000&format=webp",
-                        };
-
                         viewModel = new ImageWidgetViewModel
                         {
-                            ImageSet = imageSet,
+                            ContentItemAsset = mediaFile.MediaAssetContentAsset,
                             Description = mediaFile.MediaAssetContentShortDescription,
                         };
-
-                        return View(ViewName, viewModel);
                     }
                 }
             }

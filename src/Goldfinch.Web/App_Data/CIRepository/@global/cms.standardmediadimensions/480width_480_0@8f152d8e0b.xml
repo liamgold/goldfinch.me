@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>480 Width</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>cfe67cec-9d25-40af-9582-6ae372f73737</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>0</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>480Width</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>Scale</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>480</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>

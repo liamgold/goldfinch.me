@@ -1,20 +1,20 @@
-﻿@model Goldfinch.Web.Components.Widgets.Image.ImageWidgetViewModel
+﻿@addTagHelper Kentico.Content.Web.Mvc.ContentItemAssetImageTagHelper, Kentico.Content.Web.Mvc
+@addTagHelper Kentico.Content.Web.Mvc.ContentItemAssetPictureSourceTagHelper, Kentico.Content.Web.Mvc
+@model Goldfinch.Web.Components.Widgets.Image.ImageWidgetViewModel
 
-@if (Model.ImageSet is null)
+@if (Model.ContentItemAsset is null)
 {
     <p style="color:red; font-size:60px;">Image not found</p>
 }
 else
 {
-    <a href="@Model.ImageSet.FullWidthUrl" target="_blank">
+    <a href="@Model.ContentItemAsset.Url" target="_blank">
         <figure>
-            <img srcset="@Url.Content(Model.ImageSet.Width480Url) 480w,
-        @Url.Content(Model.ImageSet.Width800Url) 800w,
-        @Url.Content(Model.ImageSet.Width1000Url) 1000w"
-                 sizes="(max-width: 600px) 480px,
-        (max-width: 1000px) 800px,
-        1000px"
-                 src="@Url.Content(Model.ImageSet.Width1000Url)" alt="@Model.Description" loading="lazy">
+            <picture>
+                <source media="(max-width: 600px)" kxp-img="@Model.ContentItemAsset" kxp-img-dimensions kxp-img-variant="480Width" />
+                <source media="(max-width: 1000px)" kxp-img="@Model.ContentItemAsset" kxp-img-dimensions kxp-img-variant="800Width" />
+                <img kxp-img="@Model.ContentItemAsset" kxp-img-dimensions kxp-img-variant="1000Width" alt="@Model.Description" loading="lazy" />
+            </picture>
 
             @if (!string.IsNullOrWhiteSpace(Model.Description))
             {
