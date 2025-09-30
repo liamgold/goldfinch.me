@@ -379,3 +379,6 @@ src/Goldfinch.Web/App_Data/playwright
 # Continuous Deployment
 /src/Goldfinch.Web/$CDRepository
 DeploymentPackage.zip
+
+# Claude Code configuration
+.claude/
