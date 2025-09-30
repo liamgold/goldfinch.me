@@ -7,31 +7,31 @@ public class SeoPageFields : ISeoFields, IBaseContentFields
     /// <summary>
     /// SeoTitle.
     /// </summary>
-    public string SeoTitle { get; set; }
+    public required string SeoTitle { get; set; }
 
 
     /// <summary>
     /// SeoShortDescription.
     /// </summary>
-    public string SeoShortDescription { get; set; }
+    public required string SeoShortDescription { get; set; }
 
 
     /// <summary>
     /// SeoCanonicalUrl.
     /// </summary>
-    public string SeoCanonicalUrl { get; set; }
+    public required string SeoCanonicalUrl { get; set; }
 
 
     /// <summary>
     /// BaseContentTitle.
     /// </summary>
-    public string BaseContentTitle { get; set; }
+    public required string BaseContentTitle { get; set; }
 
 
     /// <summary>
     /// BaseContentShortDescription.
     /// </summary>
-    public string BaseContentShortDescription { get; set; }
+    public required string BaseContentShortDescription { get; set; }
 
 
     public string MetaTitle => string.IsNullOrWhiteSpace(SeoTitle) ? BaseContentTitle : SeoTitle;

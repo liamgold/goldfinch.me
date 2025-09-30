@@ -14,7 +14,7 @@ public class ErrorPageRepository : WebPageRepository
     {
     }
 
-    public async Task<ErrorPage> GetErrorPage(int webPageItemID)
+    public async Task<ErrorPage?> GetErrorPage(int webPageItemID)
     {
         return await ProgressiveCache.LoadAsync(async (cs) =>
         {
@@ -35,7 +35,7 @@ public class ErrorPageRepository : WebPageRepository
     /// <summary>
     ///     Returns the site 404 error page document.
     /// </summary>
-    public async Task<ErrorPage> Get404Page()
+    public async Task<ErrorPage?> Get404Page()
     {
         return await ProgressiveCache.LoadAsync(async (cs) =>
         {
@@ -56,7 +56,7 @@ public class ErrorPageRepository : WebPageRepository
     /// <summary>
     ///     Returns the site 500 error page document.
     /// </summary>
-    public async Task<ErrorPage> Get500Page()
+    public async Task<ErrorPage?> Get500Page()
     {
         return await ProgressiveCache.LoadAsync(async (cs) =>
         {

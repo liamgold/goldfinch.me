@@ -2,10 +2,10 @@
 {
     public class CanonicalViewModel
     {
-        public string CanonicalUrl { get; set; }
+        public string CanonicalUrl { get; set; } = string.Empty;
 
-        public string PreviousUrl { get; set; }
+        public string PreviousUrl { get; set; } = string.Empty;
 
-        public string NextUrl { get; set; }
+        public string NextUrl { get; set; } = string.Empty;
     }
 }

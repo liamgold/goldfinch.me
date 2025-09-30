@@ -15,7 +15,7 @@ public class InnerPageRepository : WebPageRepository
     {
     }
 
-    public async Task<InnerPage> GetInnerPage(int webPageItemID)
+    public async Task<InnerPage?> GetInnerPage(int webPageItemID)
     {
         return await ProgressiveCache.LoadAsync(async (cs) =>
         {

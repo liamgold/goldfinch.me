@@ -3,7 +3,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
-		<Nullable>disable</Nullable>
+		<Nullable>enable</Nullable>
 		<WarningsAsErrors>nullable</WarningsAsErrors>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<NoWarn>$(NoWarn)</NoWarn>

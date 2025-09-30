@@ -25,7 +25,7 @@ namespace Goldfinch.Web.Features.ErrorPage
 
         public async Task<IActionResult> ErrorAsync(int code)
         {
-            Core.ContentTypes.ErrorPage errorPage;
+            Core.ContentTypes.ErrorPage? errorPage;
 
             switch (code)
             {

@@ -6,6 +6,6 @@ namespace Goldfinch.Web.Components.Widgets.YouTubeVideo
     public class YouTubeVideoWidgetProperties : IWidgetProperties
     {
         [TextInputComponent(Label = "YouTube Video ID", Order = 1)]
-        public string VideoId { get; set; }
+        public string VideoId { get; set; } = string.Empty;
     }
 }

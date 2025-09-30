@@ -2,6 +2,6 @@
 {
     public class YouTubeVideoWidgetViewModel
     {
-        public string VideoId { get; set; }
+        public required string VideoId { get; set; }
     }
 }

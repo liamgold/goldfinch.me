@@ -55,7 +55,13 @@ namespace Goldfinch.Web.Features.BlogList
             {
                 return NotFound();
             }
+
             var blogListing = await _blogListingRepository.GetBlogListing();
+
+            if (blogListing == null)
+            {
+                return NotFound();
+            }
 
             var languageName = _preferredLanguageRetriever.Get();
 

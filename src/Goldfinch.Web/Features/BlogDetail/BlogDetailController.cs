@@ -41,6 +41,11 @@ public class BlogDetailController : Controller
 
         var currentPage = await _blogPostRepository.GetBlogPost(page.WebPageItemID);
 
+        if (currentPage == null)
+        {
+            return NotFound();
+        }
+
         var viewModel = await BlogPostViewModel.GetViewModelAsync(currentPage, _webPageUrlRetriever);
 
         viewModel.Schema = GetSchema(viewModel);

@@ -13,7 +13,7 @@ namespace Goldfinch.Web.Infrastructure.Storage;
 
 public class StorageInitializationModule : Module
 {
-    private IWebHostEnvironment _environment;
+    private IWebHostEnvironment? _environment;
 
     /// <summary>
     /// Gets the web hosting environment information.

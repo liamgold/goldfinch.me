@@ -25,7 +25,7 @@ namespace Goldfinch.Web.Components.Widgets.Video
         {
             var viewModel = new VideoWidgetViewModel
             {
-                VideoUrl = null,
+                VideoUrl = string.Empty,
             };
 
             if (properties.SelectedAssets.Any())
@@ -43,7 +43,7 @@ namespace Goldfinch.Web.Components.Widgets.Video
                         {
                             VideoUrl = url,
                             Description = mediaFile.MediaAssetContentShortDescription,
-                            PosterImage = mediaFile.MediaAssetContentPosterImage?.Url,
+                            PosterImage = mediaFile.MediaAssetContentPosterImage?.Url ?? string.Empty,
                         };
 
                         return View(ViewName, viewModel);

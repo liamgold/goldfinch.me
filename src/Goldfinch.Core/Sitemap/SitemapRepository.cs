@@ -65,7 +65,7 @@ public class SitemapRepository : WebPageRepository
                 .WhereEquals(nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentItemID), page.SystemFields.ContentItemID)
                 .FirstOrDefault();
 
-            var lastModified = metadata.ContentItemLanguageMetadataModifiedWhen;
+            var lastModified = metadata?.ContentItemLanguageMetadataModifiedWhen ?? DateTime.UtcNow;
 
             sitemapNodes.Add(new SitemapNode(absoluteUrl)
             {
