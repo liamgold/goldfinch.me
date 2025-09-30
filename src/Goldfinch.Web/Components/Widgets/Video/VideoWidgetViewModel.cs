@@ -2,7 +2,7 @@
 {
     public class VideoWidgetViewModel
     {
-        public required string VideoUrl { get; set; }
+        public string? VideoUrl { get; set; }
 
         public string PosterImage { get; set; } = string.Empty;
 

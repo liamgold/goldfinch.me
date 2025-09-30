@@ -13,23 +13,18 @@ namespace Goldfinch.Web.Infrastructure.Storage;
 
 public class StorageInitializationModule : Module
 {
-    private IWebHostEnvironment? _environment;
-
-    /// <summary>
-    /// Gets the web hosting environment information.
-    /// </summary>
-    public IWebHostEnvironment Environment
-    {
-        get
-        {
-            return _environment ??= Service.Resolve<IWebHostEnvironment>();
-        }
-    }
+    private readonly IWebHostEnvironment _environment;
 
     public StorageInitializationModule()
          : base(nameof(StorageInitializationModule))
     {
+        _environment = Service.Resolve<IWebHostEnvironment>();
     }
+
+    /// <summary>
+    /// Gets the web hosting environment information.
+    /// </summary>
+    public IWebHostEnvironment Environment => _environment;
 
     protected override void OnInit()
     {
