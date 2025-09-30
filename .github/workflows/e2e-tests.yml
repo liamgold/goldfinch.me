@@ -1,0 +1,54 @@
+name: E2E Tests (Post-Deployment)
+
+on:
+  workflow_run:
+    workflows: ["Build & Deploy (Publish Profile)"]
+    types:
+      - completed
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    # Only run if deployment succeeded
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    env:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET from global.json
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build test project
+        run: dotnet build tests/Goldfinch.Tests.E2E/Goldfinch.Tests.E2E.csproj --configuration Release
+
+      - name: Install Playwright browsers
+        working-directory: tests/Goldfinch.Tests.E2E
+        run: pwsh bin/Release/net9.0/playwright.ps1 install chromium
+
+      - name: Wait for deployment to stabilize
+        run: sleep 60
+
+      - name: Run E2E smoke tests against production
+        run: dotnet test tests/Goldfinch.Tests.E2E/Goldfinch.Tests.E2E.csproj --configuration Release --no-build --filter "Category=Smoke" --logger "trx;LogFileName=test-results.trx"
+        env:
+          BASE_URL: 'https://www.goldfinch.me'
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-test-results
+          path: tests/Goldfinch.Tests.E2E/TestResults/*.trx
