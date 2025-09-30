@@ -150,14 +150,15 @@ dotnet run
 ## Testing & Build
 
 - Build command: `dotnet build`
-- No automated tests currently in the project
-- Manual testing via local environment
+- E2E tests: Playwright tests in `tests/Goldfinch.Tests.E2E/`
+- Test command: `dotnet test tests/Goldfinch.Tests.E2E/Goldfinch.Tests.E2E.csproj`
 
 ## Deployment
 
 - **Production:** https://www.goldfinch.me
+- **CI/CD:** GitHub Actions (`.github/workflows/deploy.yml`)
 - Uses Azure Blob Storage for media assets in production
-- Continuous Deployment via Kentico CI/CD system
+- Deploys to Azure Web App using publish profile
 
 ## Important Notes
 
