@@ -66,9 +66,9 @@ tests/Goldfinch.Tests.E2E/
 
 ## CI/CD Integration
 
-Tests are automatically run in the Azure DevOps pipeline before deployment to production. See `azure-pipelines-e2e-tests.yml` for the full pipeline configuration.
+Tests are automatically run in the GitHub Actions workflow before deployment to production. See `.github/workflows/e2e-tests.yml` for the full workflow configuration.
 
-The pipeline:
+The workflow:
 1. Builds the application
 2. Starts the application in the background
 3. Runs smoke tests against `localhost:52623`
