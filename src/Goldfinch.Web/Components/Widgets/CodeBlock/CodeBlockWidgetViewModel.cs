@@ -2,8 +2,8 @@
 {
     public class CodeBlockWidgetViewModel
     {
-        public string CodeClassName { get; set; }
+        public required string CodeClassName { get; set; }
 
-        public string CodeText { get; set; }
+        public required string CodeText { get; set; }
     }
 }

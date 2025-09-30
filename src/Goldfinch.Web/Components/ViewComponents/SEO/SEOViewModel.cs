@@ -2,16 +2,16 @@
 {
     public class SEOViewModel
     {
-        public string Title { get; set; }
+        public required string Title { get; set; }
 
-        public string Description { get; set; }
+        public required string Description { get; set; }
 
-        public string ContentType { get; set; }
+        public required string ContentType { get; set; }
 
-        public string Image { get; set; }
+        public string Image { get; set; } = string.Empty;
 
-        public string Url { get; set; }
+        public required string Url { get; set; }
 
-        public string Schema { get; set; }
+        public string Schema { get; set; } = string.Empty;
     }
 }

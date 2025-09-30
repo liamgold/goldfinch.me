@@ -7,15 +7,15 @@ namespace Goldfinch.Web.Features.BlogDetail;
 
 public class BlogPostViewModel
 {
-    public string Title { get; private set; }
+    public required string Title { get; set; }
 
-    public string Summary { get; private set; }
+    public required string Summary { get; set; }
 
-    public string Url { get; private set; }
+    public required string Url { get; set; }
 
-    public DateTime BlogPostDate { get; private set; }
+    public DateTime BlogPostDate { get; set; }
 
-    public string Schema { get; set; }
+    public string Schema { get; set; } = string.Empty;
 
     public static async Task<BlogPostViewModel> GetViewModelAsync(BlogPost blogPost, IWebPageUrlRetriever pageUrlRetriever)
     {

@@ -11,6 +11,6 @@ namespace Goldfinch.Web.Components.Widgets.CodeBlock
         public string Language { get; set; } = "csharp";
 
         [TextAreaComponent(Label = "Code", Order = 2)]
-        public string Code { get; set; }
+        public string Code { get; set; } = string.Empty;
     }
 }

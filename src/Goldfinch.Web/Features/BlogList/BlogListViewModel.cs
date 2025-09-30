@@ -8,21 +8,21 @@ namespace Goldfinch.Web.Features.BlogList
 {
     public class BlogListViewModel
     {
-        public string Title { get; private set; }
+        public required string Title { get; set; }
 
-        public string Url { get; private set; }
+        public required string Url { get; set; }
 
-        public string PreviousUrl { get; set; }
+        public string PreviousUrl { get; set; } = string.Empty;
 
-        public string NextUrl { get; set; }
+        public string NextUrl { get; set; } = string.Empty;
 
-        public int PageIndex { get; private set; }
+        public int PageIndex { get; set; }
 
-        public int PageCount { get; private set; }
+        public int PageCount { get; set; }
 
         public ICollection<BlogPostViewModel> BlogPosts { get; set; } = [];
 
-        public string Schema { get; set; }
+        public string Schema { get; set; } = string.Empty;
 
         public static async Task<BlogListViewModel> GetViewModelAsync(BlogListing blogListing, IWebPageUrlRetriever pageUrlRetriever, int pageIndex, int pageCount)
         {

@@ -21,7 +21,7 @@ public class BlogPostRepository : WebPageRepository
     {
     }
 
-    public async Task<BlogPost> GetBlogPost(int webPageItemID)
+    public async Task<BlogPost?> GetBlogPost(int webPageItemID)
     {
         return await ProgressiveCache.LoadAsync(async (cs) =>
         {

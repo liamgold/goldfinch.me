@@ -23,10 +23,7 @@ namespace Goldfinch.Web.Components.Widgets.Video
 
         public async Task<IViewComponentResult> InvokeAsync(VideoWidgetProperties properties)
         {
-            var viewModel = new VideoWidgetViewModel
-            {
-                VideoUrl = null,
-            };
+            var viewModel = new VideoWidgetViewModel();
 
             if (properties.SelectedAssets.Any())
             {
@@ -37,16 +34,9 @@ namespace Goldfinch.Web.Components.Widgets.Video
                     var mediaFile = await _mediaAssetRepository.GetMediaAssetContent(asset.Identifier);
                     if (mediaFile != null)
                     {
-                        var url = mediaFile.MediaAssetContentAsset.Url;
-
-                        viewModel = new VideoWidgetViewModel
-                        {
-                            VideoUrl = url,
-                            Description = mediaFile.MediaAssetContentShortDescription,
-                            PosterImage = mediaFile.MediaAssetContentPosterImage?.Url,
-                        };
-
-                        return View(ViewName, viewModel);
+                        viewModel.VideoUrl = mediaFile.MediaAssetContentAsset.Url;
+                        viewModel.Description = mediaFile.MediaAssetContentShortDescription;
+                        viewModel.PosterImage = mediaFile.MediaAssetContentPosterImage?.Url ?? string.Empty;
                     }
                 }
             }

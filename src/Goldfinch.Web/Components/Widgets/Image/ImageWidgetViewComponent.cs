@@ -25,7 +25,14 @@ namespace Goldfinch.Web.Components.Widgets.Image
         {
             var viewModel = new ImageWidgetViewModel
             {
-                ImageSet = null,
+                ImageSet = new ImageWidgetImageSet
+                {
+                    FullWidthUrl = string.Empty,
+                    Width480Url = string.Empty,
+                    Width800Url = string.Empty,
+                    Width1000Url = string.Empty,
+                },
+                Description = string.Empty,
             };
 
             if (properties.SelectedAssets.Any())

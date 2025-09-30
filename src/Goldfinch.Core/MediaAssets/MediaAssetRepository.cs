@@ -18,7 +18,7 @@ public class MediaAssetRepository
         _executor = executor;
     }
 
-    public async Task<MediaAssetContent> GetMediaAssetContent(Guid identifier)
+    public async Task<MediaAssetContent?> GetMediaAssetContent(Guid identifier)
     {
         return await _progressiveCache.LoadAsync(async cs =>
         {

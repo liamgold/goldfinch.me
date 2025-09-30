@@ -14,7 +14,7 @@ public class PublicSpeakingRepository : WebPageRepository
     {
     }
 
-    public async Task<PublicSpeakingModel> GetPublicSpeakingPage(int webPageItemID)
+    public async Task<PublicSpeakingModel?> GetPublicSpeakingPage(int webPageItemID)
     {
         return await ProgressiveCache.LoadAsync(async (cs) =>
         {
@@ -28,6 +28,11 @@ public class PublicSpeakingRepository : WebPageRepository
             var pages = await Executor.GetMappedWebPageResult<PublicSpeakingPage>(queryBuilder);
 
             var listingPage = pages.FirstOrDefault();
+
+            if (listingPage == null)
+            {
+                return null;
+            }
 
             queryBuilder = new ContentItemQueryBuilder()
                 .ForContentType(SpeakingEngagement.CONTENT_TYPE_NAME);

@@ -5,8 +5,8 @@ namespace Goldfinch.Web.Components.ViewComponents.LatestBlogPosts
 {
     public class LatestBlogPostsViewModel
     {
-        public string Title { get; set; }
+        public required string Title { get; set; }
 
-        public ICollection<BlogPostViewModel> BlogPosts { get; set; }
+        public ICollection<BlogPostViewModel> BlogPosts { get; set; } = [];
     }
 }

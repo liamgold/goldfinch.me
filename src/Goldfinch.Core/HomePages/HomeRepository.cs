@@ -14,7 +14,7 @@ public class HomeRepository : WebPageRepository
     {
     }
 
-    public async Task<Home> GetHome()
+    public async Task<Home?> GetHome()
     {
         return await ProgressiveCache.LoadAsync(async (cs) =>
         {
