@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  checks: write
 
 jobs:
   e2e-tests:
@@ -42,9 +43,18 @@ jobs:
         run: sleep 60
 
       - name: Run E2E smoke tests against production
-        run: dotnet test tests/Goldfinch.Tests.E2E/Goldfinch.Tests.E2E.csproj --configuration Release --no-build --filter "Category=Smoke" --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test tests/Goldfinch.Tests.E2E/Goldfinch.Tests.E2E.csproj --configuration Release --no-build --filter "Category=Smoke" --logger "trx;LogFileName=test-results.trx" --logger "console;verbosity=detailed"
         env:
           BASE_URL: 'https://www.goldfinch.me'
+
+      - name: Publish test results
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: E2E Test Results
+          path: tests/Goldfinch.Tests.E2E/TestResults/*.trx
+          reporter: dotnet-trx
+          fail-on-error: true
 
       - name: Upload test results
         if: always()
