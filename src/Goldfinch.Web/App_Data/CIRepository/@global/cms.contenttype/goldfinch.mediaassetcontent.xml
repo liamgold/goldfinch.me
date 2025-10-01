@@ -36,12 +36,6 @@
         <settings>
           <AllowedExtensions>_INHERITED_</AllowedExtensions>
           <controlname>Kentico.Administration.ContentItemAssetUploader</controlname>
-          <InputImageExtensions>
-            <![CDATA[["png","jpg","jpeg"]]]>
-          </InputImageExtensions>
-          <IsFormatConversionEnabled>True</IsFormatConversionEnabled>
-          <OutputImageExtension>webp</OutputImageExtension>
-          <OutputQuality>100</OutputQuality>
         </settings>
       </field>
       <field allowempty="true" column="MediaAssetContentPosterImage" columnprecision="0" columntype="contentitemasset" enabled="true" guid="f0f91d38-68fc-46c8-9fd7-222ac00ab2db" visible="true">
