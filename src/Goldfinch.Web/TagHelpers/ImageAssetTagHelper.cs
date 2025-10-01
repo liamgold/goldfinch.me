@@ -23,7 +23,7 @@ public class ImageAssetTagHelper : TagHelper
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        if (Image is null)
+        if (Image is null || string.IsNullOrEmpty(Image.Url))
         {
             output.SuppressOutput();
             return;
@@ -52,7 +52,7 @@ public class ImageAssetTagHelper : TagHelper
 
     private static string GenerateSrcSet(ContentItemAsset asset, int originalWidth)
     {
-        if (asset.VariantUrls is null || asset.Metadata.Variants is null)
+        if (asset.VariantUrls is null || asset.Metadata?.Variants is null || string.IsNullOrEmpty(asset.Url))
         {
             return string.Empty;
         }
