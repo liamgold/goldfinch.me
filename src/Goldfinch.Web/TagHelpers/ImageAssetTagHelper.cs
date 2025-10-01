@@ -9,6 +9,7 @@ namespace Goldfinch.Web.TagHelpers;
 public class ImageAssetTagHelper : TagHelper
 {
     public const string ATTRIBUTE_IMAGE = "gf-image-asset";
+    private const int MAX_DISPLAY_SIZE = 1000;
 
     private static readonly Dictionary<string, int> standardVariants = new()
     {
@@ -42,7 +43,7 @@ public class ImageAssetTagHelper : TagHelper
                 // Set sizes attribute - cap at original image width to prevent upscaling
                 if (!output.Attributes.ContainsName("sizes"))
                 {
-                    int maxSize = System.Math.Min(1000, Image.Metadata.Width.Value);
+                    int maxSize = System.Math.Min(MAX_DISPLAY_SIZE, Image.Metadata.Width.Value);
                     output.Attributes.SetAttribute("sizes", $"(max-width: 600px) 480px, (max-width: 1000px) 800px, {maxSize}px");
                 }
             }
@@ -71,8 +72,8 @@ public class ImageAssetTagHelper : TagHelper
             if (asset.VariantUrls.TryGetValue(variantName, out string? variantUrl) &&
                 asset.Metadata.Variants.TryGetValue(variantName, out var variantMetadata))
             {
-                // Use actual width from Xperience metadata, fallback to max width
-                int actualWidth = variantMetadata.Width ?? maxWidth;
+                // Use actual width from Xperience metadata, capped at maxWidth to prevent unexpected upscaling
+                int actualWidth = System.Math.Min(variantMetadata.Width ?? maxWidth, maxWidth);
                 srcsetParts.Add($"{variantUrl} {actualWidth}w");
             }
         }
