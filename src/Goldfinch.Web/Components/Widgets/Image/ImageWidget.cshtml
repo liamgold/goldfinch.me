@@ -8,11 +8,7 @@ else
 {
     <a href="@Model.ContentItemAsset.Url" target="_blank">
         <figure>
-            <picture>
-                <source media="(max-width: 600px)" kxp-img="@Model.ContentItemAsset" kxp-img-dimensions kxp-img-variant="480Width" />
-                <source media="(max-width: 1000px)" kxp-img="@Model.ContentItemAsset" kxp-img-dimensions kxp-img-variant="800Width" />
-                <img kxp-img="@Model.ContentItemAsset" kxp-img-dimensions kxp-img-variant="1000Width" alt="@Model.Description" loading="lazy" />
-            </picture>
+            <img gf-image-asset="@Model.ContentItemAsset" alt="@Model.Description" loading="lazy" />
 
             @if (!string.IsNullOrWhiteSpace(Model.Description))
             {
