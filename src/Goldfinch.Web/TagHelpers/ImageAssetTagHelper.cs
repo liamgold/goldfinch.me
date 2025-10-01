@@ -33,7 +33,7 @@ public class ImageAssetTagHelper : TagHelper
         output.Attributes.SetAttribute("src", Image.Url);
 
         // Generate srcset and sizes for responsive images
-        if (Image.Metadata.Width.HasValue)
+        if (Image.Metadata is not null && Image.Metadata.Width.HasValue)
         {
             string srcset = GenerateSrcSet(Image, Image.Metadata.Width.Value);
             if (!string.IsNullOrEmpty(srcset))
