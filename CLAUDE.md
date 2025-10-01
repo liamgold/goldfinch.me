@@ -56,6 +56,38 @@ src/
 - **Progressive Caching:** All repositories use Kentico's `IProgressiveCache` for performance
 - **CI/CD:** Uses Kentico's Continuous Integration system - objects stored as serialized files in `App_Data/CIRepository/`
 
+### Image Handling
+
+The project uses Xperience by Kentico's native **Image Variant** functionality (Standard Media Dimensions) for responsive image delivery:
+
+- **Standard Media Dimensions:** Defined in `App_Data/CIRepository/@global/cms.standardmediadimensions/`
+- **Current Variants:**
+  - `480Width` - 480px wide (mobile)
+  - `800Width` - 800px wide (tablet)
+  - `1000Width` - 1000px wide (desktop)
+  - `SocialMediaCard` - 1200x630px (Open Graph)
+- **Custom Tag Helper:** `ImageAssetTagHelper` in `Goldfinch.Web/TagHelpers/`
+  - Automatically generates responsive `srcset` and `sizes` attributes
+  - Prevents upscaling by filtering out variants larger than the original image
+  - Caps `sizes` at the original image width to prevent browser upscaling
+  - Always includes the original image URL in the srcset
+- **Migration Note:** Previously used `XperienceCommunity.ImageProcessing` (now removed in favor of native functionality)
+
+Example usage in views:
+```html
+<img gf-image-asset="@Model.ContentItemAsset" alt="@Model.Description" loading="lazy" />
+```
+
+The tag helper automatically generates:
+- `src` attribute with the original image URL (fallback)
+- `srcset` attribute with all applicable variants (skips any larger than original)
+- `sizes` attribute: `(max-width: 600px) 480px, (max-width: 1000px) 800px, {maxSize}px`
+  - `maxSize` is capped at min(1000px, original image width)
+
+Examples:
+- **345px image**: srcset contains only `345w`, sizes capped at `345px` (no upscaling)
+- **1500px image**: srcset contains `480w, 800w, 1000w, 1500w`, sizes capped at `1000px` (optimized variants used, never serves full 1500px)
+
 ### Web Layer
 
 - **Feature Folders:** Organized by feature rather than technical layer
