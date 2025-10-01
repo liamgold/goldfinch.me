@@ -10,6 +10,7 @@
 		<PackageReference Include="SixLabors.ImageSharp.Drawing" />
 		<PackageReference Include="System.ServiceModel.Syndication" />
 		<PackageReference Include="XperienceCommunity.CSP" />
+		<PackageReference Include="XperienceCommunity.ImageProcessing" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Goldfinch.Core\Goldfinch.Core.csproj" />

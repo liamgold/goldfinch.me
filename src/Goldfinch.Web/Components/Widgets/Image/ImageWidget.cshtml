@@ -1,14 +1,20 @@
 ﻿@model Goldfinch.Web.Components.Widgets.Image.ImageWidgetViewModel
 
-@if (Model.ContentItemAsset is null)
+@if (Model.ImageSet is null)
 {
     <p style="color:red; font-size:60px;">Image not found</p>
 }
 else
 {
-    <a href="@Model.ContentItemAsset.Url" target="_blank">
+    <a href="@Model.ImageSet.FullWidthUrl" target="_blank">
         <figure>
-            <img gf-image-asset="@Model.ContentItemAsset" alt="@Model.Description" loading="lazy" />
+            <img srcset="@Url.Content(Model.ImageSet.Width480Url) 480w,
+        @Url.Content(Model.ImageSet.Width800Url) 800w,
+        @Url.Content(Model.ImageSet.Width1000Url) 1000w"
+                 sizes="(max-width: 600px) 480px,
+        (max-width: 1000px) 800px,
+        1000px"
+                 src="@Url.Content(Model.ImageSet.Width1000Url)" alt="@Model.Description" loading="lazy">
 
             @if (!string.IsNullOrWhiteSpace(Model.Description))
             {
