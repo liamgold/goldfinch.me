@@ -4,11 +4,10 @@ using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using System.Collections.Generic;
 
-namespace Goldfinch.Web.Components.Widgets.Image
+namespace Goldfinch.Web.Components.Widgets.Image;
+
+public class ImageWidgetProperties : IWidgetProperties
 {
-    public class ImageWidgetProperties : IWidgetProperties
-    {
-        [ContentItemSelectorComponent(MediaAssetContent.CONTENT_TYPE_NAME, Label = "Asset", Order = 1, MaximumItems = 1, AllowContentItemCreation = true)]
-        public IEnumerable<ContentItemReference> SelectedAssets { get; set; } = [];
-    }
+    [ContentItemSelectorComponent(MediaAssetContent.CONTENT_TYPE_NAME, Label = "Asset", Order = 1, MaximumItems = 1, AllowContentItemCreation = true)]
+    public IEnumerable<ContentItemReference> SelectedAssets { get; set; } = [];
 }

@@ -23,17 +23,7 @@ namespace Goldfinch.Web.Components.Widgets.Image
 
         public async Task<IViewComponentResult> InvokeAsync(ImageWidgetProperties properties)
         {
-            var viewModel = new ImageWidgetViewModel
-            {
-                ImageSet = new ImageWidgetImageSet
-                {
-                    FullWidthUrl = string.Empty,
-                    Width480Url = string.Empty,
-                    Width800Url = string.Empty,
-                    Width1000Url = string.Empty,
-                },
-                Description = string.Empty,
-            };
+            var viewModel = new ImageWidgetViewModel();
 
             if (properties.SelectedAssets.Any())
             {
@@ -44,23 +34,11 @@ namespace Goldfinch.Web.Components.Widgets.Image
                     var mediaFile = await _mediaAssetRepository.GetMediaAssetContent(asset.Identifier);
                     if (mediaFile != null)
                     {
-                        var url = mediaFile.MediaAssetContentAsset.Url;
-
-                        var imageSet = new ImageWidgetImageSet
-                        {
-                            FullWidthUrl = url,
-                            Width480Url = $"{url}&maxsidesize=480&format=webp",
-                            Width800Url = $"{url}&maxsidesize=800&format=webp",
-                            Width1000Url = $"{url}&maxsidesize=1000&format=webp",
-                        };
-
                         viewModel = new ImageWidgetViewModel
                         {
-                            ImageSet = imageSet,
+                            ContentItemAsset = mediaFile.MediaAssetContentAsset,
                             Description = mediaFile.MediaAssetContentShortDescription,
                         };
-
-                        return View(ViewName, viewModel);
                     }
                 }
             }
