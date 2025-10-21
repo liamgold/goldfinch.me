@@ -93,9 +93,9 @@
       },
       "System.ServiceModel.Syndication": {
         "type": "Direct",
-        "requested": "[9.0.9, )",
-        "resolved": "9.0.9",
-        "contentHash": "6vbZOwGjsnR2+3aaJlnBFBpXhrPtwDK6zPa2AWZoF9sV0KS1Hez+Y03ZnJk0L2JKvawMtsr3sNVTQaNXyiNV/A=="
+        "requested": "[9.0.10, )",
+        "resolved": "9.0.10",
+        "contentHash": "jWOXgKi51ULlPDi+YIWsZglIYUYC1DixAs2j6xdy8fzhuxvXO82yUEXv4wFziqzoG1FmTAV/uv5psxb+3MqB7w=="
       },
       "XperienceCommunity.CSP": {
         "type": "Direct",
