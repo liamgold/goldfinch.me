@@ -35,9 +35,9 @@
       },
       "Sidio.Sitemap.AspNetCore": {
         "type": "Direct",
-        "requested": "[2.7.6, )",
-        "resolved": "2.7.6",
-        "contentHash": "TdXSb/uoS2jUHNDs3F0N5ILlbR/ChgiI2jGW0PgW+RWq5crNIR8LssRFnu3Bb9XMucr9b/LcoAFZnJATp0G7xQ==",
+        "requested": "[2.7.7, )",
+        "resolved": "2.7.7",
+        "contentHash": "tPgs2b51dg5b6H4NKHWKmCx1PCsMOrxsKrPYLoLQ8LMbGGJnUTHZw/luPc+p4jbP3dKLgRQ6qkfkQ0ox/UtRcg==",
         "dependencies": {
           "Sidio.Sitemap.Core": "2.7.5"
         }
