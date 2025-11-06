@@ -7,10 +7,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-    <PackageVersion Include="Kentico.Xperience.Admin" Version="30.10.0" />
+    <PackageVersion Include="Kentico.Xperience.Admin" Version="30.11.0" />
     <PackageVersion Include="Kentico.Xperience.AzureStorage" Version="30.10.0" />
     <PackageVersion Include="Kentico.Xperience.MiniProfiler" Version="2.1.0" />
-    <PackageVersion Include="Kentico.Xperience.WebApp" Version="30.10.0" />
+    <PackageVersion Include="Kentico.Xperience.WebApp" Version="30.11.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="Microsoft.Playwright" Version="1.55.0" />
     <PackageVersion Include="Schema.NET" Version="13.0.0" />
@@ -18,7 +18,7 @@
     <PackageVersion Include="SixLabors.ImageSharp" Version="3.1.11" />
     <PackageVersion Include="SixLabors.ImageSharp.Drawing" Version="2.1.7" />
     <PackageVersion Include="System.ServiceModel.Syndication" Version="9.0.10" />
-    <PackageVersion Include="XperienceCommunity.CSP" Version="4.0.1" />
+    <PackageVersion Include="XperienceCommunity.CSP" Version="5.0.0" />
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
   </ItemGroup>
