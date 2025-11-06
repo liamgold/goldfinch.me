@@ -6,8 +6,6 @@
 		<PackageReference Include="Kentico.Xperience.WebApp" />
 		<PackageReference Include="Schema.NET" />
 		<PackageReference Include="Sidio.Sitemap.AspNetCore" />
-		<PackageReference Include="SixLabors.ImageSharp" />
-		<PackageReference Include="SixLabors.ImageSharp.Drawing" />
 		<PackageReference Include="System.ServiceModel.Syndication" />
 		<PackageReference Include="XperienceCommunity.CSP" />
 	</ItemGroup>
