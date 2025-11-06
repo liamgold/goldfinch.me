@@ -15,7 +15,7 @@
     <PackageVersion Include="Microsoft.Playwright" Version="1.55.0" />
     <PackageVersion Include="Schema.NET" Version="13.0.0" />
     <PackageVersion Include="Sidio.Sitemap.AspNetCore" Version="2.7.7" />
-    <PackageVersion Include="SixLabors.ImageSharp" Version="3.1.11" />
+    <PackageVersion Include="SixLabors.ImageSharp" Version="3.1.12" />
     <PackageVersion Include="SixLabors.ImageSharp.Drawing" Version="2.1.7" />
     <PackageVersion Include="System.ServiceModel.Syndication" Version="9.0.10" />
     <PackageVersion Include="XperienceCommunity.CSP" Version="4.0.1" />
