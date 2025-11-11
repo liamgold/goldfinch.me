@@ -1,12 +1,15 @@
 # Goldfinch.me
 
-[Personal website](https://www.goldfinch.me) for Liam Goldfinch, featuring blog articles primarily focused on Kentico development and .NET technologies.
+[![License](https://img.shields.io/badge/license-MIT-brightgreen?style=flat)](https://github.com/liamgold/goldfinch.me/blob/main/LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/liamgold/goldfinch.me)](https://github.com/liamgold/goldfinch.me/commits/main)
+[![.NET](https://img.shields.io/badge/.NET-9.0-512bd4?logo=dotnet)](https://learn.microsoft.com/en-us/dotnet/)
+[![Xperience](https://img.shields.io/badge/Xperience_by_Kentico-7F09B7?logo=kentico&logoColor=white)]([https://xperience.io](https://www.kentico.com))
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Stars](https://img.shields.io/github/stars/liamgold/goldfinch.me?style=flat&label=stars&logo=github)](https://github.com/liamgold/goldfinch.me/stargazers)
 
-![License](https://img.shields.io/github/license/liamgold/goldfinch.me)
-![Last Commit](https://img.shields.io/github/last-commit/liamgold/goldfinch.me)
-![.NET](https://img.shields.io/badge/.NET-9.0-512bd4?logo=dotnet)
-![Xperience](https://img.shields.io/badge/Xperience_by_Kentico-7F09B7?logo=kentico&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC?logo=tailwind-css&logoColor=white)
+## Description
+
+[Personal website](https://www.goldfinch.me) for Liam Goldfinch, featuring blog articles primarily focused on Kentico development and .NET technologies.
 
 ## 🧰 Tech Stack
 
