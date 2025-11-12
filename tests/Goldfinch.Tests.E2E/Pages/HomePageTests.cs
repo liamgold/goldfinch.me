@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.Playwright;
 
 namespace Goldfinch.Tests.E2E.Pages;
@@ -72,7 +73,18 @@ public class HomePageTests : PlaywrightTestBase
         Page!.Console += (_, msg) =>
         {
             if (msg.Type == "error")
-                consoleErrors.Add(msg.Text);
+            {
+                var errorText = msg.Text;
+
+                // Filter out known Cloudflare bot protection errors that occur when running tests from CI/CD
+                // Cloudflare injects scripts when detecting automated traffic, which can cause CSP violations
+                if (ShouldIgnoreError(errorText))
+                {
+                    return;
+                }
+
+                consoleErrors.Add(errorText);
+            }
         };
 
         // Act
@@ -81,5 +93,35 @@ public class HomePageTests : PlaywrightTestBase
 
         // Assert
         Assert.Empty(consoleErrors);
+    }
+
+    private static bool ShouldIgnoreError(string errorText)
+    {
+        // Cloudflare domains that may appear in bot protection/analytics scripts
+        var cloudflarePatterns = new[]
+        {
+            "static.cloudflareinsights.com",
+            "challenges.cloudflare.com",
+            "cloudflare.com/cdn-cgi",
+            "static.cloudflare.com"
+        };
+
+        // CSP violations related to Cloudflare
+        var cspPatterns = new[]
+        {
+            "Refused to load the script",
+            "Content Security Policy"
+        };
+
+        // Check if error contains Cloudflare-related patterns
+        var containsCloudflare = cloudflarePatterns.Any(pattern =>
+            errorText.Contains(pattern, StringComparison.OrdinalIgnoreCase));
+
+        // Check if error is a CSP violation
+        var isCspViolation = cspPatterns.Any(pattern =>
+            errorText.Contains(pattern, StringComparison.OrdinalIgnoreCase));
+
+        // Ignore errors that are both CSP violations AND mention Cloudflare
+        return containsCloudflare && isCspViolation;
     }
 }
