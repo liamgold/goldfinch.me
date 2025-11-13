@@ -84,11 +84,11 @@
       },
       "XperienceCommunity.CSP": {
         "type": "Direct",
-        "requested": "[4.0.1, )",
-        "resolved": "4.0.1",
-        "contentHash": "q4iTQOEhYc5rndwm/9yUkGf/CfJTkWqEsFCcOMC3RQxVryDdFtu58a0wajaC6b9dzxvrjF9ecLPf8lIShu//Cg==",
+        "requested": "[5.0.0, )",
+        "resolved": "5.0.0",
+        "contentHash": "SYW9HJvf275D4u4ZFzVuAJdTjh9DGGFytZjGaVtw+3ppj5C90W0e2LwhmhQci31VgF0wYLGZYw5T3UmPJ9Dy5w==",
         "dependencies": {
-          "Kentico.Xperience.Admin": "30.1.3"
+          "Kentico.Xperience.Admin": "30.11.0"
         }
       },
       "AngleSharp": {
