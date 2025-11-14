@@ -9,6 +9,7 @@
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
     <PackageVersion Include="Kentico.Xperience.Admin" Version="30.12.0" />
     <PackageVersion Include="Kentico.Xperience.AzureStorage" Version="30.12.0" />
+    <PackageVersion Include="Kentico.Xperience.ManagementApi" Version="30.12.0-preview" />
     <PackageVersion Include="Kentico.Xperience.MiniProfiler" Version="2.1.0" />
     <PackageVersion Include="Kentico.Xperience.WebApp" Version="30.12.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />

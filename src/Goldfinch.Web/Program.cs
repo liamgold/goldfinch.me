@@ -6,6 +6,7 @@ using Kentico.Membership;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using Kentico.Xperience.Admin.Base;
+using Kentico.Xperience.ManagementApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -44,7 +45,7 @@ builder.Services.AddKentico(features =>
 });
 
 builder.Services.AddAuthentication();
-// services.AddAuthorization();
+builder.Services.AddAuthorization();
 
 builder.Services.AddControllersWithViews();
 
@@ -100,6 +101,17 @@ builder.Services
 
 builder.Services.AddTrailingSlash(builder.Configuration);
 
+// Only enables the management API in the local development environment
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddKenticoManagementApi(options =>
+    {
+        // Sets the secret required to authenticate all requests to the management API endpoints
+        // Must be at least 32 characters
+        options.Secret = "ze4oDiR6wFef36h5HLOIwnf3RjsrmoZs";
+    });
+}
+
 var app = builder.Build();
 
 app.InitKentico();
@@ -122,7 +134,7 @@ app.UseCookiePolicy();
 app.UseCors();
 
 app.UseAuthentication();
-// app.UseAuthorization();
+app.UseAuthorization();
 
 app.UseTrailingSlashMiddleware();
 
