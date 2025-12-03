@@ -381,3 +381,6 @@ DeploymentPackage.zip
 .claude/
 
 .playwright-mcp/
+
+# Client build artifacts
+src/Goldfinch.Admin/Client/dist/*
