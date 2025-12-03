@@ -49,6 +49,14 @@ jobs:
           NODE_ENV: production
         run: npm run build
 
+      - name: Install admin client dependencies
+        working-directory: src/Goldfinch.Admin/Client
+        run: npm ci
+
+      - name: Build admin client assets
+        working-directory: src/Goldfinch.Admin/Client
+        run: npm run build
+
       - name: Restore
         run: dotnet restore
 
