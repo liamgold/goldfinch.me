@@ -13,7 +13,6 @@
       </schema>
       <field column="BlogPostDate" columnprecision="0" columntype="date" enabled="true" guid="5297ab96-9ac0-4a56-a398-646ee2249bd4" visible="true">
         <properties>
-          <explanationtext>{$base.forms.dateinput.explanation$}</explanationtext>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Post Date</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>

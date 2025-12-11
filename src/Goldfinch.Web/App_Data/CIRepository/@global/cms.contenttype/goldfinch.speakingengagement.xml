@@ -42,7 +42,6 @@
       </field>
       <field column="EventDate" columnprecision="0" columntype="date" enabled="true" guid="c98633a2-b2ed-4705-a542-15a226d1b6a9" visible="true">
         <properties>
-          <explanationtext>{$base.forms.dateinput.explanation$}</explanationtext>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Event Date</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
