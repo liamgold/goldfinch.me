@@ -4,7 +4,7 @@ End-to-end tests for the Goldfinch.me website using Playwright and xUnit.
 
 ## Prerequisites
 
-- .NET 9.0 SDK
+- .NET 10.0 SDK
 - Playwright browsers (installed automatically on first run)
 
 ## Running Tests Locally
@@ -34,7 +34,7 @@ On first run, you'll need to install Playwright browsers:
 
 ```bash
 cd tests/Goldfinch.Tests.E2E
-pwsh bin/Debug/net9.0/playwright.ps1 install chromium
+pwsh bin/Debug/net10.0/playwright.ps1 install chromium
 ```
 
 ## Test Configuration
@@ -108,7 +108,7 @@ public class NewPageTests : PlaywrightTestBase
 
 Install Playwright browsers:
 ```bash
-pwsh tests/Goldfinch.Tests.E2E/bin/Debug/net9.0/playwright.ps1 install
+pwsh tests/Goldfinch.Tests.E2E/bin/Debug/net10.0/playwright.ps1 install
 ```
 
 ### Tests fail with SSL certificate errors
