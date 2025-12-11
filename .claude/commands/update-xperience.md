@@ -9,8 +9,8 @@ Before starting, the PowerShell script will automatically validate:
 - **Feature branch**: Not running on main/master branch
 
 If these checks fail, the script will exit with clear error messages. If not on a feature branch, create one first:
-```bash
-git checkout -b update/xperience-$(date +%Y-%m-%d)
+```powershell
+git checkout -b "update/xperience-$(Get-Date -Format 'yyyy-MM-dd')"
 ```
 
 ## Process Overview
