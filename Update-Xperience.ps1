@@ -418,6 +418,14 @@ function Invoke-KenticoUpdate {
         # Run the update
         Push-Location "src/Goldfinch.Web"
         try {
+            Write-Host "Building with new packages before running update..." -ForegroundColor Gray
+            & dotnet build
+
+            if ($LASTEXITCODE -ne 0) {
+                Write-ErrorMessage "Build failed before database update"
+                return
+            }
+
             Write-Host "Running 'dotnet run --kxp-update --skip-confirmation'..." -ForegroundColor Gray
             & dotnet run --no-build --kxp-update --skip-confirmation
 
