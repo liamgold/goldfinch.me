@@ -237,9 +237,15 @@ function Update-DirectoryPackagesProps {
                 # Query NuGet for latest version
                 Write-Host "  Querying NuGet for latest version of $packageName..." -ForegroundColor Gray
                 $nugetResponse = Invoke-RestMethod -Uri "https://api.nuget.org/v3-flatcontainer/$($packageName.ToLower())/index.json"
-                $latestVersion = $nugetResponse.versions[-1]
-                $_.Version = $latestVersion
-                $script:updatedVersion = $latestVersion
+
+                if ($nugetResponse.versions.Count -gt 0) {
+                    $latestVersion = $nugetResponse.versions[-1]
+                    $_.Version = $latestVersion
+                    $script:updatedVersion = $latestVersion
+                } else {
+                    Write-Warning "No versions found for $packageName on NuGet. Skipping update for this package."
+                    return
+                }
             } else {
                 $_.Version = $Version
                 $script:updatedVersion = $Version
@@ -291,10 +297,19 @@ function Update-NpmPackages {
         if ($DryRun) {
             Write-Warning "DRY RUN: Would update @kentico/* packages and run npm audit fix"
             Write-Host "  Checking outdated @kentico/* packages..." -ForegroundColor Gray
-            & npm outdated --json 2>$null | ConvertFrom-Json -ErrorAction SilentlyContinue | ForEach-Object {
-                $_.PSObject.Properties | Where-Object { $_.Name -like "@kentico/*" } | ForEach-Object {
-                    Write-Host "    $($_.Name): $($_.Value.current) -> $($_.Value.latest)" -ForegroundColor Yellow
+
+            $outdatedOutput = & npm outdated --json
+            if ($outdatedOutput) {
+                try {
+                    $outdated = $outdatedOutput | ConvertFrom-Json
+                    $outdated.PSObject.Properties | Where-Object { $_.Name -like "@kentico/*" } | ForEach-Object {
+                        Write-Host "    $($_.Name): $($_.Value.current) -> $($_.Value.latest)" -ForegroundColor Yellow
+                    }
+                } catch {
+                    Write-Warning "Could not parse npm outdated output as JSON. Output was:`n$outdatedOutput"
                 }
+            } else {
+                Write-Host "    No outdated @kentico/* packages found." -ForegroundColor Gray
             }
         } else {
             Write-Host "  Getting list of @kentico/* packages..." -ForegroundColor Gray
@@ -539,7 +554,7 @@ function Show-Summary {
         Write-Host "`nNext steps:" -ForegroundColor White
         Write-Host "  1. Review changes with 'git status'" -ForegroundColor Gray
         Write-Host "  2. Test the application locally (https://localhost:52623)" -ForegroundColor Gray
-        Write-Host "  3. Commit changes using: git commit -m `"build(sln): update to Xperience v$script:updatedVersion`"" -ForegroundColor Gray
+        Write-Host ('  3. Commit changes using: git commit -m "build(sln): update to Xperience v' + $script:updatedVersion + '"') -ForegroundColor Gray
         Write-Host "  4. Push and create a pull request" -ForegroundColor Gray
     }
 }
