@@ -1,7 +1,7 @@
 # Goldfinch.me
 
 [![License](https://img.shields.io/badge/license-MIT-brightgreen?style=flat)](https://github.com/liamgold/goldfinch.me/blob/main/LICENSE)
-[![.NET](https://img.shields.io/badge/.NET-9.0-512bd4?logo=dotnet)](https://learn.microsoft.com/en-us/dotnet/)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512bd4?logo=dotnet)](https://learn.microsoft.com/en-us/dotnet/)
 [![Xperience](https://img.shields.io/badge/Xperience_by_Kentico-7F09B7?logo=kentico&logoColor=white)](https://www.kentico.com)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![Stars](https://img.shields.io/github/stars/liamgold/goldfinch.me?style=flat&label=stars&logo=github)](https://github.com/liamgold/goldfinch.me/stargazers)
@@ -13,7 +13,7 @@
 ## 🧰 Tech Stack
 
 **Backend:**
-- [.NET 9](https://dotnet.microsoft.com/en-us/download) with ASP.NET Core MVC
+- [.NET 10](https://dotnet.microsoft.com/en-us/download) with ASP.NET Core MVC
 - [Xperience by Kentico](https://docs.kentico.com/x/6wocCQ)
 
 **Frontend:**
@@ -31,7 +31,7 @@
 
 ### Prerequisites
 
-- .NET 9 SDK (9.0.106)
+- .NET 10 SDK (10.0.101)
 - Microsoft SQL Server 2019 or newer (including SQL Server Express or LocalDB)
 - Node.js (22.x)
 

@@ -8,7 +8,7 @@ Goldfinch.me is a personal website/blog for Liam Goldfinch featuring articles ab
 
 ## Technology Stack
 
-- **Framework:** .NET 9.0
+- **Framework:** .NET 10.0
 - **CMS:** Xperience by Kentico
 - **Frontend:** Tailwind CSS, Vite, React (admin customizations)
 - **Storage:** Azure Blob Storage (production), local filesystem (development)
@@ -141,7 +141,7 @@ public class BlogPostViewModel
 
 ### Project Settings
 
-- **Target Framework:** net9.0
+- **Target Framework:** net10.0
 - **Nullable:** enable
 - **ImplicitUsings:** disable (explicit usings required)
 - **WarningsAsErrors:** nullable
