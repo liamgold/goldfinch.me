@@ -379,6 +379,7 @@ DeploymentPackage.zip
 
 # Claude Code configuration
 .claude/
+!.claude/commands/
 
 .playwright-mcp/
 
