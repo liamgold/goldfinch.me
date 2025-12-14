@@ -6,6 +6,7 @@ using Kentico.Membership;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using Kentico.Xperience.Admin.Base;
+using Kentico.Xperience.ManagementApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -100,6 +101,16 @@ builder.Services
 
 builder.Services.AddTrailingSlash(builder.Configuration);
 
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddKenticoManagementApi(options =>
+    {
+        // Sets the secret required to authenticate all requests to the management API endpoints
+        // Must be at least 32 characters
+        options.Secret = "ze4oDiR6wFef36h5HLOIwnf3RjsrmoZs";
+    });
+}
+
 var app = builder.Build();
 
 app.InitKentico();
@@ -107,7 +118,18 @@ app.InitKentico();
 app.UseStaticFiles();
 // app.MapStaticAssets();
 
+app.UseAuthentication();
+
+if (builder.Environment.IsDevelopment())
+{
+    // Adds middleware required for the management API
+    app.UseKenticoManagementApi();
+}
+
 app.UseKentico();
+
+// Adds authorization middleware
+app.UseAuthorization();
 
 if (env.IsDevelopment())
 {
@@ -120,9 +142,6 @@ app.UseStatusCodePagesWithReExecute("/error/{0}");
 app.UseCookiePolicy();
 
 app.UseCors();
-
-app.UseAuthentication();
-// app.UseAuthorization();
 
 app.UseTrailingSlashMiddleware();
 
