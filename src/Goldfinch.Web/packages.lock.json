@@ -62,11 +62,11 @@
       },
       "Sidio.Sitemap.AspNetCore": {
         "type": "Direct",
-        "requested": "[3.0.3, )",
-        "resolved": "3.0.3",
-        "contentHash": "wOC1x323SZ4cClfw71U0HJoxVmAo72g8OqaSY+fyxuyUZZQfAbPLYCvf4Co7bVS8N3UJZOQsZ9MnOUCerhnQmw==",
+        "requested": "[3.1.0, )",
+        "resolved": "3.1.0",
+        "contentHash": "O2U302uOLpxoDg3HmJcheE8hob/NTsuZ2JDwdIZeA0tEle3UJMPoZnS3tigpAZfY0yBa4KYIQTyPW9pz3geqog==",
         "dependencies": {
-          "Microsoft.Extensions.Caching.Hybrid": "10.0.0",
+          "Microsoft.Extensions.Caching.Hybrid": "10.1.0",
           "Sidio.Sitemap.Core": "2.8.0"
         }
       },
@@ -599,8 +599,8 @@
       },
       "Microsoft.Extensions.Caching.Hybrid": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "xvhmF2dlwC3e8KKSuWOjJkjQdKG80991CUqjDnqzV1Od0CgMqbDw49kGJ9RiGrp3nbLTYCSb3c+KYo6TcENYRw=="
+        "resolved": "10.1.0",
+        "contentHash": "mcqlFN2TidtsD/ZUs+m5Xbj9oyNFtlHrawSp57DS8Pq6/Gf316sdSLdoo8i4LfQX5MFPQRdTMKddAQtfZ1uXxQ=="
       },
       "Microsoft.Extensions.FileProviders.Embedded": {
         "type": "Transitive",
@@ -887,7 +887,7 @@
         "dependencies": {
           "Kentico.Xperience.Admin": "[31.0.0, )",
           "Kentico.Xperience.WebApp": "[31.0.0, )",
-          "Sidio.Sitemap.AspNetCore": "[3.0.3, )"
+          "Sidio.Sitemap.AspNetCore": "[3.1.0, )"
         }
       }
     }
