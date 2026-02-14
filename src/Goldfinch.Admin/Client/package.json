@@ -11,8 +11,8 @@
     "build": "webpack --mode=production"
   },
   "dependencies": {
-    "@kentico/xperience-admin-base": "^31.0.0",
-    "@kentico/xperience-admin-components": "^31.0.0",
+    "@kentico/xperience-admin-base": "^31.1.2",
+    "@kentico/xperience-admin-components": "^31.1.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
