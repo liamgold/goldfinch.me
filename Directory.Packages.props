@@ -15,7 +15,7 @@
     <PackageVersion Include="Microsoft.Playwright" Version="1.56.0" />
     <PackageVersion Include="Schema.NET" Version="13.0.0" />
     <PackageVersion Include="Sidio.Sitemap.AspNetCore" Version="3.0.3" />
-    <PackageVersion Include="System.ServiceModel.Syndication" Version="10.0.2" />
+    <PackageVersion Include="System.ServiceModel.Syndication" Version="10.0.3" />
     <PackageVersion Include="XperienceCommunity.CSP" Version="5.0.0" />
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
