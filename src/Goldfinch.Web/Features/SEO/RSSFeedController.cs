@@ -1,4 +1,5 @@
 using CMS.Websites;
+using Goldfinch.Core.Extensions;
 using Goldfinch.Core.BlogPosts;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -66,8 +67,7 @@ public class RSSFeedController : Controller
             var pageGuid = blogPost.SystemFields.WebPageItemGUID.ToString("N");
             var blogPostUrl = (await _pageUrlRetriever.Retrieve(blogPost)).RelativePath;
 
-            var relativeUrl = blogPostUrl.Replace("~/", "/");
-            var pageUrl = $"https://www.goldfinch.me{relativeUrl}";
+            var pageUrl = $"https://www.goldfinch.me{blogPostUrl.ToAbsolutePath()}";
 
             var item = new SyndicationItem(blogPost.BaseContentTitle, blogPost.BaseContentShortDescription, new Uri(pageUrl), pageGuid, blogPost.BlogPostDate)
             {

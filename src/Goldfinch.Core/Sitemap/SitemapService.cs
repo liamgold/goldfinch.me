@@ -1,5 +1,6 @@
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
+using Goldfinch.Core.Extensions;
 using CMS.Helpers;
 using CMS.Websites;
 using CMS.Websites.Routing;
@@ -69,8 +70,7 @@ public class SitemapService : ISitemapService
         foreach (var page in pages)
         {
             var pageUrl = await _urlRetriever.Retrieve(page);
-            var relativeUrl = pageUrl.RelativePath.Replace("~/", "/");
-            var absoluteUrl = $"https://www.goldfinch.me{relativeUrl}";
+            var absoluteUrl = $"https://www.goldfinch.me{pageUrl.RelativePath.ToAbsolutePath()}";
 
             var metadata = ContentItemLanguageMetadataInfo.Provider.Get()
                 .WhereEquals(nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentItemID), page.SystemFields.ContentItemID)

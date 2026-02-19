@@ -1,5 +1,6 @@
 using CMS.ContentEngine;
 using CMS.Helpers;
+using Goldfinch.Core.Extensions;
 using CMS.Websites;
 using CMS.Websites.Routing;
 using Goldfinch.Core.ContentTypes;
@@ -101,7 +102,7 @@ public class BreadcrumbService : IBreadcrumbService
             breadcrumbs.Add(new Breadcrumb
             {
                 Name = documentName,
-                Url = $"https://www.goldfinch.me{url.RelativePath.TrimStart('~')}",
+                Url = $"https://www.goldfinch.me{url.RelativePath.ToAbsolutePath()}",
                 Position = position++,
             });
         }
