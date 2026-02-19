@@ -30,7 +30,6 @@ src/
 ├── Goldfinch.Core/          # Shared business logic & data models
 │   ├── BlogPosts/           # Blog post service & models
 │   ├── ContentTypes/        # Kentico content type definitions
-│   ├── MediaAssets/         # Media/asset management
 │   ├── PublicSpeaking/      # Speaking engagement functionality
 │   ├── SEO/                 # SEO models (breadcrumbs, meta fields)
 │   └── Sitemap/             # Sitemap generation logic
@@ -101,8 +100,10 @@ Examples:
 
 In view components and controllers where the page context is already set, use `RetrieveCurrentPage`:
 ```csharp
-var home = await _contentRetriever.RetrieveCurrentPage<Home>();
+var home = await _contentRetriever.RetrieveCurrentPage<Core.ContentTypes.Home>();
 ```
+
+> **Note:** If the content type name matches the enclosing feature namespace (e.g. `Home` inside `Goldfinch.Web.Features.Home`), use the partial qualification `Core.ContentTypes.Home` to avoid the compiler treating it as a namespace.
 
 For queries where the context isn't set yet (e.g. finding an error page by code before routing), use `RetrievePages` with a where clause and explicit cache settings:
 ```csharp
@@ -114,7 +115,15 @@ var errorPages = await _contentRetriever.RetrievePages<ErrorPage>(
         cacheExpiration: TimeSpan.FromMinutes(30)));
 ```
 
-The manual `IContentQueryExecutor` + `IProgressiveCache` approach is only used in services that have complex requirements not supported by `IContentRetriever` (e.g. pagination, cross-content-type queries, custom ordering). All calling code must handle nullable returns from `FirstOrDefault()` appropriately.
+For widgets that need to fetch a content hub item by GUID (e.g. a selected asset), use `RetrieveContentByGuids` directly in the ViewComponent — no separate service needed:
+```csharp
+var results = await _contentRetriever.RetrieveContentByGuids<MediaAssetContent>(
+    new List<Guid> { asset.Identifier },
+    new RetrieveContentParameters { LinkedItemsMaxLevel = 1 });
+var item = results.FirstOrDefault();
+```
+
+The manual `IContentQueryExecutor` + `IProgressiveCache` approach is only used in services with complex requirements not supported by `IContentRetriever` (e.g. pagination with offsets, cross-content-type queries, tree path traversal). All calling code must handle nullable returns from `FirstOrDefault()` appropriately.
 
 ## Code Conventions
 
@@ -282,6 +291,7 @@ public class MyWidgetViewComponent : ViewComponent
 | `Goldfinch.Web.Components.Shared` | `KenticoIcons` |
 | `Goldfinch.Web.Components.Widgets.Base` | `WidgetPlaceholder`, `DropdownEnumOptionProvider<T>` |
 | `Goldfinch.Web.Extensions` | `IsEditMode()` extension on `IPageBuilderDataContextRetriever` |
+| `Kentico.Content.Web.Mvc` | `IContentRetriever`, `RetrieveContentParameters` |
 | `Kentico.PageBuilder.Web.Mvc` | `IWidgetProperties`, `RegisterWidget`, `IPageBuilderDataContextRetriever` |
 | `Kentico.Xperience.Admin.Base.FormAnnotations` | `TextInputComponent`, `DropDownComponent`, `CheckBoxComponent`, `TextAreaComponent`, `ContentItemSelectorComponent`, `FormCategory`, etc. |
 
@@ -325,7 +335,6 @@ dotnet run
 
 - Main branch: `main`
 - Feature branches: `feature/{feature-name}`
-- Recent work: Enabled nullable reference types across entire project
 
 ## Contact & Resources
 
