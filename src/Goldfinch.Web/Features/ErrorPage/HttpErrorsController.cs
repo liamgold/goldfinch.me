@@ -1,5 +1,4 @@
 using CMS.Websites.Routing;
-using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.ErrorPages;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
@@ -48,7 +47,7 @@ namespace Goldfinch.Web.Features.ErrorPage
             {
                 WebPageItemGUID = errorPage.SystemFields.WebPageItemGUID,
                 WebPageItemID = errorPage.SystemFields.WebPageItemID,
-                ContentTypeName = ErrorPage.CONTENT_TYPE_NAME,
+                ContentTypeName = Core.ContentTypes.ErrorPage.CONTENT_TYPE_NAME,
                 LanguageName = languageName,
                 WebsiteChannelID = errorPage.SystemFields.WebPageItemWebsiteChannelId,
                 WebsiteChannelName = _websiteChannelContext.WebsiteChannelName,

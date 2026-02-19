@@ -1,4 +1,3 @@
-using Goldfinch.Core.ContentTypes;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -16,7 +15,7 @@ public class InnerPageViewComponent : ViewComponent
 
     public async Task<IViewComponentResult> InvokeAsync(RoutedWebPage page, InnerPageTemplateProperties props)
     {
-        var innerPage = await _contentRetriever.RetrieveCurrentPage<InnerPage>();
+        var innerPage = await _contentRetriever.RetrieveCurrentPage<Core.ContentTypes.InnerPage>();
 
         return View("~/Features/InnerPage/Components/InnerPage.cshtml", innerPage);
     }

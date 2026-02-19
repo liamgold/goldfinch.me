@@ -1,4 +1,3 @@
-using Goldfinch.Core.ContentTypes;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -16,7 +15,7 @@ public class HomePageViewComponent : ViewComponent
 
     public async Task<IViewComponentResult> InvokeAsync(RoutedWebPage page, HomePageTemplateProperties props)
     {
-        var home = await _contentRetriever.RetrieveCurrentPage<Home>();
+        var home = await _contentRetriever.RetrieveCurrentPage<Core.ContentTypes.Home>();
 
         return View("~/Features/Home/Components/HomePage.cshtml", home);
     }
