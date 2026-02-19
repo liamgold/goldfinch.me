@@ -28,7 +28,7 @@ Goldfinch.me is a personal website/blog for Liam Goldfinch featuring articles ab
 ```
 src/
 ├── Goldfinch.Core/          # Shared business logic & data models
-│   ├── BlogPosts/           # Blog post repository & models
+│   ├── BlogPosts/           # Blog post service & models
 │   ├── ContentTypes/        # Kentico content type definitions
 │   ├── MediaAssets/         # Media/asset management
 │   ├── PublicSpeaking/      # Speaking engagement functionality
@@ -52,8 +52,8 @@ src/
 ### Content Management
 
 - **Kentico Content Types:** Defined in `Goldfinch.Core/ContentTypes/`
-- **Repository Pattern:** Data access is abstracted through repository classes (e.g., `BlogPostRepository`, `ErrorPageRepository`)
-- **Progressive Caching:** All repositories use Kentico's `IProgressiveCache` for performance
+- **Service Pattern:** Data access is abstracted through service classes (e.g., `BlogPostService`, `ErrorPageService`)
+- **Progressive Caching:** Complex services use Kentico's `IProgressiveCache` for performance; simple retrieval uses `IContentRetriever` which caches automatically
 - **CI/CD:** Uses Kentico's Continuous Integration system - objects stored as serialized files in `App_Data/CIRepository/`
 
 ### Image Handling
@@ -93,7 +93,7 @@ Examples:
 - **Feature Folders:** Organized by feature rather than technical layer
 - **View Components:** Used extensively for reusable UI components
 - **Page Builder:** Kentico's page builder with custom widgets for content editing
-- **Controllers:** MVC controllers handle routing and orchestrate repositories/view models
+- **Controllers:** MVC controllers handle routing and orchestrate services/view models
 
 ### Data Access Patterns
 
@@ -123,7 +123,7 @@ The manual `IContentQueryExecutor` + `IProgressiveCache` approach is only used i
 - **Enabled project-wide** as of 2025 (see `Directory.Build.props`)
 - Use `required` modifier for essential properties that must be set during initialization
 - Use default values (e.g., `string.Empty`) for optional properties
-- Repository methods returning `FirstOrDefault()` should have nullable return types
+- Service methods returning `FirstOrDefault()` should have nullable return types
 
 ### View Models
 
@@ -156,13 +156,13 @@ public class BlogPostViewModel
 
 1. Define in Kentico admin UI
 2. Create strongly-typed class in `Goldfinch.Core/ContentTypes/`
-3. Create a repository class in an appropriate folder (e.g., `BlogPosts/BlogPostRepository.cs`)
-4. Inject Kentico services directly — no base class. Common dependencies:
+3. For simple retrieval (single page by context, or basic query), use `IContentRetriever` directly in the controller or view component — no separate service class needed.
+4. For complex retrieval (pagination, custom ordering, cross-content queries), create a service and interface in an appropriate folder (e.g., `BlogPosts/IBlogPostService.cs` + `BlogPosts/BlogPostService.cs`). Inject Kentico services directly — no base class. Common dependencies:
    - `IContentQueryExecutor` — query execution
    - `IWebsiteChannelContext` — channel name and preview flag
    - `IProgressiveCache` — caching
    - `IWebPageUrlRetriever` — URL resolution (only when needed)
-5. Register the repository as `AddSingleton<MyRepository>()` in `ServiceConfiguration.cs`
+5. Register the service via its interface in `ServiceConfiguration.cs` (e.g., `AddSingleton<IBlogPostService, BlogPostService>()`)
 
 ### Adding a New Widget
 
