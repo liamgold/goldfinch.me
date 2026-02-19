@@ -1,10 +1,12 @@
-using Goldfinch.Core.MediaAssets;
+using Goldfinch.Core.ContentTypes;
 using Goldfinch.Web.Components.Shared;
 using Goldfinch.Web.Components.Widgets.Base;
 using Goldfinch.Web.Components.Widgets.Image;
 using Goldfinch.Web.Extensions;
+using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,14 +26,14 @@ public class ImageWidgetViewComponent : ViewComponent
     public const string DISPLAY_NAME = "Image";
     private const string ViewName = "~/Components/Widgets/Image/ImageWidget.cshtml";
 
-    private readonly IMediaAssetService _mediaAssetService;
+    private readonly IContentRetriever _contentRetriever;
     private readonly IPageBuilderDataContextRetriever _pageBuilderDataContext;
 
     public ImageWidgetViewComponent(
-        IMediaAssetService mediaAssetService,
+        IContentRetriever contentRetriever,
         IPageBuilderDataContextRetriever pageBuilderDataContext)
     {
-        _mediaAssetService = mediaAssetService;
+        _contentRetriever = contentRetriever;
         _pageBuilderDataContext = pageBuilderDataContext;
     }
 
@@ -48,7 +50,11 @@ public class ImageWidgetViewComponent : ViewComponent
 
         if (asset != null)
         {
-            var mediaFile = await _mediaAssetService.GetMediaAssetContent(asset.Identifier);
+            var results = await _contentRetriever.RetrieveContentByGuids<MediaAssetContent>(
+                new List<System.Guid> { asset.Identifier },
+                new RetrieveContentParameters { LinkedItemsMaxLevel = 1 });
+
+            var mediaFile = results.FirstOrDefault();
             if (mediaFile != null)
             {
                 var viewModel = new ImageWidgetViewModel
