@@ -25,7 +25,7 @@ public interface IBlogPostService
     /// <summary>
     /// Retrieves a paginated set of blog posts.
     /// </summary>
-    /// <param name="pageIndex">The zero-based page index.</param>
+    /// <param name="pageIndex">The one-based page index.</param>
     /// <returns>A collection of blog posts for the requested page.</returns>
     Task<IEnumerable<BlogPost>> GetBlogPosts(int pageIndex);
 
