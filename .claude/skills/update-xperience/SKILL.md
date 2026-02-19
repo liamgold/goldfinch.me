@@ -1,3 +1,9 @@
+---
+name: update-xperience
+description: Update Xperience by Kentico packages (NuGet + npm) including database migrations and CI store
+disable-model-invocation: true
+---
+
 # Update Xperience by Kentico
 
 You are tasked with updating this Xperience by Kentico project to the latest version (or a specific target version if specified by the user).
@@ -23,19 +29,19 @@ Execute the `Update-Xperience.ps1` PowerShell script to automate mechanical task
 
 ```powershell
 # For latest version
-.\Update-Xperience.ps1
+.\scripts\Update-Xperience.ps1
 
 # For specific version
-.\Update-Xperience.ps1 -TargetVersion "30.0.0"
+.\scripts\Update-Xperience.ps1 -TargetVersion "30.0.0"
 
 # Dry run to preview changes
-.\Update-Xperience.ps1 -DryRun
+.\scripts\Update-Xperience.ps1 -DryRun
 
 # Skip npm updates (if needed)
-.\Update-Xperience.ps1 -SkipNpmUpdate
+.\scripts\Update-Xperience.ps1 -SkipNpmUpdate
 
 # Skip prerequisite checks (not recommended)
-.\Update-Xperience.ps1 -SkipPrerequisites
+.\scripts\Update-Xperience.ps1 -SkipPrerequisites
 ```
 
 The script will:

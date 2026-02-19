@@ -378,8 +378,7 @@ src/Goldfinch.Web/App_Data/playwright
 DeploymentPackage.zip
 
 # Claude Code configuration
-.claude/
-!.claude/commands/
+.claude/settings.local.json
 
 .playwright-mcp/
 
