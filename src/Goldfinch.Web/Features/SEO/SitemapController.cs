@@ -8,16 +8,16 @@ namespace Goldfinch.Web.Features.SEO;
 
 public class SitemapController : Controller
 {
-    private readonly SitemapRepository _sitemapRepository;
+    private readonly ISitemapService _sitemapService;
 
-    public SitemapController(SitemapRepository sitemapRepository)
+    public SitemapController(ISitemapService sitemapService)
     {
-        _sitemapRepository = sitemapRepository;
+        _sitemapService = sitemapService;
     }
 
     public async Task<IActionResult> IndexAsync()
     {
-        var nodes = await _sitemapRepository.GetSitemap();
+        var nodes = await _sitemapService.GetSitemap();
 
         return new SitemapResult(new Sitemap(nodes));
     }

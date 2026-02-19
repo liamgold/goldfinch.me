@@ -1,9 +1,9 @@
 using CMS.ContentEngine;
 using CMS.Helpers;
 using CMS.Websites;
+using CMS.Websites.Routing;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.SEO.Models;
-using Goldfinch.Core.WebPage;
 using Kentico.Content.Web.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,20 +12,35 @@ using System.Threading.Tasks;
 
 namespace Goldfinch.Core.SEO;
 
-public class BreadcrumbService(WebPageQueryTools tools) : WebPageRepository(tools)
+public class BreadcrumbService : IBreadcrumbService
 {
+    private readonly IContentQueryExecutor _executor;
+    private readonly IWebsiteChannelContext _websiteChannelContext;
+    private readonly IProgressiveCache _progressiveCache;
+    private readonly IWebPageUrlRetriever _urlRetriever;
+
+    public BreadcrumbService(
+        IContentQueryExecutor executor,
+        IWebsiteChannelContext websiteChannelContext,
+        IProgressiveCache progressiveCache,
+        IWebPageUrlRetriever urlRetriever)
+    {
+        _executor = executor;
+        _websiteChannelContext = websiteChannelContext;
+        _progressiveCache = progressiveCache;
+        _urlRetriever = urlRetriever;
+    }
+
     public async Task<List<Breadcrumb>> GetBreadcrumbs(RoutedWebPage routedWebPage)
     {
-        return await ProgressiveCache.LoadAsync(async cs =>
+        return await _progressiveCache.LoadAsync(async cs =>
         {
             cs.CacheDependency = CacheHelper.GetCacheDependency(
             [
                 $"webpageitem|byid|{routedWebPage.WebPageItemID}",
             ]);
 
-            var breadcrumbs = await GetBreadcrumbsInternal(routedWebPage);
-
-            return breadcrumbs;
+            return await GetBreadcrumbsInternal(routedWebPage);
         }, new CacheSettings(1440, nameof(BreadcrumbService), nameof(GetBreadcrumbs), routedWebPage.WebPageItemID));
     }
 
@@ -43,7 +58,7 @@ public class BreadcrumbService(WebPageQueryTools tools) : WebPageRepository(tool
                 parameters.ForWebsite([routedWebPage.WebPageItemGUID]);
             });
 
-        var result = await Executor.GetMappedWebPageResult<IWebPageFieldsSource>(queryBuilder);
+        var result = await _executor.GetMappedWebPageResult<IWebPageFieldsSource>(queryBuilder);
 
         var webpage = result.FirstOrDefault();
 
@@ -61,7 +76,7 @@ public class BreadcrumbService(WebPageQueryTools tools) : WebPageRepository(tool
         queryBuilder = new ContentItemQueryBuilder()
             .ForContentTypes(parameters =>
             {
-                parameters.ForWebsite(WebsiteChannelContext.WebsiteChannelName)
+                parameters.ForWebsite(_websiteChannelContext.WebsiteChannelName)
                     .WithContentTypeFields();
             })
             .Parameters(parameters =>
@@ -69,12 +84,12 @@ public class BreadcrumbService(WebPageQueryTools tools) : WebPageRepository(tool
                 parameters.Where(where => where.WhereIn(nameof(IWebPageFieldsSource.SystemFields.WebPageItemTreePath), parentPaths));
             });
 
-        var ancestorPages = await Executor.GetMappedWebPageResult<IWebPageFieldsSource>(queryBuilder);
+        var ancestorPages = await _executor.GetMappedWebPageResult<IWebPageFieldsSource>(queryBuilder);
 
         var position = 2;
         foreach (var ancestorPage in ancestorPages.OrderBy(x => x.SystemFields.WebPageUrlPath.Length))
         {
-            var url = await UrlRetriever.Retrieve(ancestorPage);
+            var url = await _urlRetriever.Retrieve(ancestorPage);
 
             var documentName = string.Empty;
 
@@ -89,7 +104,7 @@ public class BreadcrumbService(WebPageQueryTools tools) : WebPageRepository(tool
                 Url = $"https://www.goldfinch.me{url.RelativePath.TrimStart('~')}",
                 Position = position++,
             });
-         }
+        }
 
         breadcrumbs.Insert(0, new()
         {
@@ -124,13 +139,11 @@ public class BreadcrumbService(WebPageQueryTools tools) : WebPageRepository(tool
 
         do
         {
-            // Add the path
             if ((treePath != "/") || includeRoot)
             {
                 paths.Add(treePath);
             }
 
-            // If root, end building the list
             if (treePath == "/")
             {
                 break;

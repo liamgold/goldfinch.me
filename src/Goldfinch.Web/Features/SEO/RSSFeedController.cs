@@ -13,12 +13,12 @@ namespace Goldfinch.Web.Features.SEO;
 
 public class RSSFeedController : Controller
 {
-    private readonly BlogPostRepository _blogPostRepository;
+    private readonly IBlogPostService _blogPostService;
     private readonly IWebPageUrlRetriever _pageUrlRetriever;
 
-    public RSSFeedController(BlogPostRepository blogPostRepository, IWebPageUrlRetriever pageUrlRetriever)
+    public RSSFeedController(IBlogPostService blogPostService, IWebPageUrlRetriever pageUrlRetriever)
     {
-        _blogPostRepository = blogPostRepository;
+        _blogPostService = blogPostService;
         _pageUrlRetriever = pageUrlRetriever;
     }
 
@@ -47,7 +47,7 @@ public class RSSFeedController : Controller
 
     private async Task<SyndicationFeed> RSSFeedInternal()
     {
-        var blogPosts = await _blogPostRepository.GetLatestBlogPosts();
+        var blogPosts = await _blogPostService.GetLatestBlogPosts();
 
         var feed = new SyndicationFeed(
             "Latest Blog Posts - Liam Goldfinch",

@@ -1,6 +1,5 @@
 ﻿using CMS.Websites;
 using CMS.Websites.Routing;
-using Goldfinch.Core.BlogListings;
 using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.SEO.Constants;
@@ -26,37 +25,37 @@ namespace Goldfinch.Web.Features.BlogList
     {
         private readonly IWebPageDataContextInitializer _webPageDataContextInitializer;
         private readonly IWebPageUrlRetriever _webPageUrlRetriever;
-        private readonly BlogListingRepository _blogListingRepository;
-        private readonly BlogPostRepository _blogPostRepository;
+        private readonly IContentRetriever _contentRetriever;
+        private readonly IBlogPostService _blogPostService;
         private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
         private readonly IWebsiteChannelContext _websiteChannelContext;
 
         public BlogListController(
             IWebPageDataContextInitializer webPageDataContextInitializer,
             IWebPageUrlRetriever webPageUrlRetriever,
-            BlogListingRepository blogListingRepository,
-            BlogPostRepository blogPostRepository,
+            IContentRetriever contentRetriever,
+            IBlogPostService blogPostService,
             IPreferredLanguageRetriever preferredLanguageRetriever,
             IWebsiteChannelContext websiteChannelContext)
         {
             _webPageDataContextInitializer = webPageDataContextInitializer;
             _webPageUrlRetriever = webPageUrlRetriever;
-            _blogListingRepository = blogListingRepository;
-            _blogPostRepository = blogPostRepository;
+            _contentRetriever = contentRetriever;
+            _blogPostService = blogPostService;
             _preferredLanguageRetriever = preferredLanguageRetriever;
             _websiteChannelContext = websiteChannelContext;
         }
 
         public async Task<IActionResult> Index(int pageIndex = 1)
         {
-            var pageCount = await _blogPostRepository.GetBlogPageCount();
+            var pageCount = await _blogPostService.GetBlogPageCount();
 
             if (pageIndex > pageCount || pageIndex <= 0)
             {
                 return NotFound();
             }
 
-            var blogListing = await _blogListingRepository.GetBlogListing();
+            var blogListing = (await _contentRetriever.RetrievePages<BlogListing>(RetrievePagesParameters.Default)).FirstOrDefault();
 
             if (blogListing == null)
             {
@@ -98,7 +97,7 @@ namespace Goldfinch.Web.Features.BlogList
             ViewData[SEOConstants.NEXT_URL_KEY] = viewModel.NextUrl;
             ViewData[SEOConstants.PREVIOUS_URL_KEY] = viewModel.PreviousUrl;
 
-            var blogPosts = await _blogPostRepository.GetBlogPosts(pageIndex);
+            var blogPosts = await _blogPostService.GetBlogPosts(pageIndex);
 
             foreach (var blogPost in blogPosts)
             {

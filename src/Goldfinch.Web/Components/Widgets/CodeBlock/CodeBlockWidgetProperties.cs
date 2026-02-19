@@ -1,16 +1,15 @@
-﻿using Kentico.PageBuilder.Web.Mvc;
+using Goldfinch.Web.Components.Widgets.Base;
+using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 
-namespace Goldfinch.Web.Components.Widgets.CodeBlock
+namespace Goldfinch.Web.Components.Widgets.CodeBlock;
+
+[FormCategory(Label = "Content", Order = 0, Collapsible = true, IsCollapsed = false)]
+public class CodeBlockWidgetProperties : IWidgetProperties
 {
-    public class CodeBlockWidgetProperties : IWidgetProperties
-    {
-        public const string LanguageDataSource = "csharp;C#\r\njavascript;JavaScript\r\ntypescript;TypeScript\r\ncss;CSS\r\nyaml;YAML\r\nxml;XML\r\nbash;Bash";
+    [DropDownComponent(Label = "Language", Order = 1, DataProviderType = typeof(DropdownEnumOptionProvider<CodeLanguage>))]
+    public string Language { get; set; } = "csharp";
 
-        [DropDownComponent(Label = "Language", Order = 1, Options = LanguageDataSource)]
-        public string Language { get; set; } = "csharp";
-
-        [TextAreaComponent(Label = "Code", Order = 2)]
-        public string Code { get; set; } = string.Empty;
-    }
+    [TextAreaComponent(Label = "Code", Order = 2)]
+    public string Code { get; set; } = string.Empty;
 }

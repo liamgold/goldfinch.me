@@ -19,13 +19,16 @@ namespace Goldfinch.Web.Features.BlogDetail;
 
 public class BlogDetailController : Controller
 {
-    private readonly BlogPostRepository _blogPostRepository;
+    private readonly IBlogPostService _blogPostService;
     private readonly IWebPageUrlRetriever _webPageUrlRetriever;
     private readonly IWebPageDataContextRetriever _webPageDataContextRetriever;
 
-    public BlogDetailController(BlogPostRepository blogPostRepository, IWebPageDataContextRetriever webPageDataContextRetriever, IWebPageUrlRetriever webPageUrlRetriever)
+    public BlogDetailController(
+        IBlogPostService blogPostService,
+        IWebPageDataContextRetriever webPageDataContextRetriever,
+        IWebPageUrlRetriever webPageUrlRetriever)
     {
-        _blogPostRepository = blogPostRepository;
+        _blogPostService = blogPostService;
         _webPageDataContextRetriever = webPageDataContextRetriever;
         _webPageUrlRetriever = webPageUrlRetriever;
     }
@@ -39,7 +42,7 @@ public class BlogDetailController : Controller
 
         var page = data.WebPage;
 
-        var currentPage = await _blogPostRepository.GetBlogPost(page.WebPageItemID);
+        var currentPage = await _blogPostService.GetBlogPost(page.WebPageItemID);
 
         if (currentPage == null)
         {

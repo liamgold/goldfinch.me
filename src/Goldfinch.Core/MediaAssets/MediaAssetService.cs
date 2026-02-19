@@ -1,4 +1,4 @@
-﻿using CMS.ContentEngine;
+using CMS.ContentEngine;
 using CMS.Helpers;
 using Goldfinch.Core.ContentTypes;
 using System;
@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Goldfinch.Core.MediaAssets;
 
-public class MediaAssetRepository
+public class MediaAssetService : IMediaAssetService
 {
     private readonly IContentQueryExecutor _executor;
     private readonly IProgressiveCache _progressiveCache;
 
-    public MediaAssetRepository(IProgressiveCache progressiveCache, IContentQueryExecutor executor)
+    public MediaAssetService(IProgressiveCache progressiveCache, IContentQueryExecutor executor)
     {
         _progressiveCache = progressiveCache;
         _executor = executor;
@@ -32,6 +32,6 @@ public class MediaAssetRepository
             var results = await _executor.GetMappedResult<MediaAssetContent>(query);
 
             return results.FirstOrDefault();
-        }, new CacheSettings(1440, nameof(MediaAssetRepository), nameof(GetMediaAssetContent), identifier));
+        }, new CacheSettings(1440, nameof(MediaAssetService), nameof(GetMediaAssetContent), identifier));
     }
 }

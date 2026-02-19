@@ -1,47 +1,69 @@
-﻿using Goldfinch.Core.MediaAssets;
+using Goldfinch.Core.MediaAssets;
+using Goldfinch.Web.Components.Shared;
+using Goldfinch.Web.Components.Widgets.Base;
 using Goldfinch.Web.Components.Widgets.Video;
+using Goldfinch.Web.Extensions;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 
-[assembly: RegisterWidget(VideoWidgetViewComponent.IDENTIFIER, typeof(VideoWidgetViewComponent), "Video", typeof(VideoWidgetProperties), Description = "Displays a Video.", IconClass = "icon-rectangle-paragraph")]
-namespace Goldfinch.Web.Components.Widgets.Video
+[assembly: RegisterWidget(
+    identifier: VideoWidgetViewComponent.IDENTIFIER,
+    viewComponentType: typeof(VideoWidgetViewComponent),
+    name: VideoWidgetViewComponent.DISPLAY_NAME,
+    propertiesType: typeof(VideoWidgetProperties),
+    Description = "Displays a video.",
+    IconClass = KenticoIcons.MEDIA_PLAYER)]
+
+namespace Goldfinch.Web.Components.Widgets.Video;
+
+public class VideoWidgetViewComponent : ViewComponent
 {
-    public class VideoWidgetViewComponent : ViewComponent
+    public const string IDENTIFIER = "Goldfinch.VideoWidget";
+    public const string DISPLAY_NAME = "Video";
+    private const string ViewName = "~/Components/Widgets/Video/VideoWidget.cshtml";
+
+    private readonly IMediaAssetService _mediaAssetService;
+    private readonly IPageBuilderDataContextRetriever _pageBuilderDataContext;
+
+    public VideoWidgetViewComponent(
+        IMediaAssetService mediaAssetService,
+        IPageBuilderDataContextRetriever pageBuilderDataContext)
     {
-        public const string IDENTIFIER = "Goldfinch.VideoWidget";
+        _mediaAssetService = mediaAssetService;
+        _pageBuilderDataContext = pageBuilderDataContext;
+    }
 
-        private readonly string ViewName = "~/Components/Widgets/Video/VideoWidget.cshtml";
-
-        private readonly MediaAssetRepository _mediaAssetRepository;
-
-        public VideoWidgetViewComponent(MediaAssetRepository mediaFileRepository)
+    public async Task<IViewComponentResult> InvokeAsync(VideoWidgetProperties properties)
+    {
+        if (properties == null || !properties.SelectedAssets.Any())
         {
-            _mediaAssetRepository = mediaFileRepository;
+            return _pageBuilderDataContext.IsEditMode()
+                ? WidgetPlaceholder.GetWarning(DISPLAY_NAME, "Select a video asset in the widget properties.")
+                : Content(string.Empty);
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(VideoWidgetProperties properties)
-        {
-            var viewModel = new VideoWidgetViewModel();
+        var asset = properties.SelectedAssets.FirstOrDefault();
 
-            if (properties.SelectedAssets.Any())
+        if (asset != null)
+        {
+            var mediaFile = await _mediaAssetService.GetMediaAssetContent(asset.Identifier);
+            if (mediaFile != null)
             {
-                var asset = properties.SelectedAssets.FirstOrDefault();
-
-                if (asset != null)
+                var viewModel = new VideoWidgetViewModel
                 {
-                    var mediaFile = await _mediaAssetRepository.GetMediaAssetContent(asset.Identifier);
-                    if (mediaFile != null)
-                    {
-                        viewModel.VideoUrl = mediaFile.MediaAssetContentAsset.Url;
-                        viewModel.Description = mediaFile.MediaAssetContentShortDescription;
-                        viewModel.PosterImage = mediaFile.MediaAssetContentPosterImage?.Url ?? string.Empty;
-                    }
-                }
-            }
+                    VideoUrl = mediaFile.MediaAssetContentAsset.Url,
+                    Description = mediaFile.MediaAssetContentShortDescription,
+                    PosterImage = mediaFile.MediaAssetContentPosterImage?.Url ?? string.Empty,
+                };
 
-            return View(ViewName, viewModel);
+                return View(ViewName, viewModel);
+            }
         }
+
+        return _pageBuilderDataContext.IsEditMode()
+            ? WidgetPlaceholder.GetWarning(DISPLAY_NAME, "The selected asset could not be retrieved. Ensure it is published.")
+            : Content(string.Empty);
     }
 }

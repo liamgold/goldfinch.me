@@ -97,20 +97,24 @@ Examples:
 
 ### Data Access Patterns
 
-All repository methods that use `FirstOrDefault()` return nullable types:
+**Prefer `IContentRetriever`** for page and content retrieval — it handles channel context, preview mode, and caching automatically.
 
+In view components and controllers where the page context is already set, use `RetrieveCurrentPage`:
 ```csharp
-public async Task<BlogPost?> GetBlogPost(int webPageItemID)
-{
-    return await ProgressiveCache.LoadAsync(async (cs) =>
-    {
-        var pages = await Executor.GetMappedWebPageResult<BlogPost>(queryBuilder);
-        return pages.FirstOrDefault(); // Can be null
-    }, cacheSettings);
-}
+var home = await _contentRetriever.RetrieveCurrentPage<Home>();
 ```
 
-Calling code must handle null returns appropriately.
+For queries where the context isn't set yet (e.g. finding an error page by code before routing), use `RetrievePages` with a where clause and explicit cache settings:
+```csharp
+var errorPages = await _contentRetriever.RetrievePages<ErrorPage>(
+    RetrievePagesParameters.Default,
+    query => query.Where(x => x.WhereEquals(nameof(ErrorPage.ErrorCode), errorCode)),
+    cacheSettings: new RetrievalCacheSettings(
+        cacheItemNameSuffix: $"{nameof(ErrorPage)}|code|{errorCode}",
+        cacheExpiration: TimeSpan.FromMinutes(30)));
+```
+
+The manual `IContentQueryExecutor` + `IProgressiveCache` approach is only used in services that have complex requirements not supported by `IContentRetriever` (e.g. pagination, cross-content-type queries, custom ordering). All calling code must handle nullable returns from `FirstOrDefault()` appropriately.
 
 ## Code Conventions
 
@@ -134,7 +138,7 @@ public class BlogPostViewModel
 
 ### Naming Conventions
 
-- **Repositories:** `{EntityName}Repository` (e.g., `BlogPostRepository`)
+- **Services:** `{EntityName}Service` (e.g., `BlogPostService`)
 - **ViewModels:** `{Feature}ViewModel` (e.g., `BlogPostViewModel`)
 - **View Components:** `{Name}ViewComponent` (e.g., `HeaderViewComponent`)
 - **Widgets:** `{Name}Widget` (e.g., `ImageWidget`)
@@ -152,17 +156,134 @@ public class BlogPostViewModel
 
 1. Define in Kentico admin UI
 2. Create strongly-typed class in `Goldfinch.Core/ContentTypes/`
-3. Create repository in appropriate folder (e.g., `BlogPosts/BlogPostRepository.cs`)
-4. Inherit from `WebPageRepository` for web page types
+3. Create a repository class in an appropriate folder (e.g., `BlogPosts/BlogPostRepository.cs`)
+4. Inject Kentico services directly — no base class. Common dependencies:
+   - `IContentQueryExecutor` — query execution
+   - `IWebsiteChannelContext` — channel name and preview flag
+   - `IProgressiveCache` — caching
+   - `IWebPageUrlRetriever` — URL resolution (only when needed)
+5. Register the repository as `AddSingleton<MyRepository>()` in `ServiceConfiguration.cs`
 
 ### Adding a New Widget
 
-1. Create folder in `Goldfinch.Web/Components/Widgets/{WidgetName}/`
-2. Create `{WidgetName}WidgetProperties.cs` (IWidgetProperties)
-3. Create `{WidgetName}WidgetViewModel.cs`
-4. Create `{WidgetName}WidgetViewComponent.cs` (ViewComponent)
-5. Create `{WidgetName}Widget.cshtml` (view)
-6. Register with `[RegisterWidget]` attribute
+Every widget follows the same 4-file pattern in `Goldfinch.Web/Components/Widgets/{WidgetName}/`:
+
+```
+{WidgetName}WidgetViewComponent.cs   # Widget registration + data wiring
+{WidgetName}WidgetProperties.cs      # Admin UI form fields (IWidgetProperties)
+{WidgetName}WidgetViewModel.cs       # Data passed to the view
+{WidgetName}Widget.cshtml            # Razor view
+```
+
+If the widget has dropdown fields, also create `{WidgetName}WidgetEnums.cs` in the same folder.
+
+#### ViewComponent
+
+- `[assembly: RegisterWidget(...)]` goes **above** the namespace declaration
+- Every ViewComponent must declare two public constants:
+  ```csharp
+  public const string IDENTIFIER = "Goldfinch.WidgetName";
+  public const string DISPLAY_NAME = "Widget Display Name";
+  ```
+  Use both in the `RegisterWidget` attribute — never hardcode the name as a string.
+- **`IconClass`** must use a constant from `KenticoIcons` (`Goldfinch.Web.Components.Shared`). Never use raw icon strings. Common examples: `KenticoIcons.PICTURE`, `KenticoIcons.MEDIA_PLAYER`, `KenticoIcons.PARAGRAPH`, `KenticoIcons.RECTANGLE_PARAGRAPH`.
+- **Always** guard against missing/empty properties and return an edit-mode warning:
+  ```csharp
+  if (properties == null || string.IsNullOrWhiteSpace(properties.RequiredField))
+  {
+      return _pageBuilderDataContext.IsEditMode()
+          ? WidgetPlaceholder.GetWarning(DISPLAY_NAME, "Descriptive hint for the editor.")
+          : Content(string.Empty);
+  }
+  ```
+  `WidgetPlaceholder` is in `Goldfinch.Web.Components.Widgets.Base`. `IsEditMode()` is an extension on `IPageBuilderDataContextRetriever` in `Goldfinch.Web.Extensions` — inject `IPageBuilderDataContextRetriever` and add `using Goldfinch.Web.Extensions;`.
+
+  For widgets that select content items, add a second guard after retrieval:
+  ```csharp
+  if (retrievedItems == null || !retrievedItems.Any())
+  {
+      return _pageBuilderDataContext.IsEditMode()
+          ? WidgetPlaceholder.GetWarning(DISPLAY_NAME, "The selected asset could not be retrieved. Ensure it is published.")
+          : Content(string.Empty);
+  }
+  ```
+
+Full example:
+```csharp
+using Goldfinch.Web.Components.Shared;
+using Goldfinch.Web.Components.Widgets.Base;
+using Goldfinch.Web.Components.Widgets.MyWidget;
+using Goldfinch.Web.Extensions;
+using Kentico.PageBuilder.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+
+[assembly: RegisterWidget(
+    identifier: MyWidgetViewComponent.IDENTIFIER,
+    viewComponentType: typeof(MyWidgetViewComponent),
+    name: MyWidgetViewComponent.DISPLAY_NAME,
+    propertiesType: typeof(MyWidgetProperties),
+    Description = "Describes what the widget renders.",
+    IconClass = KenticoIcons.PICTURE)]
+
+namespace Goldfinch.Web.Components.Widgets.MyWidget;
+
+public class MyWidgetViewComponent : ViewComponent
+{
+    public const string IDENTIFIER = "Goldfinch.MyWidget";
+    public const string DISPLAY_NAME = "My Widget";
+    private const string ViewName = "~/Components/Widgets/MyWidget/MyWidget.cshtml";
+
+    private readonly IPageBuilderDataContextRetriever _pageBuilderDataContext;
+
+    public MyWidgetViewComponent(IPageBuilderDataContextRetriever pageBuilderDataContext)
+    {
+        _pageBuilderDataContext = pageBuilderDataContext;
+    }
+
+    public IViewComponentResult Invoke(MyWidgetProperties properties)
+    {
+        if (properties == null || string.IsNullOrWhiteSpace(properties.Heading))
+        {
+            return _pageBuilderDataContext.IsEditMode()
+                ? WidgetPlaceholder.GetWarning(DISPLAY_NAME, "Add a heading in the widget properties.")
+                : Content(string.Empty);
+        }
+
+        var viewModel = new MyWidgetViewModel { Heading = properties.Heading };
+        return View(ViewName, viewModel);
+    }
+}
+```
+
+#### Properties (IWidgetProperties)
+
+- **Always** add at least one `[FormCategory]` on the class, even for a single group — this sets a consistent pattern and makes it easy to add more groups later:
+  ```csharp
+  [FormCategory(Label = "Content", Order = 0, Collapsible = true, IsCollapsed = false)]
+  [FormCategory(Label = "Appearance", Order = 10, Collapsible = true, IsCollapsed = false)]
+  public class MyWidgetProperties : IWidgetProperties { ... }
+  ```
+  Always `IsCollapsed = false`. Space category `Order` values by 10; field `Order` values are sequential integers within each group.
+
+- **Dropdowns** must use `DropdownEnumOptionProvider<TEnum>` — never use the `Options = "value;Label\r\n..."` string approach:
+  ```csharp
+  [DropDownComponent(Label = "Theme", Order = 1,
+      DataProviderType = typeof(DropdownEnumOptionProvider<MyWidgetTheme>))]
+  public string? Theme { get; set; } = "blue";
+  ```
+  The stored value is the kebab-case of the enum member name (`Blue` → `"blue"`, `DarkBlue` → `"dark-blue"`). Default values must be the kebab-case string. Define enums in `{WidgetName}WidgetEnums.cs`. Use `[Description("Label")]` on enum members to customise the displayed label.
+
+  **Exception:** when stored values must match an external identifier (e.g. highlight.js language classes), name enum members as single words to avoid hyphens (`Csharp` → `"csharp"`, not `CSharp` → `"c-sharp"`).
+
+#### Key namespaces for widgets
+
+| Using | Provides |
+|---|---|
+| `Goldfinch.Web.Components.Shared` | `KenticoIcons` |
+| `Goldfinch.Web.Components.Widgets.Base` | `WidgetPlaceholder`, `DropdownEnumOptionProvider<T>` |
+| `Goldfinch.Web.Extensions` | `IsEditMode()` extension on `IPageBuilderDataContextRetriever` |
+| `Kentico.PageBuilder.Web.Mvc` | `IWidgetProperties`, `RegisterWidget`, `IPageBuilderDataContextRetriever` |
+| `Kentico.Xperience.Admin.Base.FormAnnotations` | `TextInputComponent`, `DropDownComponent`, `CheckBoxComponent`, `TextAreaComponent`, `ContentItemSelectorComponent`, `FormCategory`, etc. |
 
 ### Running the Project
 

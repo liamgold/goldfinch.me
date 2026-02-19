@@ -7,16 +7,16 @@ namespace Goldfinch.Web.Features.ErrorPage;
 
 public class ErrorPageViewComponent : ViewComponent
 {
-    private readonly ErrorPageRepository _errorPageRepository;
+    private readonly IErrorPageService _errorPageService;
 
-    public ErrorPageViewComponent(ErrorPageRepository errorPageRepository)
+    public ErrorPageViewComponent(IErrorPageService errorPageService)
     {
-        _errorPageRepository = errorPageRepository;
+        _errorPageService = errorPageService;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(RoutedWebPage page, ErrorPageTemplateProperties props)
     {
-        var errorPage = await _errorPageRepository.GetErrorPage(page.WebPageItemID);
+        var errorPage = await _errorPageService.GetErrorPageById(page.WebPageItemID);
 
         return View("~/Features/ErrorPage/Components/ErrorPage.cshtml", errorPage);
     }
