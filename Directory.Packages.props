@@ -7,10 +7,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="coverlet.collector" Version="8.0.0" />
-    <PackageVersion Include="Kentico.Xperience.Admin" Version="31.0.0" />
-    <PackageVersion Include="Kentico.Xperience.AzureStorage" Version="31.0.0" />
+    <PackageVersion Include="Kentico.Xperience.Admin" Version="31.1.2" />
+    <PackageVersion Include="Kentico.Xperience.AzureStorage" Version="31.1.2" />
     <PackageVersion Include="Kentico.Xperience.MiniProfiler" Version="3.0.0" />
-    <PackageVersion Include="Kentico.Xperience.WebApp" Version="31.0.0" />
+    <PackageVersion Include="Kentico.Xperience.WebApp" Version="31.1.2" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageVersion Include="Microsoft.Playwright" Version="1.58.0" />
     <PackageVersion Include="Schema.NET" Version="13.0.0" />
