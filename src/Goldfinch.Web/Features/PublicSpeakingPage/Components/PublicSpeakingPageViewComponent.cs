@@ -8,16 +8,16 @@ namespace Goldfinch.Web.Features.PublicSpeakingPage;
 
 public class PublicSpeakingPageViewComponent : ViewComponent
 {
-    private readonly PublicSpeakingRepository _publicSpeakingRepository;
+    private readonly IPublicSpeakingService _publicSpeakingService;
 
-    public PublicSpeakingPageViewComponent(PublicSpeakingRepository publicSpeakingRepository)
+    public PublicSpeakingPageViewComponent(IPublicSpeakingService publicSpeakingService)
     {
-        _publicSpeakingRepository = publicSpeakingRepository;
+        _publicSpeakingService = publicSpeakingService;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(RoutedWebPage page, PublicSpeakingPageTemplateProperties props)
     {
-        var publicSpeakingModel = await _publicSpeakingRepository.GetPublicSpeakingPage(page.WebPageItemID);
+        var publicSpeakingModel = await _publicSpeakingService.GetPublicSpeakingPage(page.WebPageItemID);
 
         if (publicSpeakingModel == null || publicSpeakingModel.Page == null)
         {

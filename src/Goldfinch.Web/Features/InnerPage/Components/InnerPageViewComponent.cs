@@ -1,4 +1,3 @@
-using Goldfinch.Core.InnerPages;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -7,16 +6,16 @@ namespace Goldfinch.Web.Features.InnerPage;
 
 public class InnerPageViewComponent : ViewComponent
 {
-    private readonly InnerPageRepository _innerPageRepository;
+    private readonly IContentRetriever _contentRetriever;
 
-    public InnerPageViewComponent(InnerPageRepository innerPageRepository)
+    public InnerPageViewComponent(IContentRetriever contentRetriever)
     {
-        _innerPageRepository = innerPageRepository;
+        _contentRetriever = contentRetriever;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(RoutedWebPage page, InnerPageTemplateProperties props)
     {
-        var innerPage = await _innerPageRepository.GetInnerPage(page.WebPageItemID);
+        var innerPage = await _contentRetriever.RetrieveCurrentPage<Core.ContentTypes.InnerPage>();
 
         return View("~/Features/InnerPage/Components/InnerPage.cshtml", innerPage);
     }

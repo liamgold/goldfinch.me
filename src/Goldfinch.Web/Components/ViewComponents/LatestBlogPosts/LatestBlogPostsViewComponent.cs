@@ -12,13 +12,16 @@ namespace Goldfinch.Web.Components.ViewComponents.LatestBlogPosts;
 public class LatestBlogPostsViewComponent : ViewComponent
 {
     private readonly IWebPageUrlRetriever _pageUrlRetriever;
-    private readonly BlogPostRepository _blogPostRepository;
+    private readonly IBlogPostService _blogPostService;
     private readonly IWebPageDataContextRetriever _pageDataContextRetriever;
 
-    public LatestBlogPostsViewComponent(IWebPageUrlRetriever pageUrlRetriever, BlogPostRepository blogPostRepository, IWebPageDataContextRetriever pageDataContextRetriever)
+    public LatestBlogPostsViewComponent(
+        IWebPageUrlRetriever pageUrlRetriever,
+        IBlogPostService blogPostService,
+        IWebPageDataContextRetriever pageDataContextRetriever)
     {
         _pageUrlRetriever = pageUrlRetriever;
-        _blogPostRepository = blogPostRepository;
+        _blogPostService = blogPostService;
         _pageDataContextRetriever = pageDataContextRetriever;
     }
 
@@ -31,7 +34,7 @@ public class LatestBlogPostsViewComponent : ViewComponent
 
         var page = data.WebPage;
 
-        var blogPosts = (await _blogPostRepository.GetLatestBlogPosts())
+        var blogPosts = (await _blogPostService.GetLatestBlogPosts())
             .Where(x => x.SystemFields.WebPageItemID != page.WebPageItemID)
             .Take(3);
 

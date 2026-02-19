@@ -1,4 +1,5 @@
 using CMS.Websites;
+using Goldfinch.Core.Extensions;
 using Goldfinch.Core.BlogPosts;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,12 +14,12 @@ namespace Goldfinch.Web.Features.SEO;
 
 public class RSSFeedController : Controller
 {
-    private readonly BlogPostRepository _blogPostRepository;
+    private readonly IBlogPostService _blogPostService;
     private readonly IWebPageUrlRetriever _pageUrlRetriever;
 
-    public RSSFeedController(BlogPostRepository blogPostRepository, IWebPageUrlRetriever pageUrlRetriever)
+    public RSSFeedController(IBlogPostService blogPostService, IWebPageUrlRetriever pageUrlRetriever)
     {
-        _blogPostRepository = blogPostRepository;
+        _blogPostService = blogPostService;
         _pageUrlRetriever = pageUrlRetriever;
     }
 
@@ -47,7 +48,7 @@ public class RSSFeedController : Controller
 
     private async Task<SyndicationFeed> RSSFeedInternal()
     {
-        var blogPosts = await _blogPostRepository.GetLatestBlogPosts();
+        var blogPosts = await _blogPostService.GetLatestBlogPosts();
 
         var feed = new SyndicationFeed(
             "Latest Blog Posts - Liam Goldfinch",
@@ -66,8 +67,7 @@ public class RSSFeedController : Controller
             var pageGuid = blogPost.SystemFields.WebPageItemGUID.ToString("N");
             var blogPostUrl = (await _pageUrlRetriever.Retrieve(blogPost)).RelativePath;
 
-            var relativeUrl = blogPostUrl.Replace("~/", "/");
-            var pageUrl = $"https://www.goldfinch.me{relativeUrl}";
+            var pageUrl = $"https://www.goldfinch.me{blogPostUrl.ToAbsolutePath()}";
 
             var item = new SyndicationItem(blogPost.BaseContentTitle, blogPost.BaseContentShortDescription, new Uri(pageUrl), pageGuid, blogPost.BlogPostDate)
             {

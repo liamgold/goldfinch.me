@@ -1,9 +1,10 @@
-﻿using CMS.ContentEngine;
+using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
+using Goldfinch.Core.Extensions;
 using CMS.Helpers;
 using CMS.Websites;
+using CMS.Websites.Routing;
 using Goldfinch.Core.ContentTypes;
-using Goldfinch.Core.WebPage;
 using Sidio.Sitemap.Core;
 using System;
 using System.Collections.Generic;
@@ -12,25 +13,36 @@ using System.Threading.Tasks;
 
 namespace Goldfinch.Core.Sitemap;
 
-public class SitemapRepository : WebPageRepository
+public class SitemapService : ISitemapService
 {
-    public SitemapRepository(WebPageQueryTools tools) : base(tools)
+    private readonly IContentQueryExecutor _executor;
+    private readonly IWebsiteChannelContext _websiteChannelContext;
+    private readonly IProgressiveCache _progressiveCache;
+    private readonly IWebPageUrlRetriever _urlRetriever;
+
+    public SitemapService(
+        IContentQueryExecutor executor,
+        IWebsiteChannelContext websiteChannelContext,
+        IProgressiveCache progressiveCache,
+        IWebPageUrlRetriever urlRetriever)
     {
+        _executor = executor;
+        _websiteChannelContext = websiteChannelContext;
+        _progressiveCache = progressiveCache;
+        _urlRetriever = urlRetriever;
     }
 
     public async Task<List<SitemapNode>> GetSitemap()
     {
-        return await ProgressiveCache.LoadAsync(async cs =>
+        return await _progressiveCache.LoadAsync(async cs =>
         {
             cs.CacheDependency = CacheHelper.GetCacheDependency(
             [
                 $"webpageitem|bychannel|Goldfinch|all",
             ]);
 
-            var sitemapNodes = await GetSitemapNodes();
-
-            return sitemapNodes;
-        }, new CacheSettings(1440, nameof(SitemapRepository), nameof(GetSitemap)));
+            return await GetSitemapNodes();
+        }, new CacheSettings(1440, nameof(SitemapService), nameof(GetSitemap)));
     }
 
     private async Task<List<SitemapNode>> GetSitemapNodes()
@@ -47,19 +59,18 @@ public class SitemapRepository : WebPageRepository
                     BlogPost.CONTENT_TYPE_NAME,
                     PublicSpeakingPage.CONTENT_TYPE_NAME,
                 ]);
-                query.ForWebsite(WebsiteChannelContext.WebsiteChannelName);
+                query.ForWebsite(_websiteChannelContext.WebsiteChannelName);
             });
 
-        var pages = await Executor.GetMappedWebPageResult<IWebPageFieldsSource>(builder);
+        var pages = await _executor.GetMappedWebPageResult<IWebPageFieldsSource>(builder);
 
         var blogPostCount = pages.OfType<BlogPost>().Count();
         var blogPostPageCount = (int)Math.Ceiling((double)blogPostCount / 6);
 
         foreach (var page in pages)
         {
-            var pageUrl = await UrlRetriever.Retrieve(page);
-            var relativeUrl = pageUrl.RelativePath.Replace("~/", "/");
-            var absoluteUrl = $"https://www.goldfinch.me{relativeUrl}";
+            var pageUrl = await _urlRetriever.Retrieve(page);
+            var absoluteUrl = $"https://www.goldfinch.me{pageUrl.RelativePath.ToAbsolutePath()}";
 
             var metadata = ContentItemLanguageMetadataInfo.Provider.Get()
                 .WhereEquals(nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentItemID), page.SystemFields.ContentItemID)

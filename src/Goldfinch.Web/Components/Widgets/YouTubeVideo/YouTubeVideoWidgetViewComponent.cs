@@ -1,29 +1,47 @@
-﻿using Goldfinch.Web.Components.Widgets.YouTubeVideo;
+using Goldfinch.Web.Components.Shared;
+using Goldfinch.Web.Components.Widgets.Base;
+using Goldfinch.Web.Components.Widgets.YouTubeVideo;
+using Goldfinch.Web.Extensions;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
 
-[assembly: RegisterWidget(YouTubeVideoWidgetViewComponent.IDENTIFIER, typeof(YouTubeVideoWidgetViewComponent), "YouTube Video", typeof(YouTubeVideoWidgetProperties), Description = "Displays a YouTube video.", IconClass = "icon-rectangle-paragraph")]
-namespace Goldfinch.Web.Components.Widgets.YouTubeVideo
+[assembly: RegisterWidget(
+    identifier: YouTubeVideoWidgetViewComponent.IDENTIFIER,
+    viewComponentType: typeof(YouTubeVideoWidgetViewComponent),
+    name: YouTubeVideoWidgetViewComponent.DISPLAY_NAME,
+    propertiesType: typeof(YouTubeVideoWidgetProperties),
+    Description = "Displays a YouTube video.",
+    IconClass = KenticoIcons.MEDIA_PLAYER)]
+
+namespace Goldfinch.Web.Components.Widgets.YouTubeVideo;
+
+public class YouTubeVideoWidgetViewComponent : ViewComponent
 {
-    public class YouTubeVideoWidgetViewComponent : ViewComponent
+    public const string IDENTIFIER = "Goldfinch.YouTubeVideoWidget";
+    public const string DISPLAY_NAME = "YouTube Video";
+    private const string ViewName = "~/Components/Widgets/YouTubeVideo/YouTubeVideoWidget.cshtml";
+
+    private readonly IPageBuilderDataContextRetriever _pageBuilderDataContext;
+
+    public YouTubeVideoWidgetViewComponent(IPageBuilderDataContextRetriever pageBuilderDataContext)
     {
-        public const string IDENTIFIER = "Goldfinch.YouTubeVideoWidget";
+        _pageBuilderDataContext = pageBuilderDataContext;
+    }
 
-        private readonly string ViewName = "~/Components/Widgets/YouTubeVideo/YouTubeVideoWidget.cshtml";
-
-        public YouTubeVideoWidgetViewComponent()
+    public IViewComponentResult Invoke(YouTubeVideoWidgetProperties properties)
+    {
+        if (properties == null || string.IsNullOrWhiteSpace(properties.VideoId))
         {
+            return _pageBuilderDataContext.IsEditMode()
+                ? WidgetPlaceholder.GetWarning(DISPLAY_NAME, "Enter a YouTube Video ID in the widget properties.")
+                : Content(string.Empty);
         }
 
-        public ViewViewComponentResult Invoke(YouTubeVideoWidgetProperties properties)
+        var viewModel = new YouTubeVideoWidgetViewModel
         {
-            var viewModel = new YouTubeVideoWidgetViewModel
-            {
-                VideoId = properties.VideoId,
-            };
+            VideoId = properties.VideoId,
+        };
 
-            return View(ViewName, viewModel);
-        }
+        return View(ViewName, viewModel);
     }
 }

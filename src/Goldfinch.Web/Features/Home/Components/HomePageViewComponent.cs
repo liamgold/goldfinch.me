@@ -1,4 +1,3 @@
-using Goldfinch.Core.HomePages;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -7,16 +6,16 @@ namespace Goldfinch.Web.Features.Home;
 
 public class HomePageViewComponent : ViewComponent
 {
-    private readonly HomeRepository _homeRepository;
+    private readonly IContentRetriever _contentRetriever;
 
-    public HomePageViewComponent(HomeRepository homeRepository)
+    public HomePageViewComponent(IContentRetriever contentRetriever)
     {
-        _homeRepository = homeRepository;
+        _contentRetriever = contentRetriever;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(RoutedWebPage page, HomePageTemplateProperties props)
     {
-        var home = await _homeRepository.GetHome();
+        var home = await _contentRetriever.RetrieveCurrentPage<Core.ContentTypes.Home>();
 
         return View("~/Features/Home/Components/HomePage.cshtml", home);
     }

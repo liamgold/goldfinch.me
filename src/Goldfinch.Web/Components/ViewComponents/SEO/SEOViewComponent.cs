@@ -14,9 +14,12 @@ public class SEOViewComponent : ViewComponent
 {
     private readonly IWebPageDataContextRetriever _webPageDataContextRetriever;
     private readonly IContentRetriever _contentRetriever;
-    private readonly BreadcrumbService _breadcrumbService;
+    private readonly IBreadcrumbService _breadcrumbService;
 
-    public SEOViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever, IContentRetriever contentRetriever, BreadcrumbService breadcrumbService)
+    public SEOViewComponent(
+        IWebPageDataContextRetriever webPageDataContextRetriever,
+        IContentRetriever contentRetriever,
+        IBreadcrumbService breadcrumbService)
     {
         _webPageDataContextRetriever = webPageDataContextRetriever;
         _contentRetriever = contentRetriever;

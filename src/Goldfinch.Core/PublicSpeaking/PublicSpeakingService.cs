@@ -1,31 +1,41 @@
-﻿using CMS.ContentEngine;
+using CMS.ContentEngine;
 using CMS.Helpers;
 using CMS.Websites;
+using CMS.Websites.Routing;
 using Goldfinch.Core.ContentTypes;
-using Goldfinch.Core.WebPage;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Goldfinch.Core.PublicSpeaking;
 
-public class PublicSpeakingRepository : WebPageRepository
+public class PublicSpeakingService : IPublicSpeakingService
 {
-    public PublicSpeakingRepository(WebPageQueryTools tools) : base(tools)
+    private readonly IContentQueryExecutor _executor;
+    private readonly IWebsiteChannelContext _websiteChannelContext;
+    private readonly IProgressiveCache _progressiveCache;
+
+    public PublicSpeakingService(
+        IContentQueryExecutor executor,
+        IWebsiteChannelContext websiteChannelContext,
+        IProgressiveCache progressiveCache)
     {
+        _executor = executor;
+        _websiteChannelContext = websiteChannelContext;
+        _progressiveCache = progressiveCache;
     }
 
     public async Task<PublicSpeakingModel?> GetPublicSpeakingPage(int webPageItemID)
     {
-        return await ProgressiveCache.LoadAsync(async (cs) =>
+        return await _progressiveCache.LoadAsync(async (cs) =>
         {
             var queryBuilder = new ContentItemQueryBuilder()
                 .ForContentType(PublicSpeakingPage.CONTENT_TYPE_NAME, queryParameters => queryParameters
-                    .ForWebsite(WebsiteChannelContext.WebsiteChannelName)
+                    .ForWebsite(_websiteChannelContext.WebsiteChannelName)
                     .Where(w => w.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemID))
                     .TopN(1)
                 );
 
-            var pages = await Executor.GetMappedWebPageResult<PublicSpeakingPage>(queryBuilder);
+            var pages = await _executor.GetMappedWebPageResult<PublicSpeakingPage>(queryBuilder);
 
             var listingPage = pages.FirstOrDefault();
 
@@ -37,7 +47,7 @@ public class PublicSpeakingRepository : WebPageRepository
             queryBuilder = new ContentItemQueryBuilder()
                 .ForContentType(SpeakingEngagement.CONTENT_TYPE_NAME);
 
-            var speakingEngagements = await Executor.GetMappedResult<SpeakingEngagement>(queryBuilder);
+            var speakingEngagements = await _executor.GetMappedResult<SpeakingEngagement>(queryBuilder);
 
             var groupedSpeakingEngagements = speakingEngagements
                 .GroupBy(s => s.EventDate.Year)
@@ -49,14 +59,12 @@ public class PublicSpeakingRepository : WebPageRepository
                 })
                 .ToList();
 
-            var publicSpeakingModel = new PublicSpeakingModel
+            return new PublicSpeakingModel
             {
                 Page = listingPage,
                 Years = groupedSpeakingEngagements
             };
-
-            return publicSpeakingModel;
         },
-        new CacheSettings(60, WebsiteChannelContext.WebsiteChannelName, nameof(PublicSpeakingRepository), nameof(GetPublicSpeakingPage), $"PageID-{webPageItemID}"));
+        new CacheSettings(60, _websiteChannelContext.WebsiteChannelName, nameof(PublicSpeakingService), nameof(GetPublicSpeakingPage), $"PageID-{webPageItemID}"));
     }
 }

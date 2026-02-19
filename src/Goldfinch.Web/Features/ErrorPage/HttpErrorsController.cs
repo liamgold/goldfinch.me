@@ -1,4 +1,4 @@
-﻿using CMS.Websites.Routing;
+using CMS.Websites.Routing;
 using Goldfinch.Core.ErrorPages;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
@@ -10,14 +10,18 @@ namespace Goldfinch.Web.Features.ErrorPage
 {
     public class HttpErrorsController : Controller
     {
-        private readonly ErrorPageRepository _errorPageRepository;
+        private readonly IErrorPageService _errorPageService;
         private readonly IWebPageDataContextInitializer _webPageDataContextInitializer;
         private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
         private readonly IWebsiteChannelContext _websiteChannelContext;
 
-        public HttpErrorsController(ErrorPageRepository errorPageRepository, IWebPageDataContextInitializer webPageDataContextInitializer, IPreferredLanguageRetriever preferredLanguageRetriever, IWebsiteChannelContext websiteChannelContext)
+        public HttpErrorsController(
+            IErrorPageService errorPageService,
+            IWebPageDataContextInitializer webPageDataContextInitializer,
+            IPreferredLanguageRetriever preferredLanguageRetriever,
+            IWebsiteChannelContext websiteChannelContext)
         {
-            _errorPageRepository = errorPageRepository;
+            _errorPageService = errorPageService;
             _webPageDataContextInitializer = webPageDataContextInitializer;
             _preferredLanguageRetriever = preferredLanguageRetriever;
             _websiteChannelContext = websiteChannelContext;
@@ -25,21 +29,12 @@ namespace Goldfinch.Web.Features.ErrorPage
 
         public async Task<IActionResult> ErrorAsync(int code)
         {
-            Core.ContentTypes.ErrorPage? errorPage;
-
-            switch (code)
+            if (code != 404 && code != 500)
             {
-                case 404:
-                    errorPage = await _errorPageRepository.Get404Page();
-                    break;
-
-                case 500:
-                    errorPage = await _errorPageRepository.Get500Page();
-                    break;
-
-                default:
-                    return StatusCode(code);
+                return StatusCode(code);
             }
+
+            var errorPage = await _errorPageService.GetErrorPageByCode(code);
 
             if (errorPage == null)
             {
