@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.18",
+    "@tailwindcss/vite": "^4.2.1",
     "sass-embedded": "^1.97.3",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3",
