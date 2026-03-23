@@ -21,7 +21,7 @@ public abstract class PlaywrightTestBase : IAsyncLifetime
     /// <summary>
     /// Initialize Playwright browser and context
     /// </summary>
-    public async Task InitializeAsync()
+    public async ValueTask InitializeAsync()
     {
         _playwright = await Playwright.CreateAsync();
         _browser = await _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
@@ -38,7 +38,7 @@ public abstract class PlaywrightTestBase : IAsyncLifetime
     /// <summary>
     /// Cleanup Playwright resources
     /// </summary>
-    public async Task DisposeAsync()
+    public async ValueTask DisposeAsync()
     {
         if (Page != null)
             await Page.CloseAsync();
