@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   build: {
     manifest: false,
-    rollupOptions: {
+    rolldownOptions: {
       input: {
         codeblock: 'src/codeblock/codeblock.ts',
         main: 'src/main.ts',
