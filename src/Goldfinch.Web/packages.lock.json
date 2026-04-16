@@ -63,19 +63,19 @@
       },
       "Sidio.Sitemap.AspNetCore": {
         "type": "Direct",
-        "requested": "[3.1.0, )",
-        "resolved": "3.1.0",
-        "contentHash": "O2U302uOLpxoDg3HmJcheE8hob/NTsuZ2JDwdIZeA0tEle3UJMPoZnS3tigpAZfY0yBa4KYIQTyPW9pz3geqog==",
+        "requested": "[3.1.1, )",
+        "resolved": "3.1.1",
+        "contentHash": "npkgCIIbVSRndj5ytlHDwiLVleDNNnfgi51pYVZTyh1+IguDa0EpNOIqKBRIH/lCVmliRWw2JNW2ZYaxqC7UnA==",
         "dependencies": {
-          "Microsoft.Extensions.Caching.Hybrid": "10.1.0",
-          "Sidio.Sitemap.Core": "2.8.0"
+          "Microsoft.Extensions.Caching.Hybrid": "10.5.0",
+          "Sidio.Sitemap.Core": "2.8.1"
         }
       },
       "System.ServiceModel.Syndication": {
         "type": "Direct",
-        "requested": "[10.0.5, )",
-        "resolved": "10.0.5",
-        "contentHash": "lMzvEBS8dnq+TH4Ff50abQRMlbVTTBMenAmv/ILyaY3Mpf4+k/IlQtIl3uAyoNX/nXfKZp+1NyBWpxDSsMs6iA=="
+        "requested": "[10.0.6, )",
+        "resolved": "10.0.6",
+        "contentHash": "W+3qc/MzowBSlrLj2QvBXFGKH6lXU7c1cXzXGZOWjYzAgENmyVCFsCYt76Hzj3Xj4YbuE4Or4KA7vi8Hj7Pizw=="
       },
       "XperienceCommunity.CSP": {
         "type": "Direct",
@@ -607,8 +607,8 @@
       },
       "Microsoft.Extensions.Caching.Hybrid": {
         "type": "Transitive",
-        "resolved": "10.1.0",
-        "contentHash": "mcqlFN2TidtsD/ZUs+m5Xbj9oyNFtlHrawSp57DS8Pq6/Gf316sdSLdoo8i4LfQX5MFPQRdTMKddAQtfZ1uXxQ=="
+        "resolved": "10.5.0",
+        "contentHash": "INkOmE/6q6txxCS45A9HfY8dCqqjTMJfGzr3cNoMwuZpHVSr0JhMfgr/QNm9BvtvyzsyiK+q7yhCn57fBmoy9Q=="
       },
       "Microsoft.Extensions.FileProviders.Embedded": {
         "type": "Transitive",
@@ -836,8 +836,8 @@
       },
       "Sidio.Sitemap.Core": {
         "type": "Transitive",
-        "resolved": "2.8.0",
-        "contentHash": "DjZqGDejFkrRWqtoEfgrirzflPsiFomlEyNz6w3iUvCxpKAZ+RdjFCXoWKUqRlcgKbfLibKRhbPvP2STg8ugCA=="
+        "resolved": "2.8.1",
+        "contentHash": "IbNT9fyDFtd5HnDc3PSSLQPNq8aN2dsE0kvJFu4t0yRQ5bSzN/nhOjKunEQlMaPCXlXtRDy2e6je5VY/bIiRiQ=="
       },
       "System.ClientModel": {
         "type": "Transitive",
@@ -923,7 +923,7 @@
         "dependencies": {
           "Kentico.Xperience.Admin": "[31.4.0, )",
           "Kentico.Xperience.WebApp": "[31.4.0, )",
-          "Sidio.Sitemap.AspNetCore": "[3.1.0, )"
+          "Sidio.Sitemap.AspNetCore": "[3.1.1, )"
         }
       }
     }
