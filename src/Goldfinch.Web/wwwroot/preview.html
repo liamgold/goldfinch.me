@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Favicon set — $_</title>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#0c0d0f; --bg-1:#111216; --bg-2:#181a1f;
+    --border:#2a2d33; --border-soft:#1f2126;
+    --fg:#e8e4d6; --fg-muted:#a8a49a; --fg-dim:#75726b;
+    --accent:#f5a524; --accent-hot:#ffc04c;
+    --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    --font-sans:'Geist',ui-sans-serif,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-sans);font-size:15px;min-height:100vh}
+  body{background-image:radial-gradient(ellipse at 20% -5%,rgba(245,165,36,.12) 0%,transparent 45%),linear-gradient(to bottom,transparent,var(--bg));background-attachment:fixed;padding:48px 56px 96px}
+  h1{font-family:var(--font-mono);font-weight:600;font-size:22px;margin:0 0 8px;letter-spacing:-.01em}
+  h1 .amber{color:var(--accent)}
+  h2{font-family:var(--font-mono);font-weight:500;font-size:12px;color:var(--fg-muted);margin:44px 0 14px;text-transform:uppercase;letter-spacing:.08em}
+  .lede{color:var(--fg-muted);max-width:680px;margin:0 0 28px;line-height:1.55}
+  code{font-family:var(--font-mono);background:var(--bg-2);border:1px solid var(--border-soft);border-radius:4px;padding:1px 6px;color:var(--accent-hot);font-size:.92em}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
+  .card{background:var(--bg-1);border:1px solid var(--border-soft);border-radius:10px;padding:20px;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .card .img-wrap{display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px dashed var(--border-soft);border-radius:8px;padding:16px;min-height:140px}
+  .card img{display:block;image-rendering:-webkit-optimize-contrast}
+  .card .name{font-family:var(--font-mono);font-size:12px;color:var(--fg);font-weight:500}
+  .card .desc{font-family:var(--font-mono);font-size:10.5px;color:var(--fg-dim);text-align:center;line-height:1.5}
+
+  pre.markup{background:var(--bg-1);border:1px solid var(--border-soft);border-radius:10px;padding:18px 20px;font-family:var(--font-mono);font-size:12.5px;color:var(--fg);overflow-x:auto;margin:0;line-height:1.65}
+  pre.markup .k{color:var(--cyan,#7dd3fc)}
+  pre.markup .a{color:var(--accent-hot)}
+  pre.markup .s{color:var(--fg-muted)}
+  pre.markup .c{color:var(--fg-dim)}
+</style>
+</head>
+<body>
+  <h1><span class="amber">$</span> favicon set — delivered</h1>
+  <p class="lede">Seven files, drop the whole lot straight into <code>wwwroot/</code> (root of the site — <code>site.webmanifest</code> expects the PNGs at <code>/</code>). SVG is the primary, <code>favicon.ico</code> bundles 16/32/48 for legacy clients, apple-touch-icon is flat (no alpha, no rounded corners — iOS handles both).</p>
+
+  <h2>Assets</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="img-wrap"><img src="favicon.svg" width="96" height="96" alt=""></div>
+      <div class="name">favicon.svg</div>
+      <div class="desc">vector<br>primary, any DPI</div>
+    </div>
+    <div class="card">
+      <div class="img-wrap"><img src="favicon.ico" width="48" height="48" alt=""></div>
+      <div class="name">favicon.ico</div>
+      <div class="desc">16 / 32 / 48<br>multi-res legacy</div>
+    </div>
+    <div class="card">
+      <div class="img-wrap"><img src="favicon-96x96.png" width="96" height="96" alt=""></div>
+      <div class="name">favicon-96x96.png</div>
+      <div class="desc">96 × 96<br>PNG fallback</div>
+    </div>
+    <div class="card">
+      <div class="img-wrap"><img src="apple-touch-icon.png" width="120" height="120" alt=""></div>
+      <div class="name">apple-touch-icon.png</div>
+      <div class="desc">180 × 180, flat<br>iOS home screen</div>
+    </div>
+    <div class="card">
+      <div class="img-wrap"><img src="web-app-manifest-192x192.png" width="120" height="120" alt=""></div>
+      <div class="name">manifest-192.png</div>
+      <div class="desc">192 × 192<br>Android PWA</div>
+    </div>
+    <div class="card">
+      <div class="img-wrap"><img src="web-app-manifest-512x512.png" width="120" height="120" alt=""></div>
+      <div class="name">manifest-512.png</div>
+      <div class="desc">512 × 512<br>maskable, splash</div>
+    </div>
+  </div>
+
+  <h2>Markup for <code>&lt;head&gt;</code></h2>
+  <pre class="markup"><span class="c">&lt;!-- Favicons --&gt;</span>
+<span class="k">&lt;link</span> <span class="a">rel</span>=<span class="s">"icon"</span> <span class="a">href</span>=<span class="s">"/favicon.ico"</span> <span class="a">sizes</span>=<span class="s">"48x48"</span><span class="k">&gt;</span>
+<span class="k">&lt;link</span> <span class="a">rel</span>=<span class="s">"icon"</span> <span class="a">href</span>=<span class="s">"/favicon.svg"</span> <span class="a">type</span>=<span class="s">"image/svg+xml"</span><span class="k">&gt;</span>
+<span class="k">&lt;link</span> <span class="a">rel</span>=<span class="s">"icon"</span> <span class="a">href</span>=<span class="s">"/favicon-96x96.png"</span> <span class="a">type</span>=<span class="s">"image/png"</span> <span class="a">sizes</span>=<span class="s">"96x96"</span><span class="k">&gt;</span>
+<span class="k">&lt;link</span> <span class="a">rel</span>=<span class="s">"apple-touch-icon"</span> <span class="a">href</span>=<span class="s">"/apple-touch-icon.png"</span><span class="k">&gt;</span>
+<span class="k">&lt;link</span> <span class="a">rel</span>=<span class="s">"manifest"</span> <span class="a">href</span>=<span class="s">"/site.webmanifest"</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="a">name</span>=<span class="s">"theme-color"</span> <span class="a">content</span>=<span class="s">"#0c0d0f"</span><span class="k">&gt;</span></pre>
+
+  <h2>site.webmanifest</h2>
+  <pre class="markup">{
+  <span class="a">"name"</span>: <span class="s">"Goldfinch.me"</span>,
+  <span class="a">"short_name"</span>: <span class="s">"Goldfinch"</span>,
+  <span class="a">"icons"</span>: [
+    { <span class="a">"src"</span>: <span class="s">"/web-app-manifest-192x192.png"</span>, <span class="a">"sizes"</span>: <span class="s">"192x192"</span>, <span class="a">"type"</span>: <span class="s">"image/png"</span> },
+    { <span class="a">"src"</span>: <span class="s">"/web-app-manifest-512x512.png"</span>, <span class="a">"sizes"</span>: <span class="s">"512x512"</span>, <span class="a">"type"</span>: <span class="s">"image/png"</span>, <span class="a">"purpose"</span>: <span class="s">"maskable"</span> }
+  ],
+  <span class="a">"theme_color"</span>: <span class="s">"#0c0d0f"</span>,
+  <span class="a">"background_color"</span>: <span class="s">"#0c0d0f"</span>,
+  <span class="a">"display"</span>: <span class="s">"standalone"</span>,
+  <span class="a">"start_url"</span>: <span class="s">"/"</span>
+}</pre>
+
+  <h2>Check the browser tab</h2>
+  <p class="lede" style="margin:0">This page uses the real favicon links above — look at your tab. Should be the <code>$_</code> glyph. If it's cached weirdly, hard refresh.</p>
+
+</body>
+</html>

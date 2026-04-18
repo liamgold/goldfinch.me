@@ -13,9 +13,16 @@
 
 ## 2. Design reference
 
-The React mock at `../index.html` is the frozen reference. When anything in this doc is ambiguous, **the mock wins**. Compare against it visually page by page.
+**The visual reference is [`mock.html`](./mock.html)** — a single self-contained file in this folder. Open it in a browser. It's a bundled snapshot of a React prototype; all assets are inlined. When anything in this doc is ambiguous, **the mock wins**. Compare against it visually page by page.
 
-Pages to implement (in `../index.html`, cycle via the nav or hash routes):
+> **Important — the mock IS the component CSS source of truth.**
+> `reference/styles.css` (~248 lines) contains only **design tokens, base resets, utilities, and mobile overrides**. The bulk of component styling (palette, nav, search, footer, featured card, post article, blog toolbar, pagination, speaking grid, about stack, etc.) lives as **inline style objects inside the React components** in the mock.
+>
+> When you build a Razor partial, open `mock.html`, inspect the matching component in DevTools, copy the computed styles into a named CSS class in `wwwroot/css/components.css` (create that file — don't bloat `styles.css`). Use the class names already referenced by the mobile overrides in `styles.css` as your class-name contract (`.palette-dialog`, `.nav-desktop`, `.featured-card`, `.post-article`, `.blog-toolbar`, `.blog-pagination`, `.speaking-stats`, `.speaking-grid`, `.about-stack`, `.footer-grid`, etc.) — those names are the ones the responsive block expects to match.
+>
+> Do **not** try to reverse-engineer component styles from `components.md` alone — it lists the markup skeleton and view-model shape, not the exact pixel values. The mock is authoritative for anything visual.
+
+Pages to implement (cycle via the nav in `mock.html`, or hash routes `#home`, `#blog`, `#post`, `#about`, `#speaking`):
 - `#home` — hero + featured post + "Now" panel + recent posts + speaking callout + command-palette hint
 - `#blog` — archive with toolbar (search input, filter count, grid/list toggle), tag chips, paginated results
 - `#post` — post detail with TOC rail, reading progress, author card, prev/next, related posts
@@ -91,7 +98,7 @@ From this folder:
 - `reference/` — `styles.css`, `fonts/geist-variable.woff2`, `favicon-32x32.png` — copy into `wwwroot/`
 - `js/` — vanilla JS modules ready to drop into `wwwroot/js/`
 
-Everything needed for visuals is in **`reference/styles.css` (~248 lines)** and the existing mock — no additional design Figma is required.
+Everything needed for visuals is in **`reference/styles.css` (tokens + base + responsive overrides, ~248 lines)** plus **`mock.html` (authoritative visual + inline component styles)**. No Figma. If the two disagree, the mock wins.
 
 ## 7. Fonts
 
@@ -119,7 +126,7 @@ Same Azure infrastructure as today. CI/CD already exists — if the rebuild adds
 
 ## 11. Definition of done
 
-- All five pages match the mock at desktop (1280px canvas) and mobile (402px).
+- All five pages match `mock.html` at desktop (1280px canvas) and mobile (402px). Side-by-side comparison in a browser is the acceptance test.
 - Works with JS disabled (see `progressive-enhancement.md`).
 - Lighthouse: Performance ≥ 90, Accessibility ≥ 95, SEO ≥ 95 on a cold post-detail page.
 - `⌘K` opens the command palette; ↑↓↵ navigate; Esc closes.

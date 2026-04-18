@@ -5,7 +5,8 @@ This folder is the handoff package for rebuilding **goldfinch.me** in Xperience 
 ## How to use this package
 
 1. **Start with [`HANDOFF.md`](./HANDOFF.md)** — it's the master doc. It explains the stack, principles, scope, and points at every other file.
-2. **Visual reference**: open `../index.html` in a browser — the React mock is the source of truth for layout, spacing, colour, and interaction behaviour. Treat the React/JSX as a design artifact, not a blueprint; the production site is SSR Razor.
+2. **Visual reference**: open [`mock.html`](./mock.html) in a browser — it's a single self-contained file (bundled React mock, all assets inlined). It is the source of truth for layout, spacing, colour, and interaction behaviour. Treat the React/JSX as a design artifact, not a blueprint; the production site is SSR Razor.
+   - ⚠️ **Component CSS lives inline inside the mock, not in `reference/styles.css`.** The stylesheet has tokens + resets + utilities + responsive overrides only. For every component, inspect the mock in DevTools and lift the computed styles into named classes in `wwwroot/css/components.css`. See `HANDOFF.md` §2 for the full rationale.
 3. **Build order**: follow `HANDOFF.md` § "Build order" — it sequences the work so you have working pages end-to-end before polishing.
 
 ## Files in this package
@@ -13,6 +14,7 @@ This folder is the handoff package for rebuilding **goldfinch.me** in Xperience 
 | File | Purpose |
 |---|---|
 | [`HANDOFF.md`](./HANDOFF.md) | Master doc. Read first. |
+| [`mock.html`](./mock.html) | **Bundled visual reference.** Self-contained, open in a browser. Authoritative for all styling. |
 | [`routes.md`](./routes.md) | URL map + query-string contract for filter/pagination |
 | [`content-types.md`](./content-types.md) | Xperience content type definitions (BlogPost, Tag, Talk, etc.) |
 | [`components.md`](./components.md) | Razor partial inventory + markup skeletons |

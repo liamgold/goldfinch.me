@@ -1,6 +1,8 @@
 # Components — Razor partial inventory
 
-Each partial below corresponds to a well-defined region in the mock (`../index.html`). File paths assume `Views/Shared/` unless noted. Markup shown is the target shape, not final — lift class names verbatim from the mock to keep `styles.css` matches working.
+Each partial below corresponds to a well-defined region in the [bundled mock (`mock.html`)](./mock.html). File paths assume `Views/Shared/` unless noted. Markup shown is the target shape, not final — lift class names verbatim from the mock to keep `styles.css` matches working.
+
+> **⚠️ Where the component CSS lives:** `reference/styles.css` only defines tokens, base styles, utilities, and the mobile-override block. The actual per-component styling is embedded as inline `style` objects in the React source inside `mock.html`. For each partial below, open `mock.html` in a browser, inspect the component in DevTools, and lift the computed styles into a named CSS class in `wwwroot/css/components.css`. The class names referenced in `styles.css`'s mobile block (e.g. `.palette-dialog`, `.nav-desktop`, `.featured-card`, `.post-article`, `.blog-toolbar`, `.blog-pagination`, `.speaking-stats`, `.speaking-grid`, `.about-stack`, `.footer-grid`, `.md-post-layout`, etc.) are the **class-name contract** — use those exact names so the responsive overrides apply.
 
 > **Pattern:** one view model per partial, passed in via `@model` or `@Html.Partial(name, model)`. Keep partials presentation-only — query Kentico in the action, pass plain DTOs in.
 

@@ -1,61 +1,33 @@
-﻿using Kentico.Content.Web.Mvc;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Goldfinch.Web.Components.ViewComponents.Header;
 
 public class HeaderViewComponent : ViewComponent
 {
-    private readonly IWebPageDataContextRetriever _webPageDataContextRetriever;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public HeaderViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever)
+    public HeaderViewComponent(IHttpContextAccessor httpContextAccessor)
     {
-        _webPageDataContextRetriever = webPageDataContextRetriever;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public IViewComponentResult Invoke()
     {
-        if (!_webPageDataContextRetriever.TryRetrieve(out var data))
+        var path = _httpContextAccessor.HttpContext?.Request.Path.Value ?? "/";
+
+        var items = new List<NavigationItem>
         {
-            return Content(string.Empty);
-        }
-
-        var page = data.WebPage;
-
-        // TODO: Change this later... https://roadmap.kentico.com/c/234-advanced-navigation-modelling
-        //var navigationItems = new List<NavigationItem>()
-        //{
-        //    new()
-        //    {
-        //        Title = "Home",
-        //        IsActive = page.WebPageItemID == 1,
-        //        Url = "/",
-        //    },
-        //    new()
-        //    {
-        //        Title = "Blog",
-        //        IsActive = page.WebPageItemID == 2,
-        //        Url = "/blog",
-        //    },
-        //    new()
-        //    {
-        //        Title = "About",
-        //        IsActive = page.WebPageItemID == 3,
-        //        Url = "/about",
-        //    },
-        //    new()
-        //    {
-        //        Title = "Speaking",
-        //        IsActive = page.WebPageItemID == 51,
-        //        Url = "/public-speaking",
-        //    }
-        //};
-
-        var viewModel = new HeaderViewModel
-        {
-            //NavigationItems = navigationItems,
+            new() { Label = "home",     FileLabel = "index.tsx",    Url = "/",                Icon = "house",    IsActive = IsHome(path) },
+            new() { Label = "blog",     FileLabel = "blog.tsx",     Url = "/blog",            Icon = "book",     IsActive = path.StartsWith("/blog",            System.StringComparison.OrdinalIgnoreCase) },
+            new() { Label = "about",    FileLabel = "about.md",     Url = "/about",           Icon = "user",     IsActive = path.StartsWith("/about",           System.StringComparison.OrdinalIgnoreCase) },
+            new() { Label = "speaking", FileLabel = "speaking.tsx", Url = "/public-speaking", Icon = "mic",      IsActive = path.StartsWith("/public-speaking", System.StringComparison.OrdinalIgnoreCase) },
         };
 
-        return View("~/Components/ViewComponents/Header/Header.cshtml", viewModel);
+        return View("~/Components/ViewComponents/Header/Header.cshtml", new HeaderViewModel { NavigationItems = items });
     }
+
+    private static bool IsHome(string path) => string.IsNullOrEmpty(path) || path == "/";
 }

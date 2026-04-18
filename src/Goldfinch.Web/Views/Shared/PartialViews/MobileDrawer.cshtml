@@ -1,0 +1,46 @@
+@{
+    // Build the same nav the header exposes, without re-computing active state —
+    // mobile-drawer.js just opens the panel; the user selects a real link.
+    var links = new (string Label, string FileLabel, string Url, string Icon)[]
+    {
+        ("home",     "index.tsx",    "/",                "house"),
+        ("blog",     "blog.tsx",     "/blog",            "book"),
+        ("about",    "about.md",     "/about",           "user"),
+        ("speaking", "speaking.tsx", "/public-speaking", "mic"),
+    };
+
+    var path = Context.Request.Path.Value ?? "/";
+}
+
+<aside id="mobile-drawer"
+       class="mobile-drawer"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="drawer-title"
+       hidden>
+    <div class="mobile-drawer__panel">
+        <div class="mobile-drawer__head">
+            <span id="drawer-title">Navigate</span>
+            <button type="button" class="icon-btn" data-drawer-toggle aria-label="Close menu">
+                <icon name="close" size="16" />
+            </button>
+        </div>
+        <nav class="mobile-drawer__nav" aria-label="Mobile">
+            @foreach (var link in links)
+            {
+                var active = string.Equals(path, link.Url, StringComparison.OrdinalIgnoreCase)
+                             || (link.Url != "/" && path.StartsWith(link.Url, StringComparison.OrdinalIgnoreCase));
+                <a class="mobile-drawer__link" href="@link.Url" aria-current="@(active ? "page" : null)">
+                    <icon name="@link.Icon" size="18" />
+                    <span>
+                        @link.FileLabel
+                        <small class="mono">~/@link.Label</small>
+                    </span>
+                </a>
+            }
+        </nav>
+        <div class="mobile-drawer__foot mono">
+            liam<span class="at">@@</span>goldfinch · v2
+        </div>
+    </div>
+</aside>

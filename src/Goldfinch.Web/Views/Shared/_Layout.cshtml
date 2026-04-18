@@ -1,31 +1,30 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @using Kentico.Activities.Web.Mvc
 @using Kentico.OnlineMarketing.Web.Mvc
 <!--
   Goldfinch.me — if you're reading this, you're either me or someone very cool.
 -->
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en-GB" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#444444">
+    <meta name="theme-color" content="#0c0d0f">
     <vc:page-title />
+
+    <link rel="preload" href="/fonts/jetbrains-mono-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" asp-href-include="/sitefiles/dist/assets/global-*.css" />
     @RenderSection("styles", required: false)
 
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-    <link rel="icon" href="/assets/images/favicon-32x32.png" type="image/png">
-    <link rel="apple-touch-icon" sizes="48x48" href="/assets/images/icon-48x48.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="96x96" href="/assets/images/icon-96x96.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/assets/images/icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="256x256" href="/assets/images/icon-256x256.png">
-    <link rel="apple-touch-icon" sizes="384x384" href="/assets/images/icon-384x384.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="/assets/images/icon-512x512.png">
+    <link rel="alternate" type="application/rss+xml" title="Goldfinch.me — RSS" href="/rss.xml">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <page-builder-mode>
         <page-builder-styles />
@@ -36,13 +35,19 @@
     @RenderSection("schema", required: false)
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <vc:header />
 
-    <main class="container mx-auto w-full gap-1 px-8 py-8 md:py-16 lg:py-20">
+    <main id="main">
         @RenderBody()
     </main>
 
     <partial name="PartialViews/Footer" />
+
+    <partial name="PartialViews/MobileDrawer" />
+
+    <div id="palette-root"></div>
 
     <page-builder-mode>
         <page-builder-scripts />
