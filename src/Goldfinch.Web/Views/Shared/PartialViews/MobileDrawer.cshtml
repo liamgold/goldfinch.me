@@ -3,10 +3,10 @@
     // mobile-drawer.js just opens the panel; the user selects a real link.
     var links = new (string Label, string FileLabel, string Url, string Icon)[]
     {
-        ("home",     "index.tsx",    "/",                "house"),
-        ("blog",     "blog.tsx",     "/blog",            "book"),
-        ("about",    "about.md",     "/about",           "user"),
-        ("speaking", "speaking.tsx", "/public-speaking", "mic"),
+        ("home",     "index.md",    "/",                "house"),
+        ("blog",     "blog.md",     "/blog",            "book"),
+        ("about",    "about.md",    "/about",           "user"),
+        ("speaking", "speaking.md", "/public-speaking", "mic"),
     };
 
     var path = Context.Request.Path.Value ?? "/";

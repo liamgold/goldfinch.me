@@ -10,7 +10,16 @@ namespace Goldfinch.Web.Features.Home;
 
 public class HomePageViewComponent : ViewComponent
 {
-    private const int RecentPostCount = 6;
+    // 8 tiles the 4-column desktop grid cleanly (2 rows) — 6 would leave two
+    // orphans on the second row. Also lines up with the first page of
+    // GetBlogPosts(1) (page size 9) so featured + 8 recent = one full fetch.
+    private const int RecentPostCount = 8;
+
+    // Awards are issued every January. The hero stats row shows the count of
+    // consecutive years held, inclusive of the current year.
+    // TODO: promote to a Home content-type field if the streak ever breaks —
+    //       right now this assumes the run is unbroken from FirstMvpYear onwards.
+    private const int FirstMvpYear = 2022;
 
     private readonly IContentRetriever _contentRetriever;
     private readonly IBlogPostService _blogPostService;
@@ -30,17 +39,19 @@ public class HomePageViewComponent : ViewComponent
     {
         var home = await _contentRetriever.RetrieveCurrentPage<Core.ContentTypes.Home>();
 
-        // First page gives us up to 9 posts — use the newest as the featured card,
-        // followed by up to six more for the recent grid.
+        // Pull the full set — cheap on a small blog, lets us derive totals + first-year
+        // for the hero stats without a second query.
         // TODO: once content modelling lands, use a real BlogPost.Featured flag (see docs/design-handoff/content-types.md).
-        var firstPage = (await _blogPostService.GetBlogPosts(1)).ToList();
+        var allPosts = (await _blogPostService.GetAllBlogPosts())
+            .OrderByDescending(p => p.BlogPostDate)
+            .ToList();
 
         HomeFeaturedPost? featured = null;
         var recent = new List<HomeRecentPost>();
 
-        if (firstPage.Count > 0)
+        if (allPosts.Count > 0)
         {
-            var top = firstPage[0];
+            var top = allPosts[0];
             var topUrl = (await _urlRetriever.Retrieve(top)).RelativePath;
             featured = new HomeFeaturedPost(
                 Title: top.BaseContentTitle,
@@ -50,7 +61,7 @@ public class HomePageViewComponent : ViewComponent
                 PublishedOn: top.BlogPostDate,
                 ReadingMinutes: EstimateReadingMinutes(top.BaseContentShortDescription));
 
-            foreach (var post in firstPage.Skip(1).Take(RecentPostCount))
+            foreach (var post in allPosts.Skip(1).Take(RecentPostCount))
             {
                 var url = (await _urlRetriever.Retrieve(post)).RelativePath;
                 recent.Add(new HomeRecentPost(
@@ -68,6 +79,9 @@ public class HomePageViewComponent : ViewComponent
             Page = home,
             FeaturedPost = featured,
             RecentPosts = recent,
+            TotalPostCount = allPosts.Count,
+            FirstPostYear = allPosts.Count > 0 ? allPosts.Min(p => p.BlogPostDate).Year : null,
+            KenticoMvpCount = System.Math.Max(0, System.DateTime.UtcNow.Year - FirstMvpYear + 1),
         };
 
         return View("~/Features/Home/Components/HomePage.cshtml", viewModel);

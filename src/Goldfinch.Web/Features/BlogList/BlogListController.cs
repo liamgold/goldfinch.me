@@ -24,7 +24,9 @@ namespace Goldfinch.Web.Features.BlogList;
 
 public class BlogListController : Controller
 {
-    private const int PostsPerPage = 6;
+    // 8 tiles the 4-column desktop grid cleanly (2 rows) and matches the home
+    // "Recent posts" count. Must stay in sync with SitemapService.blogPostPageSize.
+    private const int PostsPerPage = 8;
 
     private readonly IWebPageDataContextInitializer _webPageDataContextInitializer;
     private readonly IWebPageUrlRetriever _webPageUrlRetriever;

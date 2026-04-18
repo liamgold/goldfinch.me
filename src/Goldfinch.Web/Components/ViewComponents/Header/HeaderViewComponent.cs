@@ -20,10 +20,10 @@ public class HeaderViewComponent : ViewComponent
 
         var items = new List<NavigationItem>
         {
-            new() { Label = "home",     FileLabel = "index.tsx",    Url = "/",                Icon = "house",    IsActive = IsHome(path) },
-            new() { Label = "blog",     FileLabel = "blog.tsx",     Url = "/blog",            Icon = "book",     IsActive = path.StartsWith("/blog",            System.StringComparison.OrdinalIgnoreCase) },
-            new() { Label = "about",    FileLabel = "about.md",     Url = "/about",           Icon = "user",     IsActive = path.StartsWith("/about",           System.StringComparison.OrdinalIgnoreCase) },
-            new() { Label = "speaking", FileLabel = "speaking.tsx", Url = "/public-speaking", Icon = "mic",      IsActive = path.StartsWith("/public-speaking", System.StringComparison.OrdinalIgnoreCase) },
+            new() { Label = "home",     FileLabel = "index.md",    Url = "/",                Icon = "house", IsActive = IsHome(path) },
+            new() { Label = "blog",     FileLabel = "blog.md",     Url = "/blog",            Icon = "book",  IsActive = path.StartsWith("/blog",            System.StringComparison.OrdinalIgnoreCase) },
+            new() { Label = "about",    FileLabel = "about.md",    Url = "/about",           Icon = "user",  IsActive = path.StartsWith("/about",           System.StringComparison.OrdinalIgnoreCase) },
+            new() { Label = "speaking", FileLabel = "speaking.md", Url = "/public-speaking", Icon = "mic",   IsActive = path.StartsWith("/public-speaking", System.StringComparison.OrdinalIgnoreCase) },
         };
 
         return View("~/Components/ViewComponents/Header/Header.cshtml", new HeaderViewModel { NavigationItems = items });

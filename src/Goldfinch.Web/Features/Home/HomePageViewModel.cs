@@ -10,6 +10,15 @@ public class HomePageViewModel
     public HomeFeaturedPost? FeaturedPost { get; init; }
 
     public IReadOnlyList<HomeRecentPost> RecentPosts { get; init; } = [];
+
+    /// <summary>Total number of published blog posts — drives the hero stats row.</summary>
+    public int TotalPostCount { get; init; }
+
+    /// <summary>Year of the oldest published blog post, or null if there are none.</summary>
+    public int? FirstPostYear { get; init; }
+
+    /// <summary>Number of consecutive Kentico MVP awards held, including the current year.</summary>
+    public int KenticoMvpCount { get; init; }
 }
 
 public record HomeFeaturedPost(

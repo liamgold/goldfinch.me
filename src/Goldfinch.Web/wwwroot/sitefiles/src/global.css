@@ -703,8 +703,13 @@ h1.hero-h1 {
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
+.featured-card__motif {
+  width: 85%;
+  height: 80%;
+  opacity: 0.9;
+}
 .featured-card__pin {
-  position: absolute; top: 16px; left: 16px;
+  position: absolute; top: 16px; left: 16px; z-index: 1;
   display: inline-flex; align-items: center; gap: 8px;
   padding: 4px 10px;
   font-family: var(--font-mono);
