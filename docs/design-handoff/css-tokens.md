@@ -24,7 +24,7 @@ All tokens are defined as CSS custom properties in `reference/styles.css` under 
 |---|---|---|
 | `--fg` | `#e8e4d6` | Primary text (warm off-white) |
 | `--fg-muted` | `#a8a49a` | Secondary copy |
-| `--fg-dim` | `#75726b` | Tertiary / meta labels |
+| `--fg-dim` | `#949188` | Tertiary / meta labels (WCAG AA on every `--bg-N` surface) |
 | `--fg-dimmer` | `#4e4c48` | Quaternary / disabled |
 
 ### Accent (amber)

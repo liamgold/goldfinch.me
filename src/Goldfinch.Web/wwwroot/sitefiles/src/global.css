@@ -36,7 +36,7 @@
 
   --fg:           #e8e4d6;
   --fg-muted:     #a8a49a;
-  --fg-dim:       #75726b;
+  --fg-dim:       #949188;   /* WCAG AA ≥4.5:1 on all --bg-N surfaces */
   --fg-dimmer:    #4e4c48;
 
   --accent:       #f5a524;

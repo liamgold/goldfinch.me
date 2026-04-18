@@ -41,20 +41,22 @@ Target: **WCAG 2.2 AA**. Lighthouse a11y score ≥ 95.
 
 ## Color contrast
 
-The token palette is pre-checked against `--bg` `#0c0d0f`:
+The token palette is verified AA across **all four background surfaces** the mock actually uses:
 
-| Text token | Ratio vs bg | Pass |
-|---|---|---|
-| `--fg` `#e8e4d6` | 15.2:1 | AAA |
-| `--fg-muted` `#a8a49a` | 8.5:1 | AAA |
-| `--fg-dim` `#75726b` | 4.7:1 | AA |
-| `--accent` `#f5a524` | 9.1:1 | AAA |
-| `--cyan` `#7dd3fc` | 11.3:1 | AAA |
-| `--green` `#86efac` | 12.9:1 | AAA |
+| Text token | vs `--bg` (#0c0d0f) | vs `--bg-1` (#111216) | vs `--bg-2` (#181a1f) | vs `--bg-3` (#22252b) |
+|---|---|---|---|---|
+| `--fg` `#e8e4d6` | 15.3 AAA | 14.7 AAA | 13.7 AAA | 12.1 AAA |
+| `--fg-muted` `#a8a49a` | 7.8 AAA | 7.5 AAA | 7.0 AAA | 6.2 AA |
+| `--fg-dim` `#949188` | 6.2 AA | 5.9 AA | 5.5 AA | 4.9 AA |
+| `--accent` `#f5a524` | 9.5 AAA | 9.2 AAA | 8.5 AAA | 7.5 AAA |
+| `--accent-hot` `#ffc04c` | 11.9 AAA | 11.5 AAA | 10.7 AAA | 9.4 AAA |
+| `--cyan` `#7dd3fc` | 11.7 AAA | 11.2 AAA | 10.4 AAA | 9.2 AAA |
+| `--green` `#86efac` | 13.8 AAA | 13.3 AAA | 12.4 AAA | 10.9 AAA |
+| `--red` `#fca5a5` | 10.2 AAA | 9.9 AAA | 9.2 AAA | 8.1 AAA |
 
-`--fg-dimmer` `#4e4c48` at **2.4:1** is below AA — **only use for non-text decoration** (e.g. disabled state icons, inactive item count chips). Don't put prose in this color.
+Every text token above clears WCAG 2.2 AA (≥4.5:1 normal text) on every background surface.
 
-On elevated surfaces (`--bg-1`, `--bg-2`), ratios are slightly worse; spot-check anything critical.
+**`--fg-dimmer` `#4e4c48`** is at ~2.0–2.3:1 across all surfaces — **decoration only**. Valid uses: inactive item count chips, dot separators, disabled icon tint, placeholder scaffolding in SVG mocks. Never use for prose, metadata, or anything a user needs to read.
 
 ## Motion
 
