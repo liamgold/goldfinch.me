@@ -4,9 +4,10 @@
 <a class="post-card" href="@Model.Url" aria-label="Read '@Model.Title'">
     <div class="post-card__head">
         <span class="post-card__dots"><span></span><span></span><span></span></span>
-        <span class="post-card__filename">post.md</span>
+        <span class="post-card__filename">@Model.Filename</span>
     </div>
     <div class="post-card__thumb">
+        <partial name="PartialViews/_PostCardDots" />
         <span class="post-card__thumb-text mono">#post</span>
     </div>
     <div class="post-card__body">

@@ -1,19 +1,21 @@
+@using Goldfinch.Core.SiteStats
 @model Goldfinch.Core.ContentTypes.InnerPage
 
 @functions {
-    @* TODO: stack rows + timeline are hard-coded. Promote to content-type fields once
+    @* TODO: stack rows are hard-coded. Promote to content-type fields once
        there's an appetite to keep them in the CMS rather than in source. *@
     // Accent key → CSS variant class on .about-stack__val.
     (string Key, string Value, string Accent)[] stackRows = new[]
     {
-        ("Language",  "C# / .NET 10",           "amber"),
-        ("CMS",       "Xperience by Kentico",   "cyan"),
-        ("Front-end", "Vanilla JS + Razor",     "magenta"),
-        ("Database",  "Azure SQL",              "amber"),
-        ("CI/CD",     "GitHub Actions",         "cyan"),
-        ("AI",        "Claude Code · ChatGPT",  "amber"),
+        ("Language",  "C# / .NET 10",                     "amber"),
+        ("CMS",       "Xperience by Kentico",             "cyan"),
+        ("Front-end", "Vanilla JS + Razor",               "magenta"),
+        ("Database",  "Azure SQL",                        "amber"),
+        ("CI/CD",     "GitHub Actions",                   "cyan"),
+        ("AI",        "Claude Code · GitHub Copilot",     "amber"),
     };
 
+    @* Timeline hidden for launch — revisit once the narrative is finalised.
     (string Year, string Text)[] timelineRows = new[]
     {
         ("2026", "Principal Systems Developer at IDHL"),
@@ -23,6 +25,7 @@
         ("2019", "Started Goldfinch.me — published first post"),
         ("2015", "Graduated, joined IDHL as junior developer"),
     };
+    *@
 }
 
 <section class="about-page fadeup">
@@ -57,6 +60,8 @@
                 }
             </div>
 
+            @* Timeline + CTA row hidden for launch. Restore together with the
+               timelineRows data above when the narrative is finalised.
             <header class="section-header">
                 <div class="section-header__body">
                     <span class="section-header__n">// timeline</span>
@@ -78,6 +83,7 @@
                 <a class="btn btn--primary" href="/blog"><icon name="book" size="15" /> <span>Read the blog</span></a>
                 <a class="btn" href="/public-speaking"><icon name="mic" size="15" /> <span>Talks</span></a>
             </div>
+            *@
         </div>
 
         <aside class="about-aside">
@@ -95,8 +101,8 @@
                 <div class="about-facts__head">// facts</div>
                 <div class="about-facts__row">based in · <span class="accent">Yorkshire, UK</span></div>
                 <div class="about-facts__row">pronouns · <span class="val">he / him</span></div>
-                <div class="about-facts__row">at IDHL since · <span class="val">2015</span></div>
-                <div class="about-facts__row">MVP count · <span class="val">4 consecutive</span></div>
+                <div class="about-facts__row">at IDHL since · <span class="val">2013</span></div>
+                <div class="about-facts__row">MVP count · <span class="val">@SiteStats.KenticoMvpCount() consecutive</span></div>
             </div>
         </aside>
     </div>

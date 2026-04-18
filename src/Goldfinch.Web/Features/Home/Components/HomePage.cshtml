@@ -2,7 +2,9 @@
 @model HomePageViewModel
 
 @functions {
-    @* TODO: Move "Now" rows into CMS (either a repeater field on Home or a JSON file). *@
+    @* Launch toggle: now.md side panel is hidden at launch. Uncomment the aside
+       in the hero markup + restore this data + swap hero-grid--solo for --with-now.
+       TODO: Move "Now" rows into CMS (either a repeater field on Home or a JSON file).
     (string Label, string Value, string? Sub)[] nowRows = new[]
     {
         ("Reading",     "Designing Data-Intensive Applications",     (string?)"Martin Kleppmann"),
@@ -10,8 +12,10 @@
         ("Playing with","Claude Code agents in .NET repos",          "automating smoke tests"),
         ("Listening",   "Software Engineering Daily",                "episode: LLM-assisted refactors"),
     };
+    *@
 
-    @* TODO: replace static tag list once a Tag content type exists (see docs/design-handoff/content-types.md). *@
+    @* "Browse by topic" data is hidden with its section until taxonomy is
+       wired up. Restore this array + uncomment the section below.
     (string Slug, string Label, int Count)[] topicTags = new[]
     {
         ("xperience",   "Xperience",     8),
@@ -23,6 +27,7 @@
         ("commerce",    "Commerce",      2),
         ("security",    "Security",      1),
     };
+    *@
 
     string FirstTag(string title) => "post";
 }
@@ -33,7 +38,9 @@
 
 <div class="fadeup">
     <section class="hero">
-        <div class="hero-grid hero-grid--with-now">
+        @* now.md side panel is hidden at launch — restore --with-now class
+           + uncomment the <aside> block below when a content source is ready. *@
+        <div class="hero-grid hero-grid--solo">
             <div>
                 <div class="hero-prompt mono"><span class="dollar">$ </span>whoami</div>
                 <h1 class="hero-h1 mono">
@@ -68,23 +75,28 @@
 
                 <div class="hero-stats">
                     <div>
-                        <div class="hero-stats__value mono">@Model.TotalPostCount.ToString("00")</div>
-                        <span class="hero-stats__label mono">posts published</span>
-                    </div>
-                    <div>
-                        <div class="hero-stats__value mono">@Model.KenticoMvpCount.ToString("00")×</div>
-                        <span class="hero-stats__label mono">Kentico MVP</span>
+                        <div class="hero-stats__value mono">@Model.YearsCoding.ToString("00")y</div>
+                        <span class="hero-stats__label mono">years coding</span>
                     </div>
                     @if (Model.FirstPostYear.HasValue)
                     {
                         <div>
                             <div class="hero-stats__value mono">@Model.FirstPostYear.Value</div>
-                            <span class="hero-stats__label mono">writing since</span>
+                            <span class="hero-stats__label mono">blogging since</span>
                         </div>
                     }
+                    <div>
+                        <div class="hero-stats__value mono">@Model.KenticoMvpCount.ToString("00")×</div>
+                        <span class="hero-stats__label mono">Kentico MVP</span>
+                    </div>
+                    <div>
+                        <div class="hero-stats__value mono">@Model.TotalPostCount.ToString("00")</div>
+                        <span class="hero-stats__label mono">posts published</span>
+                    </div>
                 </div>
             </div>
 
+            @*
             <aside class="now-panel">
                 <div class="now-panel__head">
                     <span class="post-card__dots"><span></span><span></span><span></span></span>
@@ -114,6 +126,7 @@
                     </ul>
                 </div>
             </aside>
+            *@
         </div>
     </section>
 
@@ -124,7 +137,7 @@
                 <div class="section-header__body">
                     <span class="section-header__n">// 01</span>
                     <h2>Featured post</h2>
-                    <p class="section-header__sub mono">Hand-picked — the piece I'd send a stranger first.</p>
+                    <p class="section-header__sub mono">Pinned. Start here.</p>
                 </div>
             </header>
 
@@ -206,6 +219,7 @@
                             <span class="post-card__mins">@post.ReadingMinutes min</span>
                         </div>
                         <div class="post-card__thumb">
+                            <partial name="PartialViews/_PostCardDots" />
                             <span class="post-card__thumb-text mono">#@FirstTag(post.Title)</span>
                         </div>
                         <div class="post-card__body">
@@ -221,6 +235,9 @@
         </section>
     }
 
+    @* "Browse by topic" hidden until a Tag content type is wired up — the
+       chips currently link to /blog?tag=slug, which no-ops. Restore the
+       topicTags data + this section together when taxonomy lands.
     <section class="home-section">
         <header class="section-header">
             <div class="section-header__body">
@@ -240,10 +257,7 @@
             }
         </div>
     </section>
+    *@
 
-    <div class="palette-hint" data-palette-hint hidden>
-        <kbd class="palette-kbd">⌘</kbd><kbd class="palette-kbd">K</kbd>
-        <span>opens the command palette — jump to any post or page.</span>
-        <button type="button" class="palette-hint__dismiss mono" data-dismiss aria-label="Dismiss hint">dismiss</button>
-    </div>
+
 </div>

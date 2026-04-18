@@ -6,28 +6,35 @@
  * no-JS fallback in styles.css).
  */
 (() => {
-  const btn = document.querySelector('[data-drawer-toggle]');
+  const toggles = [...document.querySelectorAll('[data-drawer-toggle]')];
   const drawer = document.getElementById('mobile-drawer');
-  if (!btn || !drawer) return;
+  if (toggles.length === 0 || !drawer) return;
+
+  // Openers are toggles outside the drawer (the hamburger). They own
+  // aria-expanded; toggles inside the drawer are "close" controls and don't.
+  const openers = toggles.filter(t => !drawer.contains(t));
 
   const FOCUSABLE = 'a[href], button, [tabindex]:not([tabindex="-1"]), input, select';
   let lastFocus = null;
+
+  const setExpanded = (value) => {
+    openers.forEach(o => o.setAttribute('aria-expanded', value ? 'true' : 'false'));
+  };
 
   const open = () => {
     lastFocus = document.activeElement;
     drawer.hidden = false;
     // next frame so the CSS transition runs
     requestAnimationFrame(() => drawer.classList.add('is-open'));
-    btn.setAttribute('aria-expanded', 'true');
+    setExpanded(true);
     document.body.style.overflow = 'hidden';
-    // Focus first link
     drawer.querySelector(FOCUSABLE)?.focus();
     document.addEventListener('keydown', onKey);
   };
 
   const close = () => {
     drawer.classList.remove('is-open');
-    btn.setAttribute('aria-expanded', 'false');
+    setExpanded(false);
     document.body.style.overflow = '';
     // Match the CSS transition duration (220ms)
     setTimeout(() => { drawer.hidden = true; }, 220);
@@ -55,8 +62,10 @@
     }
   };
 
-  btn.addEventListener('click', () => {
-    drawer.hidden ? open() : close();
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      drawer.hidden ? open() : close();
+    });
   });
 
   // Backdrop click (the <aside> itself is clickable; its inner panel stops propagation)
@@ -64,7 +73,7 @@
     if (e.target === drawer) close();
   });
 
-  // Close when navigating to a same-page link
+  // Close when tapping a nav link inside the drawer
   drawer.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
     if (link && !link.hasAttribute('data-keep-drawer')) close();

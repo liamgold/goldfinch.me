@@ -10,7 +10,10 @@
         return absoluteOrRelative.StartsWith(siteRoot) ? absoluteOrRelative[siteRoot.Length..] : absoluteOrRelative;
     }
 
-    // TODO: replace with real tags once a Tag content type exists (see docs/design-handoff/content-types.md).
+    // Tag filter is hidden until a Tag content type exists. Restore with the
+    // tag-chip-row block below when taxonomy is wired up.
+    // TODO: replace static counts with real data from the tag service.
+    /*
     (string Slug, string Label, int Count)[] topicTags = new[]
     {
         ("xperience",   "Xperience",     8),
@@ -22,6 +25,7 @@
         ("commerce",    "Commerce",      2),
         ("security",    "Security",      1),
     };
+    */
 }
 
 @section schema {
@@ -36,7 +40,7 @@
 <div class="blog-page fadeup">
     <header class="blog-header">
         <span class="mono-label mono-label--accent">~/blog</span>
-        <h1 class="mono hero-h1">Archive</h1>
+        <h1 class="mono">@Model.Title</h1>
         <p>@Model.TotalCount @(Model.TotalCount == 1 ? "post" : "posts") on Xperience by Kentico, .NET, AI tooling, and building things with code.</p>
     </header>
 
@@ -71,6 +75,8 @@
         </div>
     </form>
 
+    @* Tag filter hidden until taxonomy is wired up. Uncomment + restore the
+       topicTags array in @@functions to re-enable.
     <div class="tag-chip-row">
         <a class="tag-chip mono @(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "tag-chip--active" : "")"
            href="@Model.Url"
@@ -90,6 +96,7 @@
             </a>
         }
     </div>
+    *@
 
     @if (Model.BlogPosts.Count == 0)
     {
@@ -146,10 +153,11 @@
                 <a class="post-card" href="@post.Url">
                     <div class="post-card__head">
                         <span class="post-card__dots"><span></span><span></span><span></span></span>
-                        <span class="post-card__filename">post.md</span>
+                        <span class="post-card__filename">@post.Filename</span>
                         <span class="post-card__mins">4 min</span>
                     </div>
                     <div class="post-card__thumb">
+                        <partial name="PartialViews/_PostCardDots" />
                         <span class="post-card__thumb-text mono">#post</span>
                     </div>
                     <div class="post-card__body">

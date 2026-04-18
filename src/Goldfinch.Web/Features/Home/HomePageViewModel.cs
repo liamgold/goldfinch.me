@@ -19,6 +19,9 @@ public class HomePageViewModel
 
     /// <summary>Number of consecutive Kentico MVP awards held, including the current year.</summary>
     public int KenticoMvpCount { get; init; }
+
+    /// <summary>Full years spent coding since first picking it up.</summary>
+    public int YearsCoding { get; init; }
 }
 
 public record HomeFeaturedPost(

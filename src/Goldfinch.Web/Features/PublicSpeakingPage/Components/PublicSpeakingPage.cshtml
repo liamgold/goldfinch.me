@@ -18,19 +18,9 @@
     <div class="speaking-intro">
         <span class="mono-label mono-label--accent">~/speaking</span>
         <h1 class="mono">@Model.Page.BaseContentTitle</h1>
-        @if (!string.IsNullOrWhiteSpace(Model.Page.BaseContentShortDescription))
-        {
-            <p>@Model.Page.BaseContentShortDescription</p>
-        }
-        else
-        {
-            <p>Talks, webinars, and user-group appearances — mostly around Xperience by Kentico and how I ship on it.</p>
-        }
-    </div>
-
-    @* Intro widgets if the editable area has any — keep rendering for back-compat. *@
-    <div class="post-body">
-        <editable-area area-identifier="PublicSpeaking" />
+        <div class="post-body">
+            <editable-area area-identifier="PublicSpeaking" />
+        </div>
     </div>
 
     <div class="speaking-stats">

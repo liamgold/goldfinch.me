@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
+using Goldfinch.Core.SiteStats;
+using Goldfinch.Web.Features.BlogDetail;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,11 +17,8 @@ public class HomePageViewComponent : ViewComponent
     // GetBlogPosts(1) (page size 9) so featured + 8 recent = one full fetch.
     private const int RecentPostCount = 8;
 
-    // Awards are issued every January. The hero stats row shows the count of
-    // consecutive years held, inclusive of the current year.
-    // TODO: promote to a Home content-type field if the streak ever breaks —
-    //       right now this assumes the run is unbroken from FirstMvpYear onwards.
-    private const int FirstMvpYear = 2022;
+    // First day coding (started college, Sept 2005) — drives the "years coding" stat.
+    private static readonly System.DateTime FirstCodingDate = new(2005, 9, 1);
 
     private readonly IContentRetriever _contentRetriever;
     private readonly IBlogPostService _blogPostService;
@@ -57,7 +56,7 @@ public class HomePageViewComponent : ViewComponent
                 Title: top.BaseContentTitle,
                 Summary: top.BaseContentShortDescription,
                 Url: topUrl,
-                Filename: BuildFilename(top.BaseContentTitle),
+                Filename: BlogPostViewModel.FilenameFromUrl(topUrl),
                 PublishedOn: top.BlogPostDate,
                 ReadingMinutes: EstimateReadingMinutes(top.BaseContentShortDescription));
 
@@ -68,7 +67,7 @@ public class HomePageViewComponent : ViewComponent
                     Title: post.BaseContentTitle,
                     Summary: post.BaseContentShortDescription,
                     Url: url,
-                    Filename: BuildFilename(post.BaseContentTitle),
+                    Filename: BlogPostViewModel.FilenameFromUrl(url),
                     PublishedOn: post.BlogPostDate,
                     ReadingMinutes: EstimateReadingMinutes(post.BaseContentShortDescription)));
             }
@@ -81,35 +80,24 @@ public class HomePageViewComponent : ViewComponent
             RecentPosts = recent,
             TotalPostCount = allPosts.Count,
             FirstPostYear = allPosts.Count > 0 ? allPosts.Min(p => p.BlogPostDate).Year : null,
-            KenticoMvpCount = System.Math.Max(0, System.DateTime.UtcNow.Year - FirstMvpYear + 1),
+            KenticoMvpCount = SiteStats.KenticoMvpCount(),
+            YearsCoding = CalculateFullYears(FirstCodingDate, System.DateTime.UtcNow),
         };
 
         return View("~/Features/Home/Components/HomePage.cshtml", viewModel);
     }
 
     /// <summary>
-    /// Slugifies the title into a terminal-style "name.md" filename used in card chrome.
+    /// Full years between two dates — only counts a year once the anniversary has passed.
     /// </summary>
-    private static string BuildFilename(string title)
+    private static int CalculateFullYears(System.DateTime from, System.DateTime to)
     {
-        if (string.IsNullOrWhiteSpace(title))
+        var years = to.Year - from.Year;
+        if (to.Month < from.Month || (to.Month == from.Month && to.Day < from.Day))
         {
-            return "post.md";
+            years--;
         }
-
-        var slug = new string(title.ToLowerInvariant()
-            .Select(c => char.IsLetterOrDigit(c) ? c : '-')
-            .ToArray());
-        while (slug.Contains("--"))
-        {
-            slug = slug.Replace("--", "-");
-        }
-        slug = slug.Trim('-');
-        if (slug.Length > 40)
-        {
-            slug = slug[..40].TrimEnd('-');
-        }
-        return $"{slug}.md";
+        return System.Math.Max(0, years);
     }
 
     /// <summary>
