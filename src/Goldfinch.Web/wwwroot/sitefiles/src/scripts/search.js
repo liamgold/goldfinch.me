@@ -58,7 +58,7 @@
       const data = await res.json();
       resultsEl.innerHTML = (data.results || []).map(r => `
         <a class="live-search-item" href="${escape(r.url)}">
-          <span class="live-search-item__title">${r.highlights?.title || escape(r.title || r.label)}</span>
+          <span class="live-search-item__title">${r.highlights?.title ? safeHighlight(r.highlights.title) : escape(r.title || r.label)}</span>
           ${r.date ? `<span class="live-search-item__meta mono">${formatDate(r.date)}</span>` : ''}
         </a>
       `).join('') || `<div class="live-search-empty mono">&gt; no results</div>`;
@@ -74,6 +74,9 @@
   function escape(s) {
     return String(s ?? '').replace(/[&<>"']/g, (c) =>
       ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function safeHighlight(s) {
+    return escape(s).replace(/&lt;mark&gt;(.*?)&lt;\/mark&gt;/g, '<mark>$1</mark>');
   }
   function formatDate(iso) {
     const d = new Date(iso);
