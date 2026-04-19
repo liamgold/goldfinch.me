@@ -13,8 +13,7 @@ namespace Goldfinch.Web.Features.Home;
 public class HomePageViewComponent : ViewComponent
 {
     // 8 tiles the 4-column desktop grid cleanly (2 rows) — 6 would leave two
-    // orphans on the second row. Also lines up with the first page of
-    // GetBlogPosts(1) (page size 9) so featured + 8 recent = one full fetch.
+    // orphans on the second row.
     private const int RecentPostCount = 8;
 
     // First day coding (started college, Sept 2005) — drives the "years coding" stat.
