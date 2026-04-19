@@ -1,5 +1,6 @@
 using Goldfinch.Core;
 using Goldfinch.Core.ContentTypes;
+using Goldfinch.Web.Components.Sections.ContentSection;
 using Goldfinch.Web.Infrastructure.StaticFiles;
 using Goldfinch.Web.Middleware;
 using Kentico.Content.Web.Mvc.Routing;
@@ -39,6 +40,8 @@ builder.Services.AddKentico(features =>
             InnerPage.CONTENT_TYPE_NAME,
             PublicSpeakingPage.CONTENT_TYPE_NAME,
         ],
+        DefaultSectionIdentifier = ContentSectionViewComponent.IDENTIFIER,
+        RegisterDefaultSection = true,
     });
 
     features.UseWebPageRouting();

@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemlanguagemetadata>
+  <ContentItemLanguageMetadataAiraData>
+    <![CDATA[{"keywords":["Goldfinch.me","open source","GitHub","Kentico community","blog site source code"]}]]>
+  </ContentItemLanguageMetadataAiraData>
   <ContentItemLanguageMetadataContentItemID>
     <CodeName>Goldfinch.meIsNowOpenSource-sc33x623</CodeName>
     <GUID>cfba8eb9-a13b-44a3-8da4-bd1bdf233f9f</GUID>

@@ -1,0 +1,17 @@
+@using Goldfinch.Web.Components.Sections.ContentSection
+@using Kentico.Web.Mvc
+@using Kentico.PageBuilder.Web.Mvc
+
+@model ContentSectionViewModel
+
+<section class="page-builder-section">
+    @if (!string.IsNullOrWhiteSpace(Model.SectionID) && !string.IsNullOrWhiteSpace(Model.SectionName))
+    {
+        <h2 id="@Model.SectionID" class="section-heading">@Model.SectionName</h2>
+    }
+    else if (!string.IsNullOrWhiteSpace(Model.SectionID))
+    {
+        <div id="@Model.SectionID"></div>
+    }
+    <widget-zone />
+</section>
