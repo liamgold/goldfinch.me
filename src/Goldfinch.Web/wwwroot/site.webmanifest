@@ -1,7 +1,7 @@
 {
   "name": "Goldfinch.me",
   "short_name": "Goldfinch",
-  "description": "Liam Conroy — writing on Kentico, .NET, and web dev.",
+  "description": "Liam Goldfinch — writing on Kentico, .NET, and web dev.",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
