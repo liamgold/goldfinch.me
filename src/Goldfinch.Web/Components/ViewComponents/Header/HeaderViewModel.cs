@@ -1,18 +1,23 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Goldfinch.Web.Components.ViewComponents.Header
 {
     public class HeaderViewModel
     {
-        public ICollection<NavigationItem> NavigationItems { get; set; } = [];
+        public IReadOnlyList<NavigationItem> NavigationItems { get; init; } = [];
     }
 
     public class NavigationItem
     {
-        public required string Title { get; set; }
+        public required string Label { get; init; }
 
-        public required string Url { get; set; }
+        /// <summary>File-style label shown as the tab text (e.g. "blog.tsx").</summary>
+        public required string FileLabel { get; init; }
 
-        public bool IsActive { get; set; }
+        public required string Url { get; init; }
+
+        public required string Icon { get; init; }
+
+        public bool IsActive { get; init; }
     }
 }

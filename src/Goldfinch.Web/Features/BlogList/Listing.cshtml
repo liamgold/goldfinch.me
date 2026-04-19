@@ -1,6 +1,34 @@
-﻿@model Goldfinch.Web.Features.BlogList.BlogListViewModel
+@using Goldfinch.Web.Features.BlogList
+@model BlogListViewModel
 
-@section Schema {
+@functions {
+    static string ToRelative(string absoluteOrRelative)
+    {
+        // The VM builds absolute URLs for the SEO prev/next hints; pagination links should stay relative.
+        if (string.IsNullOrEmpty(absoluteOrRelative)) return absoluteOrRelative;
+        const string siteRoot = "https://www.goldfinch.me";
+        return absoluteOrRelative.StartsWith(siteRoot) ? absoluteOrRelative[siteRoot.Length..] : absoluteOrRelative;
+    }
+
+    // Tag filter is hidden until a Tag content type exists. Restore with the
+    // tag-chip-row block below when taxonomy is wired up.
+    // TODO: replace static counts with real data from the tag service.
+    /*
+    (string Slug, string Label, int Count)[] topicTags = new[]
+    {
+        ("xperience",   "Xperience",     8),
+        ("saas",        "Kentico SaaS",  3),
+        ("umbraco",     "Umbraco",       2),
+        ("ai",          "AI tooling",    3),
+        ("open-source", "Open source",   3),
+        (".net",        ".NET",          2),
+        ("commerce",    "Commerce",      2),
+        ("security",    "Security",      1),
+    };
+    */
+}
+
+@section schema {
     @if (!string.IsNullOrWhiteSpace(Model.Schema))
     {
         <script type="application/ld+json">
@@ -9,71 +37,180 @@
     }
 }
 
-<div class="container mx-auto">
-    <h1 class="mb-12">@Model.Title</h1>
+<div class="blog-page fadeup">
+    <header class="blog-header">
+        <span class="mono-label mono-label--accent">~/blog</span>
+        <h1 class="mono">@Model.Title</h1>
+        <p>@Model.TotalCount @(Model.TotalCount == 1 ? "post" : "posts") on Xperience by Kentico, .NET, AI tooling, and building things with code.</p>
+    </header>
 
-    <!-- Blog posts grid layout - responsive design with better proportions -->
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
-        @foreach (var blogPost in Model.BlogPosts)
+    <form class="blog-toolbar" method="get" action="@Model.Url" role="search" aria-label="Filter posts">
+        <span class="blog-toolbar__icon"><icon name="search" size="15" /></span>
+        <div class="live-search-wrap">
+            <input type="search"
+                   name="q"
+                   value="@Model.Query"
+                   placeholder="Filter posts by title, summary, or tag…"
+                   class="mono"
+                   autocomplete="off"
+                   data-live-search
+                   aria-label="Search posts" />
+            <div class="live-search-results" data-live-search-results hidden role="listbox" aria-live="polite"></div>
+        </div>
+        @if (!string.IsNullOrWhiteSpace(Model.ActiveTag))
         {
-            <partial name="PartialViews/BlogPost" model="blogPost" />
+            <input type="hidden" name="tag" value="@Model.ActiveTag" />
+        }
+        <span class="blog-toolbar__count mono">@Model.BlogPosts.Count/@Model.TotalCount</span>
+        <div class="blog-toolbar__divider"></div>
+        <div class="view-toggle" role="group" aria-label="Results view">
+            <button type="submit" name="view" value="grid" class="view-toggle__btn" title="Grid view"
+                    aria-pressed="@(Model.View == "grid" ? "true" : "false")">
+                <icon name="grid" size="14" />
+            </button>
+            <button type="submit" name="view" value="list" class="view-toggle__btn" title="List view"
+                    aria-pressed="@(Model.View == "list" ? "true" : "false")">
+                <icon name="list" size="14" />
+            </button>
+        </div>
+    </form>
+
+    @* Tag filter hidden until taxonomy is wired up. Uncomment + restore the
+       topicTags array in @@functions to re-enable.
+    <div class="tag-chip-row">
+        <a class="tag-chip mono @(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "tag-chip--active" : "")"
+           href="@Model.Url"
+           aria-current="@(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "true" : null)">
+            <span>All posts</span>
+            <span class="tag-chip__count mono">@Model.TotalCount</span>
+        </a>
+        @foreach (var tag in topicTags)
+        {
+            var isActive = string.Equals(Model.ActiveTag, tag.Slug, StringComparison.OrdinalIgnoreCase);
+            <a class="tag-chip mono @(isActive ? "tag-chip--active" : "")"
+               href="@Model.Url?tag=@tag.Slug"
+               aria-current="@(isActive ? "true" : null)">
+                <span class="tag-chip__hash">#</span>
+                <span>@tag.Label</span>
+                <span class="tag-chip__count mono">@tag.Count</span>
+            </a>
         }
     </div>
+    *@
 
-    <!-- Enhanced pagination with better styling -->
-    @if (Model.PageCount > 1)
+    @if (Model.BlogPosts.Count == 0)
     {
-        <nav class="flex justify-center" aria-label="Blog pagination">
-            <div class="flex items-center space-x-1 px-4 py-2 bg-zinc-900/50 rounded-xl border border-zinc-800/50 backdrop-blur-sm">
-                @if (!string.IsNullOrWhiteSpace(Model.PreviousUrl))
+        <div class="empty-state">
+            @if (!string.IsNullOrWhiteSpace(Model.ActiveTag))
+            {
+                <div class="empty-state__cmd">$ grep -r "#@Model.ActiveTag" ./posts</div>
+                <div class="empty-state__hint">No posts tagged <code>#@Model.ActiveTag</code> yet. <a href="@Model.Url">Clear filter</a>.</div>
+            }
+            else if (!string.IsNullOrWhiteSpace(Model.Query))
+            {
+                <div class="empty-state__cmd">$ grep -r "@Model.Query" ./posts</div>
+                <div class="empty-state__hint">Nothing matched. <a href="@Model.Url">Clear filter</a>.</div>
+            }
+            else
+            {
+                <div class="empty-state__cmd">$ ls ./posts</div>
+                <div class="empty-state__hint">No posts published yet.</div>
+            }
+        </div>
+    }
+    else if (Model.View == "list")
+    {
+        <div class="mobile-scroll-x">
+            <div class="post-list">
+                <div class="post-list__head mono">
+                    <span>Date</span>
+                    <span>Title</span>
+                    <span>Tags</span>
+                    <span class="align-right">Read</span>
+                </div>
+                @foreach (var post in Model.BlogPosts)
                 {
-                    <a href="@Model.PreviousUrl" 
-                       rel="prev" 
-                       class="flex items-center px-3 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-300 hover:bg-zinc-800/50 rounded-lg transition-all duration-200"
-                       aria-label="Go to previous page">
-                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                        </svg>
-                        Previous
+                    <a class="post-list__row" href="@post.Url">
+                        <span class="post-list__date mono">@post.BlogPostDate.ToString("dd MMM yyyy")</span>
+                        <div>
+                            <div class="post-list__title mono">@post.Title</div>
+                            <div class="post-list__summary">@post.Summary</div>
+                        </div>
+                        <div class="post-list__tags">
+                            @* TODO: show real tags once Tag content type exists. *@
+                        </div>
+                        <span class="post-list__mins">4m</span>
                     </a>
                 }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="post-grid">
+            @foreach (var post in Model.BlogPosts)
+            {
+                <a class="post-card" href="@post.Url">
+                    <div class="post-card__head">
+                        <span class="post-card__dots"><span></span><span></span><span></span></span>
+                        <span class="post-card__filename">@post.Filename</span>
+                        <span class="post-card__mins">4 min</span>
+                    </div>
+                    <div class="post-card__thumb">
+                        <partial name="PartialViews/_PostCardDots" />
+                        <span class="post-card__thumb-text mono">#post</span>
+                    </div>
+                    <div class="post-card__body">
+                        <div class="post-card__meta">
+                            <span>@post.BlogPostDate.ToString("dd MMM yyyy")</span>
+                        </div>
+                        <h3 class="post-card__title">@post.Title</h3>
+                        <p class="post-card__summary">@post.Summary</p>
+                    </div>
+                </a>
+            }
+        </div>
+    }
 
-                <div class="flex space-x-1 mx-2">
-                    @for (var index = 1; index <= Model.PageCount; index++)
-                    {
-                        var isActive = Model.PageIndex == index;
-                        var url = index == 1 ? Model.Url : $"{Model.Url}/{index}";
+    @if (Model.BlogPosts.Count > 0 && Model.PageCount > 1)
+    {
+        <nav class="blog-pagination" aria-label="Blog pagination">
+            <div>
+                @if (!string.IsNullOrWhiteSpace(Model.PreviousUrl))
+                {
+                    <a class="pager-btn" href="@ToRelative(Model.PreviousUrl)" rel="prev" aria-label="Newer posts">
+                        <icon name="arrowL" size="14" />
+                        <span><span class="muted">Newer</span><span class="pager-label-full">posts</span></span>
+                    </a>
+                }
+                else
+                {
+                    <span class="pager-btn" aria-disabled="true">
+                        <icon name="arrowL" size="14" />
+                        <span><span class="muted">Newer</span><span class="pager-label-full">posts</span></span>
+                    </span>
+                }
+            </div>
 
-                        @if (isActive)
-                        {
-                            <span class="flex items-center justify-center w-8 h-8 text-sm font-bold text-zinc-900 bg-yellow-400 rounded-lg"
-                                  aria-current="page"
-                                  aria-label="Current page @index">
-                                @index
-                            </span>
-                        }
-                        else
-                        {
-                            <a href="@url" 
-                               class="flex items-center justify-center w-8 h-8 text-sm font-medium text-zinc-300 hover:text-yellow-300 hover:bg-zinc-800/50 rounded-lg transition-all duration-200"
-                               aria-label="Go to page @index">
-                                @index
-                            </a>
-                        }
-                    }
-                </div>
+            <div class="pager-status">
+                <span>Page <span class="page-num">@Model.PageIndex</span> of @Model.PageCount</span>
+                <span class="range">@Model.PageStart–@Model.PageEnd of @Model.TotalCount</span>
+            </div>
 
+            <div>
                 @if (!string.IsNullOrWhiteSpace(Model.NextUrl))
                 {
-                    <a href="@Model.NextUrl" 
-                       rel="next" 
-                       class="flex items-center px-3 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-300 hover:bg-zinc-800/50 rounded-lg transition-all duration-200"
-                       aria-label="Go to next page">
-                        Next
-                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-                        </svg>
+                    <a class="pager-btn" href="@ToRelative(Model.NextUrl)" rel="next" aria-label="Older posts">
+                        <span><span class="muted">Older</span><span class="pager-label-full">posts</span></span>
+                        <icon name="arrowR" size="14" />
                     </a>
+                }
+                else
+                {
+                    <span class="pager-btn" aria-disabled="true">
+                        <span><span class="muted">Older</span><span class="pager-label-full">posts</span></span>
+                        <icon name="arrowR" size="14" />
+                    </span>
                 }
             </div>
         </nav>

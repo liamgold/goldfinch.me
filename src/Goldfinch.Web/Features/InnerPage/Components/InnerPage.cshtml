@@ -1,7 +1,109 @@
+@using Goldfinch.Core.SiteStats
 @model Goldfinch.Core.ContentTypes.InnerPage
 
-<section class="inner-page">
-    <h1>@Model.BaseContentTitle</h1>
-    @Model.BaseContentShortDescription
-    <editable-area area-identifier="InnerPage" />
+@functions {
+    @* TODO: stack rows are hard-coded. Promote to content-type fields once
+       there's an appetite to keep them in the CMS rather than in source. *@
+    // Accent key → CSS variant class on .about-stack__val.
+    (string Key, string Value, string Accent)[] stackRows = new[]
+    {
+        ("Language",  "C# / .NET 10",                     "amber"),
+        ("CMS",       "Xperience by Kentico",             "cyan"),
+        ("Front-end", "Vanilla JS + Razor",               "magenta"),
+        ("Database",  "Azure SQL",                        "amber"),
+        ("CI/CD",     "GitHub Actions",                   "cyan"),
+        ("AI",        "Claude Code · GitHub Copilot",     "amber"),
+    };
+
+    @* Timeline hidden for launch — revisit once the narrative is finalised.
+    (string Year, string Text)[] timelineRows = new[]
+    {
+        ("2026", "Principal Systems Developer at IDHL"),
+        ("2025", "Kentico MVP — 4th consecutive year"),
+        ("2023", "Kentico Connection speaker · Brno"),
+        ("2022", "First Kentico MVP award"),
+        ("2019", "Started Goldfinch.me — published first post"),
+        ("2015", "Graduated, joined IDHL as junior developer"),
+    };
+    *@
+}
+
+<section class="about-page fadeup">
+    <div class="about-grid">
+        <div class="about-body">
+            <span class="mono-label mono-label--accent">~/about</span>
+            <h1 class="mono">@Model.BaseContentTitle</h1>
+
+            @if (!string.IsNullOrWhiteSpace(Model.BaseContentShortDescription))
+            {
+                <p>@Model.BaseContentShortDescription</p>
+            }
+
+            <div class="post-body">
+                <editable-area area-identifier="InnerPage" />
+            </div>
+
+            <header class="section-header">
+                <div class="section-header__body">
+                    <span class="section-header__n">// stack</span>
+                    <h2>My stack in @DateTime.UtcNow.Year</h2>
+                </div>
+            </header>
+
+            <div class="about-stack">
+                @foreach (var row in stackRows)
+                {
+                    <div class="about-stack__row">
+                        <span class="about-stack__key">@row.Key</span>
+                        <span class="about-stack__val about-stack__val--@row.Accent">@row.Value</span>
+                    </div>
+                }
+            </div>
+
+            @* Timeline + CTA row hidden for launch. Restore together with the
+               timelineRows data above when the narrative is finalised.
+            <header class="section-header">
+                <div class="section-header__body">
+                    <span class="section-header__n">// timeline</span>
+                    <h2>The short version</h2>
+                </div>
+            </header>
+
+            <ol class="timeline">
+                @foreach (var t in timelineRows)
+                {
+                    <li class="timeline__row">
+                        <span class="timeline__year mono">@t.Year</span>
+                        <span class="timeline__text">@t.Text</span>
+                    </li>
+                }
+            </ol>
+
+            <div class="about-cta-row">
+                <a class="btn btn--primary" href="/blog"><icon name="book" size="15" /> <span>Read the blog</span></a>
+                <a class="btn" href="/public-speaking"><icon name="mic" size="15" /> <span>Talks</span></a>
+            </div>
+            *@
+        </div>
+
+        <aside class="about-aside">
+            <div class="about-aside__card">
+                <div class="about-aside__avatar" aria-hidden="true">LG</div>
+                <div class="about-aside__contact mono">liam[<span class="at">at</span>]goldfinch.me</div>
+                <div class="about-aside__socials">
+                    <a href="https://github.com/liamgold/" target="_blank" rel="noopener" aria-label="GitHub"><icon name="github" size="14" /></a>
+                    <a href="https://x.com/LiamGoldfinch" target="_blank" rel="noopener" aria-label="X"><icon name="x" size="14" /></a>
+                    <a href="https://www.linkedin.com/in/liamgoldfinch/" target="_blank" rel="noopener" aria-label="LinkedIn"><icon name="linkedin" size="14" /></a>
+                    <a href="/rss.xml" aria-label="RSS feed"><icon name="rss" size="14" /></a>
+                </div>
+            </div>
+            <div class="about-facts">
+                <div class="about-facts__head">// facts</div>
+                <div class="about-facts__row">based in · <span class="accent">Yorkshire, UK</span></div>
+                <div class="about-facts__row">pronouns · <span class="val">he / him</span></div>
+                <div class="about-facts__row">at IDHL since · <span class="val">2013</span></div>
+                <div class="about-facts__row">MVP count · <span class="val">@SiteStats.KenticoMvpCount() consecutive</span></div>
+            </div>
+        </aside>
+    </div>
 </section>

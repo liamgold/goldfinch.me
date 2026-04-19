@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   build: {
@@ -8,9 +7,8 @@ export default defineConfig({
       input: {
         codeblock: 'src/codeblock/codeblock.ts',
         main: 'src/main.ts',
-        global: 'src/tailwind.css',
+        global: 'src/global.css',
       },
     },
   },
-  plugins: [tailwindcss()],
 });

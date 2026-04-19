@@ -1,0 +1,38 @@
+@model Goldfinch.Core.ContentTypes.SpeakingEngagement
+
+@functions {
+    // Rough heuristic until we add an explicit Type field to SpeakingEngagement.
+    static string GuessType(string location)
+    {
+        if (string.IsNullOrWhiteSpace(location)) return "event";
+        var l = location.ToLowerInvariant();
+        if (l.Contains("online") || l.Contains("webinar")) return "webinar";
+        if (l.Contains("podcast")) return "podcast";
+        if (l.Contains("meetup") || l.Contains("user group")) return "meetup";
+        return "conference";
+    }
+}
+
+@{
+    var isRecording = !string.IsNullOrWhiteSpace(Model.RecordingLink);
+}
+
+<div class="talk-card__meta">
+    <span class="talk-card__date">
+        <icon name="clock" size="12" />
+        <time datetime="@Model.EventDate.ToString("yyyy-MM-dd")">@Model.EventDate.ToString("dd MMM yyyy")</time>
+    </span>
+    <span class="talk-card__type">@GuessType(Model.EventLocation)</span>
+    @if (isRecording)
+    {
+        <span class="talk-card__recording">
+            <span class="live-dot"></span> Recording
+        </span>
+    }
+</div>
+<h3 class="talk-card__title">@Model.Title</h3>
+<div class="talk-card__where">
+    <span>@Model.EventName</span>
+    <span class="loc"><icon name="loc" size="12" /> @Model.EventLocation</span>
+</div>
+<p class="talk-card__summary">@Model.Description</p>

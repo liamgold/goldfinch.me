@@ -65,7 +65,9 @@ public class SitemapService : ISitemapService
         var pages = await _executor.GetMappedWebPageResult<IWebPageFieldsSource>(builder);
 
         var blogPostCount = pages.OfType<BlogPost>().Count();
-        var blogPostPageCount = (int)Math.Ceiling((double)blogPostCount / 6);
+        // Must match BlogListController.PostsPerPage so paginated URLs agree with what the controller serves.
+        const int blogPostPageSize = 8;
+        var blogPostPageCount = (int)Math.Ceiling((double)blogPostCount / blogPostPageSize);
 
         foreach (var page in pages)
         {
@@ -87,7 +89,8 @@ public class SitemapService : ISitemapService
             {
                 for (int i = 2; i <= blogPostPageCount; i++)
                 {
-                    sitemapNodes.Add(new SitemapNode($"{absoluteUrl}/{i}")
+                    // Query-string pagination — /blog?page=N is the canonical form; /blog/{n} 301s to this.
+                    sitemapNodes.Add(new SitemapNode($"{absoluteUrl}?page={i}")
                     {
                         LastModified = lastModified.ToUniversalTime(),
                     });

@@ -10,7 +10,8 @@ Goldfinch.me is a personal website/blog for Liam Goldfinch featuring articles ab
 
 - **Framework:** .NET 10.0
 - **CMS:** Xperience by Kentico
-- **Frontend:** Tailwind CSS, Vite, React (admin customizations)
+- **Frontend (public site):** hand-written CSS + vanilla JS progressive-enhancement modules, bundled via Vite
+- **Frontend (admin):** React (Kentico admin customisations only — not loaded on the public site)
 - **Storage:** Azure Blob Storage (production), local filesystem (development)
 - **Database:** Microsoft SQL Server
 
@@ -23,6 +24,14 @@ Goldfinch.me is a personal website/blog for Liam Goldfinch featuring articles ab
 - `Sidio.Sitemap.AspNetCore` - XML sitemap generation
 - `SixLabors.ImageSharp` - Image processing
 
+### Front-end dependencies (`wwwroot/sitefiles`)
+
+- `vite` — bundler. Three entry points: `global.css`, `main.ts`, `codeblock.ts`. Output hash-busted into `wwwroot/sitefiles/dist/assets/` and loaded by `_Layout.cshtml` / `BlogDetail.cshtml` via `asp-href-include` / `asp-src-include` wildcards.
+- `typescript` — used by the TS entrypoints; `build` script runs `tsc && vite build`.
+- `highlight.js` — syntax highlighting inside code-block widgets on post-detail pages.
+
+Tailwind was removed during the 2026 redesign — all styling is hand-written in `wwwroot/sitefiles/src/global.css`.
+
 ## Project Structure
 
 ```
@@ -30,21 +39,87 @@ src/
 ├── Goldfinch.Core/          # Shared business logic & data models
 │   ├── BlogPosts/           # Blog post service & models
 │   ├── ContentTypes/        # Kentico content type definitions
+│   ├── Extensions/          # Shared string helpers (ToAbsolutePath)
 │   ├── PublicSpeaking/      # Speaking engagement functionality
-│   ├── SEO/                 # SEO models (breadcrumbs, meta fields)
+│   ├── SEO/                 # SEO models (breadcrumbs, meta fields, constants)
 │   └── Sitemap/             # Sitemap generation logic
-├── Goldfinch.Admin/         # Kentico admin customizations
+├── Goldfinch.Admin/         # Kentico admin customisations
 └── Goldfinch.Web/           # Main web application
     ├── Components/
-    │   ├── ViewComponents/  # Reusable view components (Header, SEO, etc.)
-    │   └── Widgets/         # Page builder widgets (Image, Video, CodeBlock, etc.)
-    ├── Features/            # Feature-based organization
-    │   ├── BlogDetail/      # Blog post detail pages
-    │   ├── BlogList/        # Blog listing/pagination
-    │   ├── ErrorPage/       # Error page handling (404, 500)
-    │   └── PublicSpeakingPage/
-    └── Infrastructure/      # Cross-cutting concerns (storage, etc.)
+    │   ├── ViewComponents/  # Header, Footer, SEO, Canonical, PageTitle, LatestBlogPosts
+    │   └── Widgets/         # Page builder widgets (Image, Video, YouTubeVideo, CodeBlock)
+    ├── Extensions/          # Razor/tag-helper extensions
+    ├── Features/            # Feature-based organisation
+    │   ├── BlogDetail/      # Post detail page
+    │   ├── BlogList/        # Archive — query-string filter + pagination
+    │   ├── ErrorPage/       # Custom 404 / 500 page
+    │   ├── Home/            # Home page (hero + Now + featured + recent)
+    │   ├── InnerPage/       # Generic content page (e.g. /about)
+    │   ├── PublicSpeakingPage/
+    │   ├── SEO/             # RSSFeed + Sitemap controllers
+    │   └── Search/          # /api/search JSON endpoint (stub)
+    ├── Infrastructure/      # Cross-cutting concerns (storage, etc.)
+    ├── TagHelpers/          # IconTagHelper, ImageAssetTagHelper, PageBuilderModeTagHelper
+    ├── Views/Shared/
+    │   ├── _Layout.cshtml
+    │   └── PartialViews/    # Footer, MobileDrawer, BlogPost card, TalkCardBody
+    └── wwwroot/sitefiles/   # Vite project — CSS + JS source
+        ├── src/
+        │   ├── global.css   # Design tokens + every component style (one file)
+        │   ├── main.ts      # Imports every JS enhancement module
+        │   ├── scripts/     # mobile-drawer, command-palette, search,
+        │   │                #   toc-scrollspy, palette-hint, header-scroll
+        │   └── codeblock/   # highlight.js integration (lazy-loaded on post detail)
+        └── dist/assets/     # Built output, loaded by Razor
 ```
+
+## Design System
+
+The public site uses a dark-only, terminal/IDE-inspired aesthetic. The full design handoff lives in `docs/design-handoff/` — read it alongside the code when making visual changes.
+
+### Tokens
+
+All colours, typography, spacing tokens live as CSS custom properties at the top of `wwwroot/sitefiles/src/global.css`. Use the variables, never the raw values.
+
+- `--bg`, `--bg-1`, `--bg-2`, `--bg-3` — background layers (darkest → elevated)
+- `--fg`, `--fg-muted`, `--fg-dim`, `--fg-dimmer` — text colours (primary → decoration-only)
+- `--accent` / `--accent-hot` / `--accent-soft` — amber brand colour (only brand colour; cyan/green/magenta are semantic echoes, use sparingly)
+- `--font-mono` — JetBrains Mono (headings, labels, code, chrome)
+- `--font-sans` — Geist Variable (body prose)
+
+Both fonts are **self-hosted** as variable woff2s in `wwwroot/fonts/` and preloaded from `_Layout.cshtml`. No Google Fonts request on any page. JetBrains Mono ships as a Latin-only subset (31 KB) — non-Latin codepoints fall back to Consolas/Menlo/monospace.
+- `--radius`, `--radius-sm`, `--radius-lg` — corner radii
+- `--dur`, `--dur-fast`, `--ease` — motion timing
+
+### Responsive
+
+Single breakpoint: **768px**. Mobile overrides live in a single `@media (max-width: 768px)` block at the bottom of `global.css`. Desktop-first — mobile rules override desktop.
+
+### Icons
+
+Inline SVG icons are rendered via the `<icon>` tag helper — never inline raw SVG or repeat the switch-statement-of-paths pattern in multiple views.
+
+```html
+<icon name="book" size="15" />
+<icon name="arrowR" />   @* size defaults to 14 *@
+```
+
+The icon set lives in `Goldfinch.Web.TagHelpers.IconTagHelper`. Add new icons to the `Paths` dictionary there rather than putting SVG elsewhere.
+
+## Client JS Modules
+
+All client JS is vanilla, progressive-enhancement only — every page works with JS disabled. Modules are bundled into a single `main.ts` via Vite.
+
+| Module | Purpose |
+|---|---|
+| `header-scroll.js` | Toggles `data-scrolled` on `<header>` for the blur/border transition |
+| `mobile-drawer.js` | Hamburger → slide-in drawer, Esc/backdrop close, focus trap |
+| `command-palette.js` | ⌘K / Ctrl+K palette with ↑↓↵ keyboard nav; hits `/api/search` |
+| `search.js` | Debounced live search for the blog toolbar input |
+| `toc-scrollspy.js` | Highlights active TOC entry + updates reading-progress bar |
+| `palette-hint.js` | Dismissible home-page ⌘K hint (localStorage) |
+
+Each module is a self-contained IIFE that no-ops if its expected DOM isn't present — safe to ship on every page.
 
 ## Architecture & Patterns
 
@@ -53,7 +128,7 @@ src/
 - **Kentico Content Types:** Defined in `Goldfinch.Core/ContentTypes/`
 - **Service Pattern:** Data access is abstracted through service classes (e.g., `BlogPostService`, `ErrorPageService`)
 - **Progressive Caching:** Complex services use Kentico's `IProgressiveCache` for performance; simple retrieval uses `IContentRetriever` which caches automatically
-- **CI/CD:** Uses Kentico's Continuous Integration system - objects stored as serialized files in `App_Data/CIRepository/`
+- **CI/CD:** Uses Kentico's Continuous Integration system — objects stored as serialised files in `App_Data/CIRepository/`
 
 ### Image Handling
 
@@ -93,6 +168,16 @@ Examples:
 - **View Components:** Used extensively for reusable UI components
 - **Page Builder:** Kentico's page builder with custom widgets for content editing
 - **Controllers:** MVC controllers handle routing and orchestrate services/view models
+
+### Routes
+
+Blog archive pagination is **query-string only**: `/blog?page=2&tag=saas&q=stripe&view=list`. Legacy path-based URLs (`/blog/2`) are 301-redirected to the canonical form by `BlogListController.PagedRedirect`. `<link rel="prev">` / `<link rel="next">` are emitted by `CanonicalViewComponent` from `ViewData[SEOConstants.PREVIOUS_URL_KEY]` / `NEXT_URL_KEY` — controllers populate those when they want pagination hints in the head.
+
+RSS lives at `/rss.xml` (canonical) with `/rss` kept as an alias for back-compat.
+
+### URL normalisation
+
+Kentico's `IWebPageUrlRetriever` returns paths in virtual form (`~/blog/foo`). Always pass them through `Goldfinch.Core.Extensions.StringExtensions.ToAbsolutePath()` before using as an `href` or inside a `new Uri(...)`. Sitemap, breadcrumbs, RSS, `/api/search`, and the blog schema all use this helper.
 
 ### Data Access Patterns
 
@@ -158,6 +243,14 @@ public class BlogPostViewModel
 - **Nullable:** enable
 - **ImplicitUsings:** disable (explicit usings required)
 - **WarningsAsErrors:** nullable
+
+### Styling — no inline styles
+
+Component styles live in `wwwroot/sitefiles/src/global.css`. Don't sprinkle `style="…"` attributes in Razor views — add a class instead. The one legitimate exception is when a value is genuinely dynamic per-iteration and can't be expressed as a class variant.
+
+### No Tailwind
+
+The 2026 redesign removed Tailwind and all its classes. If a Razor view still contains `bg-zinc-*`, `text-yellow-*`, `rounded-lg`, `grid-cols-*`, etc. it's leftover from before the rewrite and should be migrated to the hand-written CSS.
 
 ## Common Tasks
 
@@ -298,7 +391,12 @@ public class MyWidgetViewComponent : ViewComponent
 ### Running the Project
 
 ```bash
-# First time setup - restore CI objects
+# Build the front-end bundle once (or when CSS / JS changes)
+cd src/Goldfinch.Web/wwwroot/sitefiles
+npm install
+npm run build
+
+# First-time setup — restore CI objects
 cd src/Goldfinch.Web
 dotnet run --kxp-ci-restore
 
@@ -313,8 +411,21 @@ dotnet run
 ## Testing & Build
 
 - Build command: `dotnet build`
+- Front-end build: `cd src/Goldfinch.Web/wwwroot/sitefiles && npm run build`
 - E2E tests: Playwright tests in `tests/Goldfinch.Tests.E2E/`
 - Test command: `dotnet test tests/Goldfinch.Tests.E2E/Goldfinch.Tests.E2E.csproj`
+
+## Outstanding TODOs (from the 2026 redesign)
+
+Search `TODO` in the repo for the full list. The notable ones:
+
+- **Tag content type** — tag filter chips on `/blog` currently link to `?tag=slug` but the slug isn't matched against any real taxonomy (returns empty). Needs a `Tag` reference field on `BlogPost`.
+- **`/api/search`** — stubs title + summary match only. Adding body search, ranking, `<mark>` highlights, tag results, and the documented cache headers is the full v1 per `docs/design-handoff/api-contracts.md`.
+- **Reading-minutes** on blog posts — currently estimated from summary length; should be computed from body.
+- **TOC rail** on post detail — the scrollspy JS hydrates whenever `.toc-rail a[href^="#"]` + article H2/H3 ids both exist, but we don't emit those yet because bodies are Page Builder widgets rather than a rich-text field.
+- **"Now" panel** on home + stack/timeline on About — rows are hard-coded in the Razor views; move to CMS fields or a JSON file in `App_Data` when the content changes often enough to matter.
+- **Copy-link share button** on post detail — deferred (needs a tiny inline `navigator.clipboard` script).
+- **Featured flag** on `BlogPost` — home currently treats the newest post as "featured". A real `Featured: bool` flag would let an editor pin any post.
 
 ## Deployment
 
@@ -330,6 +441,7 @@ dotnet run
 - **Do not commit** `.claude/` directory (in .gitignore)
 - **Admin credentials** in README are for local development only
 - **Contributions** not expected - personal project
+- **Design handoff** lives in `docs/design-handoff/` — read it before making visual changes. `mock.html` is the bundled React reference, `reference/styles.css` is the token base, the `*.md` files document routes / content types / components / a11y / progressive enhancement.
 
 ## Git Workflow
 

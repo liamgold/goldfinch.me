@@ -1,10 +1,16 @@
 @model Goldfinch.Core.ContentTypes.ErrorPage
 
-<div class="flex flex-col justify-center text-center">
-    <h1>@Model.ErrorTitle</h1>
-    <div>
+<section class="error-page fadeup">
+    <div class="mono-label mono-label--accent">~/error</div>
+    <h1 class="mono">@Model.ErrorTitle</h1>
+    <div class="post-body">
         @Html.Raw(Model.ErrorText)
-
-        <img src="/assets/images/facepalm.png" alt="Facepalming Kentico developer" class="inline max-w-100 w-full mt-12">
     </div>
-</div>
+    <div class="actions">
+        <a class="btn btn--primary" href="/">Back home</a>
+        <a class="btn" href="/blog">Blog posts</a>
+    </div>
+    <p class="mono error-page__hint">
+        Tip — press <kbd class="palette-kbd">⌘</kbd><kbd class="palette-kbd">K</kbd> to search posts.
+    </p>
+</section>

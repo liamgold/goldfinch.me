@@ -150,10 +150,20 @@ app.MapControllerRoute(
     defaults: new { controller = "RSSFeed", action = "Index" }
 );
 
+// Canonical RSS URL — /rss.xml (matches <link rel="alternate"> and docs/design-handoff/routes.md).
 app.MapControllerRoute(
-    name: "blog",
+    name: "rss-xml",
+    pattern: "rss.xml",
+    defaults: new { controller = "RSSFeed", action = "Index" }
+);
+
+// Legacy path-based pagination (/blog/2) — 301s to the canonical /blog?page=N form.
+// Pagination is query-string-only; this route only exists so old links + search
+// results don't 404.
+app.MapControllerRoute(
+    name: "blog-paged-legacy",
     pattern: "blog/{pageIndex:int}",
-    defaults: new { controller = "BlogList", action = "Index" }
+    defaults: new { controller = "BlogList", action = "PagedRedirect" }
 );
 
 app.MapControllerRoute(

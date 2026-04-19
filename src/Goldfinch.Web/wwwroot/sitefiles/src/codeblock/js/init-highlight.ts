@@ -6,7 +6,7 @@ import yaml from 'highlight.js/lib/languages/yaml';
 import css from 'highlight.js/lib/languages/css';
 import xml from 'highlight.js/lib/languages/xml';
 import bash from 'highlight.js/lib/languages/bash';
-import 'highlight.js/scss/vs2015.scss';
+import 'highlight.js/styles/vs2015.css';
 
 hljs.registerLanguage('csharp', csharp);
 hljs.registerLanguage('javascript', javascript);

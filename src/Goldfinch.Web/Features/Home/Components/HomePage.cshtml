@@ -1,36 +1,263 @@
-@model Goldfinch.Core.ContentTypes.Home
+@using Goldfinch.Web.Features.Home
+@model HomePageViewModel
 
-<section class="relative">
-    <div class="hero-section mb-16">
-        <h1 class="mb-6">@Model.Heading</h1>
-        
-        <div class="introduction mb-8">@Html.Raw(Model.MainContent)</div>
-        
-        <div class="flex flex-wrap gap-4">
-            <a href="/blog" 
-               class="inline-flex items-center px-6 py-3 bg-yellow-400/10 hover:bg-yellow-400/20 border border-yellow-400/20 hover:border-yellow-400/40 rounded-lg text-yellow-300 hover:text-yellow-200 font-medium transition-all duration-200 group">
-                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor">
-                    <path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" />
-                </svg>
-                Read My Blog
-                <svg class="w-4 h-4 ml-2 transform transition-transform duration-200 group-hover:translate-x-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                </svg>
-            </a>
-            <a href="/public-speaking" 
-               class="inline-flex items-center px-6 py-3 border border-zinc-600 hover:border-zinc-500 rounded-lg text-zinc-300 hover:text-zinc-200 font-medium transition-all duration-200 group">
-                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor">
-                    <path d="M96 96l0 160c0 53 43 96 96 96s96-43 96-96l-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0c0-53-43-96-96-96S96 43 96 96zM320 240l0 16c0 70.7-57.3 128-128 128s-128-57.3-128-128l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 89.1 66.2 162.7 152 174.4l0 33.6-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l72 0 72 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-33.6c85.8-11.7 152-85.3 152-174.4l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 24z" />
-                </svg>
-                View Speaking
-                <svg class="w-4 h-4 ml-2 transform transition-transform duration-200 group-hover:translate-x-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                </svg>
-            </a>
+@functions {
+    @* Launch toggle: now.md side panel is hidden at launch. Uncomment the aside
+       in the hero markup + restore this data + swap hero-grid--solo for --with-now.
+       TODO: Move "Now" rows into CMS (either a repeater field on Home or a JSON file).
+    (string Label, string Value, string? Sub)[] nowRows = new[]
+    {
+        ("Reading",     "Designing Data-Intensive Applications",     (string?)"Martin Kleppmann"),
+        ("Shipping",    "Stripe provider for Xperience",             "tagging v0.3 next week"),
+        ("Playing with","Claude Code agents in .NET repos",          "automating smoke tests"),
+        ("Listening",   "Software Engineering Daily",                "episode: LLM-assisted refactors"),
+    };
+    *@
+
+    @* "Browse by topic" data is hidden with its section until taxonomy is
+       wired up. Restore this array + uncomment the section below.
+    (string Slug, string Label, int Count)[] topicTags = new[]
+    {
+        ("xperience",   "Xperience",     8),
+        ("saas",        "Kentico SaaS",  3),
+        ("umbraco",     "Umbraco",       2),
+        ("ai",          "AI tooling",    3),
+        ("open-source", "Open source",   3),
+        (".net",        ".NET",          2),
+        ("commerce",    "Commerce",      2),
+        ("security",    "Security",      1),
+    };
+    *@
+
+    string FirstTag(string title) => "post";
+}
+
+@section schema {
+    @* no-op — home doesn't emit structured data yet *@
+}
+
+<div class="fadeup">
+    <section class="hero">
+        @* now.md side panel is hidden at launch — restore --with-now class
+           + uncomment the <aside> block below when a content source is ready. *@
+        <div class="hero-grid hero-grid--solo">
+            <div>
+                <div class="hero-prompt mono"><span class="dollar">$ </span>whoami</div>
+                <h1 class="hero-h1 mono">
+                    @if (!string.IsNullOrWhiteSpace(Model.Page?.Heading))
+                    {
+                        @Model.Page.Heading
+                    }
+                    else
+                    {
+                        <text>Liam Goldfinch.</text>
+                    }
+                    <br />
+                    <span class="line-muted">writing about </span><span class="line-accent">Kentico</span><span class="line-muted"> &amp; </span><span class="line-accent">.NET</span><span class="cursor"></span>
+                </h1>
+
+                <div class="hero-lede">
+                    @if (!string.IsNullOrWhiteSpace(Model.Page?.MainContent))
+                    {
+                        @Html.Raw(Model.Page.MainContent)
+                    }
+                    else
+                    {
+                        <p>Principal Systems Developer at <a href="/about">IDHL</a>, Kentico MVP since 2022. Long-form notes on Xperience by Kentico, the .NET ecosystem, and the tooling I use to ship.</p>
+                    }
+                </div>
+
+                <div class="hero-buttons">
+                    <a class="btn btn--primary" href="/blog"><icon name="book" size="15" /> <span>Read the blog</span></a>
+                    <a class="btn" href="/about"><icon name="user" size="15" /> <span>About me</span></a>
+                    <a class="btn" href="/public-speaking"><icon name="mic" size="15" /> <span>Speaking</span></a>
+                </div>
+
+                <div class="hero-stats">
+                    <div>
+                        <div class="hero-stats__value mono">@Model.YearsCoding.ToString("00")y</div>
+                        <span class="hero-stats__label mono">years coding</span>
+                    </div>
+                    @if (Model.FirstPostYear.HasValue)
+                    {
+                        <div>
+                            <div class="hero-stats__value mono">@Model.FirstPostYear.Value</div>
+                            <span class="hero-stats__label mono">blogging since</span>
+                        </div>
+                    }
+                    <div>
+                        <div class="hero-stats__value mono">@Model.KenticoMvpCount.ToString("00")×</div>
+                        <span class="hero-stats__label mono">Kentico MVP</span>
+                    </div>
+                    <div>
+                        <div class="hero-stats__value mono">@Model.TotalPostCount.ToString("00")</div>
+                        <span class="hero-stats__label mono">posts published</span>
+                    </div>
+                </div>
+            </div>
+
+            @*
+            <aside class="now-panel">
+                <div class="now-panel__head">
+                    <span class="post-card__dots"><span></span><span></span><span></span></span>
+                    <span class="now-panel__filename mono">now.md</span>
+                    <span class="now-panel__updated mono">updated 2d ago</span>
+                </div>
+                <div class="now-panel__body">
+                    <div class="now-panel__title mono">
+                        <span class="hash">#</span>
+                        <span>What I'm doing now</span>
+                    </div>
+                    <p class="now-panel__lede">A snapshot, not a timeline.</p>
+                    <ul class="now-list">
+                        @foreach (var row in nowRows)
+                        {
+                            <li class="now-list__row">
+                                <div class="now-list__label">@row.Label</div>
+                                <div>
+                                    <div class="now-list__value">@row.Value</div>
+                                    @if (!string.IsNullOrWhiteSpace(row.Sub))
+                                    {
+                                        <div class="now-list__sub">// @row.Sub</div>
+                                    }
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </aside>
+            *@
         </div>
-    </div>
-    
-    <div class="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-yellow-400/5 to-transparent rounded-full blur-3xl -z-10"></div>
-</section>
+    </section>
 
-<vc:latest-blog-posts title="Recently Published Posts" />
+    @if (Model.FeaturedPost is not null)
+    {
+        <section class="home-section">
+            <header class="section-header">
+                <div class="section-header__body">
+                    <span class="section-header__n">// 01</span>
+                    <h2>Featured post</h2>
+                    <p class="section-header__sub mono">Pinned. Start here.</p>
+                </div>
+            </header>
+
+            @{
+                // Decorative code-editor motif. Row widths use a tiny palette cycled per line.
+                // Keep in sync with the mock (docs/design-handoff/mock.html, PostCard featured branch).
+                var codeCols = new[]
+                {
+                    (Width: 24, Color: "var(--magenta)"),
+                    (Width: 46, Color: "var(--fg-muted)"),
+                    (Width: 70, Color: "var(--cyan)"),
+                    (Width: 90, Color: "var(--fg-dim)"),
+                    (Width: 30, Color: "var(--accent)"),
+                    (Width: 60, Color: "var(--fg-muted)"),
+                };
+            }
+
+            <a class="featured-card" href="@Model.FeaturedPost.Url">
+                <div class="featured-card__thumb">
+                    <svg class="featured-card__motif" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                        <rect x="0" y="0" width="320" height="220" fill="var(--bg)" stroke="var(--border)" />
+                        <rect x="0" y="0" width="320" height="22" fill="var(--bg-2)" />
+                        <circle cx="12" cy="11" r="4" fill="#f87171" opacity=".7" />
+                        <circle cx="28" cy="11" r="4" fill="#fbbf24" opacity=".7" />
+                        <circle cx="44" cy="11" r="4" fill="#86efac" opacity=".7" />
+                        <text x="64" y="15" style="fill:var(--fg-dim); font-family:var(--font-mono); font-size:9px;">@Model.FeaturedPost.Filename</text>
+                        @for (var i = 0; i < 9; i++)
+                        {
+                            var lineY = 44 + i * 17;
+                            var take = 2 + (i % 3);
+                            var x = 12;
+                            <g>
+                                <text x="4" y="@lineY" style="fill:var(--fg-dimmer); font-family:var(--font-mono); font-size:9px;">@((i + 1).ToString("00"))</text>
+                                @for (var k = 0; k < take; k++)
+                                {
+                                    var col = codeCols[k];
+                                    <rect x="@(20 + x)" y="@(lineY - 7)" width="@col.Width" height="8" style="fill:@col.Color;" opacity=".35" />
+                                    x += col.Width + 6;
+                                }
+                            </g>
+                        }
+                    </svg>
+                    <span class="featured-card__pin mono"><icon name="pin" size="12" /> Pinned post</span>
+                </div>
+                <div class="featured-card__body">
+                    <div class="featured-card__meta">
+                        <span>@Model.FeaturedPost.PublishedOn.ToString("dd MMM yyyy")</span>
+                        <span class="featured-card__sep">·</span>
+                        <span class="meta-chip"><icon name="clock" size="12" /> @Model.FeaturedPost.ReadingMinutes min read</span>
+                    </div>
+                    <h3 class="featured-card__title">@Model.FeaturedPost.Title</h3>
+                    <p class="featured-card__summary">@Model.FeaturedPost.Summary</p>
+                    <div class="featured-card__cta">
+                        <span>Read the post</span>
+                        <icon name="arrowR" size="15" />
+                    </div>
+                </div>
+            </a>
+        </section>
+    }
+
+    @if (Model.RecentPosts.Count > 0)
+    {
+        <section class="home-section">
+            <header class="section-header">
+                <div class="section-header__body">
+                    <span class="section-header__n">// 02</span>
+                    <h2>Recent posts</h2>
+                </div>
+                <a class="section-link mono section-header__right" href="/blog">All posts <icon name="arrowR" size="14" /></a>
+            </header>
+            <div class="post-grid">
+                @foreach (var post in Model.RecentPosts)
+                {
+                    <a class="post-card" href="@post.Url">
+                        <div class="post-card__head">
+                            <span class="post-card__dots"><span></span><span></span><span></span></span>
+                            <span class="post-card__filename">@post.Filename</span>
+                            <span class="post-card__mins">@post.ReadingMinutes min</span>
+                        </div>
+                        <div class="post-card__thumb">
+                            <partial name="PartialViews/_PostCardDots" />
+                            <span class="post-card__thumb-text mono">#@FirstTag(post.Title)</span>
+                        </div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span>@post.PublishedOn.ToString("dd MMM yyyy")</span>
+                            </div>
+                            <h3 class="post-card__title">@post.Title</h3>
+                            <p class="post-card__summary">@post.Summary</p>
+                        </div>
+                    </a>
+                }
+            </div>
+        </section>
+    }
+
+    @* "Browse by topic" hidden until a Tag content type is wired up — the
+       chips currently link to /blog?tag=slug, which no-ops. Restore the
+       topicTags data + this section together when taxonomy lands.
+    <section class="home-section">
+        <header class="section-header">
+            <div class="section-header__body">
+                <span class="section-header__n">// 03</span>
+                <h2>Browse by topic</h2>
+                <p class="section-header__sub mono">Filter the archive by topic.</p>
+            </div>
+        </header>
+        <div class="topic-chips">
+            @foreach (var tag in topicTags)
+            {
+                <a class="tag-chip mono" href="/blog?tag=@tag.Slug">
+                    <span class="tag-chip__hash">#</span>
+                    <span>@tag.Label</span>
+                    <span class="tag-chip__count mono">@tag.Count</span>
+                </a>
+            }
+        </div>
+    </section>
+    *@
+
+
+</div>

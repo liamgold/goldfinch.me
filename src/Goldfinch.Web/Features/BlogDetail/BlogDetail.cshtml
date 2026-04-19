@@ -1,7 +1,7 @@
-﻿@using Goldfinch.Web.Features.BlogDetail;
+@using Goldfinch.Web.Features.BlogDetail
 @model BlogPostViewModel
 
-@section Schema {
+@section schema {
     @if (!string.IsNullOrWhiteSpace(Model.Schema))
     {
         <script type="application/ld+json">
@@ -9,23 +9,87 @@
         </script>
     }
 }
-@section Styles {
+@section styles {
     <link rel="stylesheet" asp-href-include="/sitefiles/dist/assets/codeblock-*.css" />
 }
-@section Scripts {
+@section scripts {
     <script type="module" defer asp-src-include="/sitefiles/dist/assets/codeblock-*.js"></script>
 }
 
-<div class="blog-detail pb-16">
-    <div class="pb-8 mx-auto max-w-2xl">
-        <h1>@Model.Title</h1>
-        <time datetime="@Model.BlogPostDate.ToString("yyyy-MM-dd")">
-            @Model.BlogPostDate.ToString("dd MMMM yyyy")
-        </time>
+<div class="fadeup">
+    <div class="post-path-bar">
+        <div class="post-path-bar__inner">
+            <a class="back mono" href="/blog"><icon name="arrowL" size="13" /> Back to posts</a>
+            <span class="sep">·</span>
+            <span class="path mono">~/blog/<span class="posts">posts/</span><span class="file">@Model.Filename</span></span>
+        </div>
     </div>
-    <div>
-        <editable-area area-identifier="BlogPost" />
+
+    <div class="reading-progress" aria-hidden="true">
+        <div class="reading-progress__fill"></div>
+    </div>
+
+    <div class="md-post-layout">
+        <aside>
+            <nav class="toc-rail" aria-label="On this page">
+                <div class="toc-rail__head">On this page</div>
+                @* TODO: render TOC from the post body once content is served from a rich-text
+                   field rather than Page Builder widgets. toc-scrollspy.js hydrates whenever
+                   this rail has a[href^="#"] and article H2/H3 share the same id. *@
+            </nav>
+        </aside>
+
+        <article class="post-article">
+            <div class="post-meta-row mono">
+                <time datetime="@Model.BlogPostDate.ToString("yyyy-MM-dd")">@Model.BlogPostDate.ToString("dd MMM yyyy")</time>
+                <span class="sep">·</span>
+                <span>by <a href="/about" class="author-name">liam</a></span>
+            </div>
+            <h1>@Model.Title</h1>
+            @if (!string.IsNullOrWhiteSpace(Model.Summary))
+            {
+                <p class="post-summary">@Model.Summary</p>
+            }
+
+            <div class="post-body">
+                <editable-area area-identifier="BlogPost" />
+            </div>
+
+            <div class="post-author-card">
+                <div class="post-author-card__avatar" aria-hidden="true">LG</div>
+                <div class="post-author-card__text">
+                    <div class="post-author-card__title mono">Liam Goldfinch <span class="sep">·</span> Kentico MVP</div>
+                    <p class="post-author-card__bio">Principal Systems Developer at IDHL. Writing about Xperience by Kentico, .NET, and the tooling I use to ship.</p>
+                </div>
+                <a class="btn btn--small" href="/rss.xml"><icon name="rss" size="14" /> <span>Subscribe</span></a>
+            </div>
+        </article>
+
+        <aside class="post-sidebar-right">
+            <div class="post-info-card">
+                <div class="mono-label mono-label--block mono-label--mb mono">Post info</div>
+                <dl>
+                    <dt>published</dt>
+                    <dd>@Model.BlogPostDate.ToString("dd MMM yyyy")</dd>
+                    <dt>status</dt>
+                    <dd class="status">● published</dd>
+                    <dt>license</dt>
+                    <dd>CC BY 4.0</dd>
+                </dl>
+            </div>
+            @{
+                var pageUrl = $"https://www.goldfinch.me{Model.Url}";
+                var shareTitle = Uri.EscapeDataString(Model.Title);
+                var shareUrl = Uri.EscapeDataString(pageUrl);
+            }
+            <div class="post-share-card">
+                <div class="mono-label mono-label--block mono-label--mb-sm mono">Share</div>
+                <a href="https://x.com/intent/tweet?text=@shareTitle&url=@shareUrl" target="_blank" rel="noopener"><icon name="x" size="13" /> Share on X</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=@shareUrl" target="_blank" rel="noopener"><icon name="linkedin" size="13" /> Share on LinkedIn</a>
+                @* TODO: copy-link button — needs a small inline script (navigator.clipboard); deferred. *@
+            </div>
+        </aside>
     </div>
 </div>
 
-<vc:latest-blog-posts title="You might also be interested in" />
+<vc:latest-blog-posts title="Keep reading" />
