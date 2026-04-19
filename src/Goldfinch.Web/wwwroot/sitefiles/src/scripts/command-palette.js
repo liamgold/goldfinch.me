@@ -89,9 +89,11 @@
     listEl.querySelector(`[data-palette-idx="${state.active}"]`)?.scrollIntoView({ block: 'nearest' });
   };
 
+  const safeHighlight = (s) => escape(s).replace(/&lt;mark&gt;(.*?)&lt;\/mark&gt;/g, '<mark>$1</mark>');
+
   const renderItem = (it, i) => {
     const active = i === state.active;
-    const title = it.highlights?.title || escape(it.title || it.label);
+    const title = it.highlights?.title ? safeHighlight(it.highlights.title) : escape(it.title || it.label);
     const meta = it.kind === 'post'
       ? `${(it.tags || []).map(t => `#${t}`).join(' ')} · ${formatDate(it.date)}`
       : it.kind === 'tag'
