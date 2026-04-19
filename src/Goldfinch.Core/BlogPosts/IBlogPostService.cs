@@ -36,7 +36,7 @@ public interface IBlogPostService
     Task<int> GetBlogPageCount();
 
     /// <summary>
-    /// Retrieves every published blog post ordered by date — used by the blog archive
+    /// Retrieves every published blog post — used by the blog archive
     /// so filtering / tag lookup can happen in memory over the full set.
     /// </summary>
     /// <returns>All blog posts.</returns>
