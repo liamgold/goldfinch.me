@@ -34,9 +34,9 @@
         <aside>
             <nav class="toc-rail" aria-label="On this page">
                 <div class="toc-rail__head">On this page</div>
-                @* TODO: render TOC from the post body once content is served from a rich-text
-                   field rather than Page Builder widgets. toc-scrollspy.js hydrates whenever
-                   this rail has a[href^="#"] and article H2/H3 share the same id. *@
+                @* TOC links are injected client-side by toc-scrollspy.js — it scans
+                   article.post-article for h2[id]/h3[id] (emitted by ContentSection when
+                   SectionID + SectionName are set) and builds the <ul> dynamically. *@
             </nav>
         </aside>
 

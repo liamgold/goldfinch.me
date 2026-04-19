@@ -1638,6 +1638,7 @@ a.pager-btn:hover {
   margin-bottom: 18px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border-soft);
+  scroll-margin-top: 80px;
 }
 .post-body h3 {
   font-family: var(--font-mono);
@@ -1646,6 +1647,10 @@ a.pager-btn:hover {
   margin-top: 32px;
   margin-bottom: 14px;
   letter-spacing: -0.01em;
+  scroll-margin-top: 80px;
+}
+.section-heading {
+  scroll-margin-top: 80px;
 }
 .post-body a {
   color: var(--accent);
