@@ -68,7 +68,7 @@ src/
         │   ├── global.css   # Design tokens + every component style (one file)
         │   ├── main.ts      # Imports every JS enhancement module
         │   ├── scripts/     # mobile-drawer, command-palette, search,
-        │   │                #   toc-scrollspy, palette-hint, header-scroll
+        │   │                #   toc-scrollspy, header-scroll
         │   └── codeblock/   # highlight.js integration (lazy-loaded on post detail)
         └── dist/assets/     # Built output, loaded by Razor
 ```
@@ -82,7 +82,7 @@ The public site uses a dark-only, terminal/IDE-inspired aesthetic. The full desi
 All colours, typography, spacing tokens live as CSS custom properties at the top of `wwwroot/sitefiles/src/global.css`. Use the variables, never the raw values.
 
 - `--bg`, `--bg-1`, `--bg-2`, `--bg-3` — background layers (darkest → elevated)
-- `--fg`, `--fg-muted`, `--fg-dim`, `--fg-dimmer` — text colours (primary → decoration-only)
+- `--fg`, `--fg-muted`, `--fg-dim` — text colours (primary → decoration-only); `--fg-dim` is the WCAG AA floor — don't go darker for any visible text
 - `--accent` / `--accent-hot` / `--accent-soft` — amber brand colour (only brand colour; cyan/green/magenta are semantic echoes, use sparingly)
 - `--font-mono` — JetBrains Mono (headings, labels, code, chrome)
 - `--font-sans` — Geist Variable (body prose)
@@ -117,7 +117,6 @@ All client JS is vanilla, progressive-enhancement only — every page works with
 | `command-palette.js` | ⌘K / Ctrl+K palette with ↑↓↵ keyboard nav; hits `/api/search` |
 | `search.js` | Debounced live search for the blog toolbar input |
 | `toc-scrollspy.js` | Highlights active TOC entry + updates reading-progress bar |
-| `palette-hint.js` | Dismissible home-page ⌘K hint (localStorage) |
 
 Each module is a self-contained IIFE that no-ops if its expected DOM isn't present — safe to ship on every page.
 
