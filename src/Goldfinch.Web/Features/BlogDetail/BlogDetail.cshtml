@@ -1,19 +1,6 @@
 @using Goldfinch.Web.Features.BlogDetail
 @model BlogPostViewModel
 
-@functions {
-    // Build a terminal-style filename from the title: "My Cool Post" → "my-cool-post.md".
-    static string Filename(string title)
-    {
-        if (string.IsNullOrWhiteSpace(title)) return "post.md";
-        var slug = new string(title.ToLowerInvariant().Select(c => char.IsLetterOrDigit(c) ? c : '-').ToArray());
-        while (slug.Contains("--")) slug = slug.Replace("--", "-");
-        slug = slug.Trim('-');
-        if (slug.Length > 40) slug = slug[..40].TrimEnd('-');
-        return $"{slug}.md";
-    }
-}
-
 @section schema {
     @if (!string.IsNullOrWhiteSpace(Model.Schema))
     {
@@ -34,7 +21,7 @@
         <div class="post-path-bar__inner">
             <a class="back mono" href="/blog"><icon name="arrowL" size="13" /> Back to posts</a>
             <span class="sep">·</span>
-            <span class="path mono">~/blog/<span class="posts">posts/</span><span class="file">@Filename(Model.Title)</span></span>
+            <span class="path mono">~/blog/<span class="posts">posts/</span><span class="file">@Model.Filename</span></span>
         </div>
     </div>
 
