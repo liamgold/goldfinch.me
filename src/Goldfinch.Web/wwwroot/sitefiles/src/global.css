@@ -1561,6 +1561,13 @@ a.pager-btn:hover {
 }
 .post-meta-row .author-name {
   color: var(--accent);
+  text-underline-offset: 3px;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-soft-2);
+  transition: color var(--dur-fast) var(--ease);
+}
+.post-meta-row .author-name:hover {
+  color: var(--accent-hot);
 }
 .post-meta-row .sep {
   color: var(--fg-dimmer);

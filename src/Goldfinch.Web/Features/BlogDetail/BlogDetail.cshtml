@@ -32,7 +32,7 @@
 <div class="fadeup">
     <div class="post-path-bar">
         <div class="post-path-bar__inner">
-            <a class="back mono" href="/blog"><icon name="arrowL" size="13" /> Back to archive</a>
+            <a class="back mono" href="/blog"><icon name="arrowL" size="13" /> Back to posts</a>
             <span class="sep">·</span>
             <span class="path mono">~/blog/<span class="posts">posts/</span><span class="file">@Filename(Model.Title)</span></span>
         </div>
@@ -56,7 +56,7 @@
             <div class="post-meta-row mono">
                 <time datetime="@Model.BlogPostDate.ToString("yyyy-MM-dd")">@Model.BlogPostDate.ToString("dd MMM yyyy")</time>
                 <span class="sep">·</span>
-                <span>by <span class="author-name">liam</span></span>
+                <span>by <a href="/about" class="author-name">liam</a></span>
             </div>
             <h1>@Model.Title</h1>
             @if (!string.IsNullOrWhiteSpace(Model.Summary))

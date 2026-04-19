@@ -36,7 +36,7 @@ public class LatestBlogPostsViewComponent : ViewComponent
 
         var blogPosts = (await _blogPostService.GetLatestBlogPosts())
             .Where(x => x.SystemFields.WebPageItemID != page.WebPageItemID)
-            .Take(3);
+            .Take(4);
 
         var blogPostViewModels = new List<BlogPostViewModel>();
 

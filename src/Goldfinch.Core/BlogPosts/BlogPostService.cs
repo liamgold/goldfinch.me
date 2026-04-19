@@ -14,7 +14,7 @@ namespace Goldfinch.Core.BlogPosts;
 public class BlogPostService : IBlogPostService
 {
     private const int BLOG_LIST_PAGE_SIZE = 9;
-    private const int LATEST_POSTS_COUNT = 4; // Need 4 to ensure 3 after filtering current page
+    private const int LATEST_POSTS_COUNT = 5; // Need 5 to ensure 4 after filtering current page
 
     private readonly IContentQueryExecutor _executor;
     private readonly IWebsiteChannelContext _websiteChannelContext;
