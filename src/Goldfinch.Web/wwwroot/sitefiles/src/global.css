@@ -920,6 +920,7 @@ h1.hero-h1 {
 }
 .featured-card__motif {
   width: 85%;
+  height: 80%;
   opacity: 0.9;
 }
 .motif-filename {
