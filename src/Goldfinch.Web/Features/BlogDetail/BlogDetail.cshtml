@@ -1,4 +1,5 @@
 @using Goldfinch.Web.Features.BlogDetail
+@using Goldfinch.Core.Extensions
 @model BlogPostViewModel
 
 @section schema {
@@ -78,7 +79,7 @@
                 </dl>
             </div>
             @{
-                var pageUrl = $"https://www.goldfinch.me{Model.Url}";
+                var pageUrl = $"https://www.goldfinch.me{Model.Url.ToAbsolutePath()}";
                 var shareTitle = Uri.EscapeDataString(Model.Title);
                 var shareUrl = Uri.EscapeDataString(pageUrl);
             }
