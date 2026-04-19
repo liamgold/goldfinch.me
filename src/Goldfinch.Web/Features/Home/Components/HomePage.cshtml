@@ -142,17 +142,9 @@
             </header>
 
             @{
-                // Decorative code-editor motif. Row widths use a tiny palette cycled per line.
-                // Keep in sync with the mock (docs/design-handoff/mock.html, PostCard featured branch).
-                var codeCols = new[]
-                {
-                    (Width: 24, Color: "var(--magenta)"),
-                    (Width: 46, Color: "var(--fg-muted)"),
-                    (Width: 70, Color: "var(--cyan)"),
-                    (Width: 90, Color: "var(--fg-dim)"),
-                    (Width: 30, Color: "var(--accent)"),
-                    (Width: 60, Color: "var(--fg-muted)"),
-                };
+                // Decorative code-editor motif. Row widths cycle through a fixed palette.
+                // Colors live in global.css (.motif-col-N) to avoid CSP inline-style violations.
+                var codeColWidths = new[] { 24, 46, 70, 90, 30, 60 };
             }
 
             <a class="featured-card" href="@Model.FeaturedPost.Url">
@@ -163,19 +155,18 @@
                         <circle cx="12" cy="11" r="4" fill="#f87171" opacity=".7" />
                         <circle cx="28" cy="11" r="4" fill="#fbbf24" opacity=".7" />
                         <circle cx="44" cy="11" r="4" fill="#86efac" opacity=".7" />
-                        <text x="64" y="15" style="fill:var(--fg-dim); font-family:var(--font-mono); font-size:9px;">@Model.FeaturedPost.Filename</text>
+                        <text x="64" y="15" class="motif-filename">@Model.FeaturedPost.Filename</text>
                         @for (var i = 0; i < 9; i++)
                         {
                             var lineY = 44 + i * 17;
                             var take = 2 + (i % 3);
                             var x = 12;
                             <g>
-                                <text x="4" y="@lineY" style="fill:var(--fg-dimmer); font-family:var(--font-mono); font-size:9px;">@((i + 1).ToString("00"))</text>
+                                <text x="4" y="@lineY" class="motif-linenum">@((i + 1).ToString("00"))</text>
                                 @for (var k = 0; k < take; k++)
                                 {
-                                    var col = codeCols[k];
-                                    <rect x="@(20 + x)" y="@(lineY - 7)" width="@col.Width" height="8" style="fill:@col.Color;" opacity=".35" />
-                                    x += col.Width + 6;
+                                    <rect x="@(20 + x)" y="@(lineY - 7)" width="@codeColWidths[k]" height="8" class="motif-col-@k" opacity=".35" />
+                                    x += codeColWidths[k] + 6;
                                 }
                             </g>
                         }

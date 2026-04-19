@@ -923,6 +923,22 @@ h1.hero-h1 {
   height: 80%;
   opacity: 0.9;
 }
+.motif-filename {
+  fill: var(--fg-dim);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+.motif-linenum {
+  fill: var(--fg-dimmer);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+.motif-col-0 { fill: var(--magenta); }
+.motif-col-1 { fill: var(--fg-muted); }
+.motif-col-2 { fill: var(--cyan); }
+.motif-col-3 { fill: var(--fg-dim); }
+.motif-col-4 { fill: var(--accent); }
+.motif-col-5 { fill: var(--fg-muted); }
 .featured-card__pin {
   position: absolute;
   top: 16px;
