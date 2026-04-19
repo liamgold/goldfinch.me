@@ -149,13 +149,13 @@
 
             <a class="featured-card" href="@Model.FeaturedPost.Url">
                 <div class="featured-card__thumb">
-                    <svg class="featured-card__motif" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                    <svg class="featured-card__motif" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet" overflow="hidden" aria-hidden="true">
                         <rect x="0" y="0" width="320" height="220" fill="var(--bg)" stroke="var(--border)" />
                         <rect x="0" y="0" width="320" height="22" fill="var(--bg-2)" />
                         <circle cx="12" cy="11" r="4" fill="#f87171" opacity=".7" />
                         <circle cx="28" cy="11" r="4" fill="#fbbf24" opacity=".7" />
                         <circle cx="44" cy="11" r="4" fill="#86efac" opacity=".7" />
-                        <text x="64" y="15" class="motif-filename">@Model.FeaturedPost.Filename</text>
+                        <text x="64" y="15" class="motif-filename">@(Model.FeaturedPost.Filename.Length > 34 ? Model.FeaturedPost.Filename[..31] + "…" : Model.FeaturedPost.Filename)</text>
                         @for (var i = 0; i < 9; i++)
                         {
                             var lineY = 44 + i * 17;
