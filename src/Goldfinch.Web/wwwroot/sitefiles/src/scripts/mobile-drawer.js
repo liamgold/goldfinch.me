@@ -16,12 +16,14 @@
 
   const FOCUSABLE = 'a[href], button, [tabindex]:not([tabindex="-1"]), input, select';
   let lastFocus = null;
+  let hideTimer = null;
 
   const setExpanded = (value) => {
     openers.forEach(o => o.setAttribute('aria-expanded', value ? 'true' : 'false'));
   };
 
   const open = () => {
+    clearTimeout(hideTimer);
     lastFocus = document.activeElement;
     drawer.hidden = false;
     // next frame so the CSS transition runs
@@ -37,7 +39,7 @@
     setExpanded(false);
     document.body.style.overflow = '';
     // Match the CSS transition duration (220ms)
-    setTimeout(() => { drawer.hidden = true; }, 220);
+    hideTimer = setTimeout(() => { drawer.hidden = true; }, 220);
     document.removeEventListener('keydown', onKey);
     lastFocus?.focus();
   };
