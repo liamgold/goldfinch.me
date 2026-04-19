@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>Public-Speaking</WebPageUrlPath>
+  <WebPageUrlPath>speaking</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>22960170-5c33-4d4e-a01b-fd4c8fcbd13d</GUID>
@@ -8,7 +8,7 @@
   </WebPageUrlPathContentLanguageID>
   <WebPageUrlPathGUID>47258072-7696-43dd-8b79-823c28340cf4</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[BB92629F6EA0F82F37962089268E8E769FFBA368232072FE498D3BB4FFDD6B9D]]>
+    <![CDATA[8BF9ADA7866E2C5CAC3C622953CBE9255602971F417CB16D8090C000361B6927]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>

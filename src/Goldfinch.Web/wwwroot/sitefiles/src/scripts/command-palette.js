@@ -28,7 +28,7 @@
     { kind: 'page', url: '/', title: 'Go to Home' },
     { kind: 'page', url: '/blog', title: 'Go to Blog' },
     { kind: 'page', url: '/about', title: 'Go to About' },
-    { kind: 'page', url: '/public-speaking', title: 'Go to Speaking' },
+    { kind: 'page', url: '/speaking', title: 'Go to Speaking' },
   ];
 
   // ------- rendering -------
