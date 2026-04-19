@@ -8,7 +8,8 @@ public class BlogDetailPageTests : PlaywrightTestBase
     private async Task<string?> GetFirstBlogPostUrl()
     {
         await Page!.GotoAsync($"{BaseUrl}/blog");
-        var firstArticleLink = Page.Locator("article a").First;
+        // Post cards are <a class="post-card"> elements directly — there is no wrapping <article>
+        var firstArticleLink = Page.Locator("a.post-card").First;
         return await firstArticleLink.GetAttributeAsync("href");
     }
 

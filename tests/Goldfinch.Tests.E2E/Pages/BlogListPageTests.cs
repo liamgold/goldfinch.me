@@ -33,8 +33,8 @@ public class BlogListPageTests : PlaywrightTestBase
         // Arrange & Act
         await Page!.GotoAsync($"{BaseUrl}/blog");
 
-        // Assert
-        var articles = Page.Locator("article");
+        // Assert - Post cards are <a class="post-card"> elements, not <article> elements
+        var articles = Page.Locator("a.post-card");
         var count = await articles.CountAsync();
         Assert.True(count > 0, "Expected at least one blog post to be displayed");
     }
