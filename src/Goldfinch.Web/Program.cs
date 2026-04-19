@@ -1,5 +1,6 @@
 using Goldfinch.Core;
 using Goldfinch.Core.ContentTypes;
+using Goldfinch.Web.Infrastructure.StaticFiles;
 using Goldfinch.Web.Middleware;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Membership;
@@ -99,6 +100,8 @@ builder.Services
     .AddDefaultSitemapServices<HttpContextBaseUrlProvider>();
 
 builder.Services.AddTrailingSlash(builder.Configuration);
+
+builder.Services.AddCustomStaticFilesConfiguration(builder.Configuration);
 
 var app = builder.Build();
 
