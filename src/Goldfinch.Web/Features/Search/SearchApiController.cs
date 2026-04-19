@@ -67,7 +67,6 @@ public class SearchApiController : ControllerBase
             results[i] = new
             {
                 kind = "post",
-                slug = url.TrimEnd('/').Split('/').Last(),
                 title = m.BaseContentTitle,
                 summary = m.BaseContentShortDescription,
                 url,
