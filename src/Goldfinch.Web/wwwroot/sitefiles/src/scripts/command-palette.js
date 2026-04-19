@@ -115,7 +115,10 @@
 
   // ------- behaviour -------
 
+  let openerEl = null;
+
   const openPalette = () => {
+    openerEl = document.activeElement;
     state.open = true;
     state.q = '';
     state.items = DEFAULTS.slice();
@@ -135,6 +138,8 @@
     state.loading = false;
     root.innerHTML = '';
     inputEl = listEl = countEl = null;
+    openerEl?.focus();
+    openerEl = null;
   };
 
   const onQuery = (q) => {
