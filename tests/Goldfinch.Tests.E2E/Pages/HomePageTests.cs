@@ -45,12 +45,12 @@ public class HomePageTests : PlaywrightTestBase
         // Arrange & Act
         await Page!.GotoAsync(BaseUrl);
 
-        // Assert - Check navigation exists with expected links
-        var nav = Page.GetByRole(AriaRole.Navigation);
-        await Expect(nav.GetByRole(AriaRole.Link, new() { Name = "Home", Exact = true })).ToBeVisibleAsync();
-        await Expect(nav.GetByRole(AriaRole.Link, new() { Name = "Blog", Exact = true })).ToBeVisibleAsync();
-        await Expect(nav.GetByRole(AriaRole.Link, new() { Name = "About", Exact = true })).ToBeVisibleAsync();
-        await Expect(nav.GetByRole(AriaRole.Link, new() { Name = "Speaking", Exact = true })).ToBeVisibleAsync();
+        // Assert - Check navigation exists with expected links (nav uses file-style labels: index.md, blog.md, etc.)
+        var nav = Page.GetByRole(AriaRole.Navigation, new() { Name = "Primary" });
+        await Expect(nav.GetByRole(AriaRole.Link, new() { Name = "index.md", Exact = true })).ToBeVisibleAsync();
+        await Expect(nav.GetByRole(AriaRole.Link, new() { Name = "blog.md", Exact = true })).ToBeVisibleAsync();
+        await Expect(nav.GetByRole(AriaRole.Link, new() { Name = "about.md", Exact = true })).ToBeVisibleAsync();
+        await Expect(nav.GetByRole(AriaRole.Link, new() { Name = "speaking.md", Exact = true })).ToBeVisibleAsync();
     }
 
     [Fact]
@@ -59,8 +59,8 @@ public class HomePageTests : PlaywrightTestBase
         // Arrange & Act
         await Page!.GotoAsync(BaseUrl);
 
-        // Assert - Just check that articles exist, don't check specific content
-        var articles = Page.Locator("article");
+        // Assert - Post cards are <a class="post-card"> elements, not <article> elements
+        var articles = Page.Locator("a.post-card");
         var count = await articles.CountAsync();
         Assert.True(count > 0, "Home page should display at least one blog post");
     }

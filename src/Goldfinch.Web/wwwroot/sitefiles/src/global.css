@@ -42,7 +42,6 @@
   --fg: #e8e4d6;
   --fg-muted: #a8a49a;
   --fg-dim: #949188; /* WCAG AA ≥4.5:1 on all --bg-N surfaces */
-  --fg-dimmer: #4e4c48;
 
   --accent: #f5a524;
   --accent-hot: #ffc04c;
@@ -740,7 +739,7 @@ h1.hero-h1 {
   opacity: 0.7;
 }
 .tag-chip__count {
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
   font-size: 11px;
 }
 .tag-chip--small {
@@ -812,7 +811,7 @@ h1.hero-h1 {
 .post-card__mins {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
 }
 .post-card__thumb {
   height: 120px;
@@ -826,7 +825,8 @@ h1.hero-h1 {
   inset: 0;
   width: 100%;
   height: 100%;
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
+  opacity: 0.25;
   pointer-events: none;
 }
 .post-card__thumb-text {
@@ -929,7 +929,8 @@ h1.hero-h1 {
   font-size: 9px;
 }
 .motif-linenum {
-  fill: var(--fg-dimmer);
+  fill: var(--fg-dim);
+  opacity: 0.35;
   font-family: var(--font-mono);
   font-size: 9px;
 }
@@ -973,7 +974,7 @@ h1.hero-h1 {
   color: var(--fg-dim);
 }
 .featured-card__sep {
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
 }
 .featured-card__title {
   font-family: var(--font-mono);
@@ -1031,7 +1032,7 @@ h1.hero-h1 {
 .now-panel__updated {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
 }
 .now-panel__body {
   padding: 20px;
@@ -1376,7 +1377,7 @@ h1.hero-h1 {
 }
 .empty-state__hint {
   font-size: 13px;
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
 }
 .empty-state a {
   color: var(--accent);
@@ -1556,7 +1557,7 @@ a.pager-btn:hover {
   border-left-color: var(--accent);
 }
 .toc-rail a .idx {
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
   margin-right: 8px;
 }
 
@@ -1586,7 +1587,7 @@ a.pager-btn:hover {
   color: var(--accent-hot);
 }
 .post-meta-row .sep {
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
 }
 .post-meta-row .clock {
   display: inline-flex;
@@ -2381,7 +2382,7 @@ a.pager-btn:hover {
 }
 .palette-count {
   margin-left: auto;
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
 }
 
 /* Live search dropdown for blog toolbar */
