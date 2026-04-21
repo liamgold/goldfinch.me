@@ -93,7 +93,10 @@ Both fonts are **self-hosted** as variable woff2s in `wwwroot/fonts/` and preloa
 
 ### Responsive
 
-Single breakpoint: **768px**. Mobile overrides live in a single `@media (max-width: 768px)` block at the bottom of `global.css`. Desktop-first — mobile rules override desktop.
+Two breakpoints, both at the bottom of `global.css`. Desktop-first — each media block overrides desktop rules for smaller viewports.
+
+- **1100px** (`@media (max-width: 1100px)`) — tablet: switches header to hamburger nav, collapses blog detail to single column, reduces side padding to 20px.
+- **768px** (`@media (max-width: 768px)`) — mobile: stacks hero/about/footer grids, further reduces padding to 16px, hides blog post list columns, adjusts typography.
 
 ### Icons
 

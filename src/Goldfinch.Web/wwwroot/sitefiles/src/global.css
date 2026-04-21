@@ -2475,18 +2475,11 @@ a.pager-btn:hover {
 }
 
 /* ============================================================
- * Responsive — mobile treatments below 768px
+ * Responsive — tablet treatments below 1101px
  * ============================================================ */
-@media (max-width: 768px) {
-  body {
-    background-image:
-      radial-gradient(ellipse at 50% -5%, var(--accent-soft) 0%, transparent 55%),
-      linear-gradient(to bottom, transparent, var(--bg));
-  }
-
+@media (max-width: 1100px) {
   .header-inner {
-    padding: 0 16px;
-    gap: 10px;
+    padding: 0 20px;
   }
   .nav-desktop {
     display: none;
@@ -2500,6 +2493,49 @@ a.pager-btn:hover {
   }
   .brand-sub {
     display: none;
+  }
+
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .home-section,
+  .blog-page,
+  .about-page,
+  .speaking-page,
+  .post-path-bar__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* post detail layout → single column, hide sidebars */
+  .md-post-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 32px 20px;
+  }
+  .md-post-layout > aside {
+    display: none;
+  }
+}
+
+/* ============================================================
+ * Responsive — mobile treatments below 768px
+ * ============================================================ */
+@media (max-width: 768px) {
+  body {
+    background-image:
+      radial-gradient(ellipse at 50% -5%, var(--accent-soft) 0%, transparent 55%),
+      linear-gradient(to bottom, transparent, var(--bg));
+  }
+
+  .header-inner {
+    padding: 0 16px;
+    gap: 10px;
   }
 
   .hero {
@@ -2528,15 +2564,9 @@ a.pager-btn:hover {
     line-height: 1.15;
   }
 
-  /* post detail layout → stack, hide sidebars */
   .md-post-layout {
-    grid-template-columns: 1fr;
-    gap: 24px;
     padding-top: 24px;
     padding-bottom: 24px;
-  }
-  .md-post-layout > aside {
-    display: none;
   }
 
   .mobile-scroll-x {
