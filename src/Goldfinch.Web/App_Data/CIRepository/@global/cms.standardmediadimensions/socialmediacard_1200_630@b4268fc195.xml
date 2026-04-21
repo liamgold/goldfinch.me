@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.standardmediadimensions>
   <StandardMediaDimensionsDisplayName>Social Media Card</StandardMediaDimensionsDisplayName>
-  <StandardMediaDimensionsGUID>2b602863-410e-462f-a1e5-c38eb969c6ca</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsGUID>10b60726-cec6-49bf-8156-8753c86d57b5</StandardMediaDimensionsGUID>
   <StandardMediaDimensionsHeight>630</StandardMediaDimensionsHeight>
   <StandardMediaDimensionsName>SocialMediaCard</StandardMediaDimensionsName>
   <StandardMediaDimensionsTransformationType>SmartCrop</StandardMediaDimensionsTransformationType>

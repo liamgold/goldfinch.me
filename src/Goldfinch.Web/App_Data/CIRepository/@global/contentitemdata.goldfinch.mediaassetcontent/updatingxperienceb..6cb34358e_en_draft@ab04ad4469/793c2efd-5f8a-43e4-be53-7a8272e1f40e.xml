@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.goldfinch.mediaassetcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>cd328ffd-bb77-47c5-9a58-6f66cb34358e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>UpdatingXperienceByKentico-UpdateCLI-m019qmfo</CodeName>
+      <GUID>741bdf75-1bd1-437d-9968-a3b4261b4cc0</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>793c2efd-5f8a-43e4-be53-7a8272e1f40e</ContentItemDataGUID>
+  <MediaAssetContentAsset>
+    <![CDATA[{"Variants":{"SocialMediaCard":{"Crop":{"IsManual":false,"X":0,"Y":0,"Width":1055,"Height":554},"TransformationType":"SmartCrop","Identifier":"c0b1b44a-fa99-4fd1-9ff4-5ae479c9219a","Name":"6d34d620-0335-40f1-b8ad-b2d096cf7d12_SocialMediaCard.png","Extension":".png","Size":0,"Width":1200,"Height":630,"LastModified":"2025-10-01T22:14:26.5724512Z"},"480Width":{"Crop":{"IsManual":false,"X":0,"Y":0,"Width":1219,"Height":554},"TransformationType":"Scale","Identifier":"71972fca-aed4-4132-ae8a-73e346abdc2a","Name":"6d34d620-0335-40f1-b8ad-b2d096cf7d12_480Width.png","Extension":".png","Size":43151,"Width":480,"Height":218,"LastModified":"2026-01-29T00:14:10.3330831Z"},"800Width":{"Crop":{"IsManual":false,"X":0,"Y":0,"Width":1219,"Height":553},"TransformationType":"Scale","Identifier":"729b56a7-b246-4598-b97c-69892af9d693","Name":"6d34d620-0335-40f1-b8ad-b2d096cf7d12_800Width.png","Extension":".png","Size":0,"Width":800,"Height":363,"LastModified":"2025-10-01T22:14:26.5724639Z"},"1000Width":{"Crop":{"IsManual":false,"X":0,"Y":0,"Width":1219,"Height":553},"TransformationType":"Scale","Identifier":"76b5e05c-e98a-452b-845a-b0aaa7b767bc","Name":"6d34d620-0335-40f1-b8ad-b2d096cf7d12_1000Width.png","Extension":".png","Size":123385,"Width":1000,"Height":454,"LastModified":"2025-10-03T18:57:55.3067854Z"}},"FocalPoint":{"X":403,"Y":263},"Identifier":"136fb6cd-a13e-4410-9309-29eaf1c64a49","Name":"6d34d620-0335-40f1-b8ad-b2d096cf7d12.png","Extension":".png","Size":15091,"Width":1219,"Height":554,"LastModified":"2025-08-26T10:22:45.03506Z"}]]>
+  </MediaAssetContentAsset>
+  <MediaAssetContentShortDescription>Updating the database through the CLI</MediaAssetContentShortDescription>
+  <MediaAssetContentTitle>Updating Xperience by Kentico - Update CLI</MediaAssetContentTitle>
+</contentitemdata.goldfinch.mediaassetcontent>

@@ -41,7 +41,7 @@ builder.Services.AddKentico(features =>
             PublicSpeakingPage.CONTENT_TYPE_NAME,
         ],
         DefaultSectionIdentifier = ContentSectionViewComponent.IDENTIFIER,
-        RegisterDefaultSection = true,
+        RegisterDefaultSection = false,
     });
 
     features.UseWebPageRouting();
