@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemlanguagemetadata>
+  <ContentItemLanguageMetadataAiraData>
+    <![CDATA[{"keywords":[".NET Developer","Kentico","blog posts","tutorials",".NET","web development"]}]]>
+  </ContentItemLanguageMetadataAiraData>
   <ContentItemLanguageMetadataContentItemID>
     <CodeName>Home-f45dz6v3</CodeName>
     <GUID>de42ab4e-52b1-44dd-9243-c90c4dec9c68</GUID>

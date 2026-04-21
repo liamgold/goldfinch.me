@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.user>
-  <Email>test@test.com</Email>
+  <Email>liam@goldfinch.me</Email>
   <FirstName>Liam</FirstName>
   <LastName>Goldfinch</LastName>
   <UserAdministrationAccess>True</UserAdministrationAccess>
@@ -11,8 +11,8 @@
   <UserIsPendingRegistration>False</UserIsPendingRegistration>
   <UserName>admin</UserName>
   <UserPassword>
-    <![CDATA[AQAAAAIAAYagAAAAECQiAKt0cafXbNqEkwgCp8eluqUwLRJ/cfsgXfVZgBRx6P6zMhRhpiWruHkrvOzKCQ==]]>
+    <![CDATA[AQAAAAIAAYagAAAAEMgvLqTCuoc8/+avaay18PwPcunJ2q1Q6mM/9igiBX92jaIrR4l54bcCXSAJOD6SRw==]]>
   </UserPassword>
-  <UserPasswordLastChanged>2025-07-30 20:14:08Z</UserPasswordLastChanged>
-  <UserSecurityStamp>PO4TWEKH22FZRIHIUN5VY4CLVBCHM4SX</UserSecurityStamp>
+  <UserPasswordLastChanged>2026-04-21 21:00:49Z</UserPasswordLastChanged>
+  <UserSecurityStamp>ZMI26XXTP5QBYV646ZDACJTOXZTR7EFY</UserSecurityStamp>
 </cms.user>

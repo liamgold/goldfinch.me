@@ -16,15 +16,19 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-09-12 20:57:04Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-04-20 19:00:37Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration />
   <ContentItemCommonDataVisualBuilderWidgets>
-    <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"d03c002c-cd7a-480e-8391-e8eb8f4ad68f","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"19edf49a-31bb-47c0-a3e1-48f7a8218875","widgets":[{"identifier":"fa9b88c8-f549-48be-aa22-b20f21515f9f","type":"Kentico.Widget.RichText","variants":[{"identifier":"bff4b1cd-3f50-49db-9036-e36eafaafb1b","properties":{"content":"<p>Following on from my previous blog post about the <a data-channel-guid=\"b3f8d8a7-ead7-433c-b0fb-225567a185c3\" href=\"~/blog/kentico-12-mvc-map-location-form-component\">Kentico 12 MVC Map Location Form Component</a>, I've continued with another contribution to the Kentico MVC marketplace.</p><p>This time I've created a <a href=\"https://fontawesome.com/\" rel=\"noopener noreferrer\" target=\"_blank\">Font Awesome</a> form component which allows content editors to search and choose from all available Font Awesome 5.x icons. There are a number of scenarios where a developer may want to allow a content editor to customise an icon, such as icons used on navigation menus, CTA buttons or social media links.</p><p>With this form component added to a widget, a preview of the currently selected icon will be shown, and a button next to it will open up the modal dialog for searching and choosing a new icon.</p>"},"fieldIdentifiers":{"content":"d3b2d071-7d51-442a-8746-10a72c41dd9d"}}]},{"identifier":"5ae1031c-126e-4b86-bb81-d23412f49c5e","type":"Goldfinch.ImageWidget","variants":[{"identifier":"609a97ab-f32f-4f5a-b1b6-c8dfb4c30ecc","properties":{"selectedAssets":[{"identifier":"74c0b943-e0cd-41bf-b5fd-23c850c8d69b"}]},"fieldIdentifiers":{"selectedAssets":"06539ec8-c00d-4edb-8c5e-64f9c702b247"}}]},{"identifier":"7cfb7780-b055-487b-bad6-035331f79f10","type":"Kentico.Widget.RichText","variants":[{"identifier":"41c86db9-3c6c-4641-9329-458c20edc8ec","properties":{"content":"<p>This modal dialog is triggered using the&nbsp;<a href=\"https://docs.kentico.com/k12sp/developing-websites/page-builder-development/developing-modal-dialogs-for-builder-component-properties\" rel=\"noopener noreferrer\" target=\"_blank\">modal API</a> which was introduced in the Kentico 12 Service Pack. Having access to the modal API means you're now able to create complex form components without bloating the widget UI directly.&nbsp;</p>"},"fieldIdentifiers":{"content":"5fcdbf51-ee91-4ee7-a401-a944362deec1"}}]},{"identifier":"456859be-b9ab-406b-af6c-fe6680d65e46","type":"Goldfinch.ImageWidget","variants":[{"identifier":"d58d6626-b4e5-4d0f-86bc-254cd189b5ff","properties":{"selectedAssets":[{"identifier":"fd13f54a-eb13-441f-8f69-5ed930084cba"}]},"fieldIdentifiers":{"selectedAssets":"0e5cd4f8-4f64-423c-ab3a-d457974bdfef"}}]},{"identifier":"cd1be2fb-5456-4137-8395-9734477ddf57","type":"Kentico.Widget.RichText","variants":[{"identifier":"e4a4bf53-3988-4219-a8f8-39f06f47947c","properties":{"content":"<p>You can view the source code over at the&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component\" rel=\"noopener noreferrer\" target=\"_blank\">GitHub repository</a>. &nbsp;Feel free to look around the project, provide suggestions by submitting an&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/issues\">Issue</a>, or submit new features through a&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/pulls\">pull request</a>.&nbsp;</p>"},"fieldIdentifiers":{"content":"d4cf6d67-975a-49e5-8cc5-179154780c1e"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
+    <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"d03c002c-cd7a-480e-8391-e8eb8f4ad68f","type":"Goldfinch.ContentSection","properties":{"sectionID":"","sectionName":""},"zones":[{"identifier":"9f181a42-7451-4669-88b2-2b3f2ae51618","widgets":[{"identifier":"fa9b88c8-f549-48be-aa22-b20f21515f9f","type":"Kentico.Widget.RichText","variants":[{"identifier":"bff4b1cd-3f50-49db-9036-e36eafaafb1b","properties":{"content":"<p>Following on from my previous blog post about the <a data-channel-guid=\"b3f8d8a7-ead7-433c-b0fb-225567a185c3\" href=\"~/blog/kentico-12-mvc-map-location-form-component\">Kentico 12 MVC Map Location Form Component</a>, I've continued with another contribution to the Kentico MVC marketplace.</p>"},"fieldIdentifiers":{"content":"d3b2d071-7d51-442a-8746-10a72c41dd9d"}}]}]}],"fieldIdentifiers":{"sectionID":"3b9a9bcc-87bf-4cdd-a1b9-787fdca841f3","sectionName":"e18ea32f-53b0-455f-a16d-5c369a425678"}},{"identifier":"1b88a900-17b3-4b18-9cb7-f34374d5e798","type":"Goldfinch.ContentSection","properties":{"sectionID":"form-component","sectionName":"Form Component"},"zones":[{"identifier":"b168cc50-2743-4311-ba92-67784bc8a0fe","widgets":[{"identifier":"e5bfe2be-c978-4d81-bf98-b1a2fae1aa5e","type":"Kentico.Widget.RichText","variants":[{"identifier":"a344b59c-1067-4725-b10c-596022552db5","properties":{"content":"<p>This time I've created a <a href=\"https://fontawesome.com/\" rel=\"noopener noreferrer\" target=\"_blank\">Font Awesome</a> form component which allows content editors to search and choose from all available Font Awesome 5.x icons. There are a number of scenarios where a developer may want to allow a content editor to customise an icon, such as icons used on navigation menus, CTA buttons or social media links.</p><p>With this form component added to a widget, a preview of the currently selected icon will be shown, and a button next to it will open up the modal dialog for searching and choosing a new icon.</p>"},"fieldIdentifiers":{"content":"50814a1d-2f1f-47dd-afa1-65875053ba44"}}]},{"identifier":"77cf306f-6d5c-4e93-8203-24a8b8d65987","type":"Goldfinch.ImageWidget","variants":[{"identifier":"3d18f9d4-62f2-47e8-b9fd-8fe54a372308","properties":{"selectedAssets":[{"identifier":"74c0b943-e0cd-41bf-b5fd-23c850c8d69b"}]},"fieldIdentifiers":{"selectedAssets":"1c01f3bc-4e11-48a8-beb3-b5199f9acac0"}}]},{"identifier":"8e69bd76-cf10-4553-a2c7-2ed8dd3f5158","type":"Kentico.Widget.RichText","variants":[{"identifier":"76d9ebff-86b8-4c67-8be7-9e6c0372403c","properties":{"content":"<p>This modal dialog is triggered using the&nbsp;<a href=\"https://docs.kentico.com/k12sp/developing-websites/page-builder-development/developing-modal-dialogs-for-builder-component-properties\" rel=\"noopener noreferrer\" target=\"_blank\">modal API</a> which was introduced in the Kentico 12 Service Pack. Having access to the modal API means you're now able to create complex form components without bloating the widget UI directly.&nbsp;</p>"},"fieldIdentifiers":{"content":"c3f0a77f-6efa-4752-b12d-a0969b2cfa56"}}]},{"identifier":"0bbfed68-8c57-45dd-9c1c-ed460f655f13","type":"Goldfinch.ImageWidget","variants":[{"identifier":"029b2891-ea85-4a7c-86a7-6122b02201fe","properties":{"selectedAssets":[{"identifier":"fd13f54a-eb13-441f-8f69-5ed930084cba"}]},"fieldIdentifiers":{"selectedAssets":"cec1df0a-6434-4a4a-932b-4f8ca748d455"}}]},{"identifier":"d6edb930-6aaa-4259-b5a0-92d4b0feb24e","type":"Kentico.Widget.RichText","variants":[{"identifier":"7746dbe4-d776-437e-a253-9052c03dcf48","properties":{"content":"<p>You can view the source code over at the&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component\" rel=\"noopener noreferrer\" target=\"_blank\">GitHub repository</a>. &nbsp;Feel free to look around the project, provide suggestions by submitting an&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/issues\">Issue</a>, or submit new features through a&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/pulls\">pull request</a>.&nbsp;</p>"},"fieldIdentifiers":{"content":"be53bc23-5570-4fa5-bbc3-3b5d597e0dcd"}}]}]}],"fieldIdentifiers":{"sectionID":"0f5a4301-88cc-407e-be28-d0146be1d6c1","sectionName":"b1c64324-65d6-4aa0-b941-7520ef455390"}}]}]}]]>
   </ContentItemCommonDataVisualBuilderWidgets>
+  <SeoCanonicalUrl />
+  <SeoShortDescription />
+  <SeoTitle />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>d3b2d071-7d51-442a-8746-10a72c41dd9d</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>3621e073-063a-44bb-94bb-3b0313f2da40</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>5c2be0e7-c1bf-4b95-8d66-3e60325ed66a</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -36,21 +40,8 @@
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
     <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>06539ec8-c00d-4edb-8c5e-64f9c702b247</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>2942afb3-5c48-4e1a-8f87-2a63725c6806</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>Kentico12-FontAwesomeWidgetProperties-8j32bx11</CodeName>
-        <GUID>74c0b943-e0cd-41bf-b5fd-23c850c8d69b</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>0e5cd4f8-4f64-423c-ab3a-d457974bdfef</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>a6a09445-1370-48c8-8f48-c61629f4ef9f</ContentItemReferenceGUID>
+      <ContentItemReferenceGroupGUID>cec1df0a-6434-4a4a-932b-4f8ca748d455</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>e13f1787-f97d-4e61-a0eb-e2ddedbe9a3c</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -58,6 +49,19 @@
       <ContentItemReferenceTargetItemID>
         <CodeName>Kentico12-FontAwesomeWidgetModal-bsr3blzf</CodeName>
         <GUID>fd13f54a-eb13-441f-8f69-5ed930084cba</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>1c01f3bc-4e11-48a8-beb3-b5199f9acac0</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>65eea0ee-ff12-4a9d-a8a7-bee101ffb327</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>c638d9f4-c37f-495e-b2e2-9d84a8976f9d</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Kentico12-FontAwesomeWidgetProperties-8j32bx11</CodeName>
+        <GUID>74c0b943-e0cd-41bf-b5fd-23c850c8d69b</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
