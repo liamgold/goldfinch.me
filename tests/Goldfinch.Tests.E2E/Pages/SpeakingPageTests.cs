@@ -23,7 +23,7 @@ public class SpeakingPageTests : PlaywrightTestBase
         await Page!.GotoAsync($"{BaseUrl}/public-speaking");
 
         // Assert
-        var heading = Page.GetByRole(AriaRole.Heading, new() { Name = "Public Speaking" });
+        var heading = Page.GetByRole(AriaRole.Heading, new() { Name = "Talks & webinars" });
         await Expect(heading).ToBeVisibleAsync();
     }
 
