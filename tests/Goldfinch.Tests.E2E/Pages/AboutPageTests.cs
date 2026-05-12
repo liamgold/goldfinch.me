@@ -23,7 +23,7 @@ public class AboutPageTests : PlaywrightTestBase
         await Page!.GotoAsync($"{BaseUrl}/about");
 
         // Assert
-        var heading = Page.GetByRole(AriaRole.Heading, new() { Name = "About" });
+        var heading = Page.GetByRole(AriaRole.Heading, new() { Name = "Hello, I'm Liam." });
         await Expect(heading).ToBeVisibleAsync();
     }
 
