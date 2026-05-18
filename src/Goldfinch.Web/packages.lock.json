@@ -73,9 +73,9 @@
       },
       "System.ServiceModel.Syndication": {
         "type": "Direct",
-        "requested": "[10.0.7, )",
-        "resolved": "10.0.7",
-        "contentHash": "jq57/EIEQDxK7K2P5cNAoKmzP/5bBM/NkUWF0GPBqqE/kPr9LzvjI9D1Ga8zxFkp0hl1Vo/ZGbmartmEUGbHqA=="
+        "requested": "[10.0.8, )",
+        "resolved": "10.0.8",
+        "contentHash": "xfzCPN0jCQQIS90uKla37E16/0EFxdhs+cOREumboSpSPA2smXyk7jgfFCOXxEAgmZzz5WkR7wckNAAVrSQtSg=="
       },
       "XperienceCommunity.CSP": {
         "type": "Direct",
