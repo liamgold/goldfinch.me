@@ -2,6 +2,7 @@
 	<ItemGroup>
 		<PackageReference Include="Kentico.Xperience.Admin" />
 		<PackageReference Include="Kentico.Xperience.AzureStorage" />
+		<PackageReference Include="Kentico.Xperience.ManagementApi" />
 		<PackageReference Include="Kentico.Xperience.MiniProfiler" />
 		<PackageReference Include="Kentico.Xperience.WebApp" />
 		<PackageReference Include="Schema.NET" />
