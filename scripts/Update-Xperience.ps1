@@ -23,6 +23,7 @@ param(
 $ErrorActionPreference = "Stop"
 $script:hasErrors = $false
 $script:updatedVersion = $null
+$script:resolvedVersions = @{}
 $script:ciWasEnabled = $false
 
 #region Helper Functions
@@ -261,13 +262,21 @@ function Update-DirectoryPackagesProps {
             }
 
             $package.Version = $resolvedVersion
-            $script:updatedVersion = $resolvedVersion
+            $script:resolvedVersions[$packageName] = $resolvedVersion
 
             Write-Host "  Updated $packageName : $oldVersion -> $resolvedVersion" -ForegroundColor Green
             $updatedCount++
         }
 
         if ($updatedCount -gt 0) {
+            # Use the requested target version for the summary/commit hint; fall back to
+            # the resolved version only when the target was "latest" (no explicit request).
+            $script:updatedVersion = if ($Version -eq "latest") {
+                $script:resolvedVersions.Values | Select-Object -First 1
+            } else {
+                $Version
+            }
+
             $packagesProps.Save((Resolve-Path "Directory.Packages.props"))
             Write-Success "Updated $updatedCount Kentico packages in Directory.Packages.props"
 
@@ -569,6 +578,15 @@ function Show-Summary {
 
         if ($script:updatedVersion) {
             Write-Host "`nUpdated to Xperience version: $script:updatedVersion" -ForegroundColor Cyan
+
+            # Highlight any packages that resolved to a different version than requested
+            $overrides = $script:resolvedVersions.GetEnumerator() | Where-Object { $_.Value -ne $script:updatedVersion }
+            if ($overrides) {
+                Write-Host "`nNote: the following packages resolved to a different version:" -ForegroundColor Yellow
+                foreach ($entry in $overrides) {
+                    Write-Host "  $($entry.Key): $($entry.Value)" -ForegroundColor Yellow
+                }
+            }
         }
 
         Write-Host "`nNext steps:" -ForegroundColor White
