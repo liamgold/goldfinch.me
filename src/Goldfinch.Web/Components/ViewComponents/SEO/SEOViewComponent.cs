@@ -82,7 +82,7 @@ public class SEOViewComponent : ViewComponent
             },
             HasOccupation = new Occupation
             {
-                Name = "Principal Systems Developer",
+                Name = "Principal Systems Engineer",
                 OccupationLocation = new City
                 {
                     Name = "Leeds, UK"
