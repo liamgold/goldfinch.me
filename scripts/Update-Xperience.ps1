@@ -227,11 +227,13 @@ function Update-DirectoryPackagesProps {
 
         $updatedCount = 0
 
-        $packagesProps.Project.ItemGroup.PackageVersion | Where-Object {
+        $packagesToUpdate = $packagesProps.Project.ItemGroup.PackageVersion | Where-Object {
             $_.Include -like "Kentico.Xperience.*" -and $preservePackages -notcontains $_.Include
-        } | ForEach-Object {
-            $packageName = $_.Include
-            $oldVersion = $_.Version
+        }
+
+        foreach ($package in $packagesToUpdate) {
+            $packageName = $package.Include
+            $oldVersion = $package.Version
 
             # Always query NuGet to resolve the actual version to use
             Write-Host "  Querying NuGet for $packageName..." -ForegroundColor Gray
@@ -239,7 +241,7 @@ function Update-DirectoryPackagesProps {
 
             if ($nugetResponse.versions.Count -eq 0) {
                 Write-Warning "No versions found for $packageName on NuGet. Skipping."
-                return
+                continue
             }
 
             $resolvedVersion = if ($Version -eq "latest") {
@@ -258,7 +260,7 @@ function Update-DirectoryPackagesProps {
                 }
             }
 
-            $_.Version = $resolvedVersion
+            $package.Version = $resolvedVersion
             $script:updatedVersion = $resolvedVersion
 
             Write-Host "  Updated $packageName : $oldVersion -> $resolvedVersion" -ForegroundColor Green
