@@ -4,12 +4,12 @@
     "net10.0": {
       "Kentico.Xperience.Admin": {
         "type": "Direct",
-        "requested": "[31.5.0, )",
-        "resolved": "31.5.0",
-        "contentHash": "JOCdhKhmsdU/0fdVWJlqiG+nd6eaomefBts4Soi30TkUsxf1iZ4vnLYY4wj5S2NAYfvvinriu2BqHBxqynaRRw==",
+        "requested": "[31.5.1, )",
+        "resolved": "31.5.1",
+        "contentHash": "kKbNYnUnTpDTqgrrsOFPp436/7SwwPC0bn/0+gfU5htADEtLzObAn2vags3183GYgbu+DD0nruGHgPvo+XYTAQ==",
         "dependencies": {
           "Kentico.Aira.Client": "6.1.0",
-          "Kentico.Xperience.WebApp": "[31.5.0]",
+          "Kentico.Xperience.WebApp": "[31.5.1]",
           "Microsoft.AspNetCore.SpaServices.Extensions": "8.0.26",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.26",
           "Microsoft.SemanticKernel": "1.75.0",
@@ -20,26 +20,26 @@
       },
       "Kentico.Xperience.AzureStorage": {
         "type": "Direct",
-        "requested": "[31.5.0, )",
-        "resolved": "31.5.0",
-        "contentHash": "2e34MTZ2Coq/tjUfqGljCZHFBk24ZvEjXXuc8Hev+mbyIc2t6zaHqFhxx/CmvNG0hcgOgiRE+iSUuhkpimN0tA==",
+        "requested": "[31.5.1, )",
+        "resolved": "31.5.1",
+        "contentHash": "OXY9ZoQ79iLSh8xOE2Ky5iipaKQJOpp0UIopShRKuKd6uFVa0DxBZtjtelfPmPS3lzaEDQsglT025R6zex0KKg==",
         "dependencies": {
           "Azure.Storage.Blobs": "12.27.0",
-          "Kentico.Xperience.Core": "31.5.0",
+          "Kentico.Xperience.Core": "31.5.1",
           "Newtonsoft.Json": "13.0.4",
           "System.IO.Hashing": "10.0.7"
         }
       },
       "Kentico.Xperience.ManagementApi": {
         "type": "Direct",
-        "requested": "[31.5.0-preview, )",
-        "resolved": "31.5.0-preview",
-        "contentHash": "bhZeNMXlpIjLKNzTXyKjjCvHhUfJoAvP/IUqmDIeKerQxKqeh7Vzs0OYJyH3HSbscmVEJOls6v5Y7abhSc0P9Q==",
+        "requested": "[31.5.1-preview, )",
+        "resolved": "31.5.1-preview",
+        "contentHash": "cmQs799IjymQ9SduKA11TfCy1RlRm//+PWL0yVFsRAp/Mxlrt3r3he3p6b4vjWAXFFzLIP0FnMTfzRgr8WQKVw==",
         "dependencies": {
           "Asp.Versioning.Mvc": "8.1.1",
           "Asp.Versioning.Mvc.ApiExplorer": "8.1.1",
-          "Kentico.Xperience.Admin": "31.5.0",
-          "Kentico.Xperience.Core": "31.5.0",
+          "Kentico.Xperience.Admin": "31.5.1",
+          "Kentico.Xperience.Core": "31.5.1",
           "NJsonSchema": "11.6.1",
           "Swashbuckle.AspNetCore": "9.0.6"
         }
@@ -57,15 +57,15 @@
       },
       "Kentico.Xperience.WebApp": {
         "type": "Direct",
-        "requested": "[31.5.0, )",
-        "resolved": "31.5.0",
-        "contentHash": "A0WXW05ExXF95+CxcZKbSzqqiAX2SDmqupkCp8G97RSO3m3AaLHQxXAqvT29SHwNGlJAlUA480L8hqD6o+Jepw==",
+        "requested": "[31.5.1, )",
+        "resolved": "31.5.1",
+        "contentHash": "EY6UVqB+PGzkG9FyiY3Eile2ziJEGqSk6KlkTRwrTNYLC++ck3sq1F4fGH2IURnaDH262YWh8N/4DCSuaNz0Pg==",
         "dependencies": {
           "CommandLineParser": "2.9.1",
           "HotChocolate.AspNetCore": "15.1.16",
           "HotChocolate.Data": "15.1.16",
           "HtmlSanitizer": "9.0.892",
-          "Kentico.Xperience.Core": "[31.5.0]",
+          "Kentico.Xperience.Core": "[31.5.1]",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.26"
         }
       },
@@ -535,8 +535,8 @@
       },
       "Kentico.Xperience.Core": {
         "type": "Transitive",
-        "resolved": "31.5.0",
-        "contentHash": "IKV1CkJDkfIbM2hE+5M1xOkQZotvZMhy/Y+v/wHASWGiVPhbpZ+deLLLjoaB9KzZgE7/71QRH3IwUQ4GeLiyww==",
+        "resolved": "31.5.1",
+        "contentHash": "B+syZSMPr9MbLTk1RRvgJz4bR6kt6zddCQu10pM8p65u11te6cNn/d/RRCsgKo6iEIVYooaoSvOD36nwGLmZSw==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "Kentico.Aira.Client": "6.1.0",
@@ -981,15 +981,15 @@
         "type": "Project",
         "dependencies": {
           "Goldfinch.Core": "[1.0.0, )",
-          "Kentico.Xperience.Admin": "[31.5.0, )",
-          "Kentico.Xperience.WebApp": "[31.5.0, )"
+          "Kentico.Xperience.Admin": "[31.5.1, )",
+          "Kentico.Xperience.WebApp": "[31.5.1, )"
         }
       },
       "goldfinch.core": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Admin": "[31.5.0, )",
-          "Kentico.Xperience.WebApp": "[31.5.0, )",
+          "Kentico.Xperience.Admin": "[31.5.1, )",
+          "Kentico.Xperience.WebApp": "[31.5.1, )",
           "Sidio.Sitemap.AspNetCore": "[3.1.1, )"
         }
       }

@@ -23,6 +23,7 @@ param(
 $ErrorActionPreference = "Stop"
 $script:hasErrors = $false
 $script:updatedVersion = $null
+$script:resolvedVersions = @{}
 $script:ciWasEnabled = $false
 
 #region Helper Functions
@@ -227,35 +228,55 @@ function Update-DirectoryPackagesProps {
 
         $updatedCount = 0
 
-        $packagesProps.Project.ItemGroup.PackageVersion | Where-Object {
+        $packagesToUpdate = $packagesProps.Project.ItemGroup.PackageVersion | Where-Object {
             $_.Include -like "Kentico.Xperience.*" -and $preservePackages -notcontains $_.Include
-        } | ForEach-Object {
-            $packageName = $_.Include
-            $oldVersion = $_.Version
+        }
 
-            if ($Version -eq "latest") {
-                # Query NuGet for latest version
-                Write-Host "  Querying NuGet for latest version of $packageName..." -ForegroundColor Gray
-                $nugetResponse = Invoke-RestMethod -Uri "https://api.nuget.org/v3-flatcontainer/$($packageName.ToLower())/index.json"
+        foreach ($package in $packagesToUpdate) {
+            $packageName = $package.Include
+            $oldVersion = $package.Version
 
-                if ($nugetResponse.versions.Count -gt 0) {
-                    $latestVersion = $nugetResponse.versions[-1]
-                    $_.Version = $latestVersion
-                    $script:updatedVersion = $latestVersion
-                } else {
-                    Write-Warning "No versions found for $packageName on NuGet. Skipping update for this package."
-                    return
-                }
-            } else {
-                $_.Version = $Version
-                $script:updatedVersion = $Version
+            # Always query NuGet to resolve the actual version to use
+            Write-Host "  Querying NuGet for $packageName..." -ForegroundColor Gray
+            $nugetResponse = Invoke-RestMethod -Uri "https://api.nuget.org/v3-flatcontainer/$($packageName.ToLower())/index.json"
+
+            if ($nugetResponse.versions.Count -eq 0) {
+                Write-Warning "No versions found for $packageName on NuGet. Skipping."
+                continue
             }
 
-            Write-Host "  Updated $packageName : $oldVersion -> $($_.Version)" -ForegroundColor Green
+            $resolvedVersion = if ($Version -eq "latest") {
+                $nugetResponse.versions[-1]
+            } elseif ($nugetResponse.versions -contains $Version) {
+                $Version
+            } else {
+                # Exact version not found — try preview variant, then fall back to latest
+                $previewVariant = "$Version-preview"
+                if ($nugetResponse.versions -contains $previewVariant) {
+                    Write-Warning "$packageName $Version not found; using $previewVariant"
+                    $previewVariant
+                } else {
+                    Write-Warning "$packageName $Version not found and no preview variant exists; using latest ($($nugetResponse.versions[-1]))"
+                    $nugetResponse.versions[-1]
+                }
+            }
+
+            $package.Version = $resolvedVersion
+            $script:resolvedVersions[$packageName] = $resolvedVersion
+
+            Write-Host "  Updated $packageName : $oldVersion -> $resolvedVersion" -ForegroundColor Green
             $updatedCount++
         }
 
         if ($updatedCount -gt 0) {
+            # Use the requested target version for the summary/commit hint; fall back to
+            # the resolved version only when the target was "latest" (no explicit request).
+            $script:updatedVersion = if ($Version -eq "latest") {
+                $script:resolvedVersions.Values | Select-Object -First 1
+            } else {
+                $Version
+            }
+
             $packagesProps.Save((Resolve-Path "Directory.Packages.props"))
             Write-Success "Updated $updatedCount Kentico packages in Directory.Packages.props"
 
@@ -557,6 +578,15 @@ function Show-Summary {
 
         if ($script:updatedVersion) {
             Write-Host "`nUpdated to Xperience version: $script:updatedVersion" -ForegroundColor Cyan
+
+            # Highlight any packages that resolved to a different version than requested
+            $overrides = $script:resolvedVersions.GetEnumerator() | Where-Object { $_.Value -ne $script:updatedVersion }
+            if ($overrides) {
+                Write-Host "`nNote: the following packages resolved to a different version:" -ForegroundColor Yellow
+                foreach ($entry in $overrides) {
+                    Write-Host "  $($entry.Key): $($entry.Value)" -ForegroundColor Yellow
+                }
+            }
         }
 
         Write-Host "`nNext steps:" -ForegroundColor White
