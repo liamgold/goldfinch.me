@@ -233,25 +233,35 @@ function Update-DirectoryPackagesProps {
             $packageName = $_.Include
             $oldVersion = $_.Version
 
-            if ($Version -eq "latest") {
-                # Query NuGet for latest version
-                Write-Host "  Querying NuGet for latest version of $packageName..." -ForegroundColor Gray
-                $nugetResponse = Invoke-RestMethod -Uri "https://api.nuget.org/v3-flatcontainer/$($packageName.ToLower())/index.json"
+            # Always query NuGet to resolve the actual version to use
+            Write-Host "  Querying NuGet for $packageName..." -ForegroundColor Gray
+            $nugetResponse = Invoke-RestMethod -Uri "https://api.nuget.org/v3-flatcontainer/$($packageName.ToLower())/index.json"
 
-                if ($nugetResponse.versions.Count -gt 0) {
-                    $latestVersion = $nugetResponse.versions[-1]
-                    $_.Version = $latestVersion
-                    $script:updatedVersion = $latestVersion
-                } else {
-                    Write-Warning "No versions found for $packageName on NuGet. Skipping update for this package."
-                    return
-                }
-            } else {
-                $_.Version = $Version
-                $script:updatedVersion = $Version
+            if ($nugetResponse.versions.Count -eq 0) {
+                Write-Warning "No versions found for $packageName on NuGet. Skipping."
+                return
             }
 
-            Write-Host "  Updated $packageName : $oldVersion -> $($_.Version)" -ForegroundColor Green
+            $resolvedVersion = if ($Version -eq "latest") {
+                $nugetResponse.versions[-1]
+            } elseif ($nugetResponse.versions -contains $Version) {
+                $Version
+            } else {
+                # Exact version not found — try preview variant, then fall back to latest
+                $previewVariant = "$Version-preview"
+                if ($nugetResponse.versions -contains $previewVariant) {
+                    Write-Warning "$packageName $Version not found; using $previewVariant"
+                    $previewVariant
+                } else {
+                    Write-Warning "$packageName $Version not found and no preview variant exists; using latest ($($nugetResponse.versions[-1]))"
+                    $nugetResponse.versions[-1]
+                }
+            }
+
+            $_.Version = $resolvedVersion
+            $script:updatedVersion = $resolvedVersion
+
+            Write-Host "  Updated $packageName : $oldVersion -> $resolvedVersion" -ForegroundColor Green
             $updatedCount++
         }
 
