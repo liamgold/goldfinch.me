@@ -4,12 +4,12 @@
     "net10.0": {
       "Kentico.Xperience.Admin": {
         "type": "Direct",
-        "requested": "[31.5.1, )",
-        "resolved": "31.5.1",
-        "contentHash": "kKbNYnUnTpDTqgrrsOFPp436/7SwwPC0bn/0+gfU5htADEtLzObAn2vags3183GYgbu+DD0nruGHgPvo+XYTAQ==",
+        "requested": "[31.5.3, )",
+        "resolved": "31.5.3",
+        "contentHash": "Jux6YRaiCbDGixizzwKAfgKfvnUzqdws0n8zK9WSJPA5DCmk0cgjA0uuRg7VohCO3+ZRclhl+Hb1g8nwm8W5iA==",
         "dependencies": {
           "Kentico.Aira.Client": "6.1.0",
-          "Kentico.Xperience.WebApp": "[31.5.1]",
+          "Kentico.Xperience.WebApp": "[31.5.3]",
           "Microsoft.AspNetCore.SpaServices.Extensions": "8.0.26",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.26",
           "Microsoft.SemanticKernel": "1.75.0",
@@ -20,15 +20,15 @@
       },
       "Kentico.Xperience.WebApp": {
         "type": "Direct",
-        "requested": "[31.5.1, )",
-        "resolved": "31.5.1",
-        "contentHash": "EY6UVqB+PGzkG9FyiY3Eile2ziJEGqSk6KlkTRwrTNYLC++ck3sq1F4fGH2IURnaDH262YWh8N/4DCSuaNz0Pg==",
+        "requested": "[31.5.3, )",
+        "resolved": "31.5.3",
+        "contentHash": "REIuZ6Gd5yIl+efXOc+QV2MtqMC17NPZqirbMwusMDVY5cYmUFL/G99YB49Lz/6jJPU75kuK7cdShAKIi7HgxA==",
         "dependencies": {
           "CommandLineParser": "2.9.1",
           "HotChocolate.AspNetCore": "15.1.16",
           "HotChocolate.Data": "15.1.16",
           "HtmlSanitizer": "9.0.892",
-          "Kentico.Xperience.Core": "[31.5.1]",
+          "Kentico.Xperience.Core": "[31.5.3]",
           "Microsoft.AspNetCore.Components": "8.0.26",
           "Microsoft.Extensions.Caching.Memory": "9.0.13",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.26"
@@ -455,8 +455,8 @@
       },
       "Kentico.Xperience.Core": {
         "type": "Transitive",
-        "resolved": "31.5.1",
-        "contentHash": "B+syZSMPr9MbLTk1RRvgJz4bR6kt6zddCQu10pM8p65u11te6cNn/d/RRCsgKo6iEIVYooaoSvOD36nwGLmZSw==",
+        "resolved": "31.5.3",
+        "contentHash": "3Zbj4SJKpt0WKmsFx9uNnX8lv8fiDqCPuIVtLQWmCfmO0VcfIP1gQUtbaj2R5gKpzynAnuro6eVWM/nlAnT+SA==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "Kentico.Aira.Client": "6.1.0",
