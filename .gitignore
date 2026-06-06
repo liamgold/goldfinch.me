@@ -370,7 +370,8 @@ src/Goldfinch.Web/wwwroot/SiteFiles/dist
 # Ensure CIRepository is fully committed
 !src/Goldfinch.Web/App_Data/CIRepository/**/*.*
 
-src/Goldfinch.Web/assets/contentitems/temp/
+# Local assets are restored via dotnet run --kxp-ci-restore, not committed
+src/Goldfinch.Web/assets/contentitems/**/*
 src/Goldfinch.Web/App_Data/playwright
 
 # Continuous Deployment
