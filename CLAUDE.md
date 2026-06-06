@@ -421,10 +421,9 @@ dotnet run
 
 Search `TODO` in the repo for the full list. The notable ones:
 
-- **Tag content type** — tag filter chips on `/blog` currently link to `?tag=slug` but the slug isn't matched against any real taxonomy (returns empty). Needs a `Tag` reference field on `BlogPost`.
-- **`/api/search`** — stubs title + summary match only. Adding body search, ranking, `<mark>` highlights, tag results, and the documented cache headers is the full v1 per `docs/design-handoff/api-contracts.md`.
-- **Reading-minutes** on blog posts — currently estimated from summary length; should be computed from body.
-- **TOC rail** on post detail — the scrollspy JS hydrates whenever `.toc-rail a[href^="#"]` + article H2/H3 ids both exist, but we don't emit those yet because bodies are Page Builder widgets rather than a rich-text field.
+- **Tag content type** — tag filter chips on `/blog` currently link to `?tag=slug` but the slug isn't matched against any real taxonomy (returns empty). Needs a `Tag` reference field on `BlogPost`. Unblocks tag results in `/api/search` too.
+- **`/api/search`** — stubs title + summary match only. The client-side command palette and search UI are already wired for `highlights.title`/`highlights.summary` (with `<mark>` sanitisation), but the backend never generates them. Outstanding: body search, ranking, highlight generation, tag results, 60 s cache header. Full spec in `docs/design-handoff/api-contracts.md`.
+- **Reading-minutes** on blog posts — `HomePageViewComponent.EstimateReadingMinutes()` estimates from summary word count (capped 3–15 min); `SearchApiController` hardcodes 4. Should be computed from full body content once there's a reliable way to read Page Builder widget text.
 - **"Now" panel** on home + stack/timeline on About — rows are hard-coded in the Razor views; move to CMS fields or a JSON file in `App_Data` when the content changes often enough to matter.
 - **Copy-link share button** on post detail — deferred (needs a tiny inline `navigator.clipboard` script).
 - **Featured flag** on `BlogPost` — home currently treats the newest post as "featured". A real `Featured: bool` flag would let an editor pin any post.
