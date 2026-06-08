@@ -417,17 +417,6 @@ dotnet run
 - E2E tests: Playwright tests in `tests/Goldfinch.Tests.E2E/`
 - Test command: `dotnet test tests/Goldfinch.Tests.E2E/Goldfinch.Tests.E2E.csproj`
 
-## Outstanding TODOs (from the 2026 redesign)
-
-Search `TODO` in the repo for the full list. The notable ones:
-
-- **Tag content type** — tag filter chips on `/blog` currently link to `?tag=slug` but the slug isn't matched against any real taxonomy (returns empty). Needs a `Tag` reference field on `BlogPost`. Unblocks tag results in `/api/search` too.
-- **`/api/search`** — stubs title + summary match only. The client-side command palette and search UI are already wired for `highlights.title`/`highlights.summary` (with `<mark>` sanitisation), but the backend never generates them. Outstanding: body search, ranking, highlight generation, tag results, 60 s cache header. Full spec in `docs/design-handoff/api-contracts.md`.
-- **Reading-minutes** on blog posts — `HomePageViewComponent.EstimateReadingMinutes()` estimates from summary word count (capped 3–15 min); `SearchApiController` hardcodes 4. Should be computed from full body content once there's a reliable way to read Page Builder widget text.
-- **"Now" panel** on home + stack/timeline on About — rows are hard-coded in the Razor views; move to CMS fields or a JSON file in `App_Data` when the content changes often enough to matter.
-- **Copy-link share button** on post detail — deferred (needs a tiny inline `navigator.clipboard` script).
-- **Featured flag** on `BlogPost` — home currently treats the newest post as "featured". A real `Featured: bool` flag would let an editor pin any post.
-
 ## Deployment
 
 - **Production:** https://www.goldfinch.me
