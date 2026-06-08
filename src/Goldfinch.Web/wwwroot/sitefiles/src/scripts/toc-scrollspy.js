@@ -20,8 +20,12 @@
     headings.forEach((h, i) => {
       const li = document.createElement('li');
       const a = document.createElement('a');
+      const idx = document.createElement('span');
       a.href = `#${h.id}`;
-      a.innerHTML = `<span class="idx">${String(i + 1).padStart(2, '0')}</span>${h.textContent}`;
+      idx.className = 'idx';
+      idx.textContent = String(i + 1).padStart(2, '0');
+      a.appendChild(idx);
+      a.appendChild(document.createTextNode(h.textContent || ''));
       li.appendChild(a);
       ul.appendChild(li);
     });
