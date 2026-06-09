@@ -2,12 +2,14 @@
 using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Web.Features.BlogDetail;
+using Goldfinch.Web.Features.BlogList;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc;
 using Schema.NET;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 [assembly: RegisterWebPageRoute(
@@ -20,17 +22,23 @@ namespace Goldfinch.Web.Features.BlogDetail;
 public class BlogDetailController : Controller
 {
     private readonly IBlogPostService _blogPostService;
+    private readonly IBlogTagService _blogTagService;
     private readonly IWebPageUrlRetriever _webPageUrlRetriever;
     private readonly IWebPageDataContextRetriever _webPageDataContextRetriever;
+    private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
 
     public BlogDetailController(
         IBlogPostService blogPostService,
+        IBlogTagService blogTagService,
         IWebPageDataContextRetriever webPageDataContextRetriever,
-        IWebPageUrlRetriever webPageUrlRetriever)
+        IWebPageUrlRetriever webPageUrlRetriever,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         _blogPostService = blogPostService;
+        _blogTagService = blogTagService;
         _webPageDataContextRetriever = webPageDataContextRetriever;
         _webPageUrlRetriever = webPageUrlRetriever;
+        _preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     public async Task<IActionResult> Index()
@@ -50,6 +58,13 @@ public class BlogDetailController : Controller
         }
 
         var viewModel = await BlogPostViewModel.GetViewModelAsync(currentPage, _webPageUrlRetriever);
+
+        if (currentPage.BlogPostTags?.Any() == true)
+        {
+            var tagGuids = currentPage.BlogPostTags.Select(t => t.Identifier).ToList();
+            var resolvedTags = await _blogTagService.GetTagsByGuids(tagGuids, _preferredLanguageRetriever.Get());
+            viewModel.Tags = resolvedTags.Select(t => new BlogTagViewModel(t.Name, t.Title, 0)).ToList();
+        }
 
         viewModel.Schema = GetSchema(viewModel);
 
@@ -92,6 +107,11 @@ public class BlogDetailController : Controller
             Description = viewModel.Summary,
             Author = author
         };
+
+        if (viewModel.Tags.Count > 0)
+        {
+            blogPost.Keywords = string.Join(", ", viewModel.Tags.Select(t => t.Label));
+        }
 
         var webPage = new WebPage
         {

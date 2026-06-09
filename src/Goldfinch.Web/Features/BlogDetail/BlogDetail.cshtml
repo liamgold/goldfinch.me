@@ -56,6 +56,20 @@
                 <editable-area area-identifier="BlogPost" />
             </div>
 
+            @if (Model.Tags.Count > 0)
+            {
+                <div class="post-tags-row">
+                    <span class="mono-label mono">Tagged</span>
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <a class="tag-chip tag-chip--small mono" href="/blog?tag=@tag.Slug">
+                            <span class="tag-chip__hash">#</span>
+                            <span>@tag.Label</span>
+                        </a>
+                    }
+                </div>
+            }
+
             <div class="post-author-card">
                 <div class="post-author-card__avatar" aria-hidden="true">LG</div>
                 <div class="post-author-card__text">
