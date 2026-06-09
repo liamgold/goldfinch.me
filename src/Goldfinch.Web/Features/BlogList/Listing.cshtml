@@ -160,7 +160,7 @@
                     </div>
                     <div class="post-card__thumb">
                         <partial name="PartialViews/_PostCardDots" />
-                        <span class="post-card__thumb-text mono">#post</span>
+                        <span class="post-card__thumb-text mono">#@(post.Tags.Count > 0 ? post.Tags[0].Slug : "post")</span>
                     </div>
                     <div class="post-card__body">
                         <div class="post-card__meta">
