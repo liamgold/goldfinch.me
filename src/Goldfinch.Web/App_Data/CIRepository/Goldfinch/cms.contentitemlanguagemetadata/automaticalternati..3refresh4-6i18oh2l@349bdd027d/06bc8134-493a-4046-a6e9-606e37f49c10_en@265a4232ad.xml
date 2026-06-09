@@ -27,4 +27,24 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </ContentItemLanguageMetadataModifiedByUserID>
+  <ContentItemTags>
+    <cms.contentitemtag>
+      <ContentItemTagContentItemLanguageMetadataID>
+        <GUID>06bc8134-493a-4046-a6e9-606e37f49c10</GUID>
+        <ObjectType>cms.contentitemlanguagemetadata</ObjectType>
+      </ContentItemTagContentItemLanguageMetadataID>
+      <ContentItemTagFieldGUID>2fb2fdd1-876e-4b7d-b875-477e0645bab1</ContentItemTagFieldGUID>
+      <ContentItemTagGUID>e63081ba-f092-4eda-a33b-3f0a7f01a0de</ContentItemTagGUID>
+      <ContentItemTagTagGUID>a90d7618-dbb6-411c-9809-0619f7daff5b</ContentItemTagTagGUID>
+    </cms.contentitemtag>
+    <cms.contentitemtag>
+      <ContentItemTagContentItemLanguageMetadataID>
+        <GUID>06bc8134-493a-4046-a6e9-606e37f49c10</GUID>
+        <ObjectType>cms.contentitemlanguagemetadata</ObjectType>
+      </ContentItemTagContentItemLanguageMetadataID>
+      <ContentItemTagFieldGUID>2fb2fdd1-876e-4b7d-b875-477e0645bab1</ContentItemTagFieldGUID>
+      <ContentItemTagGUID>dd72afd7-96ae-4522-bd27-97ca1776ccd5</ContentItemTagGUID>
+      <ContentItemTagTagGUID>60aba381-f44d-447f-b03f-a231d16ff797</ContentItemTagTagGUID>
+    </cms.contentitemtag>
+  </ContentItemTags>
 </cms.contentitemlanguagemetadata>

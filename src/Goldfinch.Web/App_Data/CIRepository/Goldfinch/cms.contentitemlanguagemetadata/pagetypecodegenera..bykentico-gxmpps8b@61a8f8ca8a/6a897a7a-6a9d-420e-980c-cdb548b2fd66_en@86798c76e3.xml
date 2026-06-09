@@ -27,4 +27,15 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </ContentItemLanguageMetadataModifiedByUserID>
+  <ContentItemTags>
+    <cms.contentitemtag>
+      <ContentItemTagContentItemLanguageMetadataID>
+        <GUID>6a897a7a-6a9d-420e-980c-cdb548b2fd66</GUID>
+        <ObjectType>cms.contentitemlanguagemetadata</ObjectType>
+      </ContentItemTagContentItemLanguageMetadataID>
+      <ContentItemTagFieldGUID>2fb2fdd1-876e-4b7d-b875-477e0645bab1</ContentItemTagFieldGUID>
+      <ContentItemTagGUID>0a8f1b44-f581-43af-b3a7-1fb5b3df9291</ContentItemTagGUID>
+      <ContentItemTagTagGUID>60aba381-f44d-447f-b03f-a231d16ff797</ContentItemTagTagGUID>
+    </cms.contentitemtag>
+  </ContentItemTags>
 </cms.contentitemlanguagemetadata>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>e526a984-097f-44d9-a442-0fcef026a0cd</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>dotnet</TagName>
+  <TagOrder>3</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>BlogTags</CodeName>
+    <GUID>d47c59b3-df7e-41bd-8be3-8459a3936ff6</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>.NET</TagTitle>
+</cms.tag>

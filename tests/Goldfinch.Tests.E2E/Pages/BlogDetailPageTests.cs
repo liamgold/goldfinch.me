@@ -73,4 +73,45 @@ public class BlogDetailPageTests : PlaywrightTestBase
         var count = await paragraphs.CountAsync();
         Assert.True(count > 0, "Expected blog post to have content");
     }
+
+    [Fact]
+    public async Task BlogDetailPage_DisplaysTagsRow()
+    {
+        // Arrange - All current posts are tagged, so the newest post has a tags row
+        var blogPostUrl = await GetFirstBlogPostUrl();
+        Assert.NotNull(blogPostUrl);
+
+        // Act
+        await Page!.GotoAsync($"{BaseUrl}{blogPostUrl}");
+
+        // Assert - Tags row with at least one chip linking to the filtered archive
+        var tagsRow = Page.Locator(".post-tags-row");
+        await Expect(tagsRow).ToBeVisibleAsync();
+
+        var firstChip = tagsRow.Locator("a.tag-chip").First;
+        var href = await firstChip.GetAttributeAsync("href");
+        Assert.NotNull(href);
+        Assert.Contains("/blog?tag=", href);
+    }
+
+    [Fact]
+    public async Task BlogDetailPage_TagChipNavigatesToFilteredList()
+    {
+        // Arrange
+        var blogPostUrl = await GetFirstBlogPostUrl();
+        Assert.NotNull(blogPostUrl);
+        await Page!.GotoAsync($"{BaseUrl}{blogPostUrl}");
+
+        // Act - Click the first tag chip on the post
+        var firstChip = Page.Locator(".post-tags-row a.tag-chip").First;
+        await firstChip.ClickAsync();
+        await Page.WaitForURLAsync(url => url.Contains("/blog?tag="));
+
+        // Assert - Lands on the archive with that tag active and matching posts shown
+        var activeChip = Page.Locator(".tag-chip-row .tag-chip[aria-current='true']");
+        await Expect(activeChip).ToBeVisibleAsync();
+
+        var posts = await Page.Locator("a.post-card").CountAsync();
+        Assert.True(posts > 0, "Expected the filtered archive to show at least the post we came from");
+    }
 }

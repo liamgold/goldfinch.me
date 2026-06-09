@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>60aba381-f44d-447f-b03f-a231d16ff797</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>kentico</TagName>
+  <TagOrder>8</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>BlogTags</CodeName>
+    <GUID>d47c59b3-df7e-41bd-8be3-8459a3936ff6</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Kentico</TagTitle>
+</cms.tag>

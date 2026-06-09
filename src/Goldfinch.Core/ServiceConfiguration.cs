@@ -14,6 +14,7 @@ public static class ServiceConfiguration
         return services
             .AddSingleton<IBreadcrumbService, BreadcrumbService>()
             .AddSingleton<IBlogPostService, BlogPostService>()
+            .AddSingleton<IBlogTagService, BlogTagService>()
             .AddScoped<IErrorPageService, ErrorPageService>()
             .AddSingleton<IPublicSpeakingService, PublicSpeakingService>()
             .AddSingleton<ISitemapService, SitemapService>();

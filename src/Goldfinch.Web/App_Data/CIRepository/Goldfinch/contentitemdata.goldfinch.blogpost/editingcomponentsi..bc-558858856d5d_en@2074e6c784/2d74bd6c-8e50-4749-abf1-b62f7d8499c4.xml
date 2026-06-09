@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.goldfinch.blogpost>
   <BlogPostDate>2023-02-07 00:00:00Z</BlogPostDate>
+  <BlogPostTags>
+    <![CDATA[[{"Identifier":"60aba381-f44d-447f-b03f-a231d16ff797"}]]]>
+  </BlogPostTags>
   <ContentItemDataCommonDataID>
     <GUID>c4b46830-f3bc-4b0d-a7bc-558858856d5d</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>

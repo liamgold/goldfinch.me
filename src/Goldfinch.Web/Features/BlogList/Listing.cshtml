@@ -10,22 +10,16 @@
         return absoluteOrRelative.StartsWith(siteRoot) ? absoluteOrRelative[siteRoot.Length..] : absoluteOrRelative;
     }
 
-    // Tag filter is hidden until a Tag content type exists. Restore with the
-    // tag-chip-row block below when taxonomy is wired up.
-    // TODO: replace static counts with real data from the tag service.
-    /*
-    (string Slug, string Label, int Count)[] topicTags = new[]
+    // Chip URLs switch (or clear) the tag while preserving the active search
+    // term and view mode — mirroring how the search form preserves the tag.
+    string ChipUrl(string? tagSlug)
     {
-        ("xperience",   "Xperience",     8),
-        ("saas",        "Kentico SaaS",  3),
-        ("umbraco",     "Umbraco",       2),
-        ("ai",          "AI tooling",    3),
-        ("open-source", "Open source",   3),
-        (".net",        ".NET",          2),
-        ("commerce",    "Commerce",      2),
-        ("security",    "Security",      1),
-    };
-    */
+        var parts = new List<string>();
+        if (!string.IsNullOrWhiteSpace(tagSlug)) parts.Add($"tag={Uri.EscapeDataString(tagSlug)}");
+        if (!string.IsNullOrWhiteSpace(Model.Query)) parts.Add($"q={Uri.EscapeDataString(Model.Query)}");
+        if (Model.View == "list") parts.Add("view=list");
+        return parts.Count == 0 ? Model.Url : $"{Model.Url}?{string.Join("&", parts)}";
+    }
 }
 
 @section schema {
@@ -41,7 +35,7 @@
     <header class="blog-header">
         <span class="mono-label mono-label--accent">~/blog</span>
         <h1 class="mono">@Model.Title</h1>
-        <p>@Model.TotalCount @(Model.TotalCount == 1 ? "post" : "posts") on Xperience by Kentico, .NET, AI tooling, and building things with code.</p>
+        <p>@Model.AllPostsCount @(Model.AllPostsCount == 1 ? "post" : "posts") on Xperience by Kentico, .NET, AI tooling, and building things with code.</p>
     </header>
 
     <form class="blog-toolbar" method="get" action="@Model.Url" role="search" aria-label="Filter posts">
@@ -50,7 +44,7 @@
             <input type="search"
                    name="q"
                    value="@Model.Query"
-                   placeholder="Filter posts by title, summary, or tag…"
+                   placeholder="Filter posts by title or summary…"
                    class="mono"
                    autocomplete="off"
                    data-live-search
@@ -75,33 +69,38 @@
         </div>
     </form>
 
-    @* Tag filter hidden until taxonomy is wired up. Uncomment + restore the
-       topicTags array in @@functions to re-enable.
-    <div class="tag-chip-row">
-        <a class="tag-chip mono @(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "tag-chip--active" : "")"
-           href="@Model.Url"
-           aria-current="@(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "true" : null)">
-            <span>All posts</span>
-            <span class="tag-chip__count mono">@Model.TotalCount</span>
-        </a>
-        @foreach (var tag in topicTags)
-        {
-            var isActive = string.Equals(Model.ActiveTag, tag.Slug, StringComparison.OrdinalIgnoreCase);
-            <a class="tag-chip mono @(isActive ? "tag-chip--active" : "")"
-               href="@Model.Url?tag=@tag.Slug"
-               aria-current="@(isActive ? "true" : null)">
-                <span class="tag-chip__hash">#</span>
-                <span>@tag.Label</span>
-                <span class="tag-chip__count mono">@tag.Count</span>
+    @if (Model.Tags.Count > 0)
+    {
+        <div class="tag-chip-row">
+            <a class="tag-chip mono @(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "tag-chip--active" : "")"
+               href="@ChipUrl(null)"
+               aria-current="@(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "true" : null)">
+                <span>All posts</span>
+                <span class="tag-chip__count mono">@Model.AllPostsCount</span>
             </a>
-        }
-    </div>
-    *@
+            @foreach (var tag in Model.Tags)
+            {
+                var isActive = string.Equals(Model.ActiveTag, tag.Slug, StringComparison.OrdinalIgnoreCase);
+                <a class="tag-chip mono @(isActive ? "tag-chip--active" : "")"
+                   href="@ChipUrl(tag.Slug)"
+                   aria-current="@(isActive ? "true" : null)">
+                    <span class="tag-chip__hash">#</span>
+                    <span>@tag.Label</span>
+                    <span class="tag-chip__count mono">@tag.Count</span>
+                </a>
+            }
+        </div>
+    }
 
     @if (Model.BlogPosts.Count == 0)
     {
         <div class="empty-state">
-            @if (!string.IsNullOrWhiteSpace(Model.ActiveTag))
+            @if (!string.IsNullOrWhiteSpace(Model.ActiveTag) && !string.IsNullOrWhiteSpace(Model.Query))
+            {
+                <div class="empty-state__cmd">$ grep -r "@Model.Query" ./posts | grep "#@Model.ActiveTag"</div>
+                <div class="empty-state__hint">No posts tagged <code>#@Model.ActiveTag</code> match <code>@Model.Query</code>. <a href="@Model.Url?tag=@Model.ActiveTag">Clear search</a> or <a href="@Model.Url">clear all filters</a>.</div>
+            }
+            else if (!string.IsNullOrWhiteSpace(Model.ActiveTag))
             {
                 <div class="empty-state__cmd">$ grep -r "#@Model.ActiveTag" ./posts</div>
                 <div class="empty-state__hint">No posts tagged <code>#@Model.ActiveTag</code> yet. <a href="@Model.Url">Clear filter</a>.</div>
@@ -137,7 +136,10 @@
                             <div class="post-list__summary">@post.Summary</div>
                         </div>
                         <div class="post-list__tags">
-                            @* TODO: show real tags once Tag content type exists. *@
+                            @foreach (var tag in post.Tags)
+                            {
+                                <span class="post-tag mono">#@tag.Slug</span>
+                            }
                         </div>
                         <span class="post-list__mins">4m</span>
                     </a>
@@ -166,6 +168,15 @@
                         </div>
                         <h3 class="post-card__title">@post.Title</h3>
                         <p class="post-card__summary">@post.Summary</p>
+                        @if (post.Tags.Count > 0)
+                        {
+                            <div class="post-card__tags">
+                                @foreach (var tag in post.Tags)
+                                {
+                                    <span class="tag-chip tag-chip--small mono"><span class="tag-chip__hash">#</span><span>@tag.Label</span></span>
+                                }
+                            </div>
+                        }
                     </div>
                 </a>
             }

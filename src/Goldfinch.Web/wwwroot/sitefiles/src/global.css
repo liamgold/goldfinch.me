@@ -888,6 +888,11 @@ h1.hero-h1 {
   flex-wrap: wrap;
   gap: 5px;
 }
+/* Card chips are display-only (the whole card is the link) — let pointer
+   events fall through so they don't suggest a separate click target. */
+.post-card__tags .tag-chip {
+  pointer-events: none;
+}
 
 /* Featured card */
 .featured-card {

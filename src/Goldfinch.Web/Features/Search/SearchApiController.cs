@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
+using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.Extensions;
 using Kentico.Content.Web.Mvc;
+using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Goldfinch.Web.Features.Search;
@@ -24,18 +27,24 @@ namespace Goldfinch.Web.Features.Search;
 public class SearchApiController : ControllerBase
 {
     private readonly IBlogPostService _blogPostService;
+    private readonly IBlogTagService _blogTagService;
     private readonly IWebPageUrlRetriever _urlRetriever;
+    private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
 
     public SearchApiController(
         IBlogPostService blogPostService,
-        IWebPageUrlRetriever urlRetriever)
+        IBlogTagService blogTagService,
+        IWebPageUrlRetriever urlRetriever,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         _blogPostService = blogPostService;
+        _blogTagService = blogTagService;
         _urlRetriever = urlRetriever;
+        _preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     [HttpGet]
-    public async Task<IActionResult> Search([FromQuery] string? q, [FromQuery] int limit = 8)
+    public async Task<IActionResult> Search([FromQuery] string? q, [FromQuery] string? tag = null, [FromQuery] int limit = 8)
     {
         if (string.IsNullOrWhiteSpace(q))
         {
@@ -49,9 +58,22 @@ public class SearchApiController : ControllerBase
         var started = DateTime.UtcNow;
 
         var needle = q.Trim();
-        var all = (await _blogPostService.GetAllBlogPosts())
-            .OrderByDescending(p => p.BlogPostDate)
-            .ToList();
+
+        // Scope to a tag when one is active (e.g. live search on /blog?tag=…).
+        List<BlogPost> all;
+        if (!string.IsNullOrWhiteSpace(tag))
+        {
+            var tagGuid = await _blogTagService.ResolveTagSlugToGuid(tag);
+            all = tagGuid.HasValue
+                ? (await _blogPostService.GetBlogPostsByTag(tagGuid.Value)).ToList()
+                : [];
+        }
+        else
+        {
+            all = (await _blogPostService.GetAllBlogPosts())
+                .OrderByDescending(p => p.BlogPostDate)
+                .ToList();
+        }
 
         var matches = all.Where(p =>
                 (p.BaseContentTitle?.Contains(needle, StringComparison.OrdinalIgnoreCase) ?? false)
@@ -59,11 +81,22 @@ public class SearchApiController : ControllerBase
             .Take(limit)
             .ToList();
 
+        var languageName = _preferredLanguageRetriever.Get();
+
         var results = new object[matches.Count];
         for (var i = 0; i < matches.Count; i++)
         {
             var m = matches[i];
             var url = (await _urlRetriever.Retrieve(m)).RelativePath.ToAbsolutePath();
+
+            var tags = Array.Empty<string>();
+            if (m.BlogPostTags?.Any() == true)
+            {
+                var resolvedTags = await _blogTagService.GetTagsByGuids(
+                    m.BlogPostTags.Select(t => t.Identifier), languageName);
+                tags = resolvedTags.Select(t => t.Name).ToArray();
+            }
+
             results[i] = new
             {
                 kind = "post",
@@ -71,7 +104,7 @@ public class SearchApiController : ControllerBase
                 summary = m.BaseContentShortDescription,
                 url,
                 date = m.BlogPostDate.ToString("yyyy-MM-dd"),
-                tags = Array.Empty<string>(),    // TODO: wire up once Tag content type exists
+                tags,
                 reading_minutes = 4,             // TODO: compute from body
             };
         }

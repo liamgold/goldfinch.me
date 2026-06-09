@@ -1,6 +1,8 @@
 using CMS.Websites;
 using Goldfinch.Core.ContentTypes;
+using Goldfinch.Web.Features.BlogList;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,6 +22,9 @@ public class BlogPostViewModel
     public string Filename { get; set; } = "post.md";
 
     public string Schema { get; set; } = string.Empty;
+
+    /// <summary>Tags assigned to this post, for display in list view rows.</summary>
+    public IReadOnlyList<BlogTagViewModel> Tags { get; set; } = [];
 
     public static async Task<BlogPostViewModel> GetViewModelAsync(BlogPost blogPost, IWebPageUrlRetriever pageUrlRetriever)
     {

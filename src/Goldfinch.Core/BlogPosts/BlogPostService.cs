@@ -100,6 +100,25 @@ public class BlogPostService : IBlogPostService
         new CacheSettings(60, _websiteChannelContext.WebsiteChannelName, nameof(BlogPostService), nameof(GetAllBlogPosts)));
     }
 
+    public async Task<IEnumerable<BlogPost>> GetBlogPostsByTag(Guid tagGuid)
+    {
+        return await _progressiveCache.LoadAsync(async (cs) =>
+        {
+            var queryBuilder = new ContentItemQueryBuilder()
+                .ForContentType(BlogPost.CONTENT_TYPE_NAME, queryParameters => queryParameters
+                    .ForWebsite(_websiteChannelContext.WebsiteChannelName)
+                    .Where(w => w.WhereContainsTags(nameof(BlogPost.BlogPostTags), [tagGuid]))
+                    .OrderBy([new OrderByColumn(nameof(BlogPost.BlogPostDate), OrderDirection.Descending)])
+                );
+
+            return await _executor.GetMappedWebPageResult<BlogPost>(queryBuilder, new ContentQueryExecutionOptions
+            {
+                ForPreview = _websiteChannelContext.IsPreview,
+            });
+        },
+        new CacheSettings(60, _websiteChannelContext.WebsiteChannelName, _websiteChannelContext.IsPreview, nameof(BlogPostService), nameof(GetBlogPostsByTag), tagGuid.ToString()));
+    }
+
     public async Task<int> GetBlogPageCount()
     {
         var allBlogPosts = (await GetAllBlogPosts()).ToList();

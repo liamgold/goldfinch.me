@@ -20,7 +20,11 @@ public class BlogListViewModel
 
     public int PageCount { get; set; }
 
+    /// <summary>Count of posts matching the current filter — drives the toolbar counter and pagination ranges.</summary>
     public int TotalCount { get; set; }
+
+    /// <summary>Count of all published posts, ignoring any active filter — drives the header blurb and the "All posts" chip.</summary>
+    public int AllPostsCount { get; set; }
 
     public int PageStart { get; set; }
 
@@ -34,6 +38,9 @@ public class BlogListViewModel
     public string View { get; set; } = "grid";
 
     public ICollection<BlogPostViewModel> BlogPosts { get; set; } = [];
+
+    /// <summary>Tags with post counts for the filter chip row.</summary>
+    public IReadOnlyList<BlogTagViewModel> Tags { get; set; } = [];
 
     public string Schema { get; set; } = string.Empty;
 

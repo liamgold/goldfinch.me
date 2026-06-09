@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>c994cae4-0acd-41b5-a5dd-05539ecaee3b</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>umbraco</TagName>
+  <TagOrder>6</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>BlogTags</CodeName>
+    <GUID>d47c59b3-df7e-41bd-8be3-8459a3936ff6</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Umbraco</TagTitle>
+</cms.tag>

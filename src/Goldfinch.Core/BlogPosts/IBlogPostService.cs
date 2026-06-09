@@ -1,4 +1,5 @@
 using Goldfinch.Core.ContentTypes;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -41,4 +42,11 @@ public interface IBlogPostService
     /// </summary>
     /// <returns>All blog posts.</returns>
     Task<IEnumerable<BlogPost>> GetAllBlogPosts();
+
+    /// <summary>
+    /// Retrieves all blog posts tagged with the specified tag, ordered by date descending.
+    /// </summary>
+    /// <param name="tagGuid">The GUID of the taxonomy tag to filter by.</param>
+    /// <returns>The matching blog posts.</returns>
+    Task<IEnumerable<BlogPost>> GetBlogPostsByTag(Guid tagGuid);
 }

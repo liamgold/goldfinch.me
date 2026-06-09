@@ -32,6 +32,7 @@ public class BlogListController : Controller
     private readonly IWebPageUrlRetriever _webPageUrlRetriever;
     private readonly IContentRetriever _contentRetriever;
     private readonly IBlogPostService _blogPostService;
+    private readonly IBlogTagService _blogTagService;
     private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
     private readonly IWebsiteChannelContext _websiteChannelContext;
 
@@ -40,6 +41,7 @@ public class BlogListController : Controller
         IWebPageUrlRetriever webPageUrlRetriever,
         IContentRetriever contentRetriever,
         IBlogPostService blogPostService,
+        IBlogTagService blogTagService,
         IPreferredLanguageRetriever preferredLanguageRetriever,
         IWebsiteChannelContext websiteChannelContext)
     {
@@ -47,6 +49,7 @@ public class BlogListController : Controller
         _webPageUrlRetriever = webPageUrlRetriever;
         _contentRetriever = contentRetriever;
         _blogPostService = blogPostService;
+        _blogTagService = blogTagService;
         _preferredLanguageRetriever = preferredLanguageRetriever;
         _websiteChannelContext = websiteChannelContext;
     }
@@ -74,14 +77,21 @@ public class BlogListController : Controller
             ContentTypeID = blogListing.SystemFields.ContentItemContentTypeID,
         });
 
-        // Pull the full set once — 13ish posts today, in-memory filter is trivial.
-        // TODO: once a Tag content type exists, push ?tag= filtering into the service so
-        // the query runs against the Kentico database rather than the in-memory list.
         var allPosts = (await _blogPostService.GetAllBlogPosts())
             .OrderByDescending(p => p.BlogPostDate)
             .ToList();
 
         var filtered = allPosts.AsEnumerable();
+
+        // Tag filter first — it replaces the working set with a DB-side query;
+        // the text search below then narrows that set further.
+        if (!string.IsNullOrWhiteSpace(tag))
+        {
+            var tagGuid = await _blogTagService.ResolveTagSlugToGuid(tag);
+            filtered = tagGuid.HasValue
+                ? (await _blogPostService.GetBlogPostsByTag(tagGuid.Value)).ToList()
+                : Enumerable.Empty<BlogPost>();
+        }
 
         if (!string.IsNullOrWhiteSpace(q))
         {
@@ -89,13 +99,6 @@ public class BlogListController : Controller
             filtered = filtered.Where(p =>
                 (p.BaseContentTitle?.Contains(needle, StringComparison.OrdinalIgnoreCase) ?? false)
                 || (p.BaseContentShortDescription?.Contains(needle, StringComparison.OrdinalIgnoreCase) ?? false));
-        }
-
-        // TODO: tag filtering is a no-op until a Tag content type is added. When ?tag= is
-        // present we currently return no matches so the UI shows the "no posts tagged" state.
-        if (!string.IsNullOrWhiteSpace(tag))
-        {
-            filtered = Enumerable.Empty<BlogPost>();
         }
 
         var filteredList = filtered.ToList();
@@ -114,6 +117,7 @@ public class BlogListController : Controller
         viewModel.Query = q;
         viewModel.View = view == "list" ? "list" : "grid";
         viewModel.TotalCount = totalCount;
+        viewModel.AllPostsCount = allPosts.Count;
         viewModel.PageStart = totalCount == 0 ? 0 : (currentPage - 1) * PostsPerPage + 1;
         viewModel.PageEnd = totalCount == 0 ? 0 : viewModel.PageStart + pageItems.Count - 1;
 
@@ -132,8 +136,21 @@ public class BlogListController : Controller
         foreach (var blogPost in pageItems)
         {
             var vm = await BlogPostViewModel.GetViewModelAsync(blogPost, _webPageUrlRetriever);
+
+            if (blogPost.BlogPostTags?.Any() == true)
+            {
+                var tagGuids = blogPost.BlogPostTags.Select(t => t.Identifier).ToList();
+                var resolvedTags = await _blogTagService.GetTagsByGuids(tagGuids, languageName);
+                vm.Tags = resolvedTags.Select(t => new BlogTagViewModel(t.Name, t.Title, 0)).ToList();
+            }
+
             viewModel.BlogPosts.Add(vm);
         }
+
+        var tagsWithCounts = await _blogTagService.GetTagsWithPostCounts(languageName);
+        viewModel.Tags = tagsWithCounts
+            .Select(t => new BlogTagViewModel(t.Tag.Name, t.Tag.Title, t.PostCount))
+            .ToList();
 
         viewModel.Schema = GetSchema(viewModel);
 

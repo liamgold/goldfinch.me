@@ -42,6 +42,12 @@ namespace Goldfinch.Core.ContentTypes
 
 
 		/// <summary>
+		/// BlogPostTags.
+		/// </summary>
+		public IEnumerable<TagReference> BlogPostTags { get; set; }
+
+
+		/// <summary>
 		/// BaseContentTitle.
 		/// </summary>
 		public string BaseContentTitle { get; set; }
