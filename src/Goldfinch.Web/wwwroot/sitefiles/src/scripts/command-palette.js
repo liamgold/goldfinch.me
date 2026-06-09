@@ -44,7 +44,7 @@
               type="search"
               autocomplete="off"
               spellcheck="false"
-              placeholder="Type a post, tag, or page…"
+              placeholder="Type a post or page…"
               aria-label="Search posts and navigation"
               aria-controls="palette-listbox">
             <button class="palette-esc" type="button" aria-label="Close">ESC</button>
