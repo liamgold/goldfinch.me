@@ -9,6 +9,17 @@
         const string siteRoot = "https://www.goldfinch.me";
         return absoluteOrRelative.StartsWith(siteRoot) ? absoluteOrRelative[siteRoot.Length..] : absoluteOrRelative;
     }
+
+    // Chip URLs switch (or clear) the tag while preserving the active search
+    // term and view mode — mirroring how the search form preserves the tag.
+    string ChipUrl(string? tagSlug)
+    {
+        var parts = new List<string>();
+        if (!string.IsNullOrWhiteSpace(tagSlug)) parts.Add($"tag={Uri.EscapeDataString(tagSlug)}");
+        if (!string.IsNullOrWhiteSpace(Model.Query)) parts.Add($"q={Uri.EscapeDataString(Model.Query)}");
+        if (Model.View == "list") parts.Add("view=list");
+        return parts.Count == 0 ? Model.Url : $"{Model.Url}?{string.Join("&", parts)}";
+    }
 }
 
 @section schema {
@@ -62,7 +73,7 @@
     {
         <div class="tag-chip-row">
             <a class="tag-chip mono @(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "tag-chip--active" : "")"
-               href="@Model.Url"
+               href="@ChipUrl(null)"
                aria-current="@(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "true" : null)">
                 <span>All posts</span>
                 <span class="tag-chip__count mono">@Model.AllPostsCount</span>
@@ -71,7 +82,7 @@
             {
                 var isActive = string.Equals(Model.ActiveTag, tag.Slug, StringComparison.OrdinalIgnoreCase);
                 <a class="tag-chip mono @(isActive ? "tag-chip--active" : "")"
-                   href="@Model.Url?tag=@tag.Slug"
+                   href="@ChipUrl(tag.Slug)"
                    aria-current="@(isActive ? "true" : null)">
                     <span class="tag-chip__hash">#</span>
                     <span>@tag.Label</span>
