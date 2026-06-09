@@ -84,7 +84,12 @@
     @if (Model.BlogPosts.Count == 0)
     {
         <div class="empty-state">
-            @if (!string.IsNullOrWhiteSpace(Model.ActiveTag))
+            @if (!string.IsNullOrWhiteSpace(Model.ActiveTag) && !string.IsNullOrWhiteSpace(Model.Query))
+            {
+                <div class="empty-state__cmd">$ grep -r "@Model.Query" ./posts | grep "#@Model.ActiveTag"</div>
+                <div class="empty-state__hint">No posts tagged <code>#@Model.ActiveTag</code> match <code>@Model.Query</code>. <a href="@Model.Url?tag=@Model.ActiveTag">Clear search</a> or <a href="@Model.Url">clear all filters</a>.</div>
+            }
+            else if (!string.IsNullOrWhiteSpace(Model.ActiveTag))
             {
                 <div class="empty-state__cmd">$ grep -r "#@Model.ActiveTag" ./posts</div>
                 <div class="empty-state__hint">No posts tagged <code>#@Model.ActiveTag</code> yet. <a href="@Model.Url">Clear filter</a>.</div>
