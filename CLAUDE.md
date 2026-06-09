@@ -132,6 +132,16 @@ Each module is a self-contained IIFE that no-ops if its expected DOM isn't prese
 - **Progressive Caching:** Complex services use Kentico's `IProgressiveCache` for performance; simple retrieval uses `IContentRetriever` which caches automatically
 - **CI/CD:** Uses Kentico's Continuous Integration system — objects stored as serialised files in `App_Data/CIRepository/`
 
+### Taxonomies (blog tags)
+
+Blog post tagging uses Xperience's built-in **Taxonomies** feature — never create a custom Tag content type.
+
+- **Taxonomy:** `BlogTags` (managed in admin under Configuration → Taxonomies; serialised to `App_Data/CIRepository/@global/cms.taxonomy/` + `cms.tag/`). Tag code names are the URL slugs (`?tag=kentico`); tag titles are the display labels.
+- **Field:** `BlogPost.BlogPostTags` (`IEnumerable<TagReference>`) — a Tags field on the content type. `TagReference` carries only the GUID; resolve to names/titles via `IBlogTagService`.
+- **Access pattern:** `IBlogTagService` (`Goldfinch.Core/BlogPosts/`) wraps `ITaxonomyRetriever` with caching — slug→GUID resolution, all tags with post counts (zero-count tags excluded), GUID→`Tag` resolution. The taxonomy code name is a constant in `BlogTagService` (`BLOG_TAGS_TAXONOMY_NAME`) — it must match the admin code name if the taxonomy is ever renamed.
+- **Querying by tag:** `WhereContainsTags(nameof(BlogPost.BlogPostTags), [tagGuid])` — **GUIDs only**, never code names. URL slugs must go through `IBlogTagService.ResolveTagSlugToGuid` first. See `BlogPostService.GetBlogPostsByTag`.
+- **Where tags surface:** `/blog` chip row + card chips + list view column, post detail "Tagged" row + JSON-LD keywords, `/api/search` result `tags` field (also accepts `?tag=` to scope results), RSS `<category>` elements.
+
 ### Image Handling
 
 The project uses Xperience by Kentico's native **Image Variant** functionality (Standard Media Dimensions) for responsive image delivery:
