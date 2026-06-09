@@ -20,7 +20,11 @@ public class BlogListViewModel
 
     public int PageCount { get; set; }
 
+    /// <summary>Count of posts matching the current filter — drives the toolbar counter and pagination ranges.</summary>
     public int TotalCount { get; set; }
+
+    /// <summary>Count of all published posts, ignoring any active filter — drives the header blurb and the "All posts" chip.</summary>
+    public int AllPostsCount { get; set; }
 
     public int PageStart { get; set; }
 

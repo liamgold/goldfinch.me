@@ -24,7 +24,7 @@
     <header class="blog-header">
         <span class="mono-label mono-label--accent">~/blog</span>
         <h1 class="mono">@Model.Title</h1>
-        <p>@Model.TotalCount @(Model.TotalCount == 1 ? "post" : "posts") on Xperience by Kentico, .NET, AI tooling, and building things with code.</p>
+        <p>@Model.AllPostsCount @(Model.AllPostsCount == 1 ? "post" : "posts") on Xperience by Kentico, .NET, AI tooling, and building things with code.</p>
     </header>
 
     <form class="blog-toolbar" method="get" action="@Model.Url" role="search" aria-label="Filter posts">
@@ -65,7 +65,7 @@
                href="@Model.Url"
                aria-current="@(string.IsNullOrWhiteSpace(Model.ActiveTag) ? "true" : null)">
                 <span>All posts</span>
-                <span class="tag-chip__count mono">@Model.TotalCount</span>
+                <span class="tag-chip__count mono">@Model.AllPostsCount</span>
             </a>
             @foreach (var tag in Model.Tags)
             {

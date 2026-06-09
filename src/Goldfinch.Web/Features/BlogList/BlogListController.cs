@@ -117,6 +117,7 @@ public class BlogListController : Controller
         viewModel.Query = q;
         viewModel.View = view == "list" ? "list" : "grid";
         viewModel.TotalCount = totalCount;
+        viewModel.AllPostsCount = allPosts.Count;
         viewModel.PageStart = totalCount == 0 ? 0 : (currentPage - 1) * PostsPerPage + 1;
         viewModel.PageEnd = totalCount == 0 ? 0 : viewModel.PageStart + pageItems.Count - 1;
 
