@@ -10,6 +10,10 @@
   const resultsEl = document.querySelector('[data-live-search-results]');
   if (!input || !resultsEl) return;
 
+  // When a tag filter is active the form carries it in a hidden input —
+  // scope live results to the same tag so the dropdown matches the page.
+  const activeTag = input.form?.querySelector('input[name="tag"]')?.value || '';
+
   let timer = null;
   let abortCtl = null;
 
@@ -51,7 +55,8 @@
   async function run(q) {
     abortCtl = new AbortController();
     try {
-      const res = await fetch(`/api/search?q=${encodeURIComponent(q)}&limit=6`, {
+      const tagParam = activeTag ? `&tag=${encodeURIComponent(activeTag)}` : '';
+      const res = await fetch(`/api/search?q=${encodeURIComponent(q)}${tagParam}&limit=6`, {
         signal: abortCtl.signal,
         headers: { Accept: 'application/json' },
       });

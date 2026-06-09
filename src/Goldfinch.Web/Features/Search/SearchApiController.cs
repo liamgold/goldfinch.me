@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
+using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.Extensions;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
@@ -24,18 +26,21 @@ namespace Goldfinch.Web.Features.Search;
 public class SearchApiController : ControllerBase
 {
     private readonly IBlogPostService _blogPostService;
+    private readonly IBlogTagService _blogTagService;
     private readonly IWebPageUrlRetriever _urlRetriever;
 
     public SearchApiController(
         IBlogPostService blogPostService,
+        IBlogTagService blogTagService,
         IWebPageUrlRetriever urlRetriever)
     {
         _blogPostService = blogPostService;
+        _blogTagService = blogTagService;
         _urlRetriever = urlRetriever;
     }
 
     [HttpGet]
-    public async Task<IActionResult> Search([FromQuery] string? q, [FromQuery] int limit = 8)
+    public async Task<IActionResult> Search([FromQuery] string? q, [FromQuery] string? tag = null, [FromQuery] int limit = 8)
     {
         if (string.IsNullOrWhiteSpace(q))
         {
@@ -49,9 +54,22 @@ public class SearchApiController : ControllerBase
         var started = DateTime.UtcNow;
 
         var needle = q.Trim();
-        var all = (await _blogPostService.GetAllBlogPosts())
-            .OrderByDescending(p => p.BlogPostDate)
-            .ToList();
+
+        // Scope to a tag when one is active (e.g. live search on /blog?tag=…).
+        List<BlogPost> all;
+        if (!string.IsNullOrWhiteSpace(tag))
+        {
+            var tagGuid = await _blogTagService.ResolveTagSlugToGuid(tag);
+            all = tagGuid.HasValue
+                ? (await _blogPostService.GetBlogPostsByTag(tagGuid.Value)).ToList()
+                : [];
+        }
+        else
+        {
+            all = (await _blogPostService.GetAllBlogPosts())
+                .OrderByDescending(p => p.BlogPostDate)
+                .ToList();
+        }
 
         var matches = all.Where(p =>
                 (p.BaseContentTitle?.Contains(needle, StringComparison.OrdinalIgnoreCase) ?? false)
