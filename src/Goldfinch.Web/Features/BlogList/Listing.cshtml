@@ -160,7 +160,7 @@
                     </div>
                     <div class="post-card__thumb">
                         <partial name="PartialViews/_PostCardDots" />
-                        <span class="post-card__thumb-text mono">#@(post.Tags.Count > 0 ? post.Tags[0].Slug : "post")</span>
+                        <span class="post-card__thumb-text mono">#post</span>
                     </div>
                     <div class="post-card__body">
                         <div class="post-card__meta">
@@ -168,6 +168,15 @@
                         </div>
                         <h3 class="post-card__title">@post.Title</h3>
                         <p class="post-card__summary">@post.Summary</p>
+                        @if (post.Tags.Count > 0)
+                        {
+                            <div class="post-card__tags">
+                                @foreach (var tag in post.Tags)
+                                {
+                                    <span class="tag-chip tag-chip--small mono"><span class="tag-chip__hash">#</span><span>@tag.Label</span></span>
+                                }
+                            </div>
+                        }
                     </div>
                 </a>
             }
