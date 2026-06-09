@@ -35,6 +35,9 @@ public class BlogListViewModel
 
     public ICollection<BlogPostViewModel> BlogPosts { get; set; } = [];
 
+    /// <summary>Tags with post counts for the filter chip row.</summary>
+    public IReadOnlyList<BlogTagViewModel> Tags { get; set; } = [];
+
     public string Schema { get; set; } = string.Empty;
 
     public static async Task<BlogListViewModel> GetViewModelAsync(

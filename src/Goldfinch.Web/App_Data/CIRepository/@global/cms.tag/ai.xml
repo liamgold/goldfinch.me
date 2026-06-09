@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>a90d7618-dbb6-411c-9809-0619f7daff5b</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>ai</TagName>
+  <TagOrder>5</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>BlogTags</CodeName>
+    <GUID>d47c59b3-df7e-41bd-8be3-8459a3936ff6</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>AI tooling</TagTitle>
+</cms.tag>

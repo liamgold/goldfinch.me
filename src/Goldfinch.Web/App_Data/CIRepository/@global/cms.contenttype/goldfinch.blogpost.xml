@@ -24,6 +24,21 @@
       <schema guid="a233b246-1067-4f55-93bf-6dde29dfa830" name="a233b246-1067-4f55-93bf-6dde29dfa830">
         <properties />
       </schema>
+      <field allowempty="true" column="BlogPostTags" columnprecision="0" columntype="taxonomy" enabled="true" guid="2fb2fdd1-876e-4b7d-b875-477e0645bab1" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Tags</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <includeincontentgeneration>False</includeincontentgeneration>
+          <includeintranslation>True</includeintranslation>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TagSelector</controlname>
+          <TaxonomyGroup>
+            <![CDATA[["d47c59b3-df7e-41bd-8be3-8459a3936ff6"]]]>
+          </TaxonomyGroup>
+        </settings>
+      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>c3495cd5-11e9-4fca-a6be-85123e9e4b6e</ClassGUID>
