@@ -4,12 +4,12 @@
   <TagMetadata>
     <![CDATA[{"Translations":{}}]]>
   </TagMetadata>
-  <TagName>xperience</TagName>
+  <TagName>kentico</TagName>
   <TagOrder>8</TagOrder>
   <TagTaxonomyID>
     <CodeName>BlogTags</CodeName>
     <GUID>d47c59b3-df7e-41bd-8be3-8459a3936ff6</GUID>
     <ObjectType>cms.taxonomy</ObjectType>
   </TagTaxonomyID>
-  <TagTitle>Xperience</TagTitle>
+  <TagTitle>Kentico</TagTitle>
 </cms.tag>
