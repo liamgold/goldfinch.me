@@ -1903,6 +1903,18 @@ a.pager-btn:hover {
 .post-share-card button:hover {
   color: var(--accent-hot);
 }
+.copy-link-btn__copied {
+  display: none;
+}
+.copy-link-btn[data-copied] .copy-link-btn__default {
+  display: none;
+}
+.copy-link-btn[data-copied] .copy-link-btn__copied {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+}
 
 .prev-next-nav {
   display: grid;
