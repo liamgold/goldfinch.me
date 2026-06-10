@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Goldfinch.Web.Features.BlogList;
 
 namespace Goldfinch.Web.Features.Home;
 
@@ -30,7 +31,8 @@ public record HomeFeaturedPost(
     string Url,
     string Filename,
     DateTime PublishedOn,
-    int ReadingMinutes);
+    int ReadingMinutes,
+    IReadOnlyList<BlogTagViewModel> Tags);
 
 public record HomeRecentPost(
     string Title,
@@ -38,4 +40,5 @@ public record HomeRecentPost(
     string Url,
     string Filename,
     DateTime PublishedOn,
-    int ReadingMinutes);
+    int ReadingMinutes,
+    IReadOnlyList<BlogTagViewModel> Tags);

@@ -181,6 +181,15 @@
                     </div>
                     <h3 class="featured-card__title">@Model.FeaturedPost.Title</h3>
                     <p class="featured-card__summary">@Model.FeaturedPost.Summary</p>
+                    @if (Model.FeaturedPost.Tags.Count > 0)
+                    {
+                        <div class="post-card__tags">
+                            @foreach (var tag in Model.FeaturedPost.Tags)
+                            {
+                                <span class="tag-chip tag-chip--small mono"><span class="tag-chip__hash">#</span><span>@tag.Label</span></span>
+                            }
+                        </div>
+                    }
                     <div class="featured-card__cta">
                         <span>Read the post</span>
                         <icon name="arrowR" size="15" />
@@ -219,6 +228,15 @@
                             </div>
                             <h3 class="post-card__title">@post.Title</h3>
                             <p class="post-card__summary">@post.Summary</p>
+                            @if (post.Tags.Count > 0)
+                            {
+                                <div class="post-card__tags">
+                                    @foreach (var tag in post.Tags)
+                                    {
+                                        <span class="tag-chip tag-chip--small mono"><span class="tag-chip__hash">#</span><span>@tag.Label</span></span>
+                                    }
+                                </div>
+                            }
                         </div>
                     </a>
                 }
