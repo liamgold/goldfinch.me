@@ -5,7 +5,9 @@ using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.SiteStats;
 using Goldfinch.Web.Features.BlogDetail;
+using Goldfinch.Web.Features.BlogList;
 using Kentico.Content.Web.Mvc;
+using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Goldfinch.Web.Features.Home;
@@ -22,20 +24,27 @@ public class HomePageViewComponent : ViewComponent
     private readonly IContentRetriever _contentRetriever;
     private readonly IBlogPostService _blogPostService;
     private readonly IWebPageUrlRetriever _urlRetriever;
+    private readonly IBlogTagService _blogTagService;
+    private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
 
     public HomePageViewComponent(
         IContentRetriever contentRetriever,
         IBlogPostService blogPostService,
-        IWebPageUrlRetriever urlRetriever)
+        IWebPageUrlRetriever urlRetriever,
+        IBlogTagService blogTagService,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         _contentRetriever = contentRetriever;
         _blogPostService = blogPostService;
         _urlRetriever = urlRetriever;
+        _blogTagService = blogTagService;
+        _preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(RoutedWebPage page, HomePageTemplateProperties props)
     {
         var home = await _contentRetriever.RetrieveCurrentPage<Core.ContentTypes.Home>();
+        var languageName = _preferredLanguageRetriever.Get();
 
         // Pull the full set — cheap on a small blog, lets us derive totals + first-year
         // for the hero stats without a second query.
@@ -51,24 +60,28 @@ public class HomePageViewComponent : ViewComponent
         {
             var top = allPosts[0];
             var topUrl = (await _urlRetriever.Retrieve(top)).RelativePath;
+            var topTags = await ResolveTags(top.BlogPostTags, languageName);
             featured = new HomeFeaturedPost(
                 Title: top.BaseContentTitle,
                 Summary: top.BaseContentShortDescription,
                 Url: topUrl,
                 Filename: BlogPostViewModel.FilenameFromUrl(topUrl),
                 PublishedOn: top.BlogPostDate,
-                ReadingMinutes: EstimateReadingMinutes(top.BaseContentShortDescription));
+                ReadingMinutes: EstimateReadingMinutes(top.BaseContentShortDescription),
+                Tags: topTags);
 
             foreach (var post in allPosts.Skip(1).Take(RecentPostCount))
             {
                 var url = (await _urlRetriever.Retrieve(post)).RelativePath;
+                var tags = await ResolveTags(post.BlogPostTags, languageName);
                 recent.Add(new HomeRecentPost(
                     Title: post.BaseContentTitle,
                     Summary: post.BaseContentShortDescription,
                     Url: url,
                     Filename: BlogPostViewModel.FilenameFromUrl(url),
                     PublishedOn: post.BlogPostDate,
-                    ReadingMinutes: EstimateReadingMinutes(post.BaseContentShortDescription)));
+                    ReadingMinutes: EstimateReadingMinutes(post.BaseContentShortDescription),
+                    Tags: tags));
             }
         }
 
@@ -97,6 +110,16 @@ public class HomePageViewComponent : ViewComponent
             years--;
         }
         return System.Math.Max(0, years);
+    }
+
+    private async System.Threading.Tasks.Task<IReadOnlyList<BlogTagViewModel>> ResolveTags(
+        System.Collections.Generic.IEnumerable<CMS.ContentEngine.TagReference>? tagRefs,
+        string languageName)
+    {
+        if (tagRefs == null || !tagRefs.Any()) return [];
+        var guids = tagRefs.Select(t => t.Identifier).ToList();
+        var tags = await _blogTagService.GetTagsByGuids(guids, languageName);
+        return tags.Select(t => new BlogTagViewModel(t.Name, t.Title, 0)).ToList();
     }
 
     /// <summary>

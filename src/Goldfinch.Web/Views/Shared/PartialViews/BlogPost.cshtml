@@ -16,5 +16,14 @@
         </div>
         <h3 class="post-card__title">@Model.Title</h3>
         <p class="post-card__summary">@Model.Summary</p>
+        @if (Model.Tags.Count > 0)
+        {
+            <div class="post-card__tags">
+                @foreach (var tag in Model.Tags)
+                {
+                    <span class="tag-chip tag-chip--small mono"><span class="tag-chip__hash">#</span><span>@tag.Label</span></span>
+                }
+            </div>
+        }
     </div>
 </a>
