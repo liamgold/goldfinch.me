@@ -4,6 +4,7 @@ import './scripts/mobile-drawer';
 import './scripts/command-palette';
 import './scripts/search';
 import './scripts/toc-scrollspy';
+import './scripts/copy-link';
 
 console.log(
   "%cGoldfinch.me — if you're reading this, you're either me or someone very cool.",

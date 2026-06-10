@@ -101,7 +101,10 @@
                 <div class="mono-label mono-label--block mono-label--mb-sm mono">Share</div>
                 <a href="https://x.com/intent/tweet?text=@shareTitle&url=@shareUrl" target="_blank" rel="noopener"><icon name="x" size="13" /> Share on X</a>
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url=@shareUrl" target="_blank" rel="noopener"><icon name="linkedin" size="13" /> Share on LinkedIn</a>
-                @* TODO: copy-link button — needs a small inline script (navigator.clipboard); deferred. *@
+                <button class="copy-link-btn" hidden data-copy-url="@pageUrl">
+                    <span class="copy-link-btn__default"><icon name="link" size="13" /> Copy link</span>
+                    <span class="copy-link-btn__copied"><icon name="check" size="13" /> Copied!</span>
+                </button>
             </div>
         </aside>
     </div>
