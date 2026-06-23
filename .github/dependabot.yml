@@ -10,15 +10,25 @@ updates:
     ignore:
       - dependency-name: "@kentico/*"
     groups:
+      # Babel packages must move in lockstep (peer deps) — batch all update types.
       babel:
         patterns:
-          - "^@babel/"
+          - "@babel/*"
+          - "babel-loader"
+      # React + its type packages — batch all update types.
       react:
         patterns:
-          - "^react"
-          - "^@types/react"
-          - "^react-dom"
-          - "^@types/react-dom"
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      # Everything else: batch routine minor/patch into one PR; majors stay individual for review.
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
     open-pull-requests-limit: 5
 
   # Maintain dependencies for Presentation site (npm)
@@ -28,6 +38,14 @@ updates:
       interval: "weekly"
       day: "tuesday"
       time: "07:00"
+    groups:
+      # Batch routine minor/patch into one PR; majors (e.g. vite, typescript) stay individual for review.
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
     open-pull-requests-limit: 5
 
   # Maintain NuGet dependencies for backend solution
@@ -39,4 +57,12 @@ updates:
       time: "07:00"
     ignore:
       - dependency-name: "Kentico.Xperience.*"
+    groups:
+      # Batch routine minor/patch into one PR; majors stay individual for review.
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
     open-pull-requests-limit: 5
