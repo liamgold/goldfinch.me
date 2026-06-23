@@ -22,6 +22,10 @@
     clearTimeout(timer);
     abortCtl?.abort();
     if (!q) { resultsEl.hidden = true; resultsEl.innerHTML = ''; return; }
+    // Show a loading state immediately so a stale "no results" isn't shown while
+    // the debounced request is in flight (mirrors the command palette).
+    resultsEl.innerHTML = `<div class="live-search-empty mono">&gt; searching…</div>`;
+    resultsEl.hidden = false;
     timer = setTimeout(() => run(q), 180);
   });
 

@@ -2383,6 +2383,13 @@ a.pager-btn:hover {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+/* Matched-term highlight in search results (command palette + blog toolbar).
+   The only <mark> on the site comes from /api/search highlights. */
+mark {
+  background: transparent;
+  color: var(--accent-hot);
+  font-weight: 600;
+}
 .palette-item__meta {
   display: block;
   font-family: var(--font-mono);

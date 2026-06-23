@@ -15,9 +15,9 @@ public class BlogSearchResult
     public string[] Tags { get; init; } = Array.Empty<string>();
     public int ReadingMinutes { get; init; }
 
-    /// <summary>Title with matched terms wrapped in <c>&lt;mark&gt;</c> (HTML-escaped); null if no match.</summary>
+    /// <summary>Raw title with matched terms wrapped in literal <c>&lt;mark&gt;</c> tags; null if no match. The client re-escapes everything except <c>&lt;mark&gt;</c>.</summary>
     public string? HighlightedTitle { get; init; }
 
-    /// <summary>Summary with matched terms wrapped in <c>&lt;mark&gt;</c> (HTML-escaped); null if no match.</summary>
+    /// <summary>Raw summary with matched terms wrapped in literal <c>&lt;mark&gt;</c> tags; null if no match. The client re-escapes everything except <c>&lt;mark&gt;</c>.</summary>
     public string? HighlightedSummary { get; init; }
 }

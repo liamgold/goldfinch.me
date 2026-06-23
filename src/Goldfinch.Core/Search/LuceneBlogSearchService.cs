@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using Kentico.Xperience.Lucene.Core;
 using Kentico.Xperience.Lucene.Core.Indexing;
 using Kentico.Xperience.Lucene.Core.Search;
@@ -14,10 +13,17 @@ namespace Goldfinch.Core.Search;
 
 public class LuceneBlogSearchService : ILuceneBlogSearchService
 {
-    // Relevance boosts encode the contract's ranking: title > summary > body.
-    private const float TITLE_BOOST = 5f;
-    private const float SUMMARY_BOOST = 2f;
-    private const float CONTENT_BOOST = 1f;
+    // Relevance boosts encode the contract's ranking: title > summary > body, and within each
+    // field an exact/near-exact phrase match outranks scattered individual term matches.
+    private const float TITLE_PHRASE_BOOST = 10f;
+    private const float TITLE_TERM_BOOST = 5f;
+    private const float SUMMARY_PHRASE_BOOST = 4f;
+    private const float SUMMARY_TERM_BOOST = 2f;
+    private const float CONTENT_PHRASE_BOOST = 2f;
+    private const float CONTENT_TERM_BOOST = 1f;
+
+    // Allows a couple of intervening words so near-phrase matches still count as a phrase hit.
+    private const int PHRASE_SLOP = 2;
 
     private readonly ILuceneSearchService _searchService;
     private readonly ILuceneIndexManager _indexManager;
@@ -35,12 +41,14 @@ public class LuceneBlogSearchService : ILuceneBlogSearchService
         var index = _indexManager.GetRequiredIndex(BlogSearchConstants.INDEX_NAME);
         var analyzer = index.LuceneAnalyzer;
 
-        // Boosted text query across the indexed fields (title > summary > body).
+        // Boosted text query across the indexed fields. Each field contributes a high-boost phrase
+        // clause (exact/near-exact match) and a lower-boost term clause (any word), so a full-phrase
+        // hit ranks above scattered term hits, and title beats summary beats body.
         var queryBuilder = new QueryBuilder(analyzer);
         var textQuery = new BooleanQuery();
-        AddBoostedClause(textQuery, queryBuilder, BlogSearchConstants.FIELD_TITLE, query, TITLE_BOOST);
-        AddBoostedClause(textQuery, queryBuilder, BlogSearchConstants.FIELD_SUMMARY, query, SUMMARY_BOOST);
-        AddBoostedClause(textQuery, queryBuilder, BlogSearchConstants.FIELD_CONTENT, query, CONTENT_BOOST);
+        AddFieldClauses(textQuery, queryBuilder, BlogSearchConstants.FIELD_TITLE, query, TITLE_PHRASE_BOOST, TITLE_TERM_BOOST);
+        AddFieldClauses(textQuery, queryBuilder, BlogSearchConstants.FIELD_SUMMARY, query, SUMMARY_PHRASE_BOOST, SUMMARY_TERM_BOOST);
+        AddFieldClauses(textQuery, queryBuilder, BlogSearchConstants.FIELD_CONTENT, query, CONTENT_PHRASE_BOOST, CONTENT_TERM_BOOST);
 
         // No analyzable tokens (e.g. query was only stop words/punctuation) — nothing to match.
         if (!textQuery.GetClauses().Any())
@@ -98,22 +106,30 @@ public class LuceneBlogSearchService : ILuceneBlogSearchService
         });
     }
 
-    private static void AddBoostedClause(BooleanQuery target, QueryBuilder queryBuilder, string field, string query, float boost)
+    private static void AddFieldClauses(BooleanQuery target, QueryBuilder queryBuilder, string field, string query, float phraseBoost, float termBoost)
     {
-        var clause = queryBuilder.CreateBooleanQuery(field, query, Occur.SHOULD);
-        if (clause is null)
+        // Phrase clause: rewards an exact/near-exact match of the whole query in this field.
+        var phrase = queryBuilder.CreatePhraseQuery(field, query, PHRASE_SLOP);
+        if (phrase is not null)
         {
-            return;
+            phrase.Boost = phraseBoost;
+            target.Add(phrase, Occur.SHOULD);
         }
 
-        clause.Boost = boost;
-        target.Add(clause, Occur.SHOULD);
+        // Term clause: matches any of the query words, for recall.
+        var terms = queryBuilder.CreateBooleanQuery(field, query, Occur.SHOULD);
+        if (terms is not null)
+        {
+            terms.Boost = termBoost;
+            target.Add(terms, Occur.SHOULD);
+        }
     }
 
     /// <summary>
-    /// Produces a highlighted fragment with matched terms wrapped in <c>&lt;mark&gt;</c>. The field
-    /// text is HTML-encoded first so <c>&lt;mark&gt;</c> is the only markup in the result (the client
-    /// renders this via innerHTML and trusts nothing else). Returns null when no term matched.
+    /// Produces a highlighted fragment with matched terms wrapped in literal <c>&lt;mark&gt;</c> tags
+    /// over the raw field text. The client re-escapes everything except <c>&lt;mark&gt;</c> before
+    /// rendering, so encoding here would double-encode (e.g. an apostrophe would render as
+    /// <c>&amp;#39;</c>). Returns null when no term matched.
     /// </summary>
     private static string? Highlight(Highlighter highlighter, Analyzer analyzer, string field, string text)
     {
@@ -122,9 +138,7 @@ public class LuceneBlogSearchService : ILuceneBlogSearchService
             return null;
         }
 
-        var encoded = WebUtility.HtmlEncode(text);
-
-        return highlighter.GetBestFragment(analyzer, field, encoded);
+        return highlighter.GetBestFragment(analyzer, field, text);
     }
 
     private static string SlugFromUrl(string url) =>
