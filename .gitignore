@@ -374,6 +374,10 @@ src/Goldfinch.Web/wwwroot/SiteFiles/dist
 src/Goldfinch.Web/assets/contentitems/**/*
 src/Goldfinch.Web/App_Data/playwright
 
+# Lucene search index is runtime data — rebuilt locally / stored in Azure Blob in production
+src/Goldfinch.Web/App_Data/LuceneSearch
+src/Goldfinch.Web/$LuceneLocks
+
 # Continuous Deployment
 /src/Goldfinch.Web/$CDRepository
 DeploymentPackage.zip

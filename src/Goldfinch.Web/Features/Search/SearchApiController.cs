@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
-using Goldfinch.Core.ContentTypes;
-using Goldfinch.Core.Extensions;
-using Kentico.Content.Web.Mvc;
+using Goldfinch.Core.Search;
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,29 +15,25 @@ namespace Goldfinch.Web.Features.Search;
 /// See docs/design-handoff/api-contracts.md for the full contract.
 /// </summary>
 /// <remarks>
-/// TODO: this is a v1 stub. It currently searches BlogPost titles + summaries only.
-/// The contract adds ranking (tag > title > summary > body), body search,
-/// <mark> highlights, tag results, and a 60s cache header. Implement properly
-/// once the Tag content type exists and we can index bodies.
+/// Post results come from the <c>BlogPosts</c> Lucene index (title &gt; summary &gt; body ranking,
+/// with body content + reading time + <c>&lt;mark&gt;</c> highlights). Tag results are resolved
+/// from the BlogTags taxonomy and emitted first on an exact tag match.
 /// </remarks>
 [ApiController]
 [Route("api/search")]
 public class SearchApiController : ControllerBase
 {
-    private readonly IBlogPostService _blogPostService;
+    private readonly ILuceneBlogSearchService _searchService;
     private readonly IBlogTagService _blogTagService;
-    private readonly IWebPageUrlRetriever _urlRetriever;
     private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
 
     public SearchApiController(
-        IBlogPostService blogPostService,
+        ILuceneBlogSearchService searchService,
         IBlogTagService blogTagService,
-        IWebPageUrlRetriever urlRetriever,
         IPreferredLanguageRetriever preferredLanguageRetriever)
     {
-        _blogPostService = blogPostService;
+        _searchService = searchService;
         _blogTagService = blogTagService;
-        _urlRetriever = urlRetriever;
         _preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
@@ -55,67 +49,86 @@ public class SearchApiController : ControllerBase
             return BadRequest(new { error = "invalid_limit" });
         }
 
-        var started = DateTime.UtcNow;
-
+        var stopwatch = Stopwatch.StartNew();
         var needle = q.Trim();
 
-        // Scope to a tag when one is active (e.g. live search on /blog?tag=…).
-        List<BlogPost> all;
-        if (!string.IsNullOrWhiteSpace(tag))
+        var results = new List<object>();
+
+        // Tag results first (contract rank #1): exact match on tag slug or title.
+        // Skipped when already scoped to a tag (live search within /blog?tag=…).
+        if (string.IsNullOrWhiteSpace(tag))
         {
-            var tagGuid = await _blogTagService.ResolveTagSlugToGuid(tag);
-            all = tagGuid.HasValue
-                ? (await _blogPostService.GetBlogPostsByTag(tagGuid.Value)).ToList()
-                : [];
-        }
-        else
-        {
-            all = (await _blogPostService.GetAllBlogPosts())
-                .OrderByDescending(p => p.BlogPostDate)
-                .ToList();
+            results.AddRange(await GetTagResults(needle));
         }
 
-        var matches = all.Where(p =>
-                (p.BaseContentTitle?.Contains(needle, StringComparison.OrdinalIgnoreCase) ?? false)
-                || (p.BaseContentShortDescription?.Contains(needle, StringComparison.OrdinalIgnoreCase) ?? false))
-            .Take(limit)
-            .ToList();
-
-        var languageName = _preferredLanguageRetriever.Get();
-
-        var results = new object[matches.Count];
-        for (var i = 0; i < matches.Count; i++)
+        // Post results from the Lucene index.
+        var posts = _searchService.SearchPosts(needle, tag, limit);
+        foreach (var post in posts)
         {
-            var m = matches[i];
-            var url = (await _urlRetriever.Retrieve(m)).RelativePath.ToAbsolutePath();
-
-            var tags = Array.Empty<string>();
-            if (m.BlogPostTags?.Any() == true)
-            {
-                var resolvedTags = await _blogTagService.GetTagsByGuids(
-                    m.BlogPostTags.Select(t => t.Identifier), languageName);
-                tags = resolvedTags.Select(t => t.Name).ToArray();
-            }
-
-            results[i] = new
+            results.Add(new
             {
                 kind = "post",
-                title = m.BaseContentTitle,
-                summary = m.BaseContentShortDescription,
-                url,
-                date = m.BlogPostDate.ToString("yyyy-MM-dd"),
-                tags,
-                reading_minutes = 4,             // TODO: compute from body
-            };
+                slug = post.Slug,
+                title = post.Title,
+                summary = post.Summary,
+                url = post.Url,
+                date = post.Date,
+                tags = post.Tags,
+                reading_minutes = post.ReadingMinutes,
+                highlights = BuildHighlights(post),
+            });
         }
 
+        stopwatch.Stop();
+
         Response.Headers["Cache-Control"] = "public, max-age=60";
+        Response.Headers["Vary"] = "Accept-Encoding";
+
         return Ok(new
         {
             q = needle,
-            total = results.Length,
-            took_ms = (int)(DateTime.UtcNow - started).TotalMilliseconds,
+            total = results.Count,
+            took_ms = (int)stopwatch.ElapsedMilliseconds,
             results,
         });
+    }
+
+    private async Task<IEnumerable<object>> GetTagResults(string needle)
+    {
+        var languageName = _preferredLanguageRetriever.Get();
+        var tags = await _blogTagService.GetTagsWithPostCounts(languageName);
+
+        return tags
+            .Where(t =>
+                string.Equals(t.Tag.Name, needle, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(t.Tag.Title, needle, StringComparison.OrdinalIgnoreCase))
+            .Select(t => (object)new
+            {
+                kind = "tag",
+                slug = t.Tag.Name,
+                label = t.Tag.Title,
+                url = $"/blog?tag={t.Tag.Name}",
+                post_count = t.PostCount,
+            });
+    }
+
+    /// <summary>
+    /// Builds the optional highlights object, including only the parts that actually matched.
+    /// Returns null when there are no highlights so the property is omitted from the response.
+    /// </summary>
+    private static Dictionary<string, string>? BuildHighlights(BlogSearchResult post)
+    {
+        var highlights = new Dictionary<string, string>();
+
+        if (!string.IsNullOrEmpty(post.HighlightedTitle))
+        {
+            highlights["title"] = post.HighlightedTitle;
+        }
+        if (!string.IsNullOrEmpty(post.HighlightedSummary))
+        {
+            highlights["summary"] = post.HighlightedSummary;
+        }
+
+        return highlights.Count > 0 ? highlights : null;
     }
 }

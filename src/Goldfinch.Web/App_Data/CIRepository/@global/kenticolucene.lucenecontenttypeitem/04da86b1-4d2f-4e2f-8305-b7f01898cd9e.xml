@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kenticolucene.lucenecontenttypeitem>
+  <LuceneContentTypeItemContentTypeName>Goldfinch.BlogPost</LuceneContentTypeItemContentTypeName>
+  <LuceneContentTypeItemGuid>04da86b1-4d2f-4e2f-8305-b7f01898cd9e</LuceneContentTypeItemGuid>
+  <LuceneContentTypeItemIncludedPathItemId>
+    <GUID>2fd086a5-2517-4612-8722-43f8c2d3ae7b</GUID>
+    <ObjectType>kenticolucene.luceneincludedpathitem</ObjectType>
+  </LuceneContentTypeItemIncludedPathItemId>
+  <LuceneContentTypeItemIndexItemId>
+    <CodeName>BlogPosts</CodeName>
+    <GUID>ba267f8f-9cf9-45ce-a8dd-30ca95b71c06</GUID>
+    <ObjectType>kenticolucene.luceneindexitem</ObjectType>
+  </LuceneContentTypeItemIndexItemId>
+</kenticolucene.lucenecontenttypeitem>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kenticolucene.luceneindexlanguageitem>
+  <LuceneIndexLanguageItemGuid>c0d07dcc-a273-4ef3-bf9c-a3c2999e0320</LuceneIndexLanguageItemGuid>
+  <LuceneIndexLanguageItemIndexItemId>
+    <CodeName>BlogPosts</CodeName>
+    <GUID>ba267f8f-9cf9-45ce-a8dd-30ca95b71c06</GUID>
+    <ObjectType>kenticolucene.luceneindexitem</ObjectType>
+  </LuceneIndexLanguageItemIndexItemId>
+  <LuceneIndexLanguageItemName>en</LuceneIndexLanguageItemName>
+</kenticolucene.luceneindexlanguageitem>

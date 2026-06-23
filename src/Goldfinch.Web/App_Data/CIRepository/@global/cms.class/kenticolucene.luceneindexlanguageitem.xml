@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassDisplayName>Lucene Indexed Language Item</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="LuceneIndexLanguageItemID" columntype="integer" enabled="true" guid="45d70737-bc62-44ab-a157-57755a136940" isPK="true" />
+      <field column="LuceneIndexLanguageItemName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="2096e226-ea79-484f-9ce7-37905b5b67a0" visible="true" />
+      <field column="LuceneIndexLanguageItemGuid" columnprecision="0" columntype="guid" enabled="true" guid="5f9310fd-1473-4ebe-aea5-b480745e3469" visible="true" />
+      <field column="LuceneIndexLanguageItemIndexItemId" columnprecision="0" columntype="integer" enabled="true" guid="adfc8acd-01c0-4370-8710-5b2d57d98162" refobjtype="kenticolucene.luceneindexitem" reftype="Required" visible="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>deeb19da-ef41-457d-b08e-5949bb897742</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>KenticoLucene.LuceneIndexLanguageItem</ClassName>
+  <ClassResourceID>
+    <CodeName>CMS.Integration.Lucene</CodeName>
+    <GUID>a4c59eb4-e549-426d-8f5a-925929a42e68</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassTableName>KenticoLucene_LuceneIndexLanguageItem</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

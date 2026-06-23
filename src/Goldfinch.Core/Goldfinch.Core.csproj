@@ -2,6 +2,9 @@
 	<ItemGroup>
 		<PackageReference Include="Kentico.Xperience.Admin" />
 		<PackageReference Include="Kentico.Xperience.WebApp" />
+		<PackageReference Include="Kentico.Xperience.Lucene" />
+		<PackageReference Include="Lucene.Net.Highlighter" />
+		<PackageReference Include="AngleSharp" />
 		<PackageReference Include="Sidio.Sitemap.AspNetCore" />
 	</ItemGroup>
 </Project>

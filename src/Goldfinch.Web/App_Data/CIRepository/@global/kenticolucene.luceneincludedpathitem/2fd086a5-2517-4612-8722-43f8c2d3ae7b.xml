@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kenticolucene.luceneincludedpathitem>
+  <LuceneIncludedPathItemAliasPath>/%</LuceneIncludedPathItemAliasPath>
+  <LuceneIncludedPathItemChannelName>Goldfinch</LuceneIncludedPathItemChannelName>
+  <LuceneIncludedPathItemGuid>2fd086a5-2517-4612-8722-43f8c2d3ae7b</LuceneIncludedPathItemGuid>
+  <LuceneIncludedPathItemIndexItemId>
+    <CodeName>BlogPosts</CodeName>
+    <GUID>ba267f8f-9cf9-45ce-a8dd-30ca95b71c06</GUID>
+    <ObjectType>kenticolucene.luceneindexitem</ObjectType>
+  </LuceneIncludedPathItemIndexItemId>
+</kenticolucene.luceneincludedpathitem>
