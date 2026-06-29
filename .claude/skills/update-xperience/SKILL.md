@@ -47,14 +47,14 @@ Execute the `Update-Xperience.ps1` PowerShell script to automate mechanical task
 The script will:
 - Validate prerequisites (Directory.Packages.props exists, clean git state, feature branch)
 - Check current Kentico package versions in Directory.Packages.props
-- If CI is enabled: clear `CI_FileMetadata` and run `--kxp-ci-restore` to apply CI XML files to the database **before any package updates** (assembly and DB are still on the same version at this point)
-- Disable CI (CMSEnableCI) if enabled
+- Ensure CI (CMSEnableCI) is enabled, then clear `CI_FileMetadata` and run `--kxp-ci-restore` to apply CI XML files to the database **before any package updates** (assembly and DB are still on the same version at this point). CI is always expected to be enabled for this project, so it is enabled unconditionally — this self-heals a DB left disabled by a previously interrupted run.
+- Disable CI before the package update so `dotnet restore` doesn't trigger CI side-effects
 - Update Kentico.Xperience.* packages in Directory.Packages.props and run `dotnet restore` (preserves Kentico.Xperience.MiniProfiler which has independent versioning)
 - Update @kentico/* npm packages in admin client only (not custom frontend dependencies)
 - Run `npm audit fix` for security vulnerabilities
 - Build the solution with the new packages
 - Run `dotnet run --kxp-update --skip-confirmation` for database migrations
-- Re-enable CI if it was previously enabled
+- Re-enable CI (always left enabled at the end)
 - Run `dotnet run --kxp-ci-store` to serialize updated objects
 - Check for CI repository changes
 
@@ -121,7 +121,8 @@ When everything is working:
 
 - **Central Package Management**: Uses Directory.Packages.props for all NuGet package versions
 - **Preserved Packages**: Kentico.Xperience.MiniProfiler has independent versioning and won't be automatically updated
-- **CI Restore First**: When CI is enabled, the script clears `CI_FileMetadata` and runs `--kxp-ci-restore` **before the NuGet package update**. This is critical — the assembly and DB must be on the same version for CI restore to run, and it must happen before the migration so `--kxp-ci-store` serialises the CI XML state, not stale seed-DB state (which would roll back fields on custom content types)
+- **CI Always Enabled**: CI is always expected to be enabled for this project. The script enables CI unconditionally at the start (self-healing a DB left disabled by a previously interrupted run) and always leaves it enabled at the end — it never skips the CI steps based on the current `CMSEnableCI` value
+- **CI Restore First**: The script clears `CI_FileMetadata` and runs `--kxp-ci-restore` **before the NuGet package update**. This is critical — the assembly and DB must be on the same version for CI restore to run, and it must happen before the migration so `--kxp-ci-store` serialises the CI XML state, not stale seed-DB state (which would roll back fields on custom content types)
 - **CI Toggle**: The script disables CI before the NuGet update and re-enables it after `--kxp-update` (per Kentico best practices)
 - **CI Repository**: Changes to `App_Data/CIRepository/` are expected and necessary after CI store operation
 - **Nullable Reference Types**: This project has nullable reference types enabled - ensure any code changes respect this
