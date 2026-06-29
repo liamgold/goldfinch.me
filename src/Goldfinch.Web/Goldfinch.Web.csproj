@@ -2,7 +2,8 @@
 	<ItemGroup>
 		<PackageReference Include="Kentico.Xperience.Admin" />
 		<PackageReference Include="Kentico.Xperience.AzureStorage" />
-		<PackageReference Include="Kentico.Xperience.ManagementApi" />
+		<!-- Local-development-only tool; excluded from Release builds so it never ships to production. See Program.cs (#if DEBUG). -->
+		<PackageReference Include="Kentico.Xperience.ManagementApi" Condition="'$(Configuration)' == 'Debug'" />
 		<PackageReference Include="Kentico.Xperience.MiniProfiler" />
 		<PackageReference Include="Kentico.Xperience.WebApp" />
 		<PackageReference Include="Schema.NET" />
