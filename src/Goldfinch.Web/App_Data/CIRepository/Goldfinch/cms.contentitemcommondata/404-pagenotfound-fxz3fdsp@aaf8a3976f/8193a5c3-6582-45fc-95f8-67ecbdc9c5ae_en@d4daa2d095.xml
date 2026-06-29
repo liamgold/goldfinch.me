@@ -16,9 +16,19 @@
   <ContentItemCommonDataLastPublishedWhen>2025-09-12 21:32:35Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"Goldfinch.ErrorPage_Default","properties":{},"fieldIdentifiers":{}}]]>
+<![CDATA[
+{
+  "identifier": "Goldfinch.ErrorPage_Default",
+  "properties": {},
+  "fieldIdentifiers": {}
+}
+]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ContentItemCommonDataVisualBuilderWidgets>
-    <![CDATA[{"editableAreas":[]}]]>
+<![CDATA[
+{
+  "editableAreas": []
+}
+]]>
   </ContentItemCommonDataVisualBuilderWidgets>
 </cms.contentitemcommondata>
