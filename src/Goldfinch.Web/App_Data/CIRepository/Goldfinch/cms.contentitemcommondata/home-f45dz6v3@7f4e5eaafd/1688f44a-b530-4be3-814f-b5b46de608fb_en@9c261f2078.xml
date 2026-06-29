@@ -16,7 +16,13 @@
   <ContentItemCommonDataLastPublishedWhen>2026-04-19 14:02:53Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"Goldfinch.HomePage_Default","properties":{},"fieldIdentifiers":{}}]]>
+<![CDATA[
+{
+  "identifier": "Goldfinch.HomePage_Default",
+  "properties": {},
+  "fieldIdentifiers": {}
+}
+]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <SeoShortDescription>
     <![CDATA[Explore expert insights on Kentico Xperience and .NET development. Access valuable blog posts, tutorials, and updates to enhance your projects and secure your applications.]]>

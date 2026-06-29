@@ -20,7 +20,153 @@
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration />
   <ContentItemCommonDataVisualBuilderWidgets>
-    <![CDATA[{"editableAreas":[{"identifier":"BlogPost","sections":[{"identifier":"d03c002c-cd7a-480e-8391-e8eb8f4ad68f","type":"Goldfinch.ContentSection","properties":{"sectionID":"","sectionName":""},"zones":[{"identifier":"9f181a42-7451-4669-88b2-2b3f2ae51618","widgets":[{"identifier":"fa9b88c8-f549-48be-aa22-b20f21515f9f","type":"Kentico.Widget.RichText","variants":[{"identifier":"bff4b1cd-3f50-49db-9036-e36eafaafb1b","properties":{"content":"<p>Following on from my previous blog post about the <a data-channel-guid=\"b3f8d8a7-ead7-433c-b0fb-225567a185c3\" href=\"~/blog/kentico-12-mvc-map-location-form-component\">Kentico 12 MVC Map Location Form Component</a>, I've continued with another contribution to the Kentico MVC marketplace.</p>"},"fieldIdentifiers":{"content":"d3b2d071-7d51-442a-8746-10a72c41dd9d"}}]}]}],"fieldIdentifiers":{"sectionID":"3b9a9bcc-87bf-4cdd-a1b9-787fdca841f3","sectionName":"e18ea32f-53b0-455f-a16d-5c369a425678"}},{"identifier":"1b88a900-17b3-4b18-9cb7-f34374d5e798","type":"Goldfinch.ContentSection","properties":{"sectionID":"form-component","sectionName":"Form Component"},"zones":[{"identifier":"b168cc50-2743-4311-ba92-67784bc8a0fe","widgets":[{"identifier":"e5bfe2be-c978-4d81-bf98-b1a2fae1aa5e","type":"Kentico.Widget.RichText","variants":[{"identifier":"a344b59c-1067-4725-b10c-596022552db5","properties":{"content":"<p>This time I've created a <a href=\"https://fontawesome.com/\" rel=\"noopener noreferrer\" target=\"_blank\">Font Awesome</a> form component which allows content editors to search and choose from all available Font Awesome 5.x icons. There are a number of scenarios where a developer may want to allow a content editor to customise an icon, such as icons used on navigation menus, CTA buttons or social media links.</p><p>With this form component added to a widget, a preview of the currently selected icon will be shown, and a button next to it will open up the modal dialog for searching and choosing a new icon.</p>"},"fieldIdentifiers":{"content":"50814a1d-2f1f-47dd-afa1-65875053ba44"}}]},{"identifier":"77cf306f-6d5c-4e93-8203-24a8b8d65987","type":"Goldfinch.ImageWidget","variants":[{"identifier":"3d18f9d4-62f2-47e8-b9fd-8fe54a372308","properties":{"selectedAssets":[{"identifier":"74c0b943-e0cd-41bf-b5fd-23c850c8d69b"}]},"fieldIdentifiers":{"selectedAssets":"1c01f3bc-4e11-48a8-beb3-b5199f9acac0"}}]},{"identifier":"8e69bd76-cf10-4553-a2c7-2ed8dd3f5158","type":"Kentico.Widget.RichText","variants":[{"identifier":"76d9ebff-86b8-4c67-8be7-9e6c0372403c","properties":{"content":"<p>This modal dialog is triggered using the&nbsp;<a href=\"https://docs.kentico.com/k12sp/developing-websites/page-builder-development/developing-modal-dialogs-for-builder-component-properties\" rel=\"noopener noreferrer\" target=\"_blank\">modal API</a> which was introduced in the Kentico 12 Service Pack. Having access to the modal API means you're now able to create complex form components without bloating the widget UI directly.&nbsp;</p>"},"fieldIdentifiers":{"content":"c3f0a77f-6efa-4752-b12d-a0969b2cfa56"}}]},{"identifier":"0bbfed68-8c57-45dd-9c1c-ed460f655f13","type":"Goldfinch.ImageWidget","variants":[{"identifier":"029b2891-ea85-4a7c-86a7-6122b02201fe","properties":{"selectedAssets":[{"identifier":"fd13f54a-eb13-441f-8f69-5ed930084cba"}]},"fieldIdentifiers":{"selectedAssets":"cec1df0a-6434-4a4a-932b-4f8ca748d455"}}]},{"identifier":"d6edb930-6aaa-4259-b5a0-92d4b0feb24e","type":"Kentico.Widget.RichText","variants":[{"identifier":"7746dbe4-d776-437e-a253-9052c03dcf48","properties":{"content":"<p>You can view the source code over at the&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component\" rel=\"noopener noreferrer\" target=\"_blank\">GitHub repository</a>. &nbsp;Feel free to look around the project, provide suggestions by submitting an&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/issues\">Issue</a>, or submit new features through a&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/pulls\">pull request</a>.&nbsp;</p>"},"fieldIdentifiers":{"content":"be53bc23-5570-4fa5-bbc3-3b5d597e0dcd"}}]}]}],"fieldIdentifiers":{"sectionID":"0f5a4301-88cc-407e-be28-d0146be1d6c1","sectionName":"b1c64324-65d6-4aa0-b941-7520ef455390"}}]}]}]]>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "BlogPost",
+      "sections": [
+        {
+          "identifier": "d03c002c-cd7a-480e-8391-e8eb8f4ad68f",
+          "type": "Goldfinch.ContentSection",
+          "properties": {
+            "sectionID": "",
+            "sectionName": ""
+          },
+          "zones": [
+            {
+              "identifier": "9f181a42-7451-4669-88b2-2b3f2ae51618",
+              "widgets": [
+                {
+                  "identifier": "fa9b88c8-f549-48be-aa22-b20f21515f9f",
+                  "type": "Kentico.Widget.RichText",
+                  "variants": [
+                    {
+                      "identifier": "bff4b1cd-3f50-49db-9036-e36eafaafb1b",
+                      "properties": {
+                        "content": "<p>Following on from my previous blog post about the <a data-channel-guid=\"b3f8d8a7-ead7-433c-b0fb-225567a185c3\" href=\"~/blog/kentico-12-mvc-map-location-form-component\">Kentico 12 MVC Map Location Form Component</a>, I've continued with another contribution to the Kentico MVC marketplace.</p>"
+                      },
+                      "fieldIdentifiers": {
+                        "content": "d3b2d071-7d51-442a-8746-10a72c41dd9d"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fieldIdentifiers": {
+            "sectionID": "3b9a9bcc-87bf-4cdd-a1b9-787fdca841f3",
+            "sectionName": "e18ea32f-53b0-455f-a16d-5c369a425678"
+          }
+        },
+        {
+          "identifier": "1b88a900-17b3-4b18-9cb7-f34374d5e798",
+          "type": "Goldfinch.ContentSection",
+          "properties": {
+            "sectionID": "form-component",
+            "sectionName": "Form Component"
+          },
+          "zones": [
+            {
+              "identifier": "b168cc50-2743-4311-ba92-67784bc8a0fe",
+              "widgets": [
+                {
+                  "identifier": "e5bfe2be-c978-4d81-bf98-b1a2fae1aa5e",
+                  "type": "Kentico.Widget.RichText",
+                  "variants": [
+                    {
+                      "identifier": "a344b59c-1067-4725-b10c-596022552db5",
+                      "properties": {
+                        "content": "<p>This time I've created a <a href=\"https://fontawesome.com/\" rel=\"noopener noreferrer\" target=\"_blank\">Font Awesome</a> form component which allows content editors to search and choose from all available Font Awesome 5.x icons. There are a number of scenarios where a developer may want to allow a content editor to customise an icon, such as icons used on navigation menus, CTA buttons or social media links.</p><p>With this form component added to a widget, a preview of the currently selected icon will be shown, and a button next to it will open up the modal dialog for searching and choosing a new icon.</p>"
+                      },
+                      "fieldIdentifiers": {
+                        "content": "50814a1d-2f1f-47dd-afa1-65875053ba44"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "identifier": "77cf306f-6d5c-4e93-8203-24a8b8d65987",
+                  "type": "Goldfinch.ImageWidget",
+                  "variants": [
+                    {
+                      "identifier": "3d18f9d4-62f2-47e8-b9fd-8fe54a372308",
+                      "properties": {
+                        "selectedAssets": [
+                          {
+                            "identifier": "74c0b943-e0cd-41bf-b5fd-23c850c8d69b"
+                          }
+                        ]
+                      },
+                      "fieldIdentifiers": {
+                        "selectedAssets": "1c01f3bc-4e11-48a8-beb3-b5199f9acac0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "identifier": "8e69bd76-cf10-4553-a2c7-2ed8dd3f5158",
+                  "type": "Kentico.Widget.RichText",
+                  "variants": [
+                    {
+                      "identifier": "76d9ebff-86b8-4c67-8be7-9e6c0372403c",
+                      "properties": {
+                        "content": "<p>This modal dialog is triggered using the&nbsp;<a href=\"https://docs.kentico.com/k12sp/developing-websites/page-builder-development/developing-modal-dialogs-for-builder-component-properties\" rel=\"noopener noreferrer\" target=\"_blank\">modal API</a> which was introduced in the Kentico 12 Service Pack. Having access to the modal API means you're now able to create complex form components without bloating the widget UI directly.&nbsp;</p>"
+                      },
+                      "fieldIdentifiers": {
+                        "content": "c3f0a77f-6efa-4752-b12d-a0969b2cfa56"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "identifier": "0bbfed68-8c57-45dd-9c1c-ed460f655f13",
+                  "type": "Goldfinch.ImageWidget",
+                  "variants": [
+                    {
+                      "identifier": "029b2891-ea85-4a7c-86a7-6122b02201fe",
+                      "properties": {
+                        "selectedAssets": [
+                          {
+                            "identifier": "fd13f54a-eb13-441f-8f69-5ed930084cba"
+                          }
+                        ]
+                      },
+                      "fieldIdentifiers": {
+                        "selectedAssets": "cec1df0a-6434-4a4a-932b-4f8ca748d455"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "identifier": "d6edb930-6aaa-4259-b5a0-92d4b0feb24e",
+                  "type": "Kentico.Widget.RichText",
+                  "variants": [
+                    {
+                      "identifier": "7746dbe4-d776-437e-a253-9052c03dcf48",
+                      "properties": {
+                        "content": "<p>You can view the source code over at the&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component\" rel=\"noopener noreferrer\" target=\"_blank\">GitHub repository</a>. &nbsp;Feel free to look around the project, provide suggestions by submitting an&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/issues\">Issue</a>, or submit new features through a&nbsp;<a href=\"https://github.com/liamgold/font-awesome-form-component/pulls\">pull request</a>.&nbsp;</p>"
+                      },
+                      "fieldIdentifiers": {
+                        "content": "be53bc23-5570-4fa5-bbc3-3b5d597e0dcd"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fieldIdentifiers": {
+            "sectionID": "0f5a4301-88cc-407e-be28-d0146be1d6c1",
+            "sectionName": "b1c64324-65d6-4aa0-b941-7520ef455390"
+          }
+        }
+      ]
+    }
+  ]
+}
+]]>
   </ContentItemCommonDataVisualBuilderWidgets>
   <SeoCanonicalUrl />
   <SeoShortDescription />
