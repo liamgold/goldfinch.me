@@ -45,6 +45,8 @@
                 <time datetime="@Model.BlogPostDate.ToString("yyyy-MM-dd")">@Model.BlogPostDate.ToString("dd MMM yyyy")</time>
                 <span class="sep">·</span>
                 <span>by <a href="/about" class="author-name">liam</a></span>
+                <span class="sep">·</span>
+                <span class="clock"><icon name="clock" size="12" /> @Model.ReadingMinutes min read</span>
             </div>
             <h1>@Model.Title</h1>
             @if (!string.IsNullOrWhiteSpace(Model.Summary))

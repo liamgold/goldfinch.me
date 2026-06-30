@@ -1,5 +1,6 @@
 ﻿using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
+using Goldfinch.Core.Search;
 using Goldfinch.Web.Features.BlogDetail;
 using Goldfinch.Web.Features.BlogList;
 using Kentico.Content.Web.Mvc;
@@ -18,19 +19,22 @@ public class LatestBlogPostsViewComponent : ViewComponent
     private readonly IWebPageDataContextRetriever _pageDataContextRetriever;
     private readonly IBlogTagService _blogTagService;
     private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
+    private readonly ILuceneBlogSearchService _luceneBlogSearchService;
 
     public LatestBlogPostsViewComponent(
         IWebPageUrlRetriever pageUrlRetriever,
         IBlogPostService blogPostService,
         IWebPageDataContextRetriever pageDataContextRetriever,
         IBlogTagService blogTagService,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        ILuceneBlogSearchService luceneBlogSearchService)
     {
         _pageUrlRetriever = pageUrlRetriever;
         _blogPostService = blogPostService;
         _pageDataContextRetriever = pageDataContextRetriever;
         _blogTagService = blogTagService;
         _preferredLanguageRetriever = preferredLanguageRetriever;
+        _luceneBlogSearchService = luceneBlogSearchService;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(string title)
@@ -51,7 +55,7 @@ public class LatestBlogPostsViewComponent : ViewComponent
 
         foreach (var blogPost in blogPosts)
         {
-            var blogPostViewModel = await BlogPostViewModel.GetViewModelAsync(blogPost, _pageUrlRetriever);
+            var blogPostViewModel = await BlogPostViewModel.GetViewModelAsync(blogPost, _pageUrlRetriever, _luceneBlogSearchService);
 
             if (blogPost.BlogPostTags?.Any() == true)
             {

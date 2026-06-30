@@ -1,5 +1,7 @@
 using CMS.Websites;
 using Goldfinch.Core.ContentTypes;
+using Goldfinch.Core.Extensions;
+using Goldfinch.Core.Search;
 using Goldfinch.Web.Features.BlogList;
 using System;
 using System.Collections.Generic;
@@ -26,9 +28,22 @@ public class BlogPostViewModel
     /// <summary>Tags assigned to this post, for display in list view rows.</summary>
     public IReadOnlyList<BlogTagViewModel> Tags { get; set; } = [];
 
-    public static async Task<BlogPostViewModel> GetViewModelAsync(BlogPost blogPost, IWebPageUrlRetriever pageUrlRetriever)
+    /// <summary>
+    /// Reading time in minutes. Read from the <c>BlogPosts</c> Lucene index (computed there from
+    /// the full post body); falls back to a summary-based estimate if the post hasn't been
+    /// indexed yet.
+    /// </summary>
+    public int ReadingMinutes { get; set; }
+
+    public static async Task<BlogPostViewModel> GetViewModelAsync(
+        BlogPost blogPost,
+        IWebPageUrlRetriever pageUrlRetriever,
+        ILuceneBlogSearchService readingTimeService)
     {
         var url = (await pageUrlRetriever.Retrieve(blogPost)).RelativePath;
+        var readingMinutes = readingTimeService.GetReadingMinutes(url.ToAbsolutePath())
+            ?? ReadingTimeEstimator.EstimateMinutes(blogPost.BaseContentShortDescription);
+
         return new BlogPostViewModel
         {
             Title = blogPost.BaseContentTitle,
@@ -36,6 +51,7 @@ public class BlogPostViewModel
             BlogPostDate = blogPost.BlogPostDate,
             Url = url,
             Filename = FilenameFromUrl(url),
+            ReadingMinutes = readingMinutes,
         };
     }
 
