@@ -15,8 +15,9 @@ namespace Goldfinch.Core.Search;
 
 /// <summary>
 /// Lucene indexing strategy for <see cref="BlogPost"/> web pages. Indexes the title, summary,
-/// resolved tag slugs, publish date, an estimated reading time, and the full rendered post body
-/// (crawled and sanitized to plain text, since the body lives in Page Builder editable areas).
+/// resolved tag slugs, publish date, reading time, and the full rendered post body (crawled and
+/// sanitized to plain text, since the body lives in Page Builder editable areas — still needed for
+/// full-text matching even though reading time itself now comes from the post's own field).
 /// </summary>
 public class BlogPostSearchIndexingStrategy : DefaultLuceneIndexingStrategy
 {
@@ -67,11 +68,13 @@ public class BlogPostSearchIndexingStrategy : DefaultLuceneIndexingStrategy
             tagSlugs = tags.Select(t => t.Name).ToArray();
         }
 
-        // Crawl the rendered page and reduce it to the post body text.
+        // Crawl the rendered page and reduce it to the post body text (used for full-text matching).
         var rawHtml = await _webCrawler.CrawlWebPage(page);
         var body = _htmlSanitizer.SanitizeHtmlDocument(rawHtml);
 
-        var readingMinutes = ReadingTimeEstimator.EstimateMinutes(body);
+        // Reading time is a normal editor-set field now (no longer computed from a separate async
+        // write that could race the reindex task), so read it directly instead of recomputing it.
+        var readingMinutes = page.GetEffectiveReadingMinutes();
 
         var url = string.Empty;
         try

@@ -39,6 +39,21 @@
           </TaxonomyGroup>
         </settings>
       </field>
+      <field allowempty="true" column="BlogPostReadingMinutes" columnprecision="0" columntype="integer" enabled="true" guid="b6c23f6f-314d-4325-a3b4-ee918c8aa30a" visible="true">
+        <properties>
+          <defaultvalue>0</defaultvalue>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Reading time (minutes)</fieldcaption>
+          <fielddescription>
+            <![CDATA[Estimated reading time shown on the post. Leave at 0 to fall back to an automatic estimate based on the summary.]]>
+          </fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.NumberInput</controlname>
+          <WatermarkText>e.g. 5</WatermarkText>
+        </settings>
+      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>c3495cd5-11e9-4fca-a6be-85123e9e4b6e</ClassGUID>

@@ -106,23 +106,6 @@ public class LuceneBlogSearchService : ILuceneBlogSearchService
         });
     }
 
-    public int? GetReadingMinutes(string url)
-    {
-        var index = _indexManager.GetRequiredIndex(BlogSearchConstants.INDEX_NAME);
-
-        return _searchService.UseSearcher(index, searcher =>
-        {
-            var topDocs = searcher.Search(new TermQuery(new Term(BaseDocumentProperties.URL, url)), 1);
-            if (topDocs.ScoreDocs.Length == 0)
-            {
-                return (int?)null;
-            }
-
-            var doc = searcher.Doc(topDocs.ScoreDocs[0].Doc);
-            return doc.GetField(BlogSearchConstants.FIELD_READING_MINUTES)?.GetInt32Value();
-        });
-    }
-
     private static void AddFieldClauses(BooleanQuery target, QueryBuilder queryBuilder, string field, string query, float phraseBoost, float termBoost)
     {
         // Phrase clause: rewards an exact/near-exact match of the whole query in this field.

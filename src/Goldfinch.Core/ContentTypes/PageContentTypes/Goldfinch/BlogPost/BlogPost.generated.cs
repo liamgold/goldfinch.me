@@ -48,6 +48,12 @@ namespace Goldfinch.Core.ContentTypes
 
 
 		/// <summary>
+		/// BlogPostReadingMinutes.
+		/// </summary>
+		public int BlogPostReadingMinutes { get; set; }
+
+
+		/// <summary>
 		/// BaseContentTitle.
 		/// </summary>
 		public string BaseContentTitle { get; set; }
