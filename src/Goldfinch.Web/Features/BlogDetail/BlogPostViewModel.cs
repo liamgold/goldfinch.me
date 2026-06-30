@@ -1,7 +1,6 @@
 using CMS.Websites;
+using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.ContentTypes;
-using Goldfinch.Core.Extensions;
-using Goldfinch.Core.Search;
 using Goldfinch.Web.Features.BlogList;
 using System;
 using System.Collections.Generic;
@@ -29,20 +28,15 @@ public class BlogPostViewModel
     public IReadOnlyList<BlogTagViewModel> Tags { get; set; } = [];
 
     /// <summary>
-    /// Reading time in minutes. Read from the <c>BlogPosts</c> Lucene index (computed there from
-    /// the full post body); falls back to a summary-based estimate if the post hasn't been
-    /// indexed yet.
+    /// Reading time in minutes — see <see cref="BlogPostExtensions.GetEffectiveReadingMinutes"/>.
     /// </summary>
     public int ReadingMinutes { get; set; }
 
     public static async Task<BlogPostViewModel> GetViewModelAsync(
         BlogPost blogPost,
-        IWebPageUrlRetriever pageUrlRetriever,
-        ILuceneBlogSearchService readingTimeService)
+        IWebPageUrlRetriever pageUrlRetriever)
     {
         var url = (await pageUrlRetriever.Retrieve(blogPost)).RelativePath;
-        var readingMinutes = readingTimeService.GetReadingMinutes(url.ToAbsolutePath())
-            ?? ReadingTimeEstimator.EstimateMinutes(blogPost.BaseContentShortDescription);
 
         return new BlogPostViewModel
         {
@@ -51,7 +45,7 @@ public class BlogPostViewModel
             BlogPostDate = blogPost.BlogPostDate,
             Url = url,
             Filename = FilenameFromUrl(url),
-            ReadingMinutes = readingMinutes,
+            ReadingMinutes = blogPost.GetEffectiveReadingMinutes(),
         };
     }
 
