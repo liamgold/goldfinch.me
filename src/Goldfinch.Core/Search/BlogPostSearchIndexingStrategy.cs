@@ -71,7 +71,7 @@ public class BlogPostSearchIndexingStrategy : DefaultLuceneIndexingStrategy
         var rawHtml = await _webCrawler.CrawlWebPage(page);
         var body = _htmlSanitizer.SanitizeHtmlDocument(rawHtml);
 
-        var readingMinutes = EstimateReadingMinutes(body);
+        var readingMinutes = ReadingTimeEstimator.EstimateMinutes(body);
 
         var url = string.Empty;
         try
@@ -116,17 +116,5 @@ public class BlogPostSearchIndexingStrategy : DefaultLuceneIndexingStrategy
         var result = await _queryExecutor.GetMappedWebPageResult<BlogPost>(builder);
 
         return result.FirstOrDefault();
-    }
-
-    private static int EstimateReadingMinutes(string body)
-    {
-        if (string.IsNullOrWhiteSpace(body))
-        {
-            return 1;
-        }
-
-        var wordCount = body.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries).Length;
-
-        return Math.Max(1, (int)Math.Ceiling((double)wordCount / BlogSearchConstants.WORDS_PER_MINUTE));
     }
 }

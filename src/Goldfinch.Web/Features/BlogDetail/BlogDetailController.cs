@@ -1,6 +1,7 @@
 ﻿using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.ContentTypes;
+using Goldfinch.Core.Search;
 using Goldfinch.Web.Features.BlogDetail;
 using Goldfinch.Web.Features.BlogList;
 using Kentico.Content.Web.Mvc;
@@ -26,19 +27,22 @@ public class BlogDetailController : Controller
     private readonly IWebPageUrlRetriever _webPageUrlRetriever;
     private readonly IWebPageDataContextRetriever _webPageDataContextRetriever;
     private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
+    private readonly ILuceneBlogSearchService _luceneBlogSearchService;
 
     public BlogDetailController(
         IBlogPostService blogPostService,
         IBlogTagService blogTagService,
         IWebPageDataContextRetriever webPageDataContextRetriever,
         IWebPageUrlRetriever webPageUrlRetriever,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        ILuceneBlogSearchService luceneBlogSearchService)
     {
         _blogPostService = blogPostService;
         _blogTagService = blogTagService;
         _webPageDataContextRetriever = webPageDataContextRetriever;
         _webPageUrlRetriever = webPageUrlRetriever;
         _preferredLanguageRetriever = preferredLanguageRetriever;
+        _luceneBlogSearchService = luceneBlogSearchService;
     }
 
     public async Task<IActionResult> Index()
@@ -57,7 +61,7 @@ public class BlogDetailController : Controller
             return NotFound();
         }
 
-        var viewModel = await BlogPostViewModel.GetViewModelAsync(currentPage, _webPageUrlRetriever);
+        var viewModel = await BlogPostViewModel.GetViewModelAsync(currentPage, _webPageUrlRetriever, _luceneBlogSearchService);
 
         if (currentPage.BlogPostTags?.Any() == true)
         {

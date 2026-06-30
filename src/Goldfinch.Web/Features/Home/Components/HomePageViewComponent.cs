@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
+using Goldfinch.Core.Extensions;
+using Goldfinch.Core.Search;
 using Goldfinch.Core.SiteStats;
 using Goldfinch.Web.Features.BlogDetail;
 using Goldfinch.Web.Features.BlogList;
@@ -26,19 +28,22 @@ public class HomePageViewComponent : ViewComponent
     private readonly IWebPageUrlRetriever _urlRetriever;
     private readonly IBlogTagService _blogTagService;
     private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
+    private readonly ILuceneBlogSearchService _luceneBlogSearchService;
 
     public HomePageViewComponent(
         IContentRetriever contentRetriever,
         IBlogPostService blogPostService,
         IWebPageUrlRetriever urlRetriever,
         IBlogTagService blogTagService,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        ILuceneBlogSearchService luceneBlogSearchService)
     {
         _contentRetriever = contentRetriever;
         _blogPostService = blogPostService;
         _urlRetriever = urlRetriever;
         _blogTagService = blogTagService;
         _preferredLanguageRetriever = preferredLanguageRetriever;
+        _luceneBlogSearchService = luceneBlogSearchService;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(RoutedWebPage page, HomePageTemplateProperties props)
@@ -67,7 +72,7 @@ public class HomePageViewComponent : ViewComponent
                 Url: topUrl,
                 Filename: BlogPostViewModel.FilenameFromUrl(topUrl),
                 PublishedOn: top.BlogPostDate,
-                ReadingMinutes: EstimateReadingMinutes(top.BaseContentShortDescription),
+                ReadingMinutes: GetReadingMinutes(topUrl, top.BaseContentShortDescription),
                 Tags: topTags);
 
             foreach (var post in allPosts.Skip(1).Take(RecentPostCount))
@@ -80,7 +85,7 @@ public class HomePageViewComponent : ViewComponent
                     Url: url,
                     Filename: BlogPostViewModel.FilenameFromUrl(url),
                     PublishedOn: post.BlogPostDate,
-                    ReadingMinutes: EstimateReadingMinutes(post.BaseContentShortDescription),
+                    ReadingMinutes: GetReadingMinutes(url, post.BaseContentShortDescription),
                     Tags: tags));
             }
         }
@@ -123,15 +128,11 @@ public class HomePageViewComponent : ViewComponent
     }
 
     /// <summary>
-    /// Rough reading-time estimate based on summary length.
-    /// TODO: compute from full post body once we have a consistent way to read it.
+    /// Reading time in minutes, read from the <c>BlogPosts</c> Lucene index (computed there from
+    /// the full post body); falls back to a summary-based estimate if the post hasn't been
+    /// indexed yet.
     /// </summary>
-    private static int EstimateReadingMinutes(string? summary)
-    {
-        if (string.IsNullOrWhiteSpace(summary)) return 4;
-        var words = summary.Split(' ', System.StringSplitOptions.RemoveEmptyEntries).Length;
-        // Summary is ~40 words; multiply to approximate a full article length.
-        var estimated = System.Math.Max(3, (int)System.Math.Round(words * 0.15));
-        return System.Math.Min(15, estimated);
-    }
+    private int GetReadingMinutes(string relativeUrl, string? summary) =>
+        _luceneBlogSearchService.GetReadingMinutes(relativeUrl.ToAbsolutePath())
+            ?? ReadingTimeEstimator.EstimateMinutes(summary);
 }

@@ -65,12 +65,19 @@
         headers: { Accept: 'application/json' },
       });
       const data = await res.json();
-      resultsEl.innerHTML = (data.results || []).map(r => `
+      resultsEl.innerHTML = (data.results || []).map(r => {
+        const meta = [
+          (r.tags || []).map(t => `#${t}`).join(' '),
+          r.date ? formatDate(r.date) : '',
+          r.reading_minutes ? `${r.reading_minutes}m` : '',
+        ].filter(Boolean).join(' · ');
+        return `
         <a class="live-search-item" href="${escape(r.url)}">
           <span class="live-search-item__title">${r.highlights?.title ? safeHighlight(r.highlights.title) : escape(r.title || r.label)}</span>
-          ${r.date ? `<span class="live-search-item__meta mono">${formatDate(r.date)}</span>` : ''}
+          ${meta ? `<span class="live-search-item__meta mono">${escape(meta)}</span>` : ''}
         </a>
-      `).join('') || `<div class="live-search-empty mono">&gt; no results</div>`;
+      `;
+      }).join('') || `<div class="live-search-empty mono">&gt; no results</div>`;
       resultsEl.hidden = false;
     } catch (err) {
       if (err.name !== 'AbortError') {

@@ -141,7 +141,7 @@
                                 <span class="post-tag mono">#@tag.Slug</span>
                             }
                         </div>
-                        <span class="post-list__mins">4m</span>
+                        <span class="post-list__mins">@(post.ReadingMinutes)m</span>
                     </a>
                 }
             </div>
@@ -156,7 +156,7 @@
                     <div class="post-card__head">
                         <span class="post-card__dots"><span></span><span></span><span></span></span>
                         <span class="post-card__filename">@post.Filename</span>
-                        <span class="post-card__mins">4 min</span>
+                        <span class="post-card__mins">@post.ReadingMinutes min</span>
                     </div>
                     <div class="post-card__thumb">
                         <partial name="PartialViews/_PostCardDots" />

@@ -8,6 +8,7 @@ using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.SEO.Constants;
 using Goldfinch.Core.Extensions;
+using Goldfinch.Core.Search;
 using Goldfinch.Web.Features.BlogDetail;
 using Goldfinch.Web.Features.BlogList;
 using Kentico.Content.Web.Mvc;
@@ -35,6 +36,7 @@ public class BlogListController : Controller
     private readonly IBlogTagService _blogTagService;
     private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
     private readonly IWebsiteChannelContext _websiteChannelContext;
+    private readonly ILuceneBlogSearchService _luceneBlogSearchService;
 
     public BlogListController(
         IWebPageDataContextInitializer webPageDataContextInitializer,
@@ -43,7 +45,8 @@ public class BlogListController : Controller
         IBlogPostService blogPostService,
         IBlogTagService blogTagService,
         IPreferredLanguageRetriever preferredLanguageRetriever,
-        IWebsiteChannelContext websiteChannelContext)
+        IWebsiteChannelContext websiteChannelContext,
+        ILuceneBlogSearchService luceneBlogSearchService)
     {
         _webPageDataContextInitializer = webPageDataContextInitializer;
         _webPageUrlRetriever = webPageUrlRetriever;
@@ -52,6 +55,7 @@ public class BlogListController : Controller
         _blogTagService = blogTagService;
         _preferredLanguageRetriever = preferredLanguageRetriever;
         _websiteChannelContext = websiteChannelContext;
+        _luceneBlogSearchService = luceneBlogSearchService;
     }
 
     public async Task<IActionResult> Index(int page = 1, string? tag = null, string? q = null, string? view = null)
@@ -135,7 +139,7 @@ public class BlogListController : Controller
 
         foreach (var blogPost in pageItems)
         {
-            var vm = await BlogPostViewModel.GetViewModelAsync(blogPost, _webPageUrlRetriever);
+            var vm = await BlogPostViewModel.GetViewModelAsync(blogPost, _webPageUrlRetriever, _luceneBlogSearchService);
 
             if (blogPost.BlogPostTags?.Any() == true)
             {
