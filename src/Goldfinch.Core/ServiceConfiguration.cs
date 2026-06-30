@@ -16,6 +16,7 @@ public static class ServiceConfiguration
             .AddSingleton<IBreadcrumbService, BreadcrumbService>()
             .AddSingleton<IBlogPostService, BlogPostService>()
             .AddSingleton<IBlogTagService, BlogTagService>()
+            .AddSingleton<IBlogPostReadingMinutesRegenerator, BlogPostReadingMinutesRegenerator>()
             .AddScoped<IErrorPageService, ErrorPageService>()
             .AddSingleton<IPublicSpeakingService, PublicSpeakingService>()
             .AddSingleton<ISitemapService, SitemapService>()
