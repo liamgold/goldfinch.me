@@ -50,8 +50,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.NumberInput</controlname>
-          <WatermarkText>e.g. 5</WatermarkText>
+          <controlname>Goldfinch.ReadingMinutesFormComponent</controlname>
         </settings>
       </field>
     </form>
