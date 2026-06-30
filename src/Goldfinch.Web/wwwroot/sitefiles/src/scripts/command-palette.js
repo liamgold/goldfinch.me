@@ -95,7 +95,11 @@
     const active = i === state.active;
     const title = it.highlights?.title ? safeHighlight(it.highlights.title) : escape(it.title || it.label);
     const meta = it.kind === 'post'
-      ? `${(it.tags || []).map(t => `#${t}`).join(' ')} · ${formatDate(it.date)}`
+      ? [
+          (it.tags || []).map(t => `#${t}`).join(' '),
+          formatDate(it.date),
+          it.reading_minutes ? `${it.reading_minutes}m` : '',
+        ].filter(Boolean).join(' · ')
       : it.kind === 'tag'
         ? `${it.post_count} post${it.post_count === 1 ? '' : 's'}`
         : '';
