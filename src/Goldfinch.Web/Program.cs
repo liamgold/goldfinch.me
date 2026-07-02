@@ -3,6 +3,7 @@ using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.Search;
 using Goldfinch.Web.Components.Sections.ContentSection;
 using Goldfinch.Web.Infrastructure.StaticFiles;
+using Goldfinch.Web.Infrastructure.Storage;
 using Goldfinch.Web.Middleware;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Membership;
@@ -82,8 +83,10 @@ builder.Services.Configure<RouteOptions>(options =>
 
 builder.Services.AddCoreServices();
 
+// Storage path mapping — Azure Blob in production (assets + Lucene index), local filesystem otherwise.
+builder.Services.AddAppServiceStorage(env);
+
 // Lucene search — registers the blog indexing strategy used by the BlogPosts index.
-// Index storage maps to Azure Blob in production via LuceneStorageModule; local filesystem otherwise.
 builder.Services.AddKenticoLucene(luceneBuilder =>
 {
     luceneBuilder.IncludeDefaultStrategy = false;
