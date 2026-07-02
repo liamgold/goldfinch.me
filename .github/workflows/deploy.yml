@@ -32,10 +32,10 @@ jobs:
           dotnet --info
           echo "SDK version: $(dotnet --version)"
 
-      - name: Setup Node 22.x
+      - name: Setup Node from .nvmrc
         uses: actions/setup-node@v4
         with:
-          node-version: '22.x'
+          node-version-file: '.nvmrc'
           cache: 'npm'
           cache-dependency-path: src/Goldfinch.Web/wwwroot/sitefiles/package-lock.json
           

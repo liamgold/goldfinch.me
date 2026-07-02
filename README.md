@@ -35,7 +35,7 @@
 
 - .NET 10 SDK (10.0.101)
 - Microsoft SQL Server 2019 or newer (including SQL Server Express or LocalDB)
-- Node.js (22.x)
+- Node.js (24.x — see `.nvmrc`)
 
 ### Setup Instructions
 
