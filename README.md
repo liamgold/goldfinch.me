@@ -33,7 +33,7 @@
 
 ### Prerequisites
 
-- .NET 10 SDK (10.0.101)
+- .NET 10 SDK (see `global.json`)
 - Microsoft SQL Server 2019 or newer (including SQL Server Express or LocalDB)
 - Node.js (24.x — see `.nvmrc`)
 
