@@ -2,7 +2,8 @@
 # Automates the process of updating Xperience by Kentico packages:
 # - Kentico.Xperience.* NuGet packages via Directory.Packages.props
 # - @kentico/* npm packages in Admin Client only
-# - Handles CMSEnableCI toggle during update
+# - Toggles CI via the official CLI commands (--kxp-ci-enable/-disable/-status, requires
+#   the project to start on Xperience 31.6.0+)
 # - Runs CI store after update
 
 [CmdletBinding()]
@@ -62,65 +63,8 @@ function Get-ConnectionString {
     return $connectionStringsJson.ConnectionStrings.CMSConnectionString
 }
 
-function Execute-SqlCommand {
-    param(
-        [string]$ConnectionString,
-        [string]$CommandText
-    )
-
-    $connection = New-Object System.Data.SqlClient.SqlConnection($ConnectionString)
-
-    try {
-        $connection.Open()
-        $command = New-Object System.Data.SqlClient.SqlCommand($CommandText, $connection)
-        $transaction = $connection.BeginTransaction()
-        $command.Transaction = $transaction
-
-        try {
-            $rowsAffected = $command.ExecuteNonQuery()
-            Write-Host "  SQL Command: $CommandText" -ForegroundColor Gray
-            Write-Host "  Rows affected: $rowsAffected" -ForegroundColor Gray
-
-            if ($rowsAffected -ne 1) {
-                throw "Expected 1 row to be affected, but $rowsAffected rows were affected"
-            }
-
-            $transaction.Commit()
-            return $true
-        }
-        catch {
-            $transaction.Rollback()
-            Write-ErrorMessage "SQL command failed: $($_.Exception.Message)"
-            return $false
-        }
-    }
-    finally {
-        $connection.Close()
-    }
-}
-
-function Execute-SqlQuery {
-    param(
-        [string]$ConnectionString,
-        [string]$CommandText
-    )
-
-    $connection = New-Object System.Data.SqlClient.SqlConnection($ConnectionString)
-
-    try {
-        $connection.Open()
-        $command = New-Object System.Data.SqlClient.SqlCommand($CommandText, $connection)
-        $dataAdapter = New-Object System.Data.SqlClient.SqlDataAdapter($command)
-        $dataset = New-Object System.Data.Dataset
-        $dataAdapter.Fill($dataset)
-
-        return $dataset
-    }
-    finally {
-        $connection.Close()
-    }
-}
-
+# The only remaining SQL access — used by Clear-CIFileMetadata, which has no CLI equivalent.
+# All CI state management (status/enable/disable) goes through the official CLI commands.
 function Execute-SqlNonQuery {
     param(
         [string]$ConnectionString,
@@ -399,32 +343,30 @@ function Update-NpmPackages {
 
 #region CI Management
 
-function Get-CIEnabled {
-    param([string]$ConnectionString)
+# Reads the CI state via the official CLI (--kxp-ci-status, Xperience 31.6.0+).
+# Must be called from the Web project directory. -AllowBuild lets the first CLI call
+# of a run build the project; subsequent calls should rely on --no-build.
+function Get-CIEnabledCli {
+    param([switch]$AllowBuild)
 
-    try {
-        $query = "SELECT KeyValue FROM CMS_SettingsKey WHERE KeyName = N'CMSEnableCI'"
-        $dataset = Execute-SqlQuery -ConnectionString $ConnectionString -CommandText $query
+    $runArgs = @("run")
+    if (-not $AllowBuild) { $runArgs += "--no-build" }
+    $runArgs += @("--", "--kxp-ci-status", "--format", "json")
 
-        $value = $dataset.Tables[0].Rows[0][0]
-        return ($value -eq 'True')
+    $output = & dotnet @runArgs 2>&1
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to read CI status via --kxp-ci-status (exit code $LASTEXITCODE). Output:`n$($output -join "`n")"
     }
-    catch {
-        Write-ErrorMessage "Failed to check CI status: $_"
-        return $false
+
+    # dotnet run prints launch-settings info before the JSON result - find the JSON line
+    $json = $output | Where-Object { "$_" -match '^\s*\{' } | Select-Object -Last 1
+
+    if (-not $json) {
+        throw "No JSON output found from --kxp-ci-status. Output:`n$($output -join "`n")"
     }
-}
 
-function Set-CIEnabled {
-    param(
-        [string]$ConnectionString,
-        [bool]$Enabled
-    )
-
-    $value = if ($Enabled) { "True" } else { "False" }
-    $command = "UPDATE CMS_SettingsKey SET KeyValue = N'$value' WHERE KeyName = N'CMSEnableCI'"
-
-    return Execute-SqlCommand -ConnectionString $ConnectionString -CommandText $command
+    return [bool](ConvertFrom-Json "$json").enabled
 }
 
 function Clear-CIFileMetadata {
@@ -459,44 +401,49 @@ function Invoke-CIPreRestore {
         $script:connectionString = Get-ConnectionString
         Write-Success "Connection string retrieved"
 
-        # CI is always enabled for this project. Enable it unconditionally so the pre-restore
-        # syncs the DB from the repo CI XML before migration, even if a prior run left it off.
-        Write-Host "Ensuring CI is enabled..." -ForegroundColor Gray
-        if (Get-CIEnabled -ConnectionString $script:connectionString) {
-            Write-Host "CI is already enabled" -ForegroundColor Gray
-        } else {
-            $success = Set-CIEnabled -ConnectionString $script:connectionString -Enabled $true
-            if (-not $success) {
-                throw "Failed to enable CI. Cannot proceed with update."
-            }
-            Write-Success "CI enabled"
-        }
-
-        Write-Host "`nClearing CI_FileMetadata before restore..." -ForegroundColor Yellow
-        Clear-CIFileMetadata -ConnectionString $script:connectionString
-
         Push-Location "src/Goldfinch.Web"
         try {
+            # CI is always enabled for this project. Enable it unconditionally so the pre-restore
+            # syncs the DB from the repo CI XML before migration, even if a prior run left it off.
+            # The status check is the first CLI call of the run, so it is allowed to build;
+            # every dotnet run after it uses --no-build.
+            Write-Host "Checking CI status (--kxp-ci-status)..." -ForegroundColor Gray
+            if (Get-CIEnabledCli -AllowBuild) {
+                Write-Host "CI is already enabled" -ForegroundColor Gray
+            } else {
+                Write-Host "Enabling CI (--kxp-ci-enable)..." -ForegroundColor Yellow
+                & dotnet run --no-build -- --kxp-ci-enable
+
+                if ($LASTEXITCODE -ne 0) {
+                    throw "Failed to enable CI (exit code $LASTEXITCODE). Cannot proceed with update."
+                }
+
+                Write-Success "CI enabled"
+            }
+
+            Write-Host "`nClearing CI_FileMetadata before restore..." -ForegroundColor Yellow
+            Clear-CIFileMetadata -ConnectionString $script:connectionString
+
             Write-Host "`nRestoring CI objects before package update..." -ForegroundColor Yellow
-            & dotnet run --kxp-ci-restore
+            & dotnet run --no-build --kxp-ci-restore
 
             if ($LASTEXITCODE -eq 0) {
                 Write-Success "CI restore completed"
             } else {
                 throw "CI restore failed with exit code $LASTEXITCODE"
             }
+
+            Write-Host "`nDisabling CI before package update (--kxp-ci-disable)..." -ForegroundColor Yellow
+            & dotnet run --no-build -- --kxp-ci-disable
+
+            if ($LASTEXITCODE -ne 0) {
+                throw "Failed to disable CI (exit code $LASTEXITCODE). Cannot proceed with update."
+            }
+
+            Write-Success "CI disabled"
         } finally {
             Pop-Location
         }
-
-        Write-Host "`nDisabling CI before package update..." -ForegroundColor Yellow
-        $success = Set-CIEnabled -ConnectionString $script:connectionString -Enabled $false
-
-        if (-not $success) {
-            throw "Failed to disable CI. Cannot proceed with update."
-        }
-
-        Write-Success "CI disabled"
     } catch {
         Write-ErrorMessage "Failed during CI pre-restore: $_"
         throw
@@ -541,19 +488,19 @@ function Invoke-KenticoUpdate {
         }
 
         # Re-enable CI and store (CI is always enabled for this project)
-        Write-Host "`nRe-enabling CI..." -ForegroundColor Yellow
-        $success = Set-CIEnabled -ConnectionString $script:connectionString -Enabled $true
-
-        if (-not $success) {
-            Write-ErrorMessage "Failed to re-enable CI"
-            return
-        }
-
-        Write-Success "CI re-enabled"
-
-        Write-Host "`nStoring CI objects..." -ForegroundColor Gray
         Push-Location "src/Goldfinch.Web"
         try {
+            Write-Host "`nRe-enabling CI (--kxp-ci-enable)..." -ForegroundColor Yellow
+            & dotnet run --no-build -- --kxp-ci-enable
+
+            if ($LASTEXITCODE -ne 0) {
+                Write-ErrorMessage "Failed to re-enable CI"
+                return
+            }
+
+            Write-Success "CI re-enabled"
+
+            Write-Host "`nStoring CI objects..." -ForegroundColor Gray
             & dotnet run --no-build --kxp-ci-store
 
             if ($LASTEXITCODE -eq 0) {
@@ -568,18 +515,25 @@ function Invoke-KenticoUpdate {
     } catch {
         Write-ErrorMessage "Failed to run Kentico update: $_"
     } finally {
-        # Always leave CI enabled — runs whether the update succeeded or failed
-        if ($null -ne $script:connectionString) {
-            try {
-                $currentCIState = Get-CIEnabled -ConnectionString $script:connectionString
-                if (-not $currentCIState) {
-                    Write-Host "`nEnsuring CI is re-enabled..." -ForegroundColor Yellow
-                    Set-CIEnabled -ConnectionString $script:connectionString -Enabled $true | Out-Null
-                    Write-Success "CI re-enabled"
+        # Always leave CI enabled — runs whether the update succeeded or failed. If the update
+        # broke badly enough that dotnet run cannot execute, this reports the failure so CI can
+        # be re-enabled manually.
+        Push-Location "src/Goldfinch.Web"
+        try {
+            if (-not (Get-CIEnabledCli)) {
+                Write-Host "`nEnsuring CI is re-enabled (--kxp-ci-enable)..." -ForegroundColor Yellow
+                & dotnet run --no-build -- --kxp-ci-enable
+
+                if ($LASTEXITCODE -ne 0) {
+                    throw "kxp-ci-enable failed with exit code $LASTEXITCODE"
                 }
-            } catch {
-                Write-ErrorMessage "Could not verify or restore CI state. Please check CI is enabled in the Kentico admin before proceeding."
+
+                Write-Success "CI re-enabled"
             }
+        } catch {
+            Write-ErrorMessage "Could not verify or restore CI state. Please check CI is enabled in the Kentico admin before proceeding."
+        } finally {
+            Pop-Location
         }
     }
 }
