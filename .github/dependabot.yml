@@ -1,5 +1,22 @@
 version: 2
 updates:
+  # Maintain GitHub Actions versions in workflow files
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "07:00"
+    groups:
+      # Batch routine minor/patch into one PR; majors stay individual for review.
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    open-pull-requests-limit: 5
+
   # Maintain dependencies for Kentico Admin project (npm)
   - package-ecosystem: "npm"
     directory: "/src/Goldfinch.Admin/Client/"
