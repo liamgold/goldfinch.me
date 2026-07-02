@@ -4,13 +4,13 @@
     "net10.0": {
       "Kentico.Xperience.Admin": {
         "type": "Direct",
-        "requested": "[31.6.0, )",
-        "resolved": "31.6.0",
-        "contentHash": "oZwvRnUtAYu3mJ55gY4BSiJidWVQKaXa1qmIFZpdsBKzdiUNgRvJ1Glp4EB2d3LSKbPMBXKltOTgBv+8IlSUsw==",
+        "requested": "[31.6.1, )",
+        "resolved": "31.6.1",
+        "contentHash": "JU8z6ircJfEgP2MHQCOVrxiRsaZVOvqBJCsEifk17pU/4oD705dZyIyeuNHa7VUl7Il5w/T+RlShXn6rFddUmA==",
         "dependencies": {
           "Azure.AI.OpenAI": "2.1.0",
           "Kentico.Aira.Client": "6.1.0",
-          "Kentico.Xperience.WebApp": "[31.6.0]",
+          "Kentico.Xperience.WebApp": "[31.6.1]",
           "Microsoft.Agents.AI": "1.10.0",
           "Microsoft.Agents.AI.OpenAI": "1.10.0",
           "Microsoft.AspNetCore.SpaServices.Extensions": "8.0.28",
@@ -21,15 +21,15 @@
       },
       "Kentico.Xperience.WebApp": {
         "type": "Direct",
-        "requested": "[31.6.0, )",
-        "resolved": "31.6.0",
-        "contentHash": "ly3L4ZeGQSBbIIlbbCx3OZsWKMVgSUsGKWqd7WGPWjhvgci4C1YuPkW2ORR42d/aqcNM5pXOl17zSiKJawQ+Iw==",
+        "requested": "[31.6.1, )",
+        "resolved": "31.6.1",
+        "contentHash": "q8FAYRgWADj0wW+J9VWwm8gU/IkGiWwfWhSHFXCmGttGiqCiYY7Fi+YykSEYNZjZNtKlvLG6BQFQzH4FsiQ9Xw==",
         "dependencies": {
           "CommandLineParser": "2.9.1",
           "HotChocolate.AspNetCore": "15.1.16",
           "HotChocolate.Data": "15.1.16",
           "HtmlSanitizer": "9.0.892",
-          "Kentico.Xperience.Core": "[31.6.0]",
+          "Kentico.Xperience.Core": "[31.6.1]",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.28"
         }
       },
@@ -426,8 +426,8 @@
       },
       "Kentico.Xperience.Core": {
         "type": "Transitive",
-        "resolved": "31.6.0",
-        "contentHash": "v+9Iq6ZCZbQYevXg2+AIC4UvZ2xkwb2elgFuJJNdgitDahjVRfGIfWW39sytYDIVY8+Hx9CldiiiKrmmF0yPng==",
+        "resolved": "31.6.1",
+        "contentHash": "RTRALxYej5oU9hw5uePLwrqTdHLBXmlDkdpSsBMEd2mZQba+TupjczfheTt0j0uKyALeuXSY3IyGjxMNurbLng==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "Kentico.Aira.Client": "6.1.0",
@@ -463,8 +463,8 @@
       },
       "Lucene.Net": {
         "type": "Transitive",
-        "resolved": "4.8.0-beta00017",
-        "contentHash": "7LLWS9nNwx01AyE/KXMh+qdAlzDkRANE8407AO/wEmLL1InzVKFwfsRdRmwg4ILOMFui4xZ1Y54eqvzo3Tf9Vw==",
+        "resolved": "4.8.0-beta00018",
+        "contentHash": "iBkkpkDbAHjpZ0dnukFnWnjxSNmsRHOSxrYBBKbtcYJZ8PQRrKsqGGyNm8xmh4ORvsJ1WM7i5A9whiyA8WhNrQ==",
         "dependencies": {
           "J2N": "[2.1.0, 3.0.0)"
         }
@@ -505,18 +505,18 @@
       },
       "Lucene.Net.Memory": {
         "type": "Transitive",
-        "resolved": "4.8.0-beta00017",
-        "contentHash": "T4uG0k1iGzXXRRlmsFTtRPhnc2Ef1wlh68TxO2dN8qLW7AXX9qsIjOuN64+IXAPUkysvvks8psoU6epi642MUw==",
+        "resolved": "4.8.0-beta00018",
+        "contentHash": "FDdqAkKC33y/YTkx4uH5oci3OkNOdyyX0MWI/agSFn+7WlMxlj6CvH3tX+5fpi8Hf7EBqWjdP9hr26u4Kb4UNA==",
         "dependencies": {
-          "Lucene.Net": "4.8.0-beta00017"
+          "Lucene.Net": "4.8.0-beta00018"
         }
       },
       "Lucene.Net.Queries": {
         "type": "Transitive",
-        "resolved": "4.8.0-beta00017",
-        "contentHash": "RVpZCfa/7pgvytFw64zLqinvZPQt4TojvcFghdAA5vhnpSs5GTbtciPIxFH3wwH3f2dYJywiqYKo1h3JBCXRBA==",
+        "resolved": "4.8.0-beta00018",
+        "contentHash": "cS+Ea3m4ZcCId9MgYfgAs6UNiYfxykpNIZlf7nRPH/7zOa+TePX5ATM+0FLQu54bAkgWVAwV1T269PD0oQsToQ==",
         "dependencies": {
-          "Lucene.Net": "4.8.0-beta00017"
+          "Lucene.Net": "4.8.0-beta00018"
         }
       },
       "Magick.NET-Q8-AnyCPU": {
@@ -868,10 +868,10 @@
         "type": "Project",
         "dependencies": {
           "AngleSharp": "[0.17.1, )",
-          "Kentico.Xperience.Admin": "[31.6.0, )",
+          "Kentico.Xperience.Admin": "[31.6.1, )",
           "Kentico.Xperience.Lucene": "[15.0.3, )",
-          "Kentico.Xperience.WebApp": "[31.6.0, )",
-          "Lucene.Net.Highlighter": "[4.8.0-beta00017, )",
+          "Kentico.Xperience.WebApp": "[31.6.1, )",
+          "Lucene.Net.Highlighter": "[4.8.0-beta00018, )",
           "Sidio.Sitemap.AspNetCore": "[3.1.1, )"
         }
       },
@@ -893,12 +893,12 @@
       },
       "Lucene.Net.Highlighter": {
         "type": "CentralTransitive",
-        "requested": "[4.8.0-beta00017, )",
-        "resolved": "4.8.0-beta00017",
-        "contentHash": "Mqm+KlBHhNO+jhmSkC1xD88qSAWEcFu7vGt7utpoZZn9RGD5TVXavJHNLXYjvj9O5NQtDAjeKZ0T9toVCY0REw==",
+        "requested": "[4.8.0-beta00018, )",
+        "resolved": "4.8.0-beta00018",
+        "contentHash": "6Sddu/12UlwVHnjw9YLoP4G+8FkiNJG9J+fOfGDVSYFs1QvYfBYj7es4yf2XTsQdXn0WimB06v/adr0CcJl9CQ==",
         "dependencies": {
-          "Lucene.Net.Memory": "4.8.0-beta00017",
-          "Lucene.Net.Queries": "4.8.0-beta00017"
+          "Lucene.Net.Memory": "4.8.0-beta00018",
+          "Lucene.Net.Queries": "4.8.0-beta00018"
         }
       },
       "Sidio.Sitemap.AspNetCore": {
