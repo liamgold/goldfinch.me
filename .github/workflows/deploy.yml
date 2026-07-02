@@ -37,7 +37,9 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
-          cache-dependency-path: src/Goldfinch.Web/wwwroot/sitefiles/package-lock.json
+          cache-dependency-path: |
+            src/Goldfinch.Web/wwwroot/sitefiles/package-lock.json
+            src/Goldfinch.Admin/Client/package-lock.json
           
       - name: npm ci
         working-directory: src/Goldfinch.Web/wwwroot/sitefiles
