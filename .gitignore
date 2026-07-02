@@ -367,7 +367,9 @@ ConnectionStrings\.json
 # Ignore Vite dist folder
 src/Goldfinch.Web/wwwroot/SiteFiles/dist
 
-# Ensure CIRepository is fully committed
+# Ensure CIRepository is fully committed.
+# Runtime-state object types (e.g. kenticolucene.luceneindexassemblyversionitem) are
+# excluded via ExcludedObjectTypes in App_Data/CIRepository/repository.config, not gitignored.
 !src/Goldfinch.Web/App_Data/CIRepository/**/*.*
 
 # Local assets are restored via dotnet run --kxp-ci-restore, not committed

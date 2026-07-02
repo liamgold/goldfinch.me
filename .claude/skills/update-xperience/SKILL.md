@@ -166,7 +166,7 @@ When everything is working:
 - **Nullable Reference Types**: This project has nullable reference types enabled - ensure any code changes respect this
 - **Minimal Changes**: Keep changes focused on Kentico packages only - don't bump unrelated dependencies
 - **Documentation**: Always use the Kentico docs MCP server for authoritative information about APIs and changes
-- **Lucene Package**: This project uses `Kentico.Xperience.Lucene` — the `kenticolucene.luceneindexassemblyversionitem` object type should be listed under `<ExcludedObjectTypes>` in `src/Goldfinch.Web/App_Data/CIRepository/repository.config` — it is per-environment runtime state (which assembly version built the local index) and must not flow through CI. If a file for it appears under `App_Data/CIRepository/@global/` during the update, add the exclusion and re-run `--kxp-ci-store`
+- **Lucene Package**: This project uses `Kentico.Xperience.Lucene` — the `kenticolucene.luceneindexassemblyversionitem` object type is excluded under `<ExcludedObjectTypes>` in `src/Goldfinch.Web/App_Data/CIRepository/repository.config` because it is per-environment runtime state (which assembly version built the local index) and must not flow through CI. If a file for it ever appears under `App_Data/CIRepository/@global/` during an update, check the exclusion is still in place and re-run `--kxp-ci-store`
 
 ## Project-Specific Context
 
