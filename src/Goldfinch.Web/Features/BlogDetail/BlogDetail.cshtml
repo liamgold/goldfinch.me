@@ -49,9 +49,9 @@
                 <span class="clock"><icon name="clock" size="12" /> @Model.ReadingMinutes min read</span>
             </div>
             <h1>@Model.Title</h1>
-            @if (!string.IsNullOrWhiteSpace(Model.Summary))
+            @if (!string.IsNullOrWhiteSpace(Model.Excerpt))
             {
-                <p class="post-summary">@Model.Summary</p>
+                <p class="post-summary">@Model.Excerpt</p>
             }
 
             <div class="post-body">

@@ -15,6 +15,13 @@ public class BlogPostViewModel
 
     public required string Summary { get; set; }
 
+    /// <summary>
+    /// On-page standfirst / GEO overview. Falls back to the short description when the
+    /// BlogPostExcerpt field is empty. Used only by the detail page — the card and meta
+    /// description keep using Summary (BaseContentShortDescription).
+    /// </summary>
+    public string Excerpt { get; set; } = string.Empty;
+
     public required string Url { get; set; }
 
     public DateTime BlogPostDate { get; set; }
@@ -42,6 +49,9 @@ public class BlogPostViewModel
         {
             Title = blogPost.BaseContentTitle,
             Summary = blogPost.BaseContentShortDescription,
+            Excerpt = string.IsNullOrWhiteSpace(blogPost.BlogPostExcerpt)
+                ? blogPost.BaseContentShortDescription
+                : blogPost.BlogPostExcerpt,
             BlogPostDate = blogPost.BlogPostDate,
             Url = url,
             Filename = FilenameFromUrl(url),
