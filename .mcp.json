@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "xperience-management-api": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@kentico/management-api-mcp@latest"],
+      "env": {
+        "MANAGEMENT_API_URL": "https://localhost:52623/kentico-api/management",
+        "MANAGEMENT_API_SECRET": "HelloThisIsMySuperSuperSecretApiKey",
+        "NODE_TLS_REJECT_UNAUTHORIZED": "0"
+      }
+    }
+  }
+}

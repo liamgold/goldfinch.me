@@ -36,6 +36,12 @@ namespace Goldfinch.Core.ContentTypes
 
 
 		/// <summary>
+		/// BlogPostExcerpt.
+		/// </summary>
+		public string BlogPostExcerpt { get; set; }
+
+
+		/// <summary>
 		/// BlogPostDate.
 		/// </summary>
 		public DateTime BlogPostDate { get; set; }

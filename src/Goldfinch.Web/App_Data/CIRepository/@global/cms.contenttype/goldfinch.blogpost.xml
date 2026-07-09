@@ -11,6 +11,26 @@
       <schema guid="c5126ac7-4df1-481c-b978-987e59554cda" name="c5126ac7-4df1-481c-b978-987e59554cda">
         <properties />
       </schema>
+      <field allowempty="true" column="BlogPostExcerpt" columntype="longtext" enabled="true" guid="576f4290-d604-4012-839d-67a95eb0fcca" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Optional. A self-contained 40–60 word overview shown under the title and used by search / AI answer engines. State specifics — what the post covers, what actually happened, and the key takeaway — naming real tools and outcomes rather than abstract phrases ("explores how AI helped"). Leave empty to fall back to the short description.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Excerpt</fieldcaption>
+          <fielddescription>
+            <![CDATA[Optional. A self-contained 40–60 word overview shown under the title and used by search / AI answer engines. State specifics — what the post covers, what actually happened, and the key takeaway — naming real tools and outcomes rather than abstract phrases ("explores how AI helped"). Leave empty to fall back to the short description.]]>
+          </fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <includeincontentgeneration>True</includeincontentgeneration>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
       <field column="BlogPostDate" columnprecision="0" columntype="date" enabled="true" guid="5297ab96-9ac0-4a56-a398-646ee2249bd4" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
