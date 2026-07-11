@@ -7,12 +7,12 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="coverlet.collector" Version="10.0.1" />
-    <PackageVersion Include="Kentico.Xperience.Admin" Version="31.6.1" />
-    <PackageVersion Include="Kentico.Xperience.AzureStorage" Version="31.6.1" />
-    <PackageVersion Include="Kentico.Xperience.Lucene" Version="15.0.3" />
-    <PackageVersion Include="Kentico.Xperience.ManagementApi" Version="31.6.1-preview" />
+    <PackageVersion Include="Kentico.Xperience.Admin" Version="31.6.2" />
+    <PackageVersion Include="Kentico.Xperience.AzureStorage" Version="31.6.2" />
+    <PackageVersion Include="Kentico.Xperience.Lucene" Version="15.0.4" />
+    <PackageVersion Include="Kentico.Xperience.ManagementApi" Version="31.6.2-preview" />
     <PackageVersion Include="Kentico.Xperience.MiniProfiler" Version="3.0.0" />
-    <PackageVersion Include="Kentico.Xperience.WebApp" Version="31.6.1" />
+    <PackageVersion Include="Kentico.Xperience.WebApp" Version="31.6.2" />
     <PackageVersion Include="Lucene.Net.Highlighter" Version="4.8.0-beta00018" />
     <PackageVersion Include="AngleSharp" Version="0.17.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.6.0" />

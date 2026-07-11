@@ -10,9 +10,7 @@ using Kentico.Membership;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using Kentico.Xperience.Admin.Base;
-#if DEBUG
 using Kentico.Xperience.ManagementApi;
-#endif
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -104,19 +102,13 @@ if (env.IsDevelopment())
         options.PopupRenderPosition = RenderPosition.BottomLeft;
     });
 
-#if DEBUG
-    // The Management API is a local-development-only tool and must never ship to production
-    // (per Kentico's own guidance). The Kentico.Xperience.ManagementApi package is referenced
-    // only in Debug builds (see Goldfinch.Web.csproj), so this call, the using directive, and the
-    // UseKenticoManagementApi() middleware below are all compiled out of Release builds. This keeps
-    // the assembly — and its auto-initialising ManagementApiModule — out of the production
-    // deployment entirely, which also avoids the 31.6.0-preview startup crash where the module
-    // resolves IOpenApiReferenceRegister even when the API was never enabled.
+    // The Management API is a local-development-only tool (per Kentico's guidance) and must never
+    // be enabled in production, so it is registered only under the IsDevelopment() guard. The
+    // matching UseKenticoManagementApi() middleware below is guarded the same way.
     builder.Services.AddKenticoManagementApi(options =>
     {
         options.Secret = "HelloThisIsMySuperSuperSecretApiKey";
     });
-#endif
 }
 else
 {
@@ -144,12 +136,10 @@ app.UseStaticFiles();
 
 app.UseAuthentication();
 
-#if DEBUG
 if (builder.Environment.IsDevelopment())
 {
     app.UseKenticoManagementApi();
 }
-#endif
 
 app.UseKentico();
 
