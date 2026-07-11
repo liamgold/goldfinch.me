@@ -20,9 +20,14 @@ Goldfinch.me is a personal website/blog for Liam Goldfinch featuring articles ab
 - `Kentico.Xperience.WebApp` - Core Kentico framework
 - `Kentico.Xperience.Admin` - Admin interface
 - `Kentico.Xperience.AzureStorage` - Azure blob storage integration
+- `Kentico.Xperience.Lucene` (+ `Lucene.Net.Highlighter`) - Search indexing & result highlighting (powers `/api/search`)
+- `Kentico.Xperience.ManagementApi` - Management API
+- `Kentico.Xperience.MiniProfiler` - Profiling (local diagnostics)
+- `XperienceCommunity.CSP` - Content Security Policy headers
 - `Schema.NET` - Structured data/schema markup
 - `Sidio.Sitemap.AspNetCore` - XML sitemap generation
-- `SixLabors.ImageSharp` - Image processing
+- `System.ServiceModel.Syndication` - RSS feed generation
+- `AngleSharp` - HTML parsing
 
 ### Front-end dependencies (`wwwroot/sitefiles`)
 
@@ -39,9 +44,12 @@ src/
 ├── Goldfinch.Core/          # Shared business logic & data models
 │   ├── BlogPosts/           # Blog post service & models
 │   ├── ContentTypes/        # Kentico content type definitions
+│   ├── ErrorPages/          # Error page service & models
 │   ├── Extensions/          # Shared string helpers (ToAbsolutePath)
 │   ├── PublicSpeaking/      # Speaking engagement functionality
+│   ├── Search/              # Search service & models
 │   ├── SEO/                 # SEO models (breadcrumbs, meta fields, constants)
+│   ├── SiteStats/           # Site statistics
 │   └── Sitemap/             # Sitemap generation logic
 ├── Goldfinch.Admin/         # Kentico admin customisations
 └── Goldfinch.Web/           # Main web application
@@ -57,8 +65,9 @@ src/
     │   ├── InnerPage/       # Generic content page (e.g. /about)
     │   ├── PublicSpeakingPage/
     │   ├── SEO/             # RSSFeed + Sitemap controllers
-    │   └── Search/          # /api/search JSON endpoint (stub)
+    │   └── Search/          # /api/search JSON endpoint (Lucene-backed)
     ├── Infrastructure/      # Cross-cutting concerns (storage, etc.)
+    ├── Middleware/          # Custom middleware
     ├── TagHelpers/          # IconTagHelper, ImageAssetTagHelper, PageBuilderModeTagHelper
     ├── Views/Shared/
     │   ├── _Layout.cshtml
@@ -68,7 +77,7 @@ src/
         │   ├── global.css   # Design tokens + every component style (one file)
         │   ├── main.ts      # Imports every JS enhancement module
         │   ├── scripts/     # mobile-drawer, command-palette, search,
-        │   │                #   toc-scrollspy, header-scroll
+        │   │                #   toc-scrollspy, header-scroll, copy-link
         │   └── codeblock/   # highlight.js integration (lazy-loaded on post detail)
         └── dist/assets/     # Built output, loaded by Razor
 ```
@@ -120,6 +129,7 @@ All client JS is vanilla, progressive-enhancement only — every page works with
 | `command-palette.js` | ⌘K / Ctrl+K palette with ↑↓↵ keyboard nav; hits `/api/search` |
 | `search.js` | Debounced live search for the blog toolbar input |
 | `toc-scrollspy.js` | Highlights active TOC entry + updates reading-progress bar |
+| `copy-link.js` | Reveals the copy-link button on post detail (when `navigator.clipboard` is available) and copies the canonical URL on click |
 
 Each module is a self-contained IIFE that no-ops if its expected DOM isn't present — safe to ship on every page.
 
