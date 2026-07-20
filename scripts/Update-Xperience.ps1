@@ -53,14 +53,34 @@ function Write-ErrorMessage {
 }
 
 function Get-ConnectionString {
-    $connectionStringsPath = "src/Goldfinch.Web/connectionstrings.json"
+    # The local connection string lives in .NET User Secrets (see README). Resolve the
+    # UserSecretsId from the web project, then read it out of the per-user secret store.
+    $csprojPath = "src/Goldfinch.Web/Goldfinch.Web.csproj"
 
-    if (-not (Test-Path $connectionStringsPath)) {
-        throw "Connection strings file not found: $connectionStringsPath"
+    if (-not (Test-Path $csprojPath)) {
+        throw "Web project not found: $csprojPath"
     }
 
-    $connectionStringsJson = Get-Content $connectionStringsPath -Raw | ConvertFrom-Json
-    return $connectionStringsJson.ConnectionStrings.CMSConnectionString
+    $userSecretsId = ([xml](Get-Content $csprojPath -Raw)).Project.PropertyGroup.UserSecretsId
+
+    if ([string]::IsNullOrWhiteSpace($userSecretsId)) {
+        throw "No UserSecretsId found in $csprojPath"
+    }
+
+    $secretsPath = Join-Path $env:APPDATA "Microsoft/UserSecrets/$userSecretsId/secrets.json"
+
+    if (-not (Test-Path $secretsPath)) {
+        throw "User secrets file not found: $secretsPath. Run 'dotnet user-secrets set `"ConnectionStrings:CMSConnectionString`" `"...`"' in src/Goldfinch.Web."
+    }
+
+    $secretsJson = Get-Content $secretsPath -Raw | ConvertFrom-Json
+    $connectionString = $secretsJson.'ConnectionStrings:CMSConnectionString'
+
+    if ([string]::IsNullOrWhiteSpace($connectionString)) {
+        throw "ConnectionStrings:CMSConnectionString not set in user secrets. Run 'dotnet user-secrets set' in src/Goldfinch.Web."
+    }
+
+    return $connectionString
 }
 
 # The only remaining SQL access — used by Clear-CIFileMetadata, which has no CLI equivalent.

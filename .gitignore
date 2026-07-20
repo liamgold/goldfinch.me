@@ -360,10 +360,6 @@ FodyWeavers.xsd
 
 ### CUSTOM ###
 
-# Ignore Connection Strings, but keep a copy in Solution Items
-ConnectionStrings\.json
-!docs/ConnectionStrings\.json
-
 # Ignore Vite dist folder
 src/Goldfinch.Web/wwwroot/SiteFiles/dist
 

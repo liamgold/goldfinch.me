@@ -14,7 +14,6 @@ using Kentico.Xperience.ManagementApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Sidio.Sitemap.AspNetCore;
@@ -25,9 +24,6 @@ using XperienceCommunity.CSP;
 var builder = WebApplication.CreateBuilder(args);
 
 var env = builder.Environment;
-var config = builder.Configuration;
-
-config.AddJsonFile("connectionstrings.json", optional: true);
 
 // Enable desired Kentico Xperience features
 builder.Services.AddKentico(features =>

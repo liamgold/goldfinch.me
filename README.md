@@ -40,9 +40,11 @@
 ### Setup Instructions
 
 1. Clone the repository
-2. Configure your database connection using either:
-   - Add connection string to `appsettings.json` under `ConnectionStrings:CMSConnectionString`
-   - Create a `connectionstrings.json` file in the `Goldfinch.Web` project root (recommended for local development)
+2. Configure your database connection using [.NET User Secrets](https://learn.microsoft.com/aspnet/core/security/app-secrets) (kept out of the repo, loaded automatically in Development):
+   ```bash
+   cd src/Goldfinch.Web
+   dotnet user-secrets set "ConnectionStrings:CMSConnectionString" "Data Source=localhost;Initial Catalog=Goldfinch.me;Integrated Security=True;Persist Security Info=False;Connect Timeout=60;Encrypt=False;Current Language=English;"
+   ```
 3. **Build the front-end bundle:**
    ```bash
    cd src/Goldfinch.Web/wwwroot/sitefiles
