@@ -447,7 +447,7 @@ dotnet run
 ## Important Notes
 
 - **No database backups in repo** - use CI files to restore Kentico objects
-- **Connection strings** stored in `connectionstrings.json` (gitignored)
+- **Connection strings (local dev)** stored in [.NET User Secrets](https://learn.microsoft.com/aspnet/core/security/app-secrets) under `ConnectionStrings:CMSConnectionString` (loaded automatically in Development via the `UserSecretsId` in `Goldfinch.Web.csproj`). Production/Preview use tokenised values in `appsettings.{Environment}.json`, replaced at deploy time.
 - **Do not commit** `.claude/` directory (in .gitignore)
 - **Admin credentials** in README are for local development only
 - **Contributions** not expected - personal project

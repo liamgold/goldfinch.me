@@ -1,4 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<UserSecretsId>cc12309b-cdeb-4b1d-b75b-871beb000615</UserSecretsId>
+	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Kentico.Xperience.Admin" />
 		<PackageReference Include="Kentico.Xperience.AzureStorage" />
