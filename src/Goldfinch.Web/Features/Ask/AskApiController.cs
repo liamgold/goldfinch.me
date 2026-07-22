@@ -34,6 +34,7 @@ public class AskApiController : ControllerBase
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Ask([FromBody] AskRequest? request, CancellationToken cancellationToken)
     {
         if (!_chatClient.IsConfigured)

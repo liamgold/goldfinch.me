@@ -53,6 +53,10 @@ builder.Services.AddAuthentication();
 
 builder.Services.AddControllersWithViews();
 
+// Antiforgery token is read from a request header so the JS-driven /api/ask fetch can send it
+// (the token is emitted as a <meta> tag in _Layout and validated by AskApiController).
+builder.Services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
+
 builder.Services.Configure<AdminLocalizationOptions>(options =>
 {
     options.DefaultCultureCode = "en-GB";

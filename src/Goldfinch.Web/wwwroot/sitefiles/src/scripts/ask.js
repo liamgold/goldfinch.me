@@ -78,9 +78,14 @@
     answerEl.innerHTML = `<div class="ask__status mono">&gt; thinking…</div>`;
 
     try {
+      const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
       const res = await fetch('/api/ask', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          ...(csrfToken ? { 'X-CSRF-TOKEN': csrfToken } : {}),
+        },
         body: JSON.stringify({ question, history }),
       });
 
