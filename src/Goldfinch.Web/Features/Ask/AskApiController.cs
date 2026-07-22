@@ -19,6 +19,11 @@ public class AskApiController : ControllerBase
 {
     private const int MaxQuestionLength = 500;
 
+    // Bound client-supplied history so a single request can't be made arbitrarily expensive
+    // (the rate limiter caps request count, not size).
+    private const int MaxHistoryItems = 12;
+    private const int MaxHistoryMessageLength = 2000;
+
     private readonly IAskChatClient _chatClient;
     private readonly IAskService _askService;
 
@@ -48,10 +53,11 @@ public class AskApiController : ControllerBase
 
         var history = (request?.History ?? [])
             .Where(turn => turn is not null && !string.IsNullOrWhiteSpace(turn.Content))
+            .TakeLast(MaxHistoryItems)
             .Select(turn => new AskTurn
             {
                 Role = turn.Role == AskTurn.AssistantRole ? AskTurn.AssistantRole : AskTurn.UserRole,
-                Content = turn.Content!.Trim(),
+                Content = Truncate(turn.Content!.Trim(), MaxHistoryMessageLength),
             })
             .ToList();
 
@@ -64,4 +70,7 @@ public class AskApiController : ControllerBase
             sources = result.Sources.Select(source => new { title = source.Title, url = source.Url }),
         });
     }
+
+    private static string Truncate(string value, int maxChars) =>
+        value.Length <= maxChars ? value : value[..maxChars];
 }

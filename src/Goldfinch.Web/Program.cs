@@ -2,6 +2,7 @@ using Goldfinch.Core;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.Search;
 using Goldfinch.Web.Components.Sections.ContentSection;
+using Goldfinch.Web.Infrastructure;
 using Goldfinch.Web.Infrastructure.Ai;
 using Goldfinch.Web.Infrastructure.StaticFiles;
 using Goldfinch.Web.Infrastructure.Storage;
@@ -81,6 +82,9 @@ builder.Services.AddCoreServices();
 // "Ask" AI Q&A feature — binds Azure OpenAI options and registers the chat client.
 builder.Services.AddAskFeature(builder.Configuration);
 
+// Honour Cloudflare / App Service forwarded headers (real visitor IP + HTTPS scheme).
+builder.Services.AddForwardedHeadersConfiguration();
+
 // Storage path mapping — Azure Blob in production (assets + Lucene index), local filesystem otherwise.
 builder.Services.AddAppServiceStorage(env);
 
@@ -130,6 +134,9 @@ builder.Services.AddCustomStaticFilesConfiguration(builder.Configuration);
 var app = builder.Build();
 
 app.InitKentico();
+
+// Must run before anything that reads the client IP or request scheme (rate limiter, redirects).
+app.UseForwardedHeaders();
 
 app.UseStaticFiles();
 // app.MapStaticAssets();
