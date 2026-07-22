@@ -19,6 +19,9 @@ public static class BlogSearchConstants
     public const string FIELD_DATE = "Date";
     public const string FIELD_READING_MINUTES = "ReadingMinutes";
 
+    /// <summary>Web page item ID — stored so the Ask feature can retrieve a post's body by ID.</summary>
+    public const string FIELD_WEBPAGE_ITEM_ID = "WebPageItemID";
+
     /// <summary>Average adult reading speed (words per minute) used to estimate reading time.</summary>
     public const int WORDS_PER_MINUTE = 200;
 }

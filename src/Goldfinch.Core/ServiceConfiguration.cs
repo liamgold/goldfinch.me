@@ -1,3 +1,4 @@
+using Goldfinch.Core.Ask;
 using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.ErrorPages;
 using Goldfinch.Core.PublicSpeaking;
@@ -16,6 +17,10 @@ public static class ServiceConfiguration
             .AddSingleton<IBreadcrumbService, BreadcrumbService>()
             .AddSingleton<IBlogPostService, BlogPostService>()
             .AddSingleton<IBlogTagService, BlogTagService>()
+            .AddSingleton<IAskContentService, AskContentService>()
+            .AddSingleton<IAskPostSelector, AskPostSelector>()
+            .AddSingleton<IAskSourceGatherer, AskSourceGatherer>()
+            .AddSingleton<IAskService, AskService>()
             .AddSingleton<IBlogPostReadingMinutesRegenerator, BlogPostReadingMinutesRegenerator>()
             .AddScoped<IErrorPageService, ErrorPageService>()
             .AddSingleton<IPublicSpeakingService, PublicSpeakingService>()

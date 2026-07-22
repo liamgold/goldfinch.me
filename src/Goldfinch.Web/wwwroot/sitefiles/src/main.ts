@@ -3,6 +3,7 @@ import './scripts/header-scroll';
 import './scripts/mobile-drawer';
 import './scripts/command-palette';
 import './scripts/search';
+import './scripts/ask';
 import './scripts/toc-scrollspy';
 import './scripts/copy-link';
 

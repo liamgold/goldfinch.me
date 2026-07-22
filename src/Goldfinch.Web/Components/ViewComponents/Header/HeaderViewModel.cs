@@ -5,6 +5,9 @@ namespace Goldfinch.Web.Components.ViewComponents.Header
     public class HeaderViewModel
     {
         public IReadOnlyList<NavigationItem> NavigationItems { get; init; } = [];
+
+        /// <summary>Whether the "Ask" feature is usable — gates the header trigger.</summary>
+        public bool AskAvailable { get; init; }
     }
 
     public class NavigationItem

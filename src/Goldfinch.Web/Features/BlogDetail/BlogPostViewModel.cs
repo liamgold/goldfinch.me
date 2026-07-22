@@ -49,9 +49,7 @@ public class BlogPostViewModel
         {
             Title = blogPost.BaseContentTitle,
             Summary = blogPost.BaseContentShortDescription,
-            Excerpt = string.IsNullOrWhiteSpace(blogPost.BlogPostExcerpt)
-                ? blogPost.BaseContentShortDescription
-                : blogPost.BlogPostExcerpt,
+            Excerpt = blogPost.GetEffectiveExcerpt(),
             BlogPostDate = blogPost.BlogPostDate,
             Url = url,
             Filename = FilenameFromUrl(url),

@@ -2,6 +2,7 @@ using Goldfinch.Core;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.Search;
 using Goldfinch.Web.Components.Sections.ContentSection;
+using Goldfinch.Web.Infrastructure.Ai;
 using Goldfinch.Web.Infrastructure.StaticFiles;
 using Goldfinch.Web.Infrastructure.Storage;
 using Goldfinch.Web.Middleware;
@@ -76,6 +77,9 @@ builder.Services.Configure<RouteOptions>(options =>
 });
 
 builder.Services.AddCoreServices();
+
+// "Ask" AI Q&A feature — binds Azure OpenAI options and registers the chat client.
+builder.Services.AddAskFeature(builder.Configuration);
 
 // Storage path mapping — Azure Blob in production (assets + Lucene index), local filesystem otherwise.
 builder.Services.AddAppServiceStorage(env);
@@ -164,6 +168,9 @@ if (!env.IsDevelopment())
     app.UseHttpsRedirection();
     app.UseExceptionHandler("/error/500");
 }
+
+// Per-IP rate limiting for the public /api/ask endpoint.
+app.UseAskRateLimit();
 
 app.Kentico().MapRoutes();
 

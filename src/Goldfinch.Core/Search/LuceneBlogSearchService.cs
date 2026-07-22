@@ -106,6 +106,49 @@ public class LuceneBlogSearchService : ILuceneBlogSearchService
         });
     }
 
+    public IReadOnlyList<StoredBlogPost> GetStoredPosts(IReadOnlyList<int> webPageItemIds)
+    {
+        if (webPageItemIds.Count == 0)
+        {
+            return [];
+        }
+
+        var index = _indexManager.GetRequiredIndex(BlogSearchConstants.INDEX_NAME);
+
+        // Match any of the requested posts by their stored exact-term ID.
+        var query = new BooleanQuery();
+        foreach (var id in webPageItemIds)
+        {
+            query.Add(new TermQuery(new Term(BlogSearchConstants.FIELD_WEBPAGE_ITEM_ID, id.ToString())), Occur.SHOULD);
+        }
+
+        return _searchService.UseSearcher(index, searcher =>
+        {
+            var topDocs = searcher.Search(query, webPageItemIds.Count);
+
+            var results = new List<StoredBlogPost>(topDocs.ScoreDocs.Length);
+            foreach (var scoreDoc in topDocs.ScoreDocs)
+            {
+                var doc = searcher.Doc(scoreDoc.Doc);
+
+                if (!int.TryParse(doc.Get(BlogSearchConstants.FIELD_WEBPAGE_ITEM_ID), out var webPageItemId))
+                {
+                    continue;
+                }
+
+                results.Add(new StoredBlogPost
+                {
+                    WebPageItemID = webPageItemId,
+                    Title = doc.Get(BlogSearchConstants.FIELD_TITLE) ?? string.Empty,
+                    Url = doc.Get(BaseDocumentProperties.URL) ?? string.Empty,
+                    Body = doc.Get(BlogSearchConstants.FIELD_CONTENT) ?? string.Empty,
+                });
+            }
+
+            return (IReadOnlyList<StoredBlogPost>)results;
+        });
+    }
+
     private static void AddFieldClauses(BooleanQuery target, QueryBuilder queryBuilder, string field, string query, float phraseBoost, float termBoost)
     {
         // Phrase clause: rewards an exact/near-exact match of the whole query in this field.

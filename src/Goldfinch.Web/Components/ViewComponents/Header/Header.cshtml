@@ -25,24 +25,41 @@
 
         <span class="header-spacer"></span>
 
-        <button class="search-desktop" type="button" data-palette-open aria-label="Open command palette">
-            <icon name="search" size="13" />
-            <span>Search posts…</span>
-            <span class="kbd-hint" aria-hidden="true">
-                <kbd class="palette-kbd">⌘</kbd><kbd class="palette-kbd">K</kbd>
-            </span>
-        </button>
+        <div class="header-actions">
+            @if (Model.AskAvailable)
+            {
+                <button class="ask-trigger" type="button" data-ask-open aria-label="Ask the blog">
+                    <icon name="sparkle" size="18" />
+                    <span>Ask</span>
+                </button>
+            }
 
-        <button type="button" class="icon-btn search-mobile" data-palette-open aria-label="Search">
-            <icon name="search" size="18" />
-        </button>
-        <button type="button"
-                class="icon-btn menu-mobile"
-                data-drawer-toggle
-                aria-label="Open menu"
-                aria-expanded="false"
-                aria-controls="mobile-drawer">
-            <icon name="menu" size="18" />
-        </button>
+            <button class="search-desktop" type="button" data-palette-open aria-label="Open command palette">
+                <icon name="search" size="13" />
+                <span>Search posts…</span>
+                <span class="kbd-hint" aria-hidden="true">
+                    <kbd class="palette-kbd">⌘</kbd><kbd class="palette-kbd">K</kbd>
+                </span>
+            </button>
+
+            @if (Model.AskAvailable)
+            {
+                <button type="button" class="icon-btn ask-mobile" data-ask-open aria-label="Ask the blog">
+                    <icon name="sparkle" size="20" />
+                </button>
+            }
+
+            <button type="button" class="icon-btn search-mobile" data-palette-open aria-label="Search">
+                <icon name="search" size="18" />
+            </button>
+            <button type="button"
+                    class="icon-btn menu-mobile"
+                    data-drawer-toggle
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-drawer">
+                <icon name="menu" size="18" />
+            </button>
+        </div>
     </div>
 </header>
