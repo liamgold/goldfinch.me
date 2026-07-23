@@ -2,6 +2,7 @@ using CMS.ContentEngine;
 using CMS.Helpers;
 using CMS.Websites;
 using CMS.Websites.Routing;
+using Goldfinch.Core.Caching;
 using Goldfinch.Core.ContentTypes;
 using System.Linq;
 using System.Threading.Tasks;
@@ -65,6 +66,6 @@ public class PublicSpeakingService : IPublicSpeakingService
                 Years = groupedSpeakingEngagements
             };
         },
-        new CacheSettings(60, _websiteChannelContext.WebsiteChannelName, nameof(PublicSpeakingService), nameof(GetPublicSpeakingPage), $"PageID-{webPageItemID}"));
+        new CacheSettings(CacheDuration.Hour, _websiteChannelContext.WebsiteChannelName, nameof(PublicSpeakingService), nameof(GetPublicSpeakingPage), $"PageID-{webPageItemID}"));
     }
 }

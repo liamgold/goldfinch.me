@@ -1,5 +1,6 @@
 using CMS.ContentEngine;
 using CMS.Helpers;
+using Goldfinch.Core.Caching;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,7 @@ public class BlogTagService : IBlogTagService
 
             return tag?.Identifier;
         },
-        new CacheSettings(1440, nameof(BlogTagService), nameof(ResolveTagSlugToGuid), slug.ToLowerInvariant()));
+        new CacheSettings(CacheDuration.Day, nameof(BlogTagService), nameof(ResolveTagSlugToGuid), slug.ToLowerInvariant()));
     }
 
     public async Task<IReadOnlyList<(Tag Tag, int PostCount)>> GetTagsWithPostCounts(string languageName, CancellationToken cancellationToken = default)
@@ -80,7 +81,7 @@ public class BlogTagService : IBlogTagService
 
             return (IReadOnlyList<(Tag Tag, int PostCount)>)results;
         },
-        new CacheSettings(60, nameof(BlogTagService), nameof(GetTagsWithPostCounts), languageName));
+        new CacheSettings(CacheDuration.Hour, nameof(BlogTagService), nameof(GetTagsWithPostCounts), languageName));
     }
 
     public async Task<IEnumerable<Tag>> GetTagsByGuids(IEnumerable<Guid> tagGuids, string languageName, CancellationToken cancellationToken = default)
@@ -97,6 +98,6 @@ public class BlogTagService : IBlogTagService
 
             return await _taxonomyRetriever.RetrieveTags(guidList, languageName, cancellationToken);
         },
-        new CacheSettings(1440, nameof(BlogTagService), nameof(GetTagsByGuids), languageName, string.Join(",", guidList.OrderBy(g => g))));
+        new CacheSettings(CacheDuration.Day, nameof(BlogTagService), nameof(GetTagsByGuids), languageName, string.Join(",", guidList.OrderBy(g => g))));
     }
 }

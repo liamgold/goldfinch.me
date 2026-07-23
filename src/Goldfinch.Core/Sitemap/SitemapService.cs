@@ -4,6 +4,7 @@ using Goldfinch.Core.Extensions;
 using CMS.Helpers;
 using CMS.Websites;
 using CMS.Websites.Routing;
+using Goldfinch.Core.Caching;
 using Goldfinch.Core.ContentTypes;
 using Sidio.Sitemap.Core;
 using System;
@@ -42,7 +43,7 @@ public class SitemapService : ISitemapService
             ]);
 
             return await GetSitemapNodes();
-        }, new CacheSettings(1440, nameof(SitemapService), nameof(GetSitemap)));
+        }, new CacheSettings(CacheDuration.Day, nameof(SitemapService), nameof(GetSitemap)));
     }
 
     private async Task<List<SitemapNode>> GetSitemapNodes()

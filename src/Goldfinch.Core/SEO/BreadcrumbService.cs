@@ -3,6 +3,7 @@ using CMS.Helpers;
 using Goldfinch.Core.Extensions;
 using CMS.Websites;
 using CMS.Websites.Routing;
+using Goldfinch.Core.Caching;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.SEO.Models;
 using Kentico.Content.Web.Mvc;
@@ -42,7 +43,7 @@ public class BreadcrumbService : IBreadcrumbService
             ]);
 
             return await GetBreadcrumbsInternal(routedWebPage);
-        }, new CacheSettings(1440, nameof(BreadcrumbService), nameof(GetBreadcrumbs), routedWebPage.WebPageItemID));
+        }, new CacheSettings(CacheDuration.Day, nameof(BreadcrumbService), nameof(GetBreadcrumbs), routedWebPage.WebPageItemID));
     }
 
     private async Task<List<Breadcrumb>> GetBreadcrumbsInternal(RoutedWebPage routedWebPage)

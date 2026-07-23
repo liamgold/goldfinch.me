@@ -61,6 +61,22 @@ public class AskPostSelector : IAskPostSelector
     {
         var builder = new StringBuilder();
 
+        // Put the (large, rarely-changing) candidate list first so it forms a stable prefix that
+        // Azure OpenAI's automatic prompt caching can reuse across requests; the variable history
+        // and question go last. Reordering these would defeat the cache.
+        builder.AppendLine("Posts:");
+        for (var i = 0; i < candidates.Count; i++)
+        {
+            var candidate = candidates[i];
+            builder
+                .Append(i + 1)
+                .Append(". ")
+                .Append(candidate.Title)
+                .Append(" — ")
+                .AppendLine(Truncate(candidate.Excerpt, MaxExcerptChars));
+        }
+        builder.AppendLine();
+
         // Give the model the recent exchange so a follow-up like "what about a UI tab instead?"
         // can be resolved against what was already discussed.
         if (history.Count > 0)
@@ -75,19 +91,6 @@ public class AskPostSelector : IAskPostSelector
         }
 
         builder.Append("Question: ").AppendLine(question.Trim());
-        builder.AppendLine();
-        builder.AppendLine("Posts:");
-
-        for (var i = 0; i < candidates.Count; i++)
-        {
-            var candidate = candidates[i];
-            builder
-                .Append(i + 1)
-                .Append(". ")
-                .Append(candidate.Title)
-                .Append(" — ")
-                .AppendLine(Truncate(candidate.Excerpt, MaxExcerptChars));
-        }
 
         return builder.ToString();
     }
