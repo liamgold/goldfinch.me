@@ -2929,6 +2929,21 @@ mark {
 .ask__answer p:last-child {
   margin-bottom: 0;
 }
+/* Blinking caret shown after the last paragraph while the answer types out (see ask.js typeInto). */
+.ask__answer.is-typing p:last-child::after {
+  content: "";
+  display: inline-block;
+  width: 0.5ch;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: ask-caret 900ms steps(1) infinite;
+}
+@keyframes ask-caret {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
 .ask__status {
   color: var(--fg-dim);
   font-size: 13px;

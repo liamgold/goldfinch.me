@@ -106,7 +106,10 @@
              ${sources.map((s) => `<a class="ask__source" href="${escape(s.url)}" target="_blank" rel="noopener noreferrer">${escape(s.title)}</a>`).join('')}
            </div>`
         : '';
-      answerEl.innerHTML = `<div class="ask__answer">${paragraphs(data.answer)}</div>${sourcesHtml}`;
+      answerEl.innerHTML = '<div class="ask__answer"></div>';
+      await typeInto(answerEl.querySelector('.ask__answer'), data.answer);
+      if (sourcesHtml) answerEl.insertAdjacentHTML('beforeend', sourcesHtml);
+      thread.scrollTop = thread.scrollHeight;
 
       history.push({ role: 'user', content: question });
       history.push({ role: 'assistant', content: String(data.answer ?? '') });
@@ -153,6 +156,42 @@
     thread.scrollTop = thread.scrollHeight;
 
     return body;
+  }
+
+  // Reveals the answer with a quick typewriter effect. The response isn't streamed, so this is
+  // purely presentational — it just reads better than the answer snapping in all at once. Skipped
+  // when the reader prefers reduced motion. Re-renders the growing prefix through paragraphs() each
+  // tick so partial output is always valid HTML, never raw tags. Resolves once fully typed.
+  function typeInto(el, text) {
+    const full = String(text ?? '').trim();
+    const reduceMotion = window.matchMedia
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!full || reduceMotion) {
+      el.innerHTML = paragraphs(full);
+      return Promise.resolve();
+    }
+
+    return new Promise((resolve) => {
+      // Scale the step to the answer length (~90 ticks max) so long answers stay quick.
+      const step = Math.max(1, Math.ceil(full.length / 90));
+      let shown = 0;
+
+      el.classList.add('is-typing');
+      const tick = () => {
+        shown = Math.min(full.length, shown + step);
+        el.innerHTML = paragraphs(full.slice(0, shown));
+        thread.scrollTop = thread.scrollHeight;
+
+        if (shown < full.length) {
+          window.setTimeout(tick, 12);
+        } else {
+          el.classList.remove('is-typing');
+          resolve();
+        }
+      };
+      window.setTimeout(tick, 12);
+    });
   }
 
   // Model output — escape first, then turn blank-line-separated blocks into paragraphs and single
