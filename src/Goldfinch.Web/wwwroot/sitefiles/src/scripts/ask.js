@@ -106,6 +106,10 @@
              ${sources.map((s) => `<a class="ask__source" href="${escape(s.url)}" target="_blank" rel="noopener noreferrer">${escape(s.title)}</a>`).join('')}
            </div>`
         : '';
+      // Mark the live region busy while the answer types out, so a screen reader announces the
+      // finished answer once rather than stuttering through every partial frame. Reset in `finally`
+      // so an error mid-type can't leave the region stuck busy.
+      thread.setAttribute('aria-busy', 'true');
       answerEl.innerHTML = '<div class="ask__answer"></div>';
       await typeInto(answerEl.querySelector('.ask__answer'), data.answer);
       if (sourcesHtml) answerEl.insertAdjacentHTML('beforeend', sourcesHtml);
@@ -116,6 +120,7 @@
     } catch (err) {
       answerEl.innerHTML = `<div class="ask__status mono">&gt; something went wrong. try again.</div>`;
     } finally {
+      thread.setAttribute('aria-busy', 'false');
       loading = false;
       submit.disabled = false;
       input.focus();
