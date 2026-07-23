@@ -3014,3 +3014,14 @@ mark {
     display: none;
   }
 }
+
+/* iOS Safari auto-zooms the page when a focused text input has a font-size below 16px. Bump the
+   typeable inputs to 16px on touch devices only (pointer: coarse), so the zoom doesn't fire —
+   desktop keeps its smaller, deliberate sizing. */
+@media (pointer: coarse) {
+  .ask__input,
+  .palette-input,
+  .blog-toolbar input {
+    font-size: 16px;
+  }
+}
