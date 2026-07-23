@@ -75,7 +75,7 @@
     input.value = '';
 
     const answerEl = appendTurn(question);
-    answerEl.innerHTML = `<div class="ask__status mono">&gt; thinking…</div>`;
+    answerEl.innerHTML = `<div class="ask__status ask__status--thinking mono">&gt; thinking…</div>`;
 
     try {
       const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
@@ -173,6 +173,7 @@
     }
 
     return new Promise((resolve) => {
+      const TICK_MS = 24;
       // Scale the step to the answer length (~90 ticks max) so long answers stay quick.
       const step = Math.max(1, Math.ceil(full.length / 90));
       let shown = 0;
@@ -184,13 +185,13 @@
         thread.scrollTop = thread.scrollHeight;
 
         if (shown < full.length) {
-          window.setTimeout(tick, 12);
+          window.setTimeout(tick, TICK_MS);
         } else {
           el.classList.remove('is-typing');
           resolve();
         }
       };
-      window.setTimeout(tick, 12);
+      window.setTimeout(tick, TICK_MS);
     });
   }
 
