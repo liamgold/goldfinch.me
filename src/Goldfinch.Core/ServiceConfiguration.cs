@@ -18,6 +18,7 @@ public static class ServiceConfiguration
             .AddSingleton<IBlogPostService, BlogPostService>()
             .AddSingleton<IBlogTagService, BlogTagService>()
             .AddSingleton<IAskContentService, AskContentService>()
+            .AddSingleton<IAskPageSourceProvider, AskPageSourceProvider>()
             .AddSingleton<IAskPostSelector, AskPostSelector>()
             .AddSingleton<IAskSourceGatherer, AskSourceGatherer>()
             .AddSingleton<IAskService, AskService>()

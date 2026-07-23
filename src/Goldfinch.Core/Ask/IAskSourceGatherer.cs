@@ -6,11 +6,11 @@ using Goldfinch.Core.Ask.Models;
 namespace Goldfinch.Core.Ask;
 
 /// <summary>
-/// Fetches the full body text (and URL) of the posts the selector picked, so the answer step has
-/// real content to ground on. Reuses the same crawl + sanitise path as search indexing, since the
-/// post body lives in Page Builder widgets rather than a stored field.
+/// Resolves the selected candidates into full sources (body + URL) for the answer step to ground on.
+/// Blog-post bodies are read back from the Lucene index (captured at index time); page candidates
+/// already carry their crawled body, so those are used directly.
 /// </summary>
 public interface IAskSourceGatherer
 {
-    Task<IReadOnlyList<AskSourcePost>> GetSources(IReadOnlyList<int> webPageItemIds, CancellationToken cancellationToken = default);
+    Task<IReadOnlyList<AskSourcePost>> GetSources(IReadOnlyList<AskCandidate> candidates, CancellationToken cancellationToken = default);
 }

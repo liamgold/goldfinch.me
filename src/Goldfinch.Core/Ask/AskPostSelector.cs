@@ -16,11 +16,12 @@ public class AskPostSelector : IAskPostSelector
     private const int MaxExcerptChars = 300;
 
     private const string SystemPrompt =
-        "You are a retrieval assistant for a technical blog about Kentico and .NET development. " +
-        "You are given a reader's question and a numbered list of blog posts (title + short excerpt). " +
-        "Pick the posts most likely to contain the answer — the fewest that suffice, at most five. " +
+        "You are a retrieval assistant for Liam Goldfinch's personal site — a technical blog about " +
+        "Kentico and .NET development, plus pages about Liam himself and his public speaking. " +
+        "You are given a reader's question and a numbered list of content entries (title + short excerpt). " +
+        "Pick the entries most likely to contain the answer — the fewest that suffice, at most five. " +
         "If none are relevant, pick none. " +
-        "Respond with ONLY a JSON array of the chosen post numbers (for example [2, 5]) and nothing else. " +
+        "Respond with ONLY a JSON array of the chosen numbers (for example [2, 5]) and nothing else. " +
         "If none are relevant, respond with [].";
 
     private readonly IAskContentService _contentService;
@@ -32,7 +33,7 @@ public class AskPostSelector : IAskPostSelector
         _chatClient = chatClient;
     }
 
-    public async Task<IReadOnlyList<int>> SelectRelevantPostIds(
+    public async Task<IReadOnlyList<AskCandidate>> SelectRelevantCandidates(
         string question,
         IReadOnlyList<AskTurn> history,
         CancellationToken cancellationToken = default)
@@ -54,17 +55,17 @@ public class AskPostSelector : IAskPostSelector
             [new AskTurn { Role = AskTurn.UserRole, Content = userPrompt }],
             cancellationToken);
 
-        return MapNumbersToPostIds(response, candidates);
+        return MapNumbersToCandidates(response, candidates);
     }
 
-    private static string BuildUserPrompt(string question, IReadOnlyList<AskTurn> history, IReadOnlyList<AskCandidatePost> candidates)
+    private static string BuildUserPrompt(string question, IReadOnlyList<AskTurn> history, IReadOnlyList<AskCandidate> candidates)
     {
         var builder = new StringBuilder();
 
         // Put the (large, rarely-changing) candidate list first so it forms a stable prefix that
         // Azure OpenAI's automatic prompt caching can reuse across requests; the variable history
         // and question go last. Reordering these would defeat the cache.
-        builder.AppendLine("Posts:");
+        builder.AppendLine("Content:");
         for (var i = 0; i < candidates.Count; i++)
         {
             var candidate = candidates[i];
@@ -96,12 +97,11 @@ public class AskPostSelector : IAskPostSelector
     }
 
     /// <summary>
-    /// Parses the model's JSON array of 1-based post numbers and maps them back to
-    /// <c>WebPageItemID</c>s, ignoring anything out of range or duplicated. Returns an empty list
-    /// if the response can't be parsed, so a malformed reply degrades to "no answer" rather than
-    /// throwing.
+    /// Parses the model's JSON array of 1-based numbers and maps them back to the candidates they
+    /// refer to, ignoring anything out of range or duplicated. Returns an empty list if the response
+    /// can't be parsed, so a malformed reply degrades to "no answer" rather than throwing.
     /// </summary>
-    private static IReadOnlyList<int> MapNumbersToPostIds(string response, IReadOnlyList<AskCandidatePost> candidates)
+    private static IReadOnlyList<AskCandidate> MapNumbersToCandidates(string response, IReadOnlyList<AskCandidate> candidates)
     {
         var json = ExtractJsonArray(response);
         if (json is null)
@@ -124,7 +124,8 @@ public class AskPostSelector : IAskPostSelector
             return [];
         }
 
-        var postIds = new List<int>();
+        var selected = new List<AskCandidate>();
+        var seenIds = new HashSet<int>();
         foreach (var number in numbers)
         {
             var index = number - 1;
@@ -133,19 +134,19 @@ public class AskPostSelector : IAskPostSelector
                 continue;
             }
 
-            var postId = candidates[index].WebPageItemID;
-            if (!postIds.Contains(postId))
+            var candidate = candidates[index];
+            if (seenIds.Add(candidate.WebPageItemID))
             {
-                postIds.Add(postId);
+                selected.Add(candidate);
             }
 
-            if (postIds.Count == MaxSelected)
+            if (selected.Count == MaxSelected)
             {
                 break;
             }
         }
 
-        return postIds;
+        return selected;
     }
 
     /// <summary>

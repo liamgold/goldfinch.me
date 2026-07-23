@@ -16,12 +16,13 @@ public class AskService : IAskService
     private const int MaxHistoryTurns = 6;
 
     private const string AnswerSystemPrompt =
-        "You are the assistant for Liam Goldfinch's technical blog about Kentico and .NET development. " +
-        "Answer using only the information in the blog posts provided below — never use outside knowledge " +
-        "or invent details. If the posts don't cover the question, say you don't have anything on the blog " +
-        "about that and suggest browsing or searching the blog.\n\n" +
+        "You are the assistant for Liam Goldfinch's personal site — a technical blog about Kentico and " +
+        ".NET development, plus pages about Liam himself and his public speaking. " +
+        "Answer using only the information in the content provided below — never use outside knowledge " +
+        "or invent details. If it doesn't cover the question, say you don't have anything on the site " +
+        "about that and suggest browsing or searching.\n\n" +
         "Write like a knowledgeable colleague explaining it in your own words — synthesise the information, " +
-        "don't quote or paraphrase the posts sentence by sentence. Answer the question directly and get " +
+        "don't quote or paraphrase it sentence by sentence. Answer the question directly and get " +
         "straight to the substance.\n\n" +
         "Write in short, flowing prose paragraphs. Your answer is displayed as plain text, so Markdown " +
         "is NOT rendered — bullets, dashes, numbers and '#' headings would show up as literal characters. " +
@@ -38,7 +39,7 @@ public class AskService : IAskService
         "restating context the reader already has.";
 
     private const string NoAnswerMessage =
-        "I couldn't find anything on the blog about that. Try rephrasing, or browse the posts on the blog.";
+        "I couldn't find anything on the site about that. Try rephrasing, or browse the site.";
 
     private readonly IAskChatClient _chatClient;
     private readonly IAskPostSelector _selector;
@@ -69,13 +70,13 @@ public class AskService : IAskService
             ? history.Skip(history.Count - MaxHistoryTurns).ToList()
             : history;
 
-        var postIds = await _selector.SelectRelevantPostIds(question, recentHistory, cancellationToken);
-        if (postIds.Count == 0)
+        var selected = await _selector.SelectRelevantCandidates(question, recentHistory, cancellationToken);
+        if (selected.Count == 0)
         {
             return new AskResult { Answered = false, Answer = NoAnswerMessage };
         }
 
-        var sources = await _gatherer.GetSources(postIds, cancellationToken);
+        var sources = await _gatherer.GetSources(selected, cancellationToken);
         if (sources.Count == 0)
         {
             return new AskResult { Answered = false, Answer = NoAnswerMessage };
@@ -105,7 +106,7 @@ public class AskService : IAskService
         var builder = new StringBuilder();
         builder.Append("Question: ").AppendLine(question.Trim());
         builder.AppendLine();
-        builder.AppendLine("Blog posts:");
+        builder.AppendLine("Content:");
 
         foreach (var source in sources)
         {
