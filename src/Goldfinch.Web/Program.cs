@@ -2,6 +2,8 @@ using Goldfinch.Core;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.Search;
 using Goldfinch.Web.Components.Sections.ContentSection;
+using Goldfinch.Web.Infrastructure;
+using Goldfinch.Web.Infrastructure.Ai;
 using Goldfinch.Web.Infrastructure.StaticFiles;
 using Goldfinch.Web.Infrastructure.Storage;
 using Goldfinch.Web.Middleware;
@@ -51,6 +53,10 @@ builder.Services.AddAuthentication();
 
 builder.Services.AddControllersWithViews();
 
+// Antiforgery token is read from a request header so the JS-driven /api/ask fetch can send it
+// (the token is emitted as a <meta> tag in _Layout and validated by AskApiController).
+builder.Services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
+
 builder.Services.Configure<AdminLocalizationOptions>(options =>
 {
     options.DefaultCultureCode = "en-GB";
@@ -76,6 +82,12 @@ builder.Services.Configure<RouteOptions>(options =>
 });
 
 builder.Services.AddCoreServices();
+
+// "Ask" AI Q&A feature — binds Azure OpenAI options and registers the chat client.
+builder.Services.AddAskFeature(builder.Configuration);
+
+// Honour Cloudflare / App Service forwarded headers (real visitor IP + HTTPS scheme).
+builder.Services.AddForwardedHeadersConfiguration();
 
 // Storage path mapping — Azure Blob in production (assets + Lucene index), local filesystem otherwise.
 builder.Services.AddAppServiceStorage(env);
@@ -127,6 +139,9 @@ var app = builder.Build();
 
 app.InitKentico();
 
+// Must run before anything that reads the client IP or request scheme (rate limiter, redirects).
+app.UseForwardedHeaders();
+
 app.UseStaticFiles();
 // app.MapStaticAssets();
 
@@ -164,6 +179,9 @@ if (!env.IsDevelopment())
     app.UseHttpsRedirection();
     app.UseExceptionHandler("/error/500");
 }
+
+// Per-IP rate limiting for the public /api/ask endpoint.
+app.UseAskRateLimit();
 
 app.Kentico().MapRoutes();
 

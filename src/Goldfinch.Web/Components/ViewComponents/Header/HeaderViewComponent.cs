@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
+using Goldfinch.Core.Ask;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,10 +8,14 @@ namespace Goldfinch.Web.Components.ViewComponents.Header;
 public class HeaderViewComponent : ViewComponent
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IAskChatClient _askChatClient;
 
-    public HeaderViewComponent(IHttpContextAccessor httpContextAccessor)
+    public HeaderViewComponent(
+        IHttpContextAccessor httpContextAccessor,
+        IAskChatClient askChatClient)
     {
         _httpContextAccessor = httpContextAccessor;
+        _askChatClient = askChatClient;
     }
 
     public IViewComponentResult Invoke()
@@ -26,7 +30,11 @@ public class HeaderViewComponent : ViewComponent
             new() { Label = "speaking", FileLabel = "speaking.md", Url = "/speaking", Icon = "mic",   IsActive = path.StartsWith("/speaking", System.StringComparison.OrdinalIgnoreCase) },
         };
 
-        return View("~/Components/ViewComponents/Header/Header.cshtml", new HeaderViewModel { NavigationItems = items });
+        return View("~/Components/ViewComponents/Header/Header.cshtml", new HeaderViewModel
+        {
+            NavigationItems = items,
+            AskAvailable = _askChatClient.IsConfigured,
+        });
     }
 
     private static bool IsHome(string path) => string.IsNullOrEmpty(path) || path == "/";

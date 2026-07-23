@@ -946,14 +946,6 @@
         "resolved": "11.6.1",
         "contentHash": "WA4z8iK+0SOh2/qoo7rtEanj/LjJZ8oWWoXI8u1xcYMk6VzHONqpabJBYGrzqDO41ld+VQHOFL+B8MXncIVSSA=="
       },
-      "OpenAI": {
-        "type": "Transitive",
-        "resolved": "2.10.0",
-        "contentHash": "e5gAhMDcX5bFmmtR+lT6qZxJoaGb0SkIplPUUdKwcC4xerCh471hTIsrvfkou7scfZD9YQk6C06dP3NwBqHw1A==",
-        "dependencies": {
-          "System.ClientModel": "1.10.0"
-        }
-      },
       "ReverseMarkdown": {
         "type": "Transitive",
         "resolved": "5.4.0",
@@ -1083,6 +1075,7 @@
           "Kentico.Xperience.Lucene": "[15.0.4, )",
           "Kentico.Xperience.WebApp": "[31.6.2, )",
           "Lucene.Net.Highlighter": "[4.8.0-beta00018, )",
+          "OpenAI": "[2.10.0, )",
           "Sidio.Sitemap.AspNetCore": "[3.1.1, )"
         }
       },
@@ -1110,6 +1103,15 @@
         "dependencies": {
           "Lucene.Net.Memory": "4.8.0-beta00018",
           "Lucene.Net.Queries": "4.8.0-beta00018"
+        }
+      },
+      "OpenAI": {
+        "type": "CentralTransitive",
+        "requested": "[2.10.0, )",
+        "resolved": "2.10.0",
+        "contentHash": "e5gAhMDcX5bFmmtR+lT6qZxJoaGb0SkIplPUUdKwcC4xerCh471hTIsrvfkou7scfZD9YQk6C06dP3NwBqHw1A==",
+        "dependencies": {
+          "System.ClientModel": "1.10.0"
         }
       }
     }

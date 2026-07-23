@@ -47,6 +47,7 @@ public class IconTagHelper : TagHelper
         ["play"]     = "<path fill=\"currentColor\" stroke=\"none\" d=\"M8 5v14l11-7z\" />",
         ["rss"]      = "<path d=\"M4 11a9 9 0 0 1 9 9\" /><path d=\"M4 4a16 16 0 0 1 16 16\" /><circle cx=\"5\" cy=\"19\" r=\"1.4\" fill=\"currentColor\" />",
         ["search"]   = "<circle cx=\"11\" cy=\"11\" r=\"7\" /><path d=\"m20 20-3.5-3.5\" />",
+        ["sparkle"]  = "<path fill=\"currentColor\" stroke=\"none\" d=\"M9.5 2.5 12.8 9.2 17.5 12.5 12.8 15.8 9.5 22.5 6.2 15.8 1.5 12.5 6.2 9.2Z\" /><path fill=\"currentColor\" stroke=\"none\" d=\"M18.5 1.5 19.6 4.4 22.5 5.5 19.6 6.6 18.5 9.5 17.4 6.6 14.5 5.5 17.4 4.4Z\" /><path fill=\"currentColor\" stroke=\"none\" d=\"M19.5 15.5 20.4 17.6 22.5 18.5 20.4 19.4 19.5 21.5 18.6 19.4 16.5 18.5 18.6 17.6Z\" />",
         ["user"]     = "<circle cx=\"12\" cy=\"8\" r=\"4\" /><path d=\"M4 21a8 8 0 0 1 16 0\" />",
         ["x"]        = "<path fill=\"currentColor\" stroke=\"none\" d=\"M18 3h3l-7.3 8.3L22 21h-6.5l-4.7-6-5.3 6H2l7.7-8.8L2.2 3H9l4.3 5.6L18 3Z\" />",
     };

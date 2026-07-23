@@ -5,6 +5,7 @@
 		<PackageReference Include="Kentico.Xperience.Lucene" />
 		<PackageReference Include="Lucene.Net.Highlighter" />
 		<PackageReference Include="AngleSharp" />
+		<PackageReference Include="OpenAI" />
 		<PackageReference Include="Sidio.Sitemap.AspNetCore" />
 	</ItemGroup>
 </Project>

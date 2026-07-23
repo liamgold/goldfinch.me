@@ -90,11 +90,14 @@ public class BlogPostSearchIndexingStrategy : DefaultLuceneIndexingStrategy
         {
             new TextField(BlogSearchConstants.FIELD_TITLE, title, Field.Store.YES),
             new TextField(BlogSearchConstants.FIELD_SUMMARY, summary, Field.Store.YES),
-            // Body is indexed for matching but not stored (results never echo the full body).
-            new TextField(BlogSearchConstants.FIELD_CONTENT, body, Field.Store.NO),
+            // Body is indexed for matching AND stored, so the Ask feature can read it back by ID
+            // instead of re-crawling the page. The public search API still never echoes it.
+            new TextField(BlogSearchConstants.FIELD_CONTENT, body, Field.Store.YES),
             new StringField(BlogSearchConstants.FIELD_DATE, page.BlogPostDate.ToString("yyyy-MM-dd"), Field.Store.YES),
             new StoredField(BlogSearchConstants.FIELD_READING_MINUTES, readingMinutes),
             new StringField(BaseDocumentProperties.URL, url, Field.Store.YES),
+            // Stored exact-term ID so Ask can retrieve a specific post's stored body.
+            new StringField(BlogSearchConstants.FIELD_WEBPAGE_ITEM_ID, page.SystemFields.WebPageItemID.ToString(), Field.Store.YES),
         };
 
         // Tag slugs: indexed as exact terms (for ?tag= scoping) and stored (for result rendering).

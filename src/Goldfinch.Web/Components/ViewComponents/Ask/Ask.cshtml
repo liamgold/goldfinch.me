@@ -1,0 +1,32 @@
+@*
+    Site-wide "Ask" modal — opened by the header trigger ([data-ask-open]). Mirrors the command
+    palette's overlay mechanics but is a separate surface (Q&A, not navigation). Ships hidden and
+    is revealed by ask.js, so with JS disabled nothing shows (pure progressive enhancement — there
+    is no server-rendered answer fallback). Conversation history is kept client-side and persists
+    while the modal is open/closed within a page.
+*@
+<div class="ask-modal" data-ask hidden>
+    <div class="ask-modal__backdrop" data-ask-close></div>
+    <div class="ask-modal__dialog" role="dialog" aria-modal="true" aria-label="Ask about the site">
+        <div class="ask-modal__head">
+            <span class="ask-modal__title mono"><icon name="sparkle" size="18" /> Ask</span>
+            <button type="button" class="ask-modal__close" data-ask-close aria-label="Close">
+                <icon name="close" size="16" />
+            </button>
+        </div>
+
+        <div class="ask-modal__thread" data-ask-thread aria-live="polite"></div>
+
+        <div class="ask__bar">
+            <span class="ask__prompt mono">&gt;</span>
+            <input type="text"
+                   class="ask__input mono"
+                   data-ask-input
+                   placeholder="Ask about Liam, his posts, or talks…"
+                   autocomplete="off"
+                   maxlength="500"
+                   aria-label="Ask a question about the site" />
+            <button type="button" class="ask__submit mono" data-ask-submit>Ask</button>
+        </div>
+    </div>
+</div>

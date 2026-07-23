@@ -1,5 +1,6 @@
 using CMS.ContentEngine;
 using CMS.Websites;
+using Goldfinch.Core.Caching;
 using Goldfinch.Core.ContentTypes;
 using Kentico.Content.Web.Mvc;
 using System;
@@ -24,7 +25,7 @@ public class ErrorPageService : IErrorPageService
             query => query.Where(x => x.WhereEquals(nameof(ErrorPage.ErrorCode), errorCode)),
             cacheSettings: new RetrievalCacheSettings(
                 cacheItemNameSuffix: $"{nameof(ErrorPage)}|code|{errorCode}",
-                cacheExpiration: TimeSpan.FromMinutes(30)));
+                cacheExpiration: TimeSpan.FromMinutes(CacheDuration.HalfHour)));
 
         return errorPages.FirstOrDefault();
     }
@@ -36,7 +37,7 @@ public class ErrorPageService : IErrorPageService
             query => query.Where(x => x.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemID)),
             cacheSettings: new RetrievalCacheSettings(
                 cacheItemNameSuffix: $"{nameof(ErrorPage)}|id|{webPageItemID}",
-                cacheExpiration: TimeSpan.FromMinutes(30)));
+                cacheExpiration: TimeSpan.FromMinutes(CacheDuration.HalfHour)));
 
         return errorPages.FirstOrDefault();
     }

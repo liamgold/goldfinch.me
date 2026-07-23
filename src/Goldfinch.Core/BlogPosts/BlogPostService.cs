@@ -3,6 +3,7 @@ using CMS.DataEngine;
 using CMS.Helpers;
 using CMS.Websites;
 using CMS.Websites.Routing;
+using Goldfinch.Core.Caching;
 using Goldfinch.Core.ContentTypes;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ public class BlogPostService : IBlogPostService
 
             return pages.FirstOrDefault();
         },
-        new CacheSettings(60, _websiteChannelContext.WebsiteChannelName, _websiteChannelContext.IsPreview, nameof(BlogPostService), nameof(GetBlogPost), $"PageID-{webPageItemID}"));
+        new CacheSettings(CacheDuration.Hour, _websiteChannelContext.WebsiteChannelName, _websiteChannelContext.IsPreview, nameof(BlogPostService), nameof(GetBlogPost), $"PageID-{webPageItemID}"));
     }
 
     public async Task<IEnumerable<BlogPost>> GetLatestBlogPosts()
@@ -64,7 +65,7 @@ public class BlogPostService : IBlogPostService
 
             return await _executor.GetMappedWebPageResult<BlogPost>(queryBuilder);
         },
-        new CacheSettings(60, _websiteChannelContext.WebsiteChannelName, nameof(BlogPostService), nameof(GetLatestBlogPosts)));
+        new CacheSettings(CacheDuration.Hour, _websiteChannelContext.WebsiteChannelName, nameof(BlogPostService), nameof(GetLatestBlogPosts)));
     }
 
     public async Task<IEnumerable<BlogPost>> GetBlogPosts(int pageIndex)
@@ -83,13 +84,22 @@ public class BlogPostService : IBlogPostService
 
             return await _executor.GetMappedWebPageResult<BlogPost>(queryBuilder);
         },
-        new CacheSettings(60, _websiteChannelContext.WebsiteChannelName, nameof(BlogPostService), nameof(GetBlogPosts), $"PageIndex-{pageIndex}"));
+        new CacheSettings(CacheDuration.Hour, _websiteChannelContext.WebsiteChannelName, nameof(BlogPostService), nameof(GetBlogPosts), $"PageIndex-{pageIndex}"));
     }
 
     public async Task<IEnumerable<BlogPost>> GetAllBlogPosts()
     {
         return await _progressiveCache.LoadAsync(async (cs) =>
         {
+            // Cache for a day but depend on the channel's web pages, so a publish/edit invalidates
+            // it immediately rather than serving stale content until the TTL expires. The full set
+            // rarely changes, so this saves the "select all posts" query on the vast majority of
+            // requests (blog list, home, tag counts, and the Ask candidate list all share it).
+            cs.CacheDependency = CacheHelper.GetCacheDependency(
+            [
+                $"webpageitem|bychannel|{_websiteChannelContext.WebsiteChannelName}|all",
+            ]);
+
             var queryBuilder = new ContentItemQueryBuilder()
                 .ForContentType(BlogPost.CONTENT_TYPE_NAME, queryParameters => queryParameters
                     .ForWebsite(_websiteChannelContext.WebsiteChannelName)
@@ -97,7 +107,7 @@ public class BlogPostService : IBlogPostService
 
             return await _executor.GetMappedWebPageResult<BlogPost>(queryBuilder);
         },
-        new CacheSettings(60, _websiteChannelContext.WebsiteChannelName, nameof(BlogPostService), nameof(GetAllBlogPosts)));
+        new CacheSettings(CacheDuration.Day, _websiteChannelContext.WebsiteChannelName, nameof(BlogPostService), nameof(GetAllBlogPosts)));
     }
 
     public async Task<IEnumerable<BlogPost>> GetBlogPostsByTag(Guid tagGuid)
@@ -116,7 +126,7 @@ public class BlogPostService : IBlogPostService
                 ForPreview = _websiteChannelContext.IsPreview,
             });
         },
-        new CacheSettings(60, _websiteChannelContext.WebsiteChannelName, _websiteChannelContext.IsPreview, nameof(BlogPostService), nameof(GetBlogPostsByTag), tagGuid.ToString()));
+        new CacheSettings(CacheDuration.Hour, _websiteChannelContext.WebsiteChannelName, _websiteChannelContext.IsPreview, nameof(BlogPostService), nameof(GetBlogPostsByTag), tagGuid.ToString()));
     }
 
     public async Task<int> GetBlogPageCount()

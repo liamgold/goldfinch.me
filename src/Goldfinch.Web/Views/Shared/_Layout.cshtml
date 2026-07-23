@@ -1,6 +1,7 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Kentico.Activities.Web.Mvc
 @using Kentico.OnlineMarketing.Web.Mvc
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
 <!--
   Goldfinch.me — if you're reading this, you're either me or someone very cool.
 -->
@@ -10,6 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0c0d0f">
+    @* Antiforgery token for the /api/ask fetch — sent back in the X-CSRF-TOKEN header. *@
+    <meta name="csrf-token" content="@Antiforgery.GetAndStoreTokens(Context).RequestToken">
     <vc:page-title />
 
     <link rel="preload" href="/fonts/jetbrains-mono-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -48,6 +51,8 @@
     <partial name="PartialViews/MobileDrawer" />
 
     <div id="palette-root"></div>
+
+    <vc:ask />
 
     <page-builder-mode>
         <page-builder-scripts />
