@@ -859,20 +859,20 @@
       "goldfinch.core": {
         "type": "Project",
         "dependencies": {
-          "AngleSharp": "[1.6.0, )",
+          "AngleSharp": "[1.7.1, )",
           "Kentico.Xperience.Admin": "[31.7.2, )",
           "Kentico.Xperience.Lucene": "[15.0.5, )",
           "Kentico.Xperience.WebApp": "[31.7.2, )",
           "Lucene.Net.Highlighter": "[4.8.0-beta00018, )",
-          "OpenAI": "[2.12.0, )",
+          "OpenAI": "[2.13.0, )",
           "Sidio.Sitemap.AspNetCore": "[3.1.1, )"
         }
       },
       "AngleSharp": {
         "type": "CentralTransitive",
-        "requested": "[1.6.0, )",
-        "resolved": "1.6.0",
-        "contentHash": "kVnhnZlM4Yww2KWqW3uSL8isvhYsrTTBMSPAgoF8ZhMrLSoay6783AP6dQxAj1J9gvWKi3OIM4ZezdE2Y4ufCQ=="
+        "requested": "[1.7.1, )",
+        "resolved": "1.7.1",
+        "contentHash": "QBblGpRB3SYD66Mls7fHyl1mWkP93n7ErWDWHc1vd9sPHhdlTkmUoY3CjgfjcWNxGF9m7xjNyztRfErXqoBKOA=="
       },
       "Kentico.Xperience.Lucene": {
         "type": "CentralTransitive",
@@ -896,9 +896,9 @@
       },
       "OpenAI": {
         "type": "CentralTransitive",
-        "requested": "[2.12.0, )",
-        "resolved": "2.12.0",
-        "contentHash": "rKyVV0sJPo7pn0Ya5dgRs5ggGbjvnKcYSvYV2jITKgFIfeo2XHjgyi6UqNT/OnF0YBqjsNpPdgM6QjzYczWplg==",
+        "requested": "[2.13.0, )",
+        "resolved": "2.13.0",
+        "contentHash": "fKgWod3UNE+wPkJuLCiWC7FKh3YSEIHa6QK9gKxCVZ4UYsV9+Gwzg4cEDnvVaIiwc00RTwEuhiOn1Rbk4nLjtw==",
         "dependencies": {
           "System.ClientModel": "1.14.0"
         }
