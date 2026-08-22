@@ -881,7 +881,7 @@
           "Kentico.Xperience.Lucene": "[15.0.5, )",
           "Kentico.Xperience.WebApp": "[31.8.0, )",
           "Lucene.Net.Highlighter": "[4.8.0-beta00018, )",
-          "OpenAI": "[2.12.0, )",
+          "OpenAI": "[2.13.0, )",
           "Sidio.Sitemap.AspNetCore": "[3.1.1, )"
         }
       },
@@ -913,9 +913,9 @@
       },
       "OpenAI": {
         "type": "CentralTransitive",
-        "requested": "[2.12.0, )",
-        "resolved": "2.12.0",
-        "contentHash": "rKyVV0sJPo7pn0Ya5dgRs5ggGbjvnKcYSvYV2jITKgFIfeo2XHjgyi6UqNT/OnF0YBqjsNpPdgM6QjzYczWplg==",
+        "requested": "[2.13.0, )",
+        "resolved": "2.13.0",
+        "contentHash": "fKgWod3UNE+wPkJuLCiWC7FKh3YSEIHa6QK9gKxCVZ4UYsV9+Gwzg4cEDnvVaIiwc00RTwEuhiOn1Rbk4nLjtw==",
         "dependencies": {
           "System.ClientModel": "1.14.0"
         }

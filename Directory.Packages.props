@@ -15,12 +15,12 @@
     <PackageVersion Include="Kentico.Xperience.WebApp" Version="31.8.0" />
     <PackageVersion Include="Lucene.Net.Highlighter" Version="4.8.0-beta00018" />
     <PackageVersion Include="AngleSharp" Version="1.7.1" />
-    <PackageVersion Include="OpenAI" Version="2.12.0" />
+    <PackageVersion Include="OpenAI" Version="2.13.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
     <PackageVersion Include="Microsoft.Playwright" Version="1.61.0" />
     <PackageVersion Include="Schema.NET" Version="13.0.0" />
     <PackageVersion Include="Sidio.Sitemap.AspNetCore" Version="3.1.1" />
-    <PackageVersion Include="System.ServiceModel.Syndication" Version="10.0.10" />
+    <PackageVersion Include="System.ServiceModel.Syndication" Version="10.0.11" />
     <PackageVersion Include="XperienceCommunity.CSP" Version="5.0.0" />
     <PackageVersion Include="xunit.v3" Version="3.2.2" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
