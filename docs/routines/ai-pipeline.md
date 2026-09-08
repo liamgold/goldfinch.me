@@ -128,10 +128,12 @@ Ground rules for every stage:
 - NEVER add the labels ai-discuss, ready-for-ai, auto-rework or auto-merge. Those are
   human decisions. You may add ai-blocked and remove ready-for-ai / auto-rework.
 - This environment has no database and no licence key. Do not run the site, do not
-  run E2E tests, do not run `dotnet run`. Verification is build-only:
+  run E2E tests, do not run `dotnet run`. Verification is build-only. The repo is a
+  fresh clone with no node_modules, so install before building:
     dotnet build Goldfinch.sln --configuration Release
-    (cd src/Goldfinch.Web/wwwroot/sitefiles && npm run build)
-    (cd src/Goldfinch.Admin/Client && npm run build)
+    (cd src/Goldfinch.Web/wwwroot/sitefiles && npm ci && npm run build)
+    (cd src/Goldfinch.Admin/Client && npm ci && npm run build)
+  Never set NODE_ENV=production on `npm ci`; it skips the dev deps that hold vite/tsc.
   If `dotnet` is missing, run `bash scripts/cloud-setup.sh` once.
 - Use `gh` for all GitHub reads and writes (issue view --comments, issue comment,
   issue edit --add-label/--remove-label, pr create, pr view, api).
