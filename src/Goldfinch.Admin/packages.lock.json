@@ -876,7 +876,7 @@
       "goldfinch.core": {
         "type": "Project",
         "dependencies": {
-          "AngleSharp": "[1.7.1, )",
+          "AngleSharp": "[1.8.0, )",
           "Kentico.Xperience.Admin": "[31.8.0, )",
           "Kentico.Xperience.Lucene": "[15.0.5, )",
           "Kentico.Xperience.WebApp": "[31.8.0, )",
@@ -887,9 +887,9 @@
       },
       "AngleSharp": {
         "type": "CentralTransitive",
-        "requested": "[1.7.1, )",
-        "resolved": "1.7.1",
-        "contentHash": "QBblGpRB3SYD66Mls7fHyl1mWkP93n7ErWDWHc1vd9sPHhdlTkmUoY3CjgfjcWNxGF9m7xjNyztRfErXqoBKOA=="
+        "requested": "[1.8.0, )",
+        "resolved": "1.8.0",
+        "contentHash": "vRW/0M11Jlfd7WkT5Kr0tXXmnWNVdxyII2S2b6AsgZCJEBGaXCUnti6nKIJTvAjmnmKcQbvn+SJ3lpt8dqoLIA=="
       },
       "Kentico.Xperience.Lucene": {
         "type": "CentralTransitive",

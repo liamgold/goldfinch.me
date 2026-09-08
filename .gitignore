@@ -361,7 +361,7 @@ FodyWeavers.xsd
 ### CUSTOM ###
 
 # Ignore Vite dist folder
-src/Goldfinch.Web/wwwroot/SiteFiles/dist
+src/Goldfinch.Web/wwwroot/sitefiles/dist
 
 # Ensure CIRepository is fully committed.
 # Runtime-state object types (e.g. kenticolucene.luceneindexassemblyversionitem) are
