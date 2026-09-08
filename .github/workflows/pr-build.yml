@@ -40,13 +40,15 @@ jobs:
             src/Goldfinch.Web/wwwroot/sitefiles/package-lock.json
             src/Goldfinch.Admin/Client/package-lock.json
 
+      - name: Install site front-end deps
+        working-directory: src/Goldfinch.Web/wwwroot/sitefiles
+        run: npm ci
+
       - name: Build site front-end
         working-directory: src/Goldfinch.Web/wwwroot/sitefiles
         env:
           NODE_ENV: production
-        run: |
-          npm ci
-          npm run build
+        run: npm run build
 
       - name: Build admin client
         working-directory: src/Goldfinch.Admin/Client
