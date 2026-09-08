@@ -1,0 +1,63 @@
+name: PR Build
+
+# Build-only CI for pull requests: the same steps deploy.yml runs before
+# publishing, minus publish/deploy. Gives the label pipeline a "CI green" gate
+# (auto-merge waits on this check) and the rework loop something to re-green.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-build-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_NOLOGO: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup .NET from global.json
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: global.json
+
+      - name: Setup Node from .nvmrc
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: |
+            src/Goldfinch.Web/wwwroot/sitefiles/package-lock.json
+            src/Goldfinch.Admin/Client/package-lock.json
+
+      - name: Install site front-end deps
+        working-directory: src/Goldfinch.Web/wwwroot/sitefiles
+        run: npm ci
+
+      - name: Build site front-end
+        working-directory: src/Goldfinch.Web/wwwroot/sitefiles
+        env:
+          NODE_ENV: production
+        run: npm run build
+
+      - name: Build admin client
+        working-directory: src/Goldfinch.Admin/Client
+        run: |
+          npm ci
+          npm run build
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
