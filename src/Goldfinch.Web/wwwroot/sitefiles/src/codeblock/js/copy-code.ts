@@ -25,7 +25,7 @@ const initialise = () => {
           delete btn.dataset.copied;
           btn.setAttribute('aria-label', defaultLabel);
         }, 2000);
-      });
+      }).catch(() => {});
     });
   });
 };
