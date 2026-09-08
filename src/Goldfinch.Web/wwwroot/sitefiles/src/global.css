@@ -1694,6 +1694,7 @@ a.pager-btn:hover {
   margin: 28px 0;
 }
 .post-body pre {
+  position: relative;
   margin: 28px 0 36px;
   padding: 18px;
   border-radius: 8px;
@@ -1712,6 +1713,54 @@ a.pager-btn:hover {
   background: transparent;
   border: 0;
   padding: 0;
+}
+.codeblock-copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--fg-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+}
+.post-body pre:hover .codeblock-copy-btn,
+.post-body pre:focus-within .codeblock-copy-btn,
+.codeblock-copy-btn:focus-visible {
+  opacity: 1;
+}
+.codeblock-copy-btn:hover {
+  color: var(--accent-hot);
+  border-color: var(--border-hot);
+}
+.codeblock-copy-btn__copied {
+  display: none;
+}
+.codeblock-copy-btn[data-copied] {
+  opacity: 1;
+  color: var(--accent);
+  border-color: var(--accent-soft-2);
+}
+.codeblock-copy-btn[data-copied] .codeblock-copy-btn__default {
+  display: none;
+}
+.codeblock-copy-btn[data-copied] .codeblock-copy-btn__copied {
+  display: flex;
+}
+@media (hover: none) {
+  .codeblock-copy-btn {
+    opacity: 1;
+  }
 }
 .post-body figure {
   margin: 32px 0;
