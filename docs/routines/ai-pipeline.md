@@ -92,7 +92,11 @@ At https://claude.ai/code/routines -> New routine. All three: repository
 | `Pipeline: build` | **API** | [Build prompt](#build-prompt) |
 | `Pipeline: rework` | **GitHub**: pull request **labeled**, label filter `auto-rework` | [Rework prompt](#rework-prompt) |
 
-Copy the API URL and token for the two API-triggered routines.
+For the two API-triggered routines, the API trigger modal shows the fire URL
+(`https://api.anthropic.com/v1/claude_code/routines/trig_.../fire`) and a **Generate
+token** button. The token is shown once and cannot be retrieved later; if you lose it,
+reopen the routine (pencil icon -> trigger section) and **Regenerate**. The dispatcher
+sends the `anthropic-beta` and `anthropic-version` headers the endpoint requires.
 
 ### 5. Repository secrets
 
