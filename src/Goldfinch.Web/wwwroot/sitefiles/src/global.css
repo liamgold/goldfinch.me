@@ -1705,6 +1705,11 @@ a.pager-btn:hover {
   font-size: 13px;
   line-height: 1.65;
   color: var(--fg-muted);
+}
+/* Scrolls independently of `pre` so the copy button (positioned against
+   `pre`) stays pinned to the corner instead of panning with the code. */
+.codeblock-scroll {
+  display: block;
   overflow-x: auto;
 }
 .post-body pre code {
@@ -2726,7 +2731,6 @@ mark {
   }
   .post-body pre {
     white-space: pre;
-    overflow-x: auto;
     max-width: 100%;
     font-size: 12px;
     padding: 14px;

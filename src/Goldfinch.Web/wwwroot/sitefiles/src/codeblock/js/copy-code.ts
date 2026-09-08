@@ -14,10 +14,17 @@ const initialise = () => {
 
     btn.hidden = false;
 
+    const defaultLabel = btn.dataset.labelDefault || 'Copy code';
+    const copiedLabel = btn.dataset.labelCopied || 'Copied';
+
     btn.addEventListener('click', () => {
       navigator.clipboard.writeText(code.textContent || '').then(() => {
         btn.dataset.copied = 'true';
-        setTimeout(() => delete btn.dataset.copied, 2000);
+        btn.setAttribute('aria-label', copiedLabel);
+        setTimeout(() => {
+          delete btn.dataset.copied;
+          btn.setAttribute('aria-label', defaultLabel);
+        }, 2000);
       });
     });
   });
