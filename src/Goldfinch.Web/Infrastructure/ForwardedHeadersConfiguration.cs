@@ -26,7 +26,7 @@ public static class ForwardedHeadersConfiguration
             // The origin is only reachable through the Cloudflare -> Azure App Service edge, and the
             // immediate upstream has no stable IP to pin, so trust the forwarding chain rather than
             // restricting to specific proxy addresses.
-            options.KnownNetworks.Clear();
+            options.KnownIPNetworks.Clear();
             options.KnownProxies.Clear();
         });
 
