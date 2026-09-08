@@ -1,0 +1,143 @@
+name: AI Pipeline (issue dispatch)
+
+# Issue-side dispatcher for the label pipeline. Routines cannot subscribe to
+# issue events directly, so this workflow forwards them to the right Routine's
+# API trigger:
+#
+#   label `ai-discuss` added          -> Discuss routine (shape + plan, one comment)
+#   comment on an `ai-discuss` issue  -> Discuss routine (next round)
+#   label `ready-for-ai` added        -> Build routine (implement, critic, open PR)
+#
+# PR-side labels (`auto-rework`) are native GitHub triggers on the Routine itself
+# and need no Action. `auto-merge` is handled by auto-merge.yml with no agent.
+#
+# Required repository secrets:
+#   ROUTINE_DISCUSS_URL / ROUTINE_DISCUSS_TOKEN
+#   ROUTINE_BUILD_URL   / ROUTINE_BUILD_TOKEN
+#
+# See docs/routines/ai-pipeline.md.
+
+on:
+  issues:
+    types: [labeled]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: ai-pipeline-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    # Fire on: ai-discuss label, ready-for-ai label, or a human comment on an
+    # issue (not a PR) that currently carries ai-discuss. Routine comments are
+    # posted under the owner's identity, so they are recognised by the
+    # <!-- ai-discuss --> marker they must include, not by author.
+    if: >-
+      (github.event_name == 'issues' &&
+        (github.event.label.name == 'ai-discuss' || github.event.label.name == 'ready-for-ai'))
+      ||
+      (github.event_name == 'issue_comment' &&
+        !github.event.issue.pull_request &&
+        contains(github.event.issue.labels.*.name, 'ai-discuss') &&
+        github.event.comment.user.type == 'User' &&
+        !contains(github.event.comment.body, '<!-- ai-discuss -->'))
+    steps:
+      - name: Choose routine
+        id: route
+        env:
+          EVENT: ${{ github.event_name }}
+          LABEL: ${{ github.event.label.name }}
+          DISCUSS_URL: ${{ secrets.ROUTINE_DISCUSS_URL }}
+          DISCUSS_TOKEN: ${{ secrets.ROUTINE_DISCUSS_TOKEN }}
+          BUILD_URL: ${{ secrets.ROUTINE_BUILD_URL }}
+          BUILD_TOKEN: ${{ secrets.ROUTINE_BUILD_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ "$EVENT" == "issues" && "$LABEL" == "ready-for-ai" ]]; then
+            mode="build"; url="$BUILD_URL"; token="$BUILD_TOKEN"
+          else
+            mode="discuss"; url="$DISCUSS_URL"; token="$DISCUSS_TOKEN"
+          fi
+          if [[ -z "$url" || -z "$token" ]]; then
+            echo "::error::Routine URL/token secrets for mode '$mode' are not set"
+            exit 1
+          fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "::add-mask::$token"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "token=$token" >> "$GITHUB_OUTPUT"
+
+      - name: Fire the Routine
+        id: fire
+        env:
+          MODE: ${{ steps.route.outputs.mode }}
+          ROUTINE_URL: ${{ steps.route.outputs.url }}
+          ROUTINE_TOKEN: ${{ steps.route.outputs.token }}
+          EVENT: ${{ github.event_name }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          COMMENT_AUTHOR: ${{ github.event.comment.user.login }}
+        run: |
+          set -euo pipefail
+          # Build the payload with jq so issue/comment bodies can't break the JSON.
+          payload="$(jq -n \
+            --arg mode "$MODE" \
+            --arg event "$EVENT" \
+            --arg repo "$REPO" \
+            --arg number "$ISSUE_NUMBER" \
+            --arg title "$ISSUE_TITLE" \
+            --arg url "$ISSUE_URL" \
+            --arg author "$ISSUE_AUTHOR" \
+            --arg body "$ISSUE_BODY" \
+            --arg cbody "$COMMENT_BODY" \
+            --arg cauthor "$COMMENT_AUTHOR" \
+            '{text: ("Pipeline stage: " + $mode + "\n"
+                   + "Fired by: " + (if $event == "issue_comment" then "new comment from " + $cauthor else "label added" end) + "\n"
+                   + "Repository: " + $repo + "\n"
+                   + "Issue: #" + $number + " - " + $title + "\n"
+                   + "URL: " + $url + "\n"
+                   + "Opened by: " + $author + "\n\n"
+                   + "--- Issue body ---\n" + $body + "\n"
+                   + (if $event == "issue_comment" then "\n--- Latest comment (" + $cauthor + ") ---\n" + $cbody + "\n" else "" end)
+                   + "\nRead the full issue thread with: gh issue view " + $number + " --repo " + $repo + " --comments")}')"
+
+          response="$(curl -sS --fail-with-body -X POST "$ROUTINE_URL" \
+            -H "Authorization: Bearer $ROUTINE_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data "$payload")"
+
+          echo "$response"
+          echo "session_url=$(echo "$response" | jq -r '.claude_code_session_url // empty')" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on the issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          MODE: ${{ steps.route.outputs.mode }}
+          SESSION_URL: ${{ steps.fire.outputs.session_url }}
+          OUTCOME: ${{ steps.fire.outcome }}
+        run: |
+          # Includes the ai-discuss marker so this comment never re-fires the dispatcher.
+          if [[ "$OUTCOME" == "success" ]]; then
+            case "$MODE" in
+              build)   what="Build routine started: it will implement the plan, run the critic, and open a PR that closes this issue, or mark it ai-blocked." ;;
+              *)       what="Discuss routine started: expect one comment back. Reply to continue the discussion, or swap the label to ready-for-ai when the plan is agreed." ;;
+            esac
+            body="<!-- ai-discuss -->🤖 $what"
+            [[ -n "$SESSION_URL" ]] && body="$body"$'\n\n'"Session: $SESSION_URL"
+          else
+            body="<!-- ai-discuss -->⚠️ Failed to trigger the ${MODE:-} routine. See the *AI Pipeline* workflow run."
+          fi
+          gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body "$body"
