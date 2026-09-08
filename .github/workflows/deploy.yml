@@ -3,6 +3,9 @@ name: Build & Deploy (Publish Profile)
 on:
   push:
     branches: [ "main" ]
+  # Manual trigger. Merges performed by auto-merge.yml run under GITHUB_TOKEN, and
+  # pushes made with that token never start workflows, so this is the fallback.
+  workflow_dispatch:
 
 concurrency:
   group: production-deploy
