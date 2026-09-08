@@ -114,6 +114,8 @@ jobs:
 
           response="$(curl -sS --fail-with-body -X POST "$ROUTINE_URL" \
             -H "Authorization: Bearer $ROUTINE_TOKEN" \
+            -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+            -H "anthropic-version: 2023-06-01" \
             -H "Content-Type: application/json" \
             --data "$payload")"
 
