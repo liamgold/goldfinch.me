@@ -4,9 +4,9 @@
     "net10.0": {
       "AngleSharp": {
         "type": "Direct",
-        "requested": "[1.8.0, )",
-        "resolved": "1.8.0",
-        "contentHash": "vRW/0M11Jlfd7WkT5Kr0tXXmnWNVdxyII2S2b6AsgZCJEBGaXCUnti6nKIJTvAjmnmKcQbvn+SJ3lpt8dqoLIA=="
+        "requested": "[1.8.1, )",
+        "resolved": "1.8.1",
+        "contentHash": "fTLPBxwYK5zmt+ernY3GL1kFBDA/2Cl72hpNnMHeNceZNJ/AT7Km9CXFaMHybuEFhXDy2Dv7Bjkez5G0Z4Io4g=="
       },
       "Kentico.Xperience.Admin": {
         "type": "Direct",
