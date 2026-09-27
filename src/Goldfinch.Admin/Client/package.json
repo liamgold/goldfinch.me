@@ -17,16 +17,16 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.1",
-    "@babel/plugin-transform-runtime": "^8.0.1",
-    "@babel/preset-env": "^8.0.2",
+    "@babel/core": "^8.0.6",
+    "@babel/plugin-transform-runtime": "^8.0.6",
+    "@babel/preset-env": "^8.0.6",
     "@babel/preset-react": "^8.0.1",
     "@babel/preset-typescript": "^8.0.1",
     "@kentico/xperience-webpack-config": "31.9.0",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "babel-loader": "^10.0.0",
-    "webpack": "5.110.3",
+    "webpack": "5.111.1",
     "webpack-cli": "^7.2.3",
     "webpack-dev-server": "^6.0.0"
   },
