@@ -9,6 +9,7 @@
   <WebsiteChannelDomain>localhost:52623</WebsiteChannelDomain>
   <WebsiteChannelGUID>b3f8d8a7-ead7-433c-b0fb-225567a185c3</WebsiteChannelGUID>
   <WebsiteChannelHomePage>/Home</WebsiteChannelHomePage>
+  <WebsiteChannelLanguageRoutingMode>0</WebsiteChannelLanguageRoutingMode>
   <WebsiteChannelPrimaryContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>22960170-5c33-4d4e-a01b-fd4c8fcbd13d</GUID>
