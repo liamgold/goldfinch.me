@@ -410,6 +410,12 @@ public class MyWidgetViewComponent : ViewComponent
 | `Kentico.PageBuilder.Web.Mvc` | `IWidgetProperties`, `RegisterWidget`, `IPageBuilderDataContextRetriever` |
 | `Kentico.Xperience.Admin.Base.FormAnnotations` | `TextInputComponent`, `DropDownComponent`, `CheckBoxComponent`, `TextAreaComponent`, `ContentItemSelectorComponent`, `FormCategory`, etc. |
 
+### Updating Xperience
+
+Use the Xperience update skill installed from your Claude Code plugins — there is no project-local update script (see `CLAUDE.local.md` for the exact skill, if present). If an update stops before the database migration (restore or build errors), fix the errors and resume as the skill instructs — don't toggle CI by hand.
+
+Updates also refresh the local seed database `database/Goldfinch.bacpac`. `/database/` is gitignored — the bacpac is a local copy only, never committed.
+
 ### Running the Project
 
 ```bash
