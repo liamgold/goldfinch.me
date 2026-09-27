@@ -382,8 +382,12 @@ DeploymentPackage.zip
 
 # Claude Code configuration
 .claude/settings.local.json
+CLAUDE.local.md
 
 .playwright-mcp/
 
 # Client build artifacts
 src/Goldfinch.Admin/Client/dist/*
+
+# Local seed database, refreshed on each Xperience update. Never committed.
+/database/

@@ -1,3 +1,4 @@
+using CMS.EmailEngine;
 using Goldfinch.Core;
 using Goldfinch.Core.ContentTypes;
 using Goldfinch.Core.Search;
@@ -102,6 +103,8 @@ builder.Services.AddKenticoLucene(luceneBuilder =>
 builder.Services.AddXperienceCommunityCspManagement();
 
 builder.Services.Configure<ContentSecurityPolicyOptions>(builder.Configuration.GetSection("ContentSecurityPolicy"));
+
+builder.Services.Configure<SystemEmailOptions>(builder.Configuration.GetSection("SystemEmailOptions"));
 
 if (env.IsDevelopment())
 {
