@@ -90,15 +90,15 @@
       },
       "System.ServiceModel.Syndication": {
         "type": "Direct",
-        "requested": "[10.0.12, )",
-        "resolved": "10.0.12",
-        "contentHash": "tjtGiISGO8ndPV+opWzhiR11WS6ZKSNnTx/NLR+4KgzIhCliUYZerYuwU/6vauEQfIKBCp8qsxarwpjeAMFTpQ=="
+        "requested": "[10.0.13, )",
+        "resolved": "10.0.13",
+        "contentHash": "M5J+NoTL827NNeR0KGVe+am9bZjAgMCxjVe/42iR+0hZaUR/EmiaK9NlBp5iR9Lm7DIxbzGEhR92b5AAnnQPpQ=="
       },
       "XperienceCommunity.CSP": {
         "type": "Direct",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "SYW9HJvf275D4u4ZFzVuAJdTjh9DGGFytZjGaVtw+3ppj5C90W0e2LwhmhQci31VgF0wYLGZYw5T3UmPJ9Dy5w==",
+        "requested": "[5.0.1, )",
+        "resolved": "5.0.1",
+        "contentHash": "Amd6ggC8YFmvLJoG+Vr2rD4uEeyGNrISqX9CpLIopxZRPzjtjoc3yJBZBYC3EFeUvLlHHzwC876NVlGK9C9qtQ==",
         "dependencies": {
           "Kentico.Xperience.Admin": "30.11.0"
         }
@@ -1087,7 +1087,7 @@
       "goldfinch.core": {
         "type": "Project",
         "dependencies": {
-          "AngleSharp": "[1.8.2, )",
+          "AngleSharp": "[1.8.4, )",
           "Kentico.Xperience.Admin": "[31.9.0, )",
           "Kentico.Xperience.Lucene": "[15.0.6, )",
           "Kentico.Xperience.WebApp": "[31.9.0, )",
@@ -1098,9 +1098,9 @@
       },
       "AngleSharp": {
         "type": "CentralTransitive",
-        "requested": "[1.8.2, )",
-        "resolved": "1.8.2",
-        "contentHash": "iRlkfBIhi+gTgTxBlYNT4PlmaiVEy7+qX3BmprAK4cYE1UjfSNFI4mEDyxC1qgtAKYg5rjGYgL3tJlzGF+Ukdg=="
+        "requested": "[1.8.4, )",
+        "resolved": "1.8.4",
+        "contentHash": "lbwt3oqjyxI6x01NT0kRqnudE+gxLqRAs/X49/iVWyguj6OtRfYCanV1mL+jYZgeeAqnGqWzqi7+s5gdtBF1Ag=="
       },
       "Kentico.Xperience.Lucene": {
         "type": "CentralTransitive",
