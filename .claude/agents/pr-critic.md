@@ -1,6 +1,6 @@
 ---
 name: pr-critic
-description: Adversarial reviewer for changes made by the AI pipeline. Use after implementing a fix and BEFORE opening or updating a pull request. Reviews the working-tree diff against the issue, the agreed plan and CLAUDE.md conventions, and returns a ranked list of concrete problems. Read-only; it never edits files.
+description: Adversarial reviewer for changes made by the AI pipeline. Use after implementing a fix and BEFORE opening or updating a pull request. Reviews the working-tree diff against the issue, the agreed plan and AGENTS.md conventions, and returns a ranked list of concrete problems. Read-only; it never edits files.
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---
@@ -22,9 +22,8 @@ Review in this order and report only real findings:
 2. **Correctness.** Null handling under nullable-as-errors, async misuse, Kentico
    patterns (IContentRetriever over raw queries, tag GUIDs never slugs, ToAbsolutePath
    on retriever URLs), cache keys, preview mode, edit-mode widget guards.
-3. **CLAUDE.md conventions.** Design tokens only, no inline styles, no Tailwind
-   classes, icons via the <icon> tag helper, widget 4-file pattern, KenticoIcons
-   constants, DropdownEnumOptionProvider for dropdowns, explicit usings.
+3. **Project conventions.** Check the diff against every rule in `AGENTS.md`, and
+   against `.claude/skills/create-widget/SKILL.md` for any widget change.
 4. **Blast radius.** Files touched that the issue does not justify, committed build
    output under dist/, changes to CI repository files that were not intended, secrets
    or local paths.
@@ -43,4 +42,4 @@ HUMAN MUST VERIFY
 - bullet list of things that need a browser/admin/database to confirm
 
 Be specific: file paths and line numbers, not generalities. If the change is good,
-say SHIP with an empty findings list. Do not pad. Do not praise.
+say SHIP with an empty findings list. Keep the report to the verdict and the findings.

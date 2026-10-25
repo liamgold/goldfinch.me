@@ -382,7 +382,6 @@ DeploymentPackage.zip
 
 # Claude Code configuration
 .claude/settings.local.json
-CLAUDE.local.md
 
 .playwright-mcp/
 
