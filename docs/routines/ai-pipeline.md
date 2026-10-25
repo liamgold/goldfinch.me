@@ -125,7 +125,7 @@ by Kentico site, .NET 10, Vite front-end, Node 24). The trigger details are in t
 payload for this run. If there is no payload, stop and do nothing.
 
 Ground rules for every stage:
-- Read CLAUDE.md first and follow it exactly.
+- Read AGENTS.md first and follow it exactly.
 - You act under the repository owner's GitHub identity. Every comment you post MUST
   begin with the literal marker <!-- ai-discuss --> on its own first line, otherwise
   the dispatcher will treat it as a human reply and fire again.
@@ -157,7 +157,7 @@ without guessing. You write no code and change no files.
 3. Decide which ONE of these applies and post exactly one comment:
    a) The issue is too vague to plan. Ask at most three pointed questions, each with
       your best-guess default so the human can just say "yes". Also state anything in
-      the request that looks wrong, risky or conflicts with CLAUDE.md.
+      the request that looks wrong, risky or conflicts with AGENTS.md.
    b) There is enough to plan. Post the plan comment. If a previous plan exists,
       revise it according to the latest human reply and note what changed.
 4. Plan comment format (first line <!-- ai-discuss -->, second line <!-- ai-plan -->):
