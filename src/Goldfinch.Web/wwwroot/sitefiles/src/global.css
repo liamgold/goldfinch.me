@@ -2871,6 +2871,14 @@ mark {
   color: var(--accent);
   font-size: 13px;
 }
+.ask-modal__badge {
+  padding: 2px 8px;
+  background: var(--accent-soft);
+  color: var(--accent-hot);
+  border: 1px solid var(--accent-ring);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+}
 .ask-modal__close {
   display: inline-flex;
   padding: 4px;
@@ -2938,6 +2946,13 @@ mark {
   opacity: 0.6;
   cursor: default;
 }
+.ask__disclosure {
+  margin: 0;
+  padding: 0 16px 12px;
+  color: var(--fg-dim);
+  font-size: 12px;
+  line-height: 1.5;
+}
 
 /* Conversation turns */
 .ask__turn {
@@ -2955,9 +2970,6 @@ mark {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-}
-.ask__role--bot {
-  color: var(--accent);
 }
 .ask__q {
   color: var(--fg);
@@ -3019,32 +3031,48 @@ mark {
     animation: none;
   }
 }
+/* Label in its own column so wrapped chips line up under the first chip, not under the label. */
 .ask__sources {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 10px;
   margin-top: 14px;
 }
 .ask__sources-label {
+  flex-shrink: 0;
+  padding-top: 5px;
   color: var(--fg-dim);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+.ask__source-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+/* Neutral until hovered, so the accent is saved for the badge, answer rule and Ask button. */
+/* Long post titles truncate with an ellipsis; the full title is in the chip's title attribute. */
 .ask__source {
   display: inline-block;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   padding: 3px 10px;
   background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  color: var(--accent-hot);
+  color: var(--fg);
   text-decoration: none;
   font-size: 12.5px;
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
 }
-.ask__source:hover {
-  background: var(--bg-3);
-  border-color: var(--border-hot);
+.ask__source:hover,
+.ask__source:focus-visible {
+  color: var(--accent-hot);
+  border-color: var(--accent-ring);
 }
 
 @media (max-width: 768px) {
