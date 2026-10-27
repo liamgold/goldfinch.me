@@ -7,9 +7,9 @@
 *@
 <div class="ask-modal" data-ask hidden>
     <div class="ask-modal__backdrop" data-ask-close></div>
-    <div class="ask-modal__dialog" role="dialog" aria-modal="true" aria-label="Ask about the site">
+    <div class="ask-modal__dialog" role="dialog" aria-modal="true" aria-label="Ask about the site" aria-describedby="ask-disclosure">
         <div class="ask-modal__head">
-            <span class="ask-modal__title mono"><icon name="sparkle" size="18" /> Ask</span>
+            <span class="ask-modal__title mono"><icon name="sparkle" size="18" /> Ask <span class="ask-modal__badge">AI assistant</span></span>
             <button type="button" class="ask-modal__close" data-ask-close aria-label="Close">
                 <icon name="close" size="16" />
             </button>
@@ -22,11 +22,16 @@
             <input type="text"
                    class="ask__input mono"
                    data-ask-input
-                   placeholder="Ask about Liam, his posts, or talks…"
+                   placeholder="Ask about Liam's work…"
                    autocomplete="off"
                    maxlength="500"
                    aria-label="Ask a question about the site" />
             <button type="button" class="ask__submit mono" data-ask-submit>Ask</button>
         </div>
+
+        @* AI disclosure (EU AI Act Art. 50): visible before the first question, not just once answers arrive *@
+        <p class="ask__disclosure" id="ask-disclosure">
+            Answers are AI-generated from Liam's posts and talks and may not always be accurate.
+        </p>
     </div>
 </div>

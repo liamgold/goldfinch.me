@@ -103,7 +103,7 @@
       const sourcesHtml = sources.length
         ? `<div class="ask__sources">
              <span class="ask__sources-label mono">sources</span>
-             ${sources.map((s) => `<a class="ask__source" href="${escape(s.url)}" target="_blank" rel="noopener noreferrer">${escape(s.title)}</a>`).join('')}
+             <span class="ask__source-list">${sources.map((s) => `<a class="ask__source" href="${escape(s.url)}" title="${escape(s.title)}" target="_blank" rel="noopener noreferrer">${escape(s.title)}</a>`).join('')}</span>
            </div>`
         : '';
       // Mark the live region busy while the answer types out, so a screen reader announces the
@@ -149,7 +149,7 @@
     botMsg.className = 'ask__msg ask__msg--assistant';
     const botRole = document.createElement('div');
     botRole.className = 'ask__role ask__role--bot mono';
-    botRole.textContent = '✦ goldfinch';
+    botRole.textContent = '✦ AI assistant';
     const body = document.createElement('div');
     body.className = 'ask__body';
     botMsg.appendChild(botRole);
