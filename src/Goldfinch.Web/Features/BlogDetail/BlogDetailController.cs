@@ -1,6 +1,7 @@
 ﻿using CMS.Websites;
 using Goldfinch.Core.BlogPosts;
 using Goldfinch.Core.ContentTypes;
+using Goldfinch.Core.SEO.Constants;
 using Goldfinch.Web.Features.BlogDetail;
 using Goldfinch.Web.Features.BlogList;
 using Kentico.Content.Web.Mvc;
@@ -77,12 +78,7 @@ public class BlogDetailController : Controller
         {
             Name = "Liam Goldfinch",
             Url = new Uri("https://www.goldfinch.me/"),
-            SameAs = new List<Uri>
-            {
-                new("https://github.com/liamgold/"),
-                new("https://www.linkedin.com/in/liamgoldfinch/"),
-                new("https://x.com/LiamGoldfinch")
-            },
+            SameAs = SocialProfiles.All.Select(url => new Uri(url)).ToList(),
             HasOccupation = new Occupation
             {
                 Name = "Principal Systems Engineer",

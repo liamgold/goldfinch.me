@@ -50,7 +50,8 @@ public class IconTagHelper : TagHelper
         ["search"]   = "<circle cx=\"11\" cy=\"11\" r=\"7\" /><path d=\"m20 20-3.5-3.5\" />",
         ["sparkle"]  = "<path fill=\"currentColor\" stroke=\"none\" d=\"M9.5 2.5 12.8 9.2 17.5 12.5 12.8 15.8 9.5 22.5 6.2 15.8 1.5 12.5 6.2 9.2Z\" /><path fill=\"currentColor\" stroke=\"none\" d=\"M18.5 1.5 19.6 4.4 22.5 5.5 19.6 6.6 18.5 9.5 17.4 6.6 14.5 5.5 17.4 4.4Z\" /><path fill=\"currentColor\" stroke=\"none\" d=\"M19.5 15.5 20.4 17.6 22.5 18.5 20.4 19.4 19.5 21.5 18.6 19.4 16.5 18.5 18.6 17.6Z\" />",
         ["user"]     = "<circle cx=\"12\" cy=\"8\" r=\"4\" /><path d=\"M4 21a8 8 0 0 1 16 0\" />",
-        ["x"]        = "<path fill=\"currentColor\" stroke=\"none\" d=\"M18 3h3l-7.3 8.3L22 21h-6.5l-4.7-6-5.3 6H2l7.7-8.8L2.2 3H9l4.3 5.6L18 3Z\" />",
+        ["youtube"]  = "<path fill=\"currentColor\" stroke=\"none\" d=\"M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.27 5 12 5 12 5s-6.27 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.73 19 12 19 12 19s6.27 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3Z\" />",
+        ["x"]        ="<path fill=\"currentColor\" stroke=\"none\" d=\"M18 3h3l-7.3 8.3L22 21h-6.5l-4.7-6-5.3 6H2l7.7-8.8L2.2 3H9l4.3 5.6L18 3Z\" />",
     };
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
