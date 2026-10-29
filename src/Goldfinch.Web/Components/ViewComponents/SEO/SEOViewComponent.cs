@@ -1,4 +1,5 @@
 ﻿using Goldfinch.Core.SEO;
+using Goldfinch.Core.SEO.Constants;
 using Goldfinch.Core.SEO.Models;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Http.Extensions;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Schema.NET;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Goldfinch.Web.Components.ViewComponents.SEO;
@@ -74,12 +76,7 @@ public class SEOViewComponent : ViewComponent
         {
             Name = "Liam Goldfinch",
             Url = new Uri("https://www.goldfinch.me/"),
-            SameAs = new List<Uri>
-            {
-                new("https://github.com/liamgold/"),
-                new("https://www.linkedin.com/in/liamgoldfinch/"),
-                new("https://x.com/LiamGoldfinch")
-            },
+            SameAs = SocialProfiles.All.Select(url => new Uri(url)).ToList(),
             HasOccupation = new Occupation
             {
                 Name = "Principal Systems Engineer",
