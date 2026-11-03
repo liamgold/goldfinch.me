@@ -129,6 +129,26 @@ public class BlogPostService : IBlogPostService
         new CacheSettings(CacheDuration.Hour, _websiteChannelContext.WebsiteChannelName, _websiteChannelContext.IsPreview, nameof(BlogPostService), nameof(GetBlogPostsByTag), tagGuid.ToString()));
     }
 
+    public async Task<IEnumerable<BlogPost>> GetRelatedBlogPosts(BlogPost post, int count)
+    {
+        // Ranked in memory over the cached full set: the blog is small, and GetAllBlogPosts is
+        // already invalidated on publish, so this adds no queries.
+        var postTags = post.BlogPostTags?.Select(t => t.Identifier).ToHashSet() ?? [];
+
+        return (await GetAllBlogPosts())
+            .Where(p => p.SystemFields.WebPageItemID != post.SystemFields.WebPageItemID)
+            .Select(p => new
+            {
+                Post = p,
+                SharedTags = p.BlogPostTags?.Count(t => postTags.Contains(t.Identifier)) ?? 0,
+            })
+            .OrderByDescending(x => x.SharedTags)
+            .ThenByDescending(x => x.Post.BlogPostDate)
+            .Take(count)
+            .Select(x => x.Post)
+            .ToList();
+    }
+
     public async Task<int> GetBlogPageCount()
     {
         var allBlogPosts = (await GetAllBlogPosts()).ToList();
