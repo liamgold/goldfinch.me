@@ -6,6 +6,7 @@ import './scripts/search';
 import './scripts/ask';
 import './scripts/toc-scrollspy';
 import './scripts/copy-link';
+import './scripts/arcade-404';
 
 console.log(
   "%cGoldfinch.me — if you're reading this, you're either me or someone very cool.",

@@ -5,6 +5,15 @@
 /* ============================================================
  * Fonts
  * ============================================================ */
+/* Pixel font for the arcade 404 only (SIL OFL 1.1). Latin subset, 12 KB. */
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('/fonts/press-start-2p-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: 'Geist';
   src: url('/fonts/geist-variable.woff2') format('woff2');
@@ -59,6 +68,8 @@
   --font-mono:
     'JetBrains Mono', 'Berkeley Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --font-pixel: 'Press Start 2P', var(--font-mono);
 
   --dur: 220ms;
   --dur-fast: 140ms;
@@ -1813,13 +1824,6 @@ a.pager-btn:hover {
   flex-wrap: wrap;
 }
 
-/* Error page secondary hint line under the primary copy. */
-.error-page__hint {
-  margin-top: 24px;
-  font-size: 12px;
-  color: var(--fg-dim);
-}
-
 /* Author card text column fills the remaining width. */
 .post-author-card__text {
   flex: 1;
@@ -2528,36 +2532,226 @@ mark {
   font-size: 13px;
 }
 
-/* Error pages */
-.error-page {
-  max-width: 720px;
+/* Error pages: arcade screen. 404 is "Game over", 500 is "Tilt". */
+.arcade {
+  max-width: 760px;
   margin: 0 auto;
-  padding: 96px 32px;
-  font-family: var(--font-mono);
+  padding: 64px 32px 96px;
 }
-.error-page h1 {
-  font-family: var(--font-mono);
-  font-size: 28px;
-  color: var(--accent);
-  margin-bottom: 16px;
+.arcade__screen {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 32px 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: radial-gradient(ellipse at center, var(--bg-2) 0%, var(--bg) 75%);
+  font-family: var(--font-pixel);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--fg);
+  line-height: 1.8;
 }
-.error-page p {
-  color: var(--fg-muted);
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 20px;
+/* CRT scanlines over the whole screen. Decorative, never intercepts clicks. */
+.arcade__screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    color-mix(in srgb, var(--bg) 20%, transparent) 2px,
+    color-mix(in srgb, var(--bg) 20%, transparent) 4px
+  );
 }
-.error-page code {
-  color: var(--accent-hot);
-  background: var(--bg-2);
-  border: 1px solid var(--border-soft);
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-.error-page .actions {
+.arcade__hud {
   display: flex;
-  gap: 12px;
-  margin-top: 32px;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--red);
+  margin-bottom: 40px;
+}
+.arcade__hud-value {
+  color: var(--fg);
+}
+.arcade__title {
+  font-family: var(--font-pixel);
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--accent);
+  text-shadow:
+    0 0 12px var(--accent-ring),
+    4px 4px 0 var(--bg-3);
+  margin: 0 0 20px;
+}
+.arcade__stage {
+  font-size: 11px;
+  color: var(--fg-muted);
+  margin: 0 0 40px;
+  overflow-wrap: anywhere;
+}
+.arcade__path {
+  color: var(--cyan);
+  text-transform: none;
+}
+.arcade__continue {
+  font-size: 20px;
+  color: var(--fg);
+  margin: 0 0 12px;
+}
+.arcade__count {
+  display: inline-block;
+  min-width: 1.5em;
+  margin-left: 0.5em;
+  color: var(--accent-hot);
+  text-align: left;
+}
+.arcade__continue--done {
+  color: var(--fg-muted);
+}
+.arcade__coin {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--accent-hot);
+  text-decoration: none;
+  padding: 8px 12px;
+  animation: blink 1.1s step-end infinite;
+}
+.arcade__coin:hover,
+.arcade__coin:focus-visible {
+  animation: none;
+  color: var(--bg);
+  background: var(--accent);
+}
+.arcade__select {
+  margin: 40px auto 0;
+  max-width: 300px;
+  text-align: left;
+}
+.arcade__select-head {
+  font-size: 11px;
+  color: var(--red);
+  margin: 0 0 12px;
+  text-align: center;
+}
+.arcade__select ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.arcade__select a {
+  position: relative;
+  display: block;
+  padding: 6px 0 6px 28px;
+  font-size: 13px;
+  color: var(--cyan);
+  text-decoration: none;
+}
+.arcade__select a::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  opacity: 0;
+}
+.arcade__select a:hover::before,
+.arcade__select a:focus-visible::before {
+  opacity: 1;
+}
+.arcade__select a:hover,
+.arcade__select a:focus-visible {
+  color: var(--fg);
+  outline: none;
+}
+.arcade__level {
+  color: var(--fg-dim);
+  margin-right: 12px;
+}
+.arcade__hint {
+  font-size: 10px;
+  color: var(--fg-dim);
+  margin: 40px 0 0;
+}
+.arcade__hint .palette-kbd {
+  font-family: var(--font-mono);
+}
+.arcade__credit {
+  font-size: 10px;
+  color: var(--fg-dim);
+  margin: 24px 0 0;
+  text-align: right;
+}
+@media (max-width: 640px) {
+  .arcade {
+    padding: 32px 16px 64px;
+  }
+  .arcade__screen {
+    padding: 28px 16px 24px;
+  }
+  .arcade__hud {
+    font-size: 9px;
+    margin-bottom: 28px;
+  }
+  .arcade__title {
+    font-size: 28px;
+  }
+  .arcade__continue {
+    font-size: 15px;
+  }
+  .arcade__coin {
+    font-size: 12px;
+  }
+}
+
+/* 500 "Tilt" variant: red title that pulses like a pinball tilt light. */
+@keyframes tilt-flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.arcade--tilt .arcade__title {
+  color: var(--red);
+  text-shadow:
+    0 0 12px color-mix(in srgb, var(--red) 40%, transparent),
+    4px 4px 0 var(--bg-3);
+  letter-spacing: 0.3em;
+  margin-right: -0.3em; /* letter-spacing adds a trailing gap; keep the word centred */
+  animation: tilt-flash 1.6s ease-in-out infinite;
+}
+/* The friendly CMS line stays in the reading font: pixel type is hard work at length. */
+.arcade__message {
+  max-width: 440px;
+  margin: 0 auto 32px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  text-transform: none;
+  color: var(--fg-muted);
+}
+.arcade__message p {
+  margin: 0;
+}
+.arcade--tilt .arcade__coin {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 8px;
+}
+.arcade__coin--secondary {
+  animation: none;
+  font-size: 11px;
+  color: var(--fg-muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .arcade__coin,
+  .arcade--tilt .arcade__title {
+    animation: none;
+  }
 }
 
 /* ============================================================
