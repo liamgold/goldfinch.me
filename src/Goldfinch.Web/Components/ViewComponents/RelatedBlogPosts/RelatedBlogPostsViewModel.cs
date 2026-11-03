@@ -1,9 +1,9 @@
 ﻿using Goldfinch.Web.Features.BlogDetail;
 using System.Collections.Generic;
 
-namespace Goldfinch.Web.Components.ViewComponents.LatestBlogPosts
+namespace Goldfinch.Web.Components.ViewComponents.RelatedBlogPosts
 {
-    public class LatestBlogPostsViewModel
+    public class RelatedBlogPostsViewModel
     {
         public required string Title { get; set; }
 

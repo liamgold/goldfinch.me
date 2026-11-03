@@ -49,4 +49,15 @@ public interface IBlogPostService
     /// <param name="tagGuid">The GUID of the taxonomy tag to filter by.</param>
     /// <returns>The matching blog posts.</returns>
     Task<IEnumerable<BlogPost>> GetBlogPostsByTag(Guid tagGuid);
+
+    /// <summary>
+    /// Retrieves other blog posts related to the given post, ranked by the number of tags they
+    /// share with it, newest first on ties. Posts with no shared tags fill any remaining slots,
+    /// newest first, so the result is only short of <paramref name="count"/> when the blog has
+    /// fewer other posts.
+    /// </summary>
+    /// <param name="post">The post to find related posts for. It is excluded from the result.</param>
+    /// <param name="count">The maximum number of posts to return.</param>
+    /// <returns>The related blog posts.</returns>
+    Task<IEnumerable<BlogPost>> GetRelatedBlogPosts(BlogPost post, int count);
 }

@@ -9,17 +9,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Goldfinch.Web.Components.ViewComponents.LatestBlogPosts;
+namespace Goldfinch.Web.Components.ViewComponents.RelatedBlogPosts;
 
-public class LatestBlogPostsViewComponent : ViewComponent
+/// <summary>
+/// "Keep reading" cards under a blog post: posts sharing the most tags with it, topped up
+/// with the latest posts.
+/// </summary>
+public class RelatedBlogPostsViewComponent : ViewComponent
 {
+    private const int RELATED_POSTS_COUNT = 4;
+
     private readonly IWebPageUrlRetriever _pageUrlRetriever;
     private readonly IBlogPostService _blogPostService;
     private readonly IWebPageDataContextRetriever _pageDataContextRetriever;
     private readonly IBlogTagService _blogTagService;
     private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
 
-    public LatestBlogPostsViewComponent(
+    public RelatedBlogPostsViewComponent(
         IWebPageUrlRetriever pageUrlRetriever,
         IBlogPostService blogPostService,
         IWebPageDataContextRetriever pageDataContextRetriever,
@@ -40,12 +46,15 @@ public class LatestBlogPostsViewComponent : ViewComponent
             return Content(string.Empty);
         }
 
-        var page = data.WebPage;
-        var languageName = _preferredLanguageRetriever.Get();
+        var currentPost = await _blogPostService.GetBlogPost(data.WebPage.WebPageItemID);
 
-        var blogPosts = (await _blogPostService.GetLatestBlogPosts())
-            .Where(x => x.SystemFields.WebPageItemID != page.WebPageItemID)
-            .Take(4);
+        if (currentPost is null)
+        {
+            return Content(string.Empty);
+        }
+
+        var languageName = _preferredLanguageRetriever.Get();
+        var blogPosts = await _blogPostService.GetRelatedBlogPosts(currentPost, RELATED_POSTS_COUNT);
 
         var blogPostViewModels = new List<BlogPostViewModel>();
 
@@ -63,12 +72,17 @@ public class LatestBlogPostsViewComponent : ViewComponent
             blogPostViewModels.Add(blogPostViewModel);
         }
 
-        var viewModel = new LatestBlogPostsViewModel
+        if (blogPostViewModels.Count == 0)
+        {
+            return Content(string.Empty);
+        }
+
+        var viewModel = new RelatedBlogPostsViewModel
         {
             Title = title,
             BlogPosts = blogPostViewModels,
         };
 
-        return View("~/Components/ViewComponents/LatestBlogPosts/LatestBlogPosts.cshtml", viewModel);
+        return View("~/Components/ViewComponents/RelatedBlogPosts/RelatedBlogPosts.cshtml", viewModel);
     }
 }

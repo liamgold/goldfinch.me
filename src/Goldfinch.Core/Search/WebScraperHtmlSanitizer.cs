@@ -5,8 +5,8 @@ using AngleSharp.Html.Parser;
 namespace Goldfinch.Core.Search;
 
 /// <summary>
-/// Converts a rendered HTML page into clean, indexable plain text. Prefers the post body
-/// container (<c>.post-body</c>) and falls back to <c>&lt;main&gt;</c> then <c>&lt;body&gt;</c>,
+/// Converts a rendered HTML page into clean, indexable plain text. Prefers the prose
+/// container (<c>.prose</c>) and falls back to <c>&lt;main&gt;</c> then <c>&lt;body&gt;</c>,
 /// stripping scripts, styles, and anything marked <c>data-ktc-search-exclude</c>.
 /// </summary>
 public class WebScraperHtmlSanitizer
@@ -29,8 +29,8 @@ public class WebScraperHtmlSanitizer
             return string.Empty;
         }
 
-        // Index the post body when present, otherwise the main content, otherwise the whole body.
-        var root = body.QuerySelector(".post-body")
+        // Index the prose content when present, otherwise the main content, otherwise the whole body.
+        var root = body.QuerySelector(".prose")
             ?? body.QuerySelector("main")
             ?? body;
 
