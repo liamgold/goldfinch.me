@@ -1,8 +1,7 @@
 name: PR Build
 
 # Build-only CI for pull requests: the same steps deploy.yml runs before
-# publishing, minus publish/deploy. Gives the label pipeline a "CI green" gate
-# (auto-merge waits on this check) and the rework loop something to re-green.
+# publishing, minus publish/deploy.
 
 on:
   pull_request:
