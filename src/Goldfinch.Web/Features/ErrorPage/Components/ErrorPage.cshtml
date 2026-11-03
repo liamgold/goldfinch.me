@@ -1,19 +1,14 @@
 @using Goldfinch.Web.Features.ErrorPage
 @model ErrorPageViewModel
 
-@{
-    // 404 is "game over" (the visitor hit a dead end); anything else is "tilt" (the machine broke).
-    var isNotFound = Model.Page.ErrorCode == 404;
-}
-
-<section class="arcade @(isNotFound ? null : "arcade--tilt") fadeup" data-arcade>
+<section class="arcade @(Model.IsNotFound ? null : "arcade--tilt") fadeup" data-arcade>
     <div class="arcade__screen">
         <div class="arcade__hud" aria-hidden="true">
             <span>1UP <span class="arcade__hud-value">000@(Model.Page.ErrorCode)</span></span>
             <span>HI-SCORE <span class="arcade__hud-value">999999</span></span>
         </div>
 
-        @if (isNotFound)
+        @if (Model.IsNotFound)
         {
             <h1 class="arcade__title">Game over</h1>
             <p class="arcade__stage">
@@ -58,6 +53,6 @@
         <p class="arcade__hint">
             Press <kbd class="palette-kbd">⌘</kbd><kbd class="palette-kbd">K</kbd> to search
         </p>
-        <p class="arcade__credit" aria-hidden="true">@(isNotFound ? "Credit 0" : "Out of order")</p>
+        <p class="arcade__credit" aria-hidden="true">@(Model.IsNotFound ? "Credit 0" : "Out of order")</p>
     </div>
 </section>
