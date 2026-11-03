@@ -1,16 +1,63 @@
-@model Goldfinch.Core.ContentTypes.ErrorPage
+@using Goldfinch.Web.Features.ErrorPage
+@model ErrorPageViewModel
 
-<section class="error-page fadeup">
-    <div class="mono-label mono-label--accent">~/error</div>
-    <h1 class="mono">@Model.ErrorTitle</h1>
-    <div class="post-body">
-        @Html.Raw(Model.ErrorText)
+@{
+    // 404 is "game over" (the visitor hit a dead end); anything else is "tilt" (the machine broke).
+    var isNotFound = Model.Page.ErrorCode == 404;
+}
+
+<section class="arcade @(isNotFound ? null : "arcade--tilt") fadeup" data-arcade>
+    <div class="arcade__screen">
+        <div class="arcade__hud" aria-hidden="true">
+            <span>1UP <span class="arcade__hud-value">000@(Model.Page.ErrorCode)</span></span>
+            <span>HI-SCORE <span class="arcade__hud-value">999999</span></span>
+        </div>
+
+        @if (isNotFound)
+        {
+            <h1 class="arcade__title">Game over</h1>
+            <p class="arcade__stage">
+                @if (!string.IsNullOrEmpty(Model.RequestedPath))
+                {
+                    <text>Stage <span class="arcade__path">@Model.RequestedPath</span> not found</text>
+                }
+                else
+                {
+                    <text>404 · Page not found</text>
+                }
+            </p>
+
+            <p class="arcade__continue" data-arcade-continue>
+                Continue?<span class="arcade__count" data-arcade-count hidden></span>
+            </p>
+            <a class="arcade__coin" href="/">Insert coin</a>
+        }
+        else
+        {
+            <h1 class="arcade__title">Tilt</h1>
+            <p class="arcade__stage">Machine malfunction</p>
+            @* CMS rich text from the error page content item (editor-managed, not visitor input). *@
+            <div class="arcade__message">@Html.Raw(Model.Page.ErrorText)</div>
+
+            @* An empty href reloads the current URL, which is still the one that failed:
+               error pages are re-executed server-side without changing the address. *@
+            <a class="arcade__coin" href="">Press start to retry</a>
+            <a class="arcade__coin arcade__coin--secondary" href="/">Insert coin</a>
+        }
+
+        <nav class="arcade__select" aria-label="Stage select">
+            <p class="arcade__select-head">Select stage</p>
+            <ul>
+                <li><a href="/"><span class="arcade__level">1-1</span> Home</a></li>
+                <li><a href="/blog"><span class="arcade__level">1-2</span> Blog</a></li>
+                <li><a href="/about"><span class="arcade__level">1-3</span> About</a></li>
+                <li><a href="/speaking"><span class="arcade__level">1-4</span> Speaking</a></li>
+            </ul>
+        </nav>
+
+        <p class="arcade__hint">
+            Press <kbd class="palette-kbd">⌘</kbd><kbd class="palette-kbd">K</kbd> to search
+        </p>
+        <p class="arcade__credit" aria-hidden="true">@(isNotFound ? "Credit 0" : "Out of order")</p>
     </div>
-    <div class="actions">
-        <a class="btn btn--primary" href="/">Back home</a>
-        <a class="btn" href="/blog">Blog posts</a>
-    </div>
-    <p class="mono error-page__hint">
-        Tip — press <kbd class="palette-kbd">⌘</kbd><kbd class="palette-kbd">K</kbd> to search posts.
-    </p>
 </section>
