@@ -132,7 +132,7 @@
 
     @if (Model.FeaturedPost is not null)
     {
-        <section class="home-section">
+        <section class="container">
             <header class="section-header">
                 <div class="section-header__body">
                     <span class="section-header__n">// 01</span>
@@ -201,7 +201,7 @@
 
     @if (Model.RecentPosts.Count > 0)
     {
-        <section class="home-section">
+        <section class="container">
             <header class="section-header">
                 <div class="section-header__body">
                     <span class="section-header__n">// 02</span>
@@ -247,7 +247,7 @@
     @* "Browse by topic" hidden until a Tag content type is wired up — the
        chips currently link to /blog?tag=slug, which no-ops. Restore the
        topicTags data + this section together when taxonomy lands.
-    <section class="home-section">
+    <section class="container">
         <header class="section-header">
             <div class="section-header__body">
                 <span class="section-header__n">// 03</span>

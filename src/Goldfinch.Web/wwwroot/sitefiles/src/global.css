@@ -322,7 +322,8 @@ code.inline,
 /* ============================================================
  * Layout container
  * ============================================================ */
-.container-lg {
+/* Centred, max-width content wrapper for sections shared across pages. */
+.container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 32px;
@@ -1188,12 +1189,6 @@ h1.hero-h1 {
   font-weight: 500;
 }
 
-.home-section {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
 /* Post grid */
 .post-grid {
   display: grid;
@@ -1635,7 +1630,7 @@ a.pager-btn:hover {
   padding-left: 18px;
   margin-bottom: 40px;
 }
-.post-body {
+.prose {
   font-size: 17px;
   line-height: 1.72;
   color: var(--fg);
@@ -1643,16 +1638,16 @@ a.pager-btn:hover {
 /* Spacing between prose blocks — target content elements directly rather
    than `> *` children, because Kentico's editable-area wraps each widget
    in its own container so the real <p>/<figure>/... aren't direct children. */
-.post-body p,
-.post-body ul,
-.post-body ol,
-.post-body blockquote,
-.post-body figure,
-.post-body pre,
-.post-body .embed-video {
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote,
+.prose figure,
+.prose pre,
+.prose .embed-video {
   margin-bottom: 16px;
 }
-.post-body h2 {
+.prose h2 {
   font-family: var(--font-mono);
   font-size: 14px;
   letter-spacing: 0.06em;
@@ -1664,7 +1659,7 @@ a.pager-btn:hover {
   border-bottom: 1px solid var(--border-soft);
   scroll-margin-top: 80px;
 }
-.post-body h3 {
+.prose h3 {
   font-family: var(--font-mono);
   font-size: 18px;
   color: var(--fg);
@@ -1676,27 +1671,27 @@ a.pager-btn:hover {
 .section-heading {
   scroll-margin-top: 80px;
 }
-.post-body a {
+.prose a {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-color: var(--accent-soft-2);
   text-underline-offset: 3px;
 }
-.post-body a:hover {
+.prose a:hover {
   color: var(--accent-hot);
 }
-.post-body ul,
-.post-body ol {
+.prose ul,
+.prose ol {
   padding-left: 1.2em;
   list-style: disc outside;
 }
-.post-body ol {
+.prose ol {
   list-style: decimal outside;
 }
-.post-body li {
+.prose li {
   margin-bottom: 8px;
 }
-.post-body blockquote {
+.prose blockquote {
   border-left: 2px solid var(--accent);
   padding-left: 18px;
   color: var(--fg-muted);
@@ -1704,7 +1699,7 @@ a.pager-btn:hover {
   line-height: 1.55;
   margin: 28px 0;
 }
-.post-body pre {
+.prose pre {
   position: relative;
   margin: 28px 0 36px;
   padding: 18px;
@@ -1723,7 +1718,7 @@ a.pager-btn:hover {
   display: block;
   overflow-x: auto;
 }
-.post-body pre code {
+.prose pre code {
   font-size: inherit;
   color: inherit;
   background: transparent;
@@ -1750,8 +1745,8 @@ a.pager-btn:hover {
     color var(--dur-fast) var(--ease),
     border-color var(--dur-fast) var(--ease);
 }
-.post-body pre:hover .codeblock-copy-btn,
-.post-body pre:focus-within .codeblock-copy-btn,
+.prose pre:hover .codeblock-copy-btn,
+.prose pre:focus-within .codeblock-copy-btn,
 .codeblock-copy-btn:focus-visible {
   opacity: 1;
 }
@@ -1778,23 +1773,23 @@ a.pager-btn:hover {
     opacity: 1;
   }
 }
-.post-body figure {
+.prose figure {
   margin: 32px 0;
 }
-.post-body figure figcaption {
+.prose figure figcaption {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--fg-dim);
   margin-top: 10px;
   text-align: center;
 }
-.post-body img,
-.post-body video {
+.prose img,
+.prose video {
   max-width: 100%;
   border-radius: 8px;
 }
-.post-body strong,
-.post-body b {
+.prose strong,
+.prose b {
   font-weight: 600;
   color: var(--accent-hot);
 }
@@ -2780,7 +2775,7 @@ mark {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .home-section,
+  .container,
   .blog-page,
   .about-page,
   .speaking-page,
@@ -2822,7 +2817,7 @@ mark {
   .hero {
     padding: 48px 16px 48px;
   }
-  .home-section,
+  .container,
   .blog-page,
   .about-page,
   .speaking-page,
@@ -2919,11 +2914,11 @@ mark {
     margin-bottom: 14px;
     overflow-wrap: anywhere;
   }
-  .post-body p {
+  .prose p {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
-  .post-body pre {
+  .prose pre {
     white-space: pre;
     max-width: 100%;
     font-size: 12px;
@@ -2933,7 +2928,7 @@ mark {
     font-size: 16px;
     padding-left: 12px;
   }
-  .post-body h2 {
+  .prose h2 {
     font-size: 22px;
     margin-top: 28px;
   }
