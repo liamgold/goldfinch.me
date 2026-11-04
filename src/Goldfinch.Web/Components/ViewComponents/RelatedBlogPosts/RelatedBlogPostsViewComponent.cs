@@ -12,8 +12,8 @@ using System.Threading.Tasks;
 namespace Goldfinch.Web.Components.ViewComponents.RelatedBlogPosts;
 
 /// <summary>
-/// "Keep reading" cards under a blog post: posts sharing the most tags with it, topped up
-/// with the latest posts.
+/// "Keep reading" cards under a blog post: related posts by shared tags, newest first.
+/// Renders nothing when no post is related.
 /// </summary>
 public class RelatedBlogPostsViewComponent : ViewComponent
 {
