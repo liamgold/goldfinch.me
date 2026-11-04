@@ -51,10 +51,10 @@ public interface IBlogPostService
     Task<IEnumerable<BlogPost>> GetBlogPostsByTag(Guid tagGuid);
 
     /// <summary>
-    /// Retrieves other blog posts related to the given post, ranked by the number of tags they
-    /// share with it, newest first on ties. Posts with no shared tags fill any remaining slots,
-    /// newest first, so the result is only short of <paramref name="count"/> when the blog has
-    /// fewer other posts.
+    /// Retrieves other blog posts related to the given post, newest first. Posts sharing at
+    /// least two tags with it are used if there are any; otherwise posts sharing one tag.
+    /// Unrelated posts are never included, so the result can be shorter than
+    /// <paramref name="count"/>, and is empty when the post has no tags or no matches.
     /// </summary>
     /// <param name="post">The post to find related posts for. It is excluded from the result.</param>
     /// <param name="count">The maximum number of posts to return.</param>

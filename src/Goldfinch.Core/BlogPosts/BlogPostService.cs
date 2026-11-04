@@ -135,17 +135,33 @@ public class BlogPostService : IBlogPostService
         // already invalidated on publish, so this adds no queries.
         var postTags = post.BlogPostTags?.Select(t => t.Identifier).ToHashSet() ?? [];
 
-        return (await GetAllBlogPosts())
+        if (postTags.Count == 0)
+        {
+            return [];
+        }
+
+        var candidates = (await GetAllBlogPosts())
             .Where(p => p.SystemFields.WebPageItemID != post.SystemFields.WebPageItemID)
             .Select(p => new
             {
                 Post = p,
                 SharedTags = p.BlogPostTags?.Count(t => postTags.Contains(t.Identifier)) ?? 0,
             })
-            .OrderByDescending(x => x.SharedTags)
-            .ThenByDescending(x => x.Post.BlogPostDate)
-            .Take(count)
+            .ToList();
+
+        // Prefer posts sharing at least two tags. Only when there are none, widen to posts
+        // sharing one. The tiers are never mixed, so the result can be shorter than count.
+        var related = candidates.Where(x => x.SharedTags >= 2).ToList();
+
+        if (related.Count == 0)
+        {
+            related = candidates.Where(x => x.SharedTags >= 1).ToList();
+        }
+
+        return related
             .Select(x => x.Post)
+            .OrderByDescending(p => p.BlogPostDate)
+            .Take(count)
             .ToList();
     }
 
